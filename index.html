@@ -1,0 +1,162 @@
+export default function TeInvitoAMiBodaHome() {
+  const demos = [
+    {
+      name: "Elegante",
+      image:
+        "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80",
+      desc: "Diseño clásico y sofisticado con detalles dorados.",
+      url: "/demos/elegante/",
+    },
+    {
+      name: "Floral",
+      image:
+        "https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=1200&q=80",
+      desc: "Estilo romántico con flores y tonos suaves.",
+      url: "/demos/floral/",
+    },
+    {
+      name: "Minimalista",
+      image:
+        "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=80",
+      desc: "Diseño limpio, moderno y elegante.",
+      url: "/demos/minimalista/",
+    },
+  ];
+
+  return (
+    <div className="min-h-screen bg-[#f8f3ee] text-[#3f332c]">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <img
+          src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1600&q=80"
+          alt="Boda"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+
+        <div className="absolute inset-0 bg-black/45" />
+
+        <div className="relative z-10 text-center px-6 max-w-4xl text-white">
+          <p className="tracking-[0.4em] uppercase text-sm mb-6">
+            Invitaciones digitales premium
+          </p>
+
+          <h1 className="text-5xl md:text-7xl font-light mb-6 leading-tight">
+            Te Invito
+            <br />
+            A Mi Boda
+          </h1>
+
+          <p className="text-lg md:text-2xl opacity-90 max-w-2xl mx-auto mb-10">
+            Diseños elegantes, modernos y personalizados para hacer inolvidable
+            el día más especial.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="#catalogo"
+              className="bg-white text-black px-8 py-4 rounded-full font-medium hover:scale-105 transition"
+            >
+              Ver diseños
+            </a>
+
+            <a
+              href="https://wa.me/5215529134341"
+              target="_blank"
+              className="border border-white px-8 py-4 rounded-full hover:bg-white hover:text-black transition"
+            >
+              Cotizar por WhatsApp
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="catalogo" className="py-24 px-6 max-w-7xl mx-auto">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl mb-5">Catálogo de Diseños</h2>
+          <p className="text-lg text-[#6d5d52] max-w-2xl mx-auto">
+            Elige el estilo que más combine con su historia y personalízalo a su gusto.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-8">
+          {demos.map((demo) => (
+            <div
+              key={demo.name}
+              className="bg-white rounded-[32px] overflow-hidden shadow-xl hover:-translate-y-2 transition duration-300"
+            >
+              <img
+                src={demo.image}
+                alt={demo.name}
+                className="w-full h-80 object-cover"
+              />
+
+              <div className="p-8">
+                <h3 className="text-3xl mb-3">{demo.name}</h3>
+                <p className="text-[#6d5d52] mb-6">{demo.desc}</p>
+
+                <div className="flex gap-3 flex-wrap">
+                  <a
+                    href={demo.url}
+                    className="bg-[#8f6f56] text-white px-5 py-3 rounded-full hover:opacity-90"
+                  >
+                    Ver demo
+                  </a>
+
+                  <a
+                    href="https://wa.me/5215529134341?text=Hola,%20quiero%20información%20sobre%20una%20invitación%20digital"
+                    target="_blank"
+                    className="border border-[#8f6f56] text-[#8f6f56] px-5 py-3 rounded-full"
+                  >
+                    Solicitar
+                  </a>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="py-24 px-6 bg-white">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8 text-center">
+          <div className="p-8 rounded-3xl bg-[#f8f3ee] shadow-lg">
+            <h3 className="text-2xl mb-4">Ubicaciones</h3>
+            <p className="text-[#6d5d52]">
+              Integración con Google Maps para ceremonia y recepción.
+            </p>
+          </div>
+
+          <div className="p-8 rounded-3xl bg-[#f8f3ee] shadow-lg">
+            <h3 className="text-2xl mb-4">Mesa de regalos</h3>
+            <p className="text-[#6d5d52]">
+              Liverpool, Amazon y transferencias personalizadas.
+            </p>
+          </div>
+
+          <div className="p-8 rounded-3xl bg-[#f8f3ee] shadow-lg">
+            <h3 className="text-2xl mb-4">Confirmación RSVP</h3>
+            <p className="text-[#6d5d52]">
+              Confirmaciones automáticas desde celular o WhatsApp.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-28 px-6 text-center bg-[#8f6f56] text-white">
+        <h2 className="text-4xl md:text-6xl mb-6">
+          Haz inolvidable tu gran día
+        </h2>
+
+        <p className="max-w-2xl mx-auto text-lg opacity-90 mb-10">
+          Creamos invitaciones digitales únicas y completamente personalizadas.
+        </p>
+
+        <a
+          href="https://wa.me/5215529134341"
+          target="_blank"
+          className="bg-white text-[#8f6f56] px-10 py-5 rounded-full text-lg hover:scale-105 transition inline-block"
+        >
+          Solicitar mi invitación
+        </a>
+      </section>
+    </div>
+  );
+}

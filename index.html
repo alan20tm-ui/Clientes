@@ -569,148 +569,170 @@
     margin-top:2rem;
   }
 
+  .navbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .nav-links::-webkit-scrollbar {
+    display: none;
+  }
+
+  .nav-links a {
+    font-size: .76rem;
+  }
+
+  .navbar .btn {
+    padding: .65rem .9rem;
+    font-size: .76rem;
+    flex: 0 0 auto;
+  }
+
+  .hero {
+    min-height: auto;
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+    padding: 5.8rem 1.1rem 3.5rem;
+    text-align: center;
+  }
+
+  .hero::before {
+    inset: .7rem;
+    border-radius: 30px;
+  }
+
+  .brand-panel {
+    min-height: auto;
+    padding-top: .8rem;
+  }
+
+  .brand-glow {
+    width: 82vw;
+    opacity: .55;
+  }
+
+  .hero-logo {
+    width: min(76vw, 340px);
+    min-width: 0;
+    max-width: 340px;
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
+  .eyebrow {
+    letter-spacing: .28em;
+    font-size: .62rem;
+    margin-bottom: 1rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(3.1rem, 13vw, 4.6rem);
+    line-height: .92;
+    margin-bottom: 1rem;
+  }
+
+  .hero h1 span {
+    display: inline;
+  }
+
+  .hero h1 span::before,
+  .hero h1 span::after {
+    display: none;
+  }
+
+  .hero p {
+    font-size: .95rem;
+    padding: 0 .2rem;
+  }
+
+  .hero-actions {
+    gap: .7rem;
+    margin-top: 1.4rem;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+    max-width: 290px;
+    padding: .85rem 1rem;
+    font-size: .84rem;
+  }
+
+  .catalog-preview {
+    padding: 3.2rem 1rem 3rem;
+    margin-top: 0;
+  }
+
+  .section-kicker {
+    letter-spacing: .24em;
+    font-size: .66rem;
+    gap: .6rem;
+  }
+
+  .section-kicker::before,
+  .section-kicker::after {
+    width: 38px;
+  }
+
+  .catalog-grid,
+  .why-grid,
+  .steps-grid {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .card-image {
+    height: 310px;
+  }
+
+  .section {
+    padding: 4.5rem 1rem;
+  }
+
+  .info-card {
+    padding: 1.7rem 1.2rem;
+  }
+
+  .cta {
+    padding: 4.8rem 1rem;
+  }
+
+  .floating {
+    width: 54px;
+    height: 54px;
+    right: 16px;
+    bottom: 16px;
+  }
+
+  .footer-grid{
+    grid-template-columns:1fr;
+    gap:2.5rem;
+  }
+
+  .footer-brand p{
+    max-width:none;
+  }
+
+  .footer-bottom{
+    flex-direction:column;
+    text-align:center;
+  }
+
+  .footer-legal{
+    flex-direction:column;
+    gap:.7rem;
+  }
+
 }
-      .navbar::-webkit-scrollbar { display: none; }
-
-      .nav-links {
-        display: flex;
-        gap: 1rem;
-        overflow-x: auto;
-        scrollbar-width: none;
-      }
-
-      .nav-links::-webkit-scrollbar { display: none; }
-
-      .nav-links a {
-        font-size: .76rem;
-      }
-
-      .navbar .btn {
-        padding: .65rem .9rem;
-        font-size: .76rem;
-        flex: 0 0 auto;
-      }
-
-      .hero {
-        min-height: auto;
-        grid-template-columns: 1fr;
-        gap: 1.2rem;
-        padding: 5.8rem 1.1rem 3.5rem;
-        text-align: center;
-      }
-
-      .hero::before {
-        inset: .7rem;
-        border-radius: 30px;
-      }
-
-      .brand-panel {
-        min-height: auto;
-        padding-top: .8rem;
-      }
-
-      .brand-glow {
-        width: 82vw;
-        opacity: .55;
-      }
-
-      .hero-logo {
-        width: min(76vw, 340px);
-        min-width: 0;
-        max-width: 340px;
-      }
-
-      .hero-content {
-        max-width: 100%;
-      }
-
-      .eyebrow {
-        letter-spacing: .28em;
-        font-size: .62rem;
-        margin-bottom: 1rem;
-      }
-
-      .hero h1 {
-        font-size: clamp(3.1rem, 13vw, 4.6rem);
-        line-height: .92;
-        margin-bottom: 1rem;
-      }
-
-      .hero h1 span {
-        display: inline;
-      }
-
-      .hero h1 span::before,
-      .hero h1 span::after {
-        display: none;
-      }
-
-      .hero p {
-        font-size: .95rem;
-        padding: 0 .2rem;
-      }
-
-      .hero-actions {
-        gap: .7rem;
-        margin-top: 1.4rem;
-      }
-
-      .hero-actions .btn {
-        width: 100%;
-        max-width: 290px;
-        padding: .85rem 1rem;
-        font-size: .84rem;
-      }
-
-      .catalog-preview {
-        padding: 3.2rem 1rem 3rem;
-        margin-top: 0;
-      }
-
-      .section-kicker {
-        letter-spacing: .24em;
-        font-size: .66rem;
-        gap: .6rem;
-      }
-
-      .section-kicker::before,
-      .section-kicker::after {
-        width: 38px;
-      }
-
-      .catalog-grid,
-      .why-grid,
-      .steps-grid {
-        grid-template-columns: 1fr;
-        max-width: 420px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .card-image {
-        height: 310px;
-      }
-
-      .section {
-        padding: 4.5rem 1rem;
-      }
-
-      .info-card {
-        padding: 1.7rem 1.2rem;
-      }
-
-      .cta {
-        padding: 4.8rem 1rem;
-      }
-
-      .floating {
-        width: 54px;
-        height: 54px;
-        right: 16px;
-        bottom: 16px;
-      }
-    }
-
     @media (max-width: 430px) {
       .nav-links a {
         font-size: .72rem;
@@ -977,7 +999,70 @@
     </div>
   </section>
 
-  <footer>© 2026 · Te Invito a Mi Boda · Invitaciones Digitales Premium</footer>
+  <footer class="footer">
+
+  <div class="footer-grid">
+
+    <div class="footer-brand">
+      <h3>Te Invito a Mi Boda</h3>
+
+      <p>
+        Invitaciones digitales premium para bodas y eventos especiales.
+        Diseños modernos, elegantes y completamente personalizados.
+      </p>
+    </div>
+
+    <div>
+      <h4>Diseños</h4>
+
+      <a href="/demos/minimalista/">Minimalista</a>
+      <a href="/demos/floral/">Floral</a>
+      <a href="/demos/elegante/">Premium</a>
+      <a href="/demos/luxury-experience/">Luxury</a>
+    </div>
+
+    <div>
+      <h4>Eventos</h4>
+
+      <a href="#">XV Años</a>
+      <a href="#">Graduaciones</a>
+      <a href="#">Bautizos</a>
+      <a href="#">Cumpleaños</a>
+      <a href="#">Eventos Especiales</a>
+    </div>
+
+    <div>
+      <h4>Contacto</h4>
+
+      <a href="https://wa.me/525541946413" target="_blank">
+        WhatsApp
+      </a>
+
+      <a href="https://instagram.com/teinvitoamiboda.online" target="_blank">
+        Instagram
+      </a>
+
+      <a href="https://tiktok.com/@teinvitoamiboda.online" target="_blank">
+        TikTok
+      </a>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+
+    <div>
+      © 2026 TeInvitoAMiBoda.online — Todos los derechos reservados.
+    </div>
+
+    <div class="footer-legal">
+      <a href="#">Aviso de Privacidad</a>
+      <a href="#">Términos y Condiciones</a>
+    </div>
+
+  </div>
+
+</footer>
 
   <script>
     const observer = new IntersectionObserver((entries) => {

@@ -613,14 +613,31 @@
     }
 
     .fade{
-      opacity:0;
-      transform:translateY(26px);
-      transition:.85s ease;
-    }
+  opacity:0;
 
-    .fade.visible{
-      opacity:1;
-      transform:translateY(0);
+  transform:
+    translateY(60px)
+    scale(.96);
+
+  filter:
+    blur(12px);
+
+  transition:
+    opacity 1.2s ease,
+    transform 1.2s ease,
+    filter 1.2s ease;
+}
+
+.fade.visible{
+  opacity:1;
+
+  transform:
+    translateY(0)
+    scale(1);
+
+  filter:
+    blur(0);
+}
     }
 
     @keyframes cinematicIn{

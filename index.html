@@ -6,30 +6,23 @@
   <title>Te Invito a Mi Boda | Invitaciones Digitales Premium</title>
   <link rel="icon" type="image/png" href="TIAMB.png">
 
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
     :root {
       --bg: #050505;
-      --bg2: #121212;
       --gold: #c9a45f;
-      --gold-soft: #f3d798;
-      --text: #f5f1eb;
+      --gold-soft: #f4d58d;
+      --rose: #d89484;
+      --text: #f7f1e8;
       --muted: #b9b0a3;
-      --line: rgba(201,164,95,.22);
-      --card: rgba(18,18,18,.78);
-      --shadow: rgba(0,0,0,.48);
+      --line: rgba(244, 213, 141, .26);
+      --card: rgba(14, 14, 14, .78);
+      --shadow: rgba(0, 0, 0, .55);
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
     body {
       font-family: 'Montserrat', sans-serif;
@@ -39,15 +32,8 @@
       line-height: 1.7;
     }
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    img {
-      width: 100%;
-      display: block;
-    }
+    a { color: inherit; text-decoration: none; }
+    img { width: 100%; display: block; }
 
     .ambient {
       position: fixed;
@@ -55,162 +41,178 @@
       z-index: -2;
       pointer-events: none;
       background:
-        radial-gradient(circle at 10% 10%, rgba(201,164,95,.14), transparent 28%),
-        radial-gradient(circle at 90% 10%, rgba(243,215,152,.08), transparent 24%),
-        radial-gradient(circle at 50% 100%, rgba(201,164,95,.12), transparent 34%),
-        linear-gradient(180deg, #050505, #0d0d0d 45%, #050505);
+        radial-gradient(circle at 11% 20%, rgba(201,164,95,.18), transparent 29%),
+        radial-gradient(circle at 88% 8%, rgba(244,213,141,.10), transparent 24%),
+        radial-gradient(circle at 78% 88%, rgba(201,164,95,.12), transparent 35%),
+        linear-gradient(135deg, #050505 0%, #0b0a08 48%, #050505 100%);
     }
+
+    .silk {
+      position: fixed;
+      right: -8%;
+      bottom: -12%;
+      width: 58vw;
+      height: 78vh;
+      pointer-events: none;
+      z-index: -1;
+      opacity: .65;
+      background:
+        radial-gradient(ellipse at 70% 70%, rgba(201,164,95,.28), transparent 28%),
+        linear-gradient(135deg, transparent 20%, rgba(255,255,255,.035) 48%, rgba(201,164,95,.08) 54%, transparent 68%);
+      filter: blur(1px);
+      transform: rotate(-10deg);
+    }
+
+    .gold-dust {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      opacity: .28;
+      background-image:
+        radial-gradient(circle, rgba(244,213,141,.85) 1px, transparent 1.6px),
+        radial-gradient(circle, rgba(255,255,255,.28) 1px, transparent 1.4px);
+      background-size: 140px 140px, 210px 210px;
+      animation: dust 26s linear infinite;
+    }
+
+    @keyframes dust { from { transform: translateY(0); } to { transform: translateY(-140px); } }
 
     .navbar {
       position: fixed;
-      top: 16px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 30;
-      width: calc(100% - 24px);
-      max-width: 1200px;
+      top: 22px;
+      right: 44px;
+      z-index: 50;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      padding: 1.2rem 1.8rem;
+      gap: 2.1rem;
+      padding: .55rem .65rem .55rem 1.45rem;
       border-radius: 999px;
-      background: rgba(0,0,0,.58);
-      border: 1px solid var(--line);
-      backdrop-filter: blur(16px);
-      box-shadow: 0 14px 34px rgba(0,0,0,.32);
-    }
-.navbar{
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding: 2rem 4rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  background: linear-gradient(
-    to bottom,
-    rgba(0,0,0,.75),
-    rgba(0,0,0,0)
-  );
-  backdrop-filter: blur(8px);
-  border: none;
-  border-radius: 0;
-  max-width: 100%;
-  transform: none;
-}
-
-.logo-wrapper{
-  width: 22%;
-  min-width: 220px;
-}
-
-.logo-wrapper img{
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-  filter:
-    drop-shadow(0 0 24px rgba(201,164,95,.18))
-    drop-shadow(0 0 60px rgba(255,255,255,.08));
-}
-
-.nav-right{
-  display:flex;
-  align-items:center;
-  gap:2rem;
-  margin-top:1rem;
-}
-
-    .nav-links {
-      display: flex;
-      gap: 1rem;
-      align-items: center;
+      background: rgba(0,0,0,.36);
+      border: 1px solid rgba(244,213,141,.18);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 16px 38px rgba(0,0,0,.34);
     }
 
-    .nav-links a {
-      color: var(--muted);
-      font-size: .92rem;
-      transition: .2s ease;
-    }
-
-    .nav-links a:hover {
-      color: var(--gold-soft);
-    }
+    .nav-links { display: flex; gap: 1.8rem; align-items: center; }
+    .nav-links a { color: #ded7cd; font-size: .95rem; transition: .2s; }
+    .nav-links a:hover { color: var(--gold-soft); }
 
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: .5rem;
-      padding: .95rem 1.4rem;
+      padding: .95rem 1.45rem;
       border-radius: 999px;
-      transition: .25s ease;
       border: 1px solid transparent;
-      font-size: .9rem;
-      font-weight: 500;
+      font-weight: 600;
+      font-size: .92rem;
       cursor: pointer;
+      transition: .24s ease;
+      white-space: nowrap;
     }
 
-    .btn:hover {
-      transform: translateY(-2px);
-    }
-
-    .btn-gold {
-      background: linear-gradient(135deg, var(--gold), var(--gold-soft));
-      color: #111;
-    }
-
-    .btn-outline {
-      border-color: var(--line);
-      background: rgba(255,255,255,.03);
-      color: var(--gold-soft);
-    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-gold { background: linear-gradient(135deg, var(--gold), var(--gold-soft)); color: #111; }
+    .btn-outline { background: rgba(255,255,255,.035); border-color: var(--line); color: var(--text); }
 
     .hero {
       min-height: 100vh;
-      display: grid;
-      place-items: center;
-      text-align: center;
-      padding: 8rem 1.2rem 5rem;
-      padding-top: 14rem;
       position: relative;
+      padding: 6.5rem 4.5rem 3rem;
+      display: grid;
+      grid-template-columns: minmax(320px, 38vw) 1fr;
+      align-items: center;
+      gap: 2.5rem;
       overflow: hidden;
     }
 
     .hero::before {
       content: "";
       position: absolute;
-      inset: 1rem;
-      border: 1px solid rgba(201,164,95,.18);
-      border-radius: 34px;
+      inset: 1.1rem;
+      border: 1px solid rgba(244,213,141,.16);
+      border-radius: 42px;
       pointer-events: none;
     }
 
-    .hero-content {
-      max-width: 980px;
-      animation: fadeUp 1s ease;
+    .brand-panel {
+      position: relative;
+      z-index: 2;
+      min-height: 78vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: fadeInLeft 1s ease both;
     }
 
-    .hero small {
-      text-transform: uppercase;
-      letter-spacing: 7px;
+    .brand-glow {
+      position: absolute;
+      width: 72%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(244,213,141,.18), rgba(201,164,95,.06) 38%, transparent 68%);
+      filter: blur(8px);
+    }
+
+    .hero-logo {
+      width: min(36vw, 520px);
+      min-width: 330px;
+      position: relative;
+      z-index: 2;
+      filter:
+        drop-shadow(0 0 28px rgba(244,213,141,.14))
+        drop-shadow(0 24px 60px rgba(0,0,0,.55));
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 780px;
+      justify-self: center;
+      padding-top: 2rem;
+      animation: fadeUp 1s ease both;
+    }
+
+    .eyebrow {
       color: var(--gold-soft);
+      letter-spacing: .55em;
+      text-transform: uppercase;
       font-size: .8rem;
+      margin-bottom: 1.3rem;
     }
 
     .hero h1 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(4rem, 11vw, 8rem);
-      line-height: .9;
       font-weight: 400;
-      margin: 1.4rem 0;
+      font-size: clamp(4rem, 8vw, 8.2rem);
+      line-height: .86;
+      letter-spacing: -.035em;
+      margin-bottom: 1.4rem;
+      text-shadow: 0 18px 45px rgba(0,0,0,.45);
+    }
+
+    .hero h1 span {
+      display: inline-flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .hero h1 span::before,
+    .hero h1 span::after {
+      content: "";
+      width: 90px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
     }
 
     .hero p {
-      max-width: 760px;
-      margin: auto;
+      max-width: 720px;
+      margin: 0 auto;
       color: var(--muted);
-      font-size: clamp(1rem, 2.4vw, 1.2rem);
+      font-size: clamp(1rem, 1.5vw, 1.18rem);
     }
 
     .hero-actions {
@@ -221,118 +223,98 @@
       margin-top: 2rem;
     }
 
-    .section {
-      padding: 6rem 1.2rem;
+    .catalog-preview {
+      position: relative;
+      z-index: 4;
+      margin-top: -4.8rem;
+      padding: 0 4.5rem 4rem;
     }
 
-    .container {
-      max-width: 1200px;
+    .section-head { text-align: center; margin-bottom: 1.4rem; }
+    .section-kicker {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      color: var(--gold-soft);
+      letter-spacing: .42em;
+      text-transform: uppercase;
+      font-size: .78rem;
+    }
+
+    .section-kicker::before,
+    .section-kicker::after {
+      content: "";
+      width: 90px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    .subtitle { color: var(--muted); text-align: center; margin-top: .55rem; }
+
+    .catalog-grid {
+      max-width: 1180px;
       margin: auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.1rem;
     }
 
+    .card {
+      background: linear-gradient(180deg, rgba(25,25,25,.82), rgba(8,8,8,.88));
+      border: 1px solid rgba(244,213,141,.22);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 24px 55px var(--shadow);
+      transition: .25s ease;
+    }
+
+    .card:hover { transform: translateY(-6px); border-color: rgba(244,213,141,.48); }
+
+    .card-image { height: 245px; position: relative; overflow: hidden; background: #111; }
+    .card-image img { height: 100%; object-fit: cover; transition: .35s ease; }
+    .card:hover .card-image img { transform: scale(1.04); }
+
+    .badge {
+      position: absolute;
+      top: 13px;
+      left: 13px;
+      z-index: 2;
+      background: rgba(0,0,0,.72);
+      border: 1px solid rgba(244,213,141,.34);
+      color: var(--gold-soft);
+      font-size: .64rem;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      padding: .35rem .58rem;
+      border-radius: 8px;
+      backdrop-filter: blur(10px);
+    }
+
+    .card-content { padding: 1.2rem 1.15rem 1.35rem; }
+    .card-content h3 {
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--gold-soft);
+      font-weight: 500;
+      font-size: 1.85rem;
+      margin-bottom: .2rem;
+    }
+
+    .card-content p { color: var(--muted); font-size: .88rem; margin-bottom: .7rem; }
+    .price { color: #fff; font-size: .9rem; margin-bottom: .9rem; }
+    .price strong { color: var(--gold-soft); font-size: 1rem; }
+    .demo-link { color: var(--gold-soft); font-weight: 600; font-size: .88rem; }
+
+    .section { padding: 6rem 1.2rem; }
+    .container { max-width: 1180px; margin: auto; }
     .title {
       text-align: center;
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(3rem, 7vw, 5rem);
+      font-size: clamp(3rem, 6vw, 5rem);
       color: var(--gold-soft);
       font-weight: 400;
       line-height: .95;
       margin-bottom: 1rem;
-    }
-
-    .subtitle {
-      text-align: center;
-      max-width: 760px;
-      margin: 0 auto 3.5rem;
-      color: var(--muted);
-    }
-
-    .catalog-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.2rem;
-    }
-
-    .card {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 34px;
-      overflow: hidden;
-      backdrop-filter: blur(16px);
-      box-shadow: 0 22px 60px var(--shadow);
-      transition: .25s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-    }
-
-    .card-image {
-      position: relative;
-      height: 340px;
-      overflow: hidden;
-    }
-
-    .card-image img {
-      height: 100%;
-      object-fit: cover;
-      transition: .35s ease;
-    }
-
-    .card:hover img {
-      transform: scale(1.03);
-    }
-
-    .badge {
-      position: absolute;
-      top: 16px;
-      left: 16px;
-      padding: .45rem .8rem;
-      border-radius: 999px;
-      background: rgba(0,0,0,.7);
-      border: 1px solid var(--line);
-      color: var(--gold-soft);
-      font-size: .72rem;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      backdrop-filter: blur(12px);
-    }
-
-    .card-content {
-      padding: 2rem;
-    }
-
-    .card-content h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2.6rem;
-      color: var(--gold-soft);
-      font-weight: 400;
-      margin-bottom: .6rem;
-    }
-
-    .price {
-      font-size: 1.05rem;
-      margin-bottom: 1rem;
-      color: white;
-    }
-
-    .price strong {
-      color: var(--gold-soft);
-      font-size: 1.3rem;
-    }
-
-    .features {
-      display: grid;
-      gap: .45rem;
-      margin-bottom: 1.6rem;
-      color: var(--muted);
-      font-size: .95rem;
-    }
-
-    .card-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: .8rem;
     }
 
     .why-grid,
@@ -340,423 +322,221 @@
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 1rem;
+      margin-top: 3rem;
     }
 
     .info-card {
       text-align: center;
-      padding: 2rem 1.4rem;
-      border-radius: 28px;
+      padding: 2rem 1.3rem;
+      border-radius: 24px;
       background: rgba(255,255,255,.03);
       border: 1px solid var(--line);
     }
 
-    .info-card span {
-      display: block;
-      font-size: 2.3rem;
-      margin-bottom: .7rem;
-    }
-
+    .info-card span { display: block; font-size: 2.2rem; margin-bottom: .7rem; }
     .info-card h4 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2rem;
       color: var(--gold-soft);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.9rem;
       font-weight: 400;
-      margin-bottom: .5rem;
+      margin-bottom: .4rem;
     }
-
-    .info-card p {
-      color: var(--muted);
-      font-size: .92rem;
-    }
+    .info-card p { color: var(--muted); font-size: .9rem; }
 
     .cta {
       text-align: center;
-      padding: 7rem 1.2rem;
-      background: linear-gradient(135deg, rgba(201,164,95,.12), rgba(0,0,0,.4));
+      padding: 6.5rem 1.2rem;
+      background: linear-gradient(135deg, rgba(201,164,95,.12), rgba(0,0,0,.2));
       border-top: 1px solid var(--line);
     }
 
     .cta h2 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(3rem, 7vw, 5.5rem);
+      font-size: clamp(3rem, 7vw, 5.4rem);
       color: var(--gold-soft);
-      line-height: .95;
       font-weight: 400;
+      line-height: .95;
       margin-bottom: 1rem;
-    }
-
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      color: #8c8377;
-      background: #050505;
     }
 
     .floating {
       position: fixed;
-      right: 18px;
-      bottom: 18px;
-      width: 58px;
-      height: 58px;
+      right: 20px;
+      bottom: 20px;
+      width: 60px;
+      height: 60px;
       border-radius: 50%;
       display: grid;
       place-items: center;
       background: #25D366;
       color: white;
-      font-size: 1.7rem;
-      z-index: 40;
+      font-size: 1.8rem;
+      z-index: 60;
       box-shadow: 0 14px 34px rgba(0,0,0,.38);
     }
 
-    .fade {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: .8s ease;
-    }
+    footer { text-align: center; padding: 2rem 1rem; color: #8c8377; background: #050505; }
 
-    .fade.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .fade { opacity: 0; transform: translateY(24px); transition: .8s ease; }
+    .fade.visible { opacity: 1; transform: translateY(0); }
 
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeInLeft { from { opacity: 0; transform: translateX(-35px); } to { opacity: 1; transform: translateX(0); } }
 
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @media(max-width: 980px) {
-      .catalog-grid,
-      .why-grid,
-      .steps-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .nav-links {
-        display: none;
-      }
-
-      .card-image {
-        height: 280px;
-      }
-
-      .section {
-        padding: 4.5rem 1rem;
-      }
+    @media(max-width: 1050px) {
+      .hero { grid-template-columns: 1fr; padding: 7rem 1.2rem 5rem; text-align: center; }
+      .brand-panel { min-height: auto; margin-top: 1rem; }
+      .hero-logo { width: min(78vw, 430px); min-width: 0; }
+      .navbar { top: 12px; right: 12px; left: 12px; justify-content: center; gap: 1rem; }
+      .nav-links { display: none; }
+      .catalog-preview { margin-top: -1rem; padding: 0 1rem 3rem; }
+      .catalog-grid { grid-template-columns: 1fr; max-width: 430px; }
+      .card-image { height: 300px; }
+      .why-grid, .steps-grid { grid-template-columns: 1fr; }
+      .hero h1 span::before, .hero h1 span::after { display: none; }
     }
   </style>
 </head>
 <body>
-
   <div class="ambient"></div>
+  <div class="silk"></div>
+  <div class="gold-dust"></div>
 
   <a class="floating" href="https://wa.me/525541946413?text=Hola,%20quiero%20información%20sobre%20una%20invitación%20digital" target="_blank">☘</a>
 
   <nav class="navbar">
-
-  <div class="logo-wrapper">
-    <img src="TIAMB.png" alt="Te Invito a Mi Boda">
-  </div>
-
-  <div class="nav-right">
-
     <div class="nav-links">
       <a href="#catalogo">Diseños</a>
-      <a href="#porque">Nosotros</a>
+      <a href="#porque">¿Por qué nosotros?</a>
       <a href="#proceso">Proceso</a>
       <a href="#contacto">Contacto</a>
     </div>
-
-    <a class="btn btn-gold"
-      href="https://wa.me/525541946413?text=Hola,%20quiero%20cotizar%20una%20invitación%20digital"
-      target="_blank">
-      Cotizar
-    </a>
-
-  </div>
-
-</nav>
+    <a class="btn btn-gold" href="https://wa.me/525541946413?text=Hola,%20quiero%20cotizar%20una%20invitación%20digital" target="_blank">☘ Cotizar</a>
+  </nav>
 
   <section class="hero">
+    <div class="brand-panel">
+      <div class="brand-glow"></div>
+      <img class="hero-logo" src="TIAMB.png" alt="Te Invito a Mi Boda">
+    </div>
+
     <div class="hero-content">
-      <small>Invitaciones digitales premium</small>
-
-      <h1>
-        Diseños elegantes para bodas inolvidables
-      </h1>
-
-      <p>
-        Creamos experiencias digitales modernas, elegantes y personalizadas para parejas que quieren algo más que una invitación tradicional.
-      </p>
-
+      <div class="eyebrow">Invitaciones digitales premium</div>
+      <h1>Diseños elegantes <span>para bodas</span> inolvidables</h1>
+      <p>Creamos experiencias digitales modernas, elegantes y personalizadas para parejas que quieren algo más que una invitación tradicional.</p>
       <div class="hero-actions">
-        <a class="btn btn-gold" href="#catalogo">Ver diseños</a>
-
-        <a class="btn btn-outline" href="https://wa.me/525541946413?text=Hola,%20quiero%20cotizar%20una%20invitación%20digital" target="_blank">
-          Cotizar por WhatsApp
-        </a>
+        <a class="btn btn-gold" href="https://wa.me/525541946413?text=Hola,%20quiero%20cotizar%20una%20invitación%20digital" target="_blank">☘ Cotizar por WhatsApp</a>
+        <a class="btn btn-outline" href="#catalogo">👁 Ver diseños</a>
       </div>
     </div>
   </section>
 
-  <section class="section fade" id="catalogo">
-    <div class="container">
+  <section class="catalog-preview fade" id="catalogo">
+    <div class="section-head">
+      <div class="section-kicker">Catálogo de diseños</div>
+      <p class="subtitle">Elige el estilo que mejor representa tu historia</p>
+    </div>
 
-      <h2 class="title">Nuestros diseños</h2>
+    <div class="catalog-grid">
+      <article class="card">
+        <div class="card-image">
+          <span class="badge">Minimalista</span>
+          <img src="assets/minimalista-preview.png" alt="Minimalista">
+        </div>
+        <div class="card-content">
+          <h3>Minimalista</h3>
+          <p>Menos es más, con estilo.</p>
+          <div class="price">Desde <strong>$699 MXN</strong></div>
+          <a class="demo-link" href="/demos/minimalista/">Ver ejemplo →</a>
+        </div>
+      </article>
 
-      <p class="subtitle">
-        Desde invitaciones s hasta experiencias cinematográficas premium completamente personalizadas.
-      </p>
+      <article class="card">
+        <div class="card-image">
+          <span class="badge">Floral</span>
+          <img src="assets/floral-preview.png" alt="Floral">
+        </div>
+        <div class="card-content">
+          <h3>Floral</h3>
+          <p>Romántico, natural y delicado.</p>
+          <div class="price">Desde <strong>$1,199 MXN</strong></div>
+          <a class="demo-link" href="/demos/floral/">Ver ejemplo →</a>
+        </div>
+      </article>
 
-      <div class="catalog-grid">
+      <article class="card">
+        <div class="card-image">
+          <span class="badge">Premium</span>
+          <img src="assets/elegante-preview.png" alt="Elegante Premium">
+        </div>
+        <div class="card-content">
+          <h3>Premium</h3>
+          <p>Moderno, sofisticado y elegante.</p>
+          <div class="price">Desde <strong>$2,499 MXN</strong></div>
+          <a class="demo-link" href="/demos/elegante/">Ver ejemplo →</a>
+        </div>
+      </article>
 
-        <article class="card">
-          <div class="card-image">
-            <span class="badge">Más vendido</span>
-            <img src="assets/minimalista-preview.png"> alt="minimalista">
-          </div>
-
-          <div class="card-content">
-            <h3></h3>
-
-            <div class="price">
-              Desde <strong>$699 MXN</strong>
-            </div>
-
-            <div class="features">
-              <div>✓ Diseño limpio y moderno</div>
-              <div>✓ Cuenta regresiva</div>
-              <div>✓ Ceremonia y recepción</div>
-              <div>✓ RSVP por WhatsApp</div>
-            </div>
-
-            <div class="card-actions">
-              <a class="btn btn-gold" href="/demos//">Ver demo</a>
-
-              <a class="btn btn-outline" href="https://wa.me/525541946413?text=Hola,%20quiero%20cotizar%20el%20paquete%20" target="_blank">
-                Cotizar
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card-image">
-            <span class="badge">Romántico</span>
-            <img src="assets/floral-preview.png"> alt="Floral">
-          </div>
-
-          <div class="card-content">
-            <h3>Floral</h3>
-
-            <div class="price">
-              Desde <strong>$1,199 MXN</strong>
-            </div>
-
-            <div class="features">
-              <div>✓ Estilo floral romántico</div>
-              <div>✓ Galería básica</div>
-              <div>✓ Mesa de regalos</div>
-              <div>✓ Dress code simple</div>
-            </div>
-
-            <div class="card-actions">
-              <a class="btn btn-gold" href="/demos/floral/">Ver demo</a>
-
-              <a class="btn btn-outline" href="https://wa.me/525541946413?text=Hola,%20quiero%20cotizar%20el%20paquete%20Floral" target="_blank">
-                Cotizar
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card-image">
-            <span class="badge">Premium</span>
-            <img src="assets/elegante-preview.png"> alt="Elegante Premium">
-          </div>
-
-          <div class="card-content">
-            <h3>Elegante Premium</h3>
-
-            <div class="price">
-              Desde <strong>$2,499 MXN</strong>
-            </div>
-
-            <div class="features">
-              <div>✓ Timeline cinematográfico</div>
-              <div>✓ QR personalizado</div>
-              <div>✓ Playlist y álbum</div>
-              <div>✓ Pase personalizado</div>
-            </div>
-
-            <div class="card-actions">
-              <a class="btn btn-gold" href="/demos/elegante/">Ver demo</a>
-
-              <a class="btn btn-outline" href="https://wa.me/525541946413?text=Hola,%20quiero%20cotizar%20el%20paquete%20Elegante%20Premium" target="_blank">
-                Cotizar
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card-image">
-            <span class="badge">Luxury Experience</span>
-            <img src="assets/luxury-preview.png"> alt="Luxury Experience">
-          </div>
-
-          <div class="card-content">
-            <h3>Luxury Experience</h3>
-
-            <div class="price">
-              Desde <strong>$4,999 MXN</strong>
-            </div>
-
-            <div class="features">
-              <div>✓ Experiencia cinematográfica</div>
-              <div>✓ Acceso privado VIP</div>
-              <div>✓ RSVP inteligente</div>
-              <div>✓ Personalización total</div>
-            </div>
-
-            <div class="card-actions">
-              <a class="btn btn-gold" href="/demos/luxury-experience/">Ver demo</a>
-
-              <a class="btn btn-outline" href="https://wa.me/525541946413?text=Hola,%20quiero%20cotizar%20el%20paquete%20Luxury%20Experience" target="_blank">
-                Cotizar
-              </a>
-            </div>
-          </div>
-        </article>
-
-      </div>
+      <article class="card">
+        <div class="card-image">
+          <span class="badge">Luxury</span>
+          <img src="assets/luxury-preview.png" alt="Luxury Experience">
+        </div>
+        <div class="card-content">
+          <h3>Luxury</h3>
+          <p>Lujo y distinción en cada detalle.</p>
+          <div class="price">Desde <strong>$4,999 MXN</strong></div>
+          <a class="demo-link" href="/demos/luxury-experience/">Ver ejemplo →</a>
+        </div>
+      </article>
     </div>
   </section>
 
   <section class="section fade" id="porque">
     <div class="container">
-
       <h2 class="title">¿Por qué elegirnos?</h2>
-
-      <p class="subtitle">
-        Diseñamos experiencias digitales modernas pensadas para impresionar desde el primer momento.
-      </p>
-
+      <p class="subtitle">Diseñamos experiencias digitales modernas pensadas para impresionar desde el primer momento.</p>
       <div class="why-grid">
-
-        <div class="info-card">
-          <span>✨</span>
-          <h4>Diseño premium</h4>
-          <p>Experiencias elegantes y modernas para bodas memorables.</p>
-        </div>
-
-        <div class="info-card">
-          <span>📱</span>
-          <h4>Responsive</h4>
-          <p>Perfecto para celular, tablet y computadora.</p>
-        </div>
-
-        <div class="info-card">
-          <span>⚡</span>
-          <h4>Entrega rápida</h4>
-          <p>Recibe tu invitación lista en pocos días.</p>
-        </div>
-
-        <div class="info-card">
-          <span>🎬</span>
-          <h4>Experiencias únicas</h4>
-          <p>Mucho más que una invitación tradicional.</p>
-        </div>
-
+        <div class="info-card"><span>✨</span><h4>Diseño premium</h4><p>Experiencias elegantes y modernas para bodas memorables.</p></div>
+        <div class="info-card"><span>📱</span><h4>Responsive</h4><p>Perfecto para celular, tablet y computadora.</p></div>
+        <div class="info-card"><span>⚡</span><h4>Entrega rápida</h4><p>Recibe tu invitación lista en pocos días.</p></div>
+        <div class="info-card"><span>🎬</span><h4>Experiencias únicas</h4><p>Mucho más que una invitación tradicional.</p></div>
       </div>
     </div>
   </section>
 
   <section class="section fade" id="proceso">
     <div class="container">
-
       <h2 class="title">¿Cómo funciona?</h2>
-
-      <p class="subtitle">
-        Un proceso rápido, sencillo y completamente personalizado.
-      </p>
-
+      <p class="subtitle">Un proceso rápido, sencillo y completamente personalizado.</p>
       <div class="steps-grid">
-
-        <div class="info-card">
-          <span>1️⃣</span>
-          <h4>Elige diseño</h4>
-          <p>Selecciona el estilo que más te guste.</p>
-        </div>
-
-        <div class="info-card">
-          <span>2️⃣</span>
-          <h4>Envía tus datos</h4>
-          <p>Nombres, fecha, fotos y detalles del evento.</p>
-        </div>
-
-        <div class="info-card">
-          <span>3️⃣</span>
-          <h4>Personalizamos</h4>
-          <p>Adaptamos la invitación completamente para ustedes.</p>
-        </div>
-
-        <div class="info-card">
-          <span>4️⃣</span>
-          <h4>Comparte tu liga</h4>
-          <p>Envía tu invitación digital a todos tus invitados.</p>
-        </div>
-
+        <div class="info-card"><span>1️⃣</span><h4>Elige diseño</h4><p>Selecciona el estilo que más te guste.</p></div>
+        <div class="info-card"><span>2️⃣</span><h4>Envía tus datos</h4><p>Nombres, fecha, fotos y detalles del evento.</p></div>
+        <div class="info-card"><span>3️⃣</span><h4>Personalizamos</h4><p>Adaptamos la invitación completamente para ustedes.</p></div>
+        <div class="info-card"><span>4️⃣</span><h4>Comparte tu liga</h4><p>Envía tu invitación digital a todos tus invitados.</p></div>
       </div>
     </div>
   </section>
 
   <section class="cta fade" id="contacto">
-
-    <h2>
-      Cotiza tu invitación personalizada
-    </h2>
-
-    <p class="subtitle">
-      Hagamos una experiencia digital inolvidable para tu boda.
-    </p>
-
+    <h2>Cotiza tu invitación personalizada</h2>
+    <p class="subtitle">Hagamos una experiencia digital inolvidable para tu boda.</p>
     <div class="hero-actions">
-
-      <a class="btn btn-gold" href="https://wa.me/525541946413?text=Hola,%20quiero%20cotizar%20una%20invitación%20digital" target="_blank">
-        Solicitar información
-      </a>
-
-      <a class="btn btn-outline" href="#catalogo">
-        Ver diseños
-      </a>
-
+      <a class="btn btn-gold" href="https://wa.me/525541946413?text=Hola,%20quiero%20cotizar%20una%20invitación%20digital" target="_blank">Solicitar información</a>
+      <a class="btn btn-outline" href="#catalogo">Ver diseños</a>
     </div>
-
   </section>
 
-  <footer>
-    © 2026 · Te Invito a Mi Boda · Invitaciones Digitales Premium
-  </footer>
+  <footer>© 2026 · Te Invito a Mi Boda · Invitaciones Digitales Premium</footer>
 
   <script>
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if(entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
+        if(entry.isIntersecting) entry.target.classList.add('visible');
       });
     }, { threshold: 0.1 });
 
     document.querySelectorAll('.fade').forEach(el => observer.observe(el));
   </script>
-
 </body>
 </html>

@@ -3,156 +3,329 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Diseño Elegante | Invitación Digital</title>
+  <title>Diseño Elegante Premium | Invitación Digital</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    :root {
+      --black: #080808;
+      --black-2: #111111;
+      --card: rgba(20, 20, 20, 0.86);
+      --gold: #c8a96b;
+      --gold-2: #f1d99b;
+      --text: #f6f0e8;
+      --muted: #c9c2b8;
+      --line: rgba(200, 169, 107, 0.24);
+      --shadow: rgba(0, 0, 0, 0.55);
     }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
 
     body {
       font-family: 'Montserrat', sans-serif;
-      background: #0f0f0f;
-      color: #f5f5f5;
+      background: var(--black);
+      color: var(--text);
       overflow-x: hidden;
-      line-height: 1.6;
+      line-height: 1.7;
     }
 
-    a {
-      text-decoration: none;
-      color: inherit;
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .gold { color: var(--gold); }
+
+    .luxury-bg {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(200,169,107,.12), transparent 28%),
+        radial-gradient(circle at 80% 10%, rgba(200,169,107,.08), transparent 25%),
+        radial-gradient(circle at 50% 90%, rgba(200,169,107,.10), transparent 30%);
+      z-index: -2;
+    }
+
+    .sparkles {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+      opacity: .55;
+      background-image:
+        radial-gradient(circle, rgba(241,217,155,.9) 1px, transparent 1.5px),
+        radial-gradient(circle, rgba(255,255,255,.4) 1px, transparent 1.5px);
+      background-size: 120px 120px, 180px 180px;
+      animation: floatBg 18s linear infinite;
+    }
+
+    @keyframes floatBg {
+      from { transform: translateY(0); }
+      to { transform: translateY(-120px); }
     }
 
     .hero {
       min-height: 100vh;
       background:
-        linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.75)),
-        url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1600&q=80') center/cover;
+        linear-gradient(rgba(0,0,0,.56), rgba(0,0,0,.78)),
+        url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1800&q=85') center/cover;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
       padding: 2rem;
+      position: relative;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 1.2rem;
+      border: 1px solid rgba(200,169,107,.34);
+      border-radius: 34px;
+      pointer-events: none;
     }
 
     .hero-content {
-      max-width: 900px;
-      animation: fadeUp 1.2s ease;
+      max-width: 960px;
+      animation: fadeUp 1.2s ease both;
+      position: relative;
+      z-index: 2;
     }
 
-    .hero span {
+    .eyebrow {
       letter-spacing: 8px;
       text-transform: uppercase;
-      font-size: .9rem;
-      color: #c8a96b;
+      color: var(--gold-2);
+      font-size: .8rem;
+      margin-bottom: 1.4rem;
     }
 
     .hero h1 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(4rem, 10vw, 8rem);
+      font-size: clamp(4.5rem, 12vw, 9rem);
       font-weight: 400;
-      margin: 1.5rem 0;
-      line-height: .95;
+      line-height: .88;
+      margin-bottom: 1.2rem;
+    }
+
+    .script {
+      font-family: 'Great Vibes', cursive;
+      color: var(--gold-2);
+      font-size: clamp(2rem, 6vw, 4rem);
+      font-weight: 400;
     }
 
     .hero p {
-      font-size: 1.2rem;
-      color: #ddd;
-      max-width: 700px;
-      margin: auto;
+      max-width: 760px;
+      margin: 1rem auto 2rem;
+      color: #eee;
+      font-size: clamp(1rem, 2.5vw, 1.35rem);
     }
 
     .hero-date {
-      margin-top: 2rem;
-      font-size: 1.1rem;
-      letter-spacing: 3px;
-      color: #c8a96b;
+      color: var(--gold-2);
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin: 2rem 0;
+      font-size: 1rem;
     }
 
-    .section {
-      padding: 6rem 1.2rem;
+    .hero-actions,
+    .actions {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 1.6rem;
     }
 
-    .container {
-      max-width: 1150px;
-      margin: auto;
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+      padding: .95rem 1.45rem;
+      border-radius: 999px;
+      font-size: .9rem;
+      font-weight: 500;
+      transition: .25s ease;
+      border: 1px solid transparent;
+      cursor: pointer;
+      font-family: 'Montserrat', sans-serif;
     }
+
+    .btn:hover { transform: translateY(-2px); }
+    .btn-gold { background: linear-gradient(135deg, var(--gold), var(--gold-2)); color: #121212; }
+    .btn-outline { border-color: var(--line); color: var(--gold-2); background: rgba(0,0,0,.25); }
+    .btn-white { background: #fff; color: #111; }
+
+    .section { padding: 6rem 1.15rem; }
+    .container { max-width: 1160px; margin: auto; }
 
     .title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2.5rem, 5vw, 4.5rem);
-      font-weight: 400;
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      line-height: 1;
       text-align: center;
-      color: #c8a96b;
+      color: var(--gold-2);
+      font-weight: 400;
       margin-bottom: 1rem;
     }
 
     .subtitle {
       text-align: center;
-      color: #bcbcbc;
-      max-width: 720px;
-      margin: auto auto 4rem;
+      color: var(--muted);
+      max-width: 760px;
+      margin: 0 auto 3.5rem;
       font-size: 1.05rem;
     }
 
-    .event-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2rem;
+    .glass {
+      background: var(--card);
+      border: 1px solid var(--line);
+      box-shadow: 0 20px 60px var(--shadow);
+      backdrop-filter: blur(14px);
+      border-radius: 32px;
     }
 
-    .card {
-      background: #181818;
-      border: 1px solid rgba(200,169,107,.15);
-      border-radius: 30px;
+    .welcome-card {
       padding: 3rem 2rem;
       text-align: center;
-      box-shadow: 0 20px 50px rgba(0,0,0,.45);
+      max-width: 880px;
+      margin: auto;
+    }
+
+    .guest-name {
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--gold-2);
+      font-size: clamp(2.3rem, 5vw, 4rem);
+      line-height: 1.05;
+      margin-bottom: 1rem;
+    }
+
+    .guest-info {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .pill-card {
+      background: rgba(255,255,255,.04);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 1.2rem;
+    }
+
+    .pill-card strong {
+      display: block;
+      color: var(--gold-2);
+      font-size: 1.6rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .story-img img {
+      height: 600px;
+      width: 100%;
+      object-fit: cover;
+      border-radius: 34px;
+      box-shadow: 0 22px 60px var(--shadow);
+    }
+
+    .story-text { padding: 2.4rem; }
+
+    .story-text h3 {
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--gold-2);
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      font-weight: 400;
+      margin-bottom: 1rem;
+    }
+
+    .event-grid,
+    .gift-grid,
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+    }
+
+    .event-grid { grid-template-columns: repeat(2, 1fr); }
+
+    .card {
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .card-icon {
+      font-size: 2.2rem;
+      margin-bottom: .7rem;
     }
 
     .card h3 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 2.5rem;
-      color: #c8a96b;
-      margin-bottom: 1rem;
+      font-size: 2.2rem;
       font-weight: 400;
+      color: var(--gold-2);
+      margin-bottom: .8rem;
     }
 
-    .card p {
-      color: #d5d5d5;
-      margin-bottom: 1rem;
+    .card p { color: var(--muted); margin-bottom: .8rem; }
+    .card strong { color: #fff; }
+
+    .timeline {
+      max-width: 760px;
+      margin: auto;
+      position: relative;
     }
 
-    .card strong {
-      display: block;
-      color: #fff;
-      margin: 1rem 0;
-      font-size: 1.1rem;
+    .timeline::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 1px;
+      background: var(--line);
     }
 
-    .btn {
-      display: inline-block;
-      margin-top: 1rem;
-      padding: 1rem 1.5rem;
-      border-radius: 999px;
-      background: #c8a96b;
-      color: #111;
-      font-weight: 500;
-      transition: .25s;
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin: 2rem 0;
+      align-items: center;
     }
 
-    .btn:hover {
-      transform: translateY(-2px);
-      opacity: .9;
+    .timeline-time {
+      text-align: right;
+      color: var(--gold-2);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+    }
+
+    .timeline-detail {
+      padding: 1.4rem;
+      border-radius: 22px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid var(--line);
     }
 
     .gallery {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: 1.2fr .8fr .8fr;
       gap: 1rem;
     }
 
@@ -160,244 +333,493 @@
       width: 100%;
       height: 420px;
       object-fit: cover;
-      border-radius: 25px;
-      box-shadow: 0 20px 40px rgba(0,0,0,.45);
+      border-radius: 28px;
+      box-shadow: 0 22px 45px var(--shadow);
+      filter: saturate(.9) contrast(1.05);
     }
 
-    .countdown {
-      background: #181818;
-      border-radius: 35px;
-      padding: 4rem 2rem;
-      text-align: center;
-      border: 1px solid rgba(200,169,107,.15);
-    }
+    .gallery img:first-child { height: 860px; grid-row: span 2; }
 
     .timer {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 1rem;
-      margin-top: 3rem;
+      margin-top: 2.5rem;
     }
 
     .time-box {
-      background: #111;
+      background: rgba(255,255,255,.04);
+      border: 1px solid var(--line);
       border-radius: 24px;
-      padding: 1.8rem 1rem;
+      padding: 1.7rem .8rem;
+      text-align: center;
     }
 
     .time-box span {
       display: block;
-      font-size: 3rem;
-      color: #c8a96b;
       font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      color: var(--gold-2);
+      line-height: 1;
     }
 
     .time-box small {
       text-transform: uppercase;
-      color: #bbb;
       letter-spacing: 2px;
-      font-size: .8rem;
+      font-size: .75rem;
+      color: var(--muted);
     }
 
-    .rsvp {
+    .dress-code {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
       text-align: center;
-      background:
-        linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.8)),
-        url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1600&q=80') center/cover;
-      padding: 7rem 1rem;
     }
 
-    .rsvp h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(3rem, 7vw, 5rem);
-      font-weight: 400;
-      color: #fff;
+    .dress-item {
+      padding: 1.4rem;
+      border-radius: 24px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid var(--line);
+    }
+
+    .dress-item span { font-size: 2rem; display: block; margin-bottom: .5rem; }
+
+    .rsvp-form {
+      max-width: 760px;
+      margin: auto;
+      padding: 2rem;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
       margin-bottom: 1rem;
     }
 
-    .rsvp p {
-      max-width: 650px;
-      margin: auto;
-      color: #ddd;
-      margin-bottom: 2rem;
+    input, select, textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.05);
+      color: #fff;
+      border-radius: 18px;
+      padding: 1rem;
+      font-family: 'Montserrat', sans-serif;
+      outline: none;
+    }
+
+    textarea { min-height: 110px; resize: vertical; }
+    option { color: #111; }
+
+    .rsvp-note {
+      margin-top: 1rem;
+      color: var(--muted);
+      text-align: center;
+      font-size: .9rem;
+    }
+
+    .calendar-card {
+      padding: 2.4rem;
+      text-align: center;
+    }
+
+    .qr-box {
+      width: 190px;
+      height: 190px;
+      margin: 1.4rem auto;
+      background: #fff;
+      border-radius: 18px;
+      padding: 12px;
+      display: grid;
+      place-items: center;
+    }
+
+    .qr-fake {
+      width: 100%;
+      height: 100%;
+      background:
+        linear-gradient(90deg, #111 10px, transparent 10px) 0 0 / 28px 28px,
+        linear-gradient(#111 10px, transparent 10px) 0 0 / 28px 28px,
+        #fff;
+      border: 10px solid #111;
+    }
+
+    .private-banner {
+      text-align: center;
+      padding: 1rem;
+      background: rgba(200,169,107,.12);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      color: var(--gold-2);
+      font-size: .9rem;
+      letter-spacing: .5px;
+    }
+
+    .rsvp-hero {
+      background:
+        linear-gradient(rgba(0,0,0,.72), rgba(0,0,0,.82)),
+        url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1800&q=85') center/cover;
+      text-align: center;
+      padding: 7rem 1.2rem;
     }
 
     footer {
       text-align: center;
-      padding: 2rem 1rem;
-      color: #8f8f8f;
-      background: #0b0b0b;
+      padding: 2.2rem 1rem;
+      color: #8c867c;
+      background: #050505;
+    }
+
+    .floating-whatsapp {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 20;
+      background: #25D366;
+      color: #fff;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 1.8rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,.45);
+    }
+
+    .fade {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: .8s ease;
+    }
+
+    .fade.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(25px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     @media(max-width: 900px) {
+      .hero::after { inset: .7rem; border-radius: 24px; }
+      .section { padding: 4.2rem 1rem; }
+      .story-grid,
       .event-grid,
-      .gallery,
-      .timer {
-        grid-template-columns: 1fr;
-      }
-
-      .gallery img {
-        height: 300px;
-      }
-
-      .section {
-        padding: 4rem 1rem;
-      }
+      .gift-grid,
+      .feature-grid,
+      .form-grid,
+      .dress-code,
+      .timer { grid-template-columns: 1fr; }
+      .guest-info { grid-template-columns: 1fr; }
+      .gallery { grid-template-columns: 1fr; }
+      .gallery img,
+      .gallery img:first-child { height: 300px; grid-row: auto; }
+      .story-img img { height: 420px; }
+      .timeline::before { left: 0; }
+      .timeline-item { grid-template-columns: 1fr; gap: .6rem; padding-left: 1.2rem; }
+      .timeline-time { text-align: left; }
+      .eyebrow { letter-spacing: 4px; }
     }
   </style>
 </head>
 <body>
+  <div class="luxury-bg"></div>
+  <div class="sparkles"></div>
+
+  <a class="floating-whatsapp" href="https://wa.me/5215529134341?text=Hola,%20quiero%20información%20sobre%20esta%20invitación%20digital" target="_blank" aria-label="WhatsApp">☘</a>
 
   <section class="hero">
     <div class="hero-content">
-      <span>Invitación Premium</span>
-      <h1>Daniel & Isabella</h1>
-      <p>
-        Te invitamos a compartir con nosotros una noche inolvidable llena de amor,
-        elegancia y celebración.
-      </p>
-
-      <div class="hero-date">
-        18 · Octubre · 2026
+      <div class="eyebrow">Invitación elegante premium</div>
+      <div class="script">Nos casamos</div>
+      <h1>Daniel<br>& Isabella</h1>
+      <p>Con profunda alegría queremos compartir contigo una noche inolvidable de amor, elegancia y celebración.</p>
+      <div class="hero-date">18 · Octubre · 2026</div>
+      <div class="hero-actions">
+        <a class="btn btn-gold" href="#confirmar">Confirmar asistencia</a>
+        <a class="btn btn-outline" href="#ubicaciones">Ver detalles</a>
       </div>
     </div>
   </section>
 
-  <section class="section">
+  <div class="private-banner">
+    Invitación privada · Acceso exclusivo mediante enlace personalizado
+  </div>
+
+  <section class="section fade">
     <div class="container">
-      <h2 class="title">Nuestra Celebración</h2>
-      <p class="subtitle">
-        Será un honor compartir este momento tan especial contigo.
-      </p>
+      <div class="welcome-card glass">
+        <p class="eyebrow">Pase personalizado</p>
+        <h2 class="guest-name">Bienvenidos, Familia García</h2>
+        <p>Hemos reservado un lugar especial para ustedes en nuestra celebración.</p>
+        <div class="guest-info">
+          <div class="pill-card"><strong>2</strong><small>Lugares</small></div>
+          <div class="pill-card"><strong>14</strong><small>Mesa</small></div>
+          <div class="pill-card"><strong>VIP</strong><small>Acceso</small></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section fade">
+    <div class="container story-grid">
+      <div class="story-img">
+        <img src="https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=1200&q=85" alt="Historia de los novios">
+      </div>
+      <div class="story-text glass">
+        <p class="eyebrow">Nuestra historia</p>
+        <h3>Un amor que se convirtió en destino</h3>
+        <p>Todo comenzó con una coincidencia, una conversación inesperada y una promesa que poco a poco se convirtió en el inicio de una vida juntos.</p>
+        <p>Hoy queremos celebrar este capítulo rodeados de las personas que han formado parte de nuestra historia.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section fade" id="ubicaciones">
+    <div class="container">
+      <h2 class="title">Nuestra celebración</h2>
+      <p class="subtitle">Estos son los lugares principales de nuestro gran día.</p>
 
       <div class="event-grid">
-        <div class="card">
+        <article class="card glass">
+          <div class="card-icon">⛪</div>
           <h3>Ceremonia</h3>
-
-          <p>
-            Catedral Metropolitana<br>
-            Ciudad de México
-          </p>
-
+          <p>Catedral Metropolitana<br>Centro Histórico, Ciudad de México</p>
           <strong>6:00 PM</strong>
+          <a class="btn btn-gold" href="https://maps.google.com" target="_blank">Ver ubicación</a>
+        </article>
 
-          <a class="btn" href="https://maps.google.com" target="_blank">
-            Ver ubicación
-          </a>
-        </div>
-
-        <div class="card">
+        <article class="card glass">
+          <div class="card-icon">🥂</div>
           <h3>Recepción</h3>
-
-          <p>
-            Hacienda San Ángel<br>
-            Ciudad de México
-          </p>
-
+          <p>Hacienda San Ángel<br>Ciudad de México</p>
           <strong>8:00 PM</strong>
+          <a class="btn btn-gold" href="https://maps.google.com" target="_blank">Ver ubicación</a>
+        </article>
+      </div>
+    </div>
+  </section>
 
-          <a class="btn" href="https://maps.google.com" target="_blank">
-            Ver ubicación
-          </a>
+  <section class="section fade">
+    <div class="container">
+      <h2 class="title">Itinerario</h2>
+      <p class="subtitle">Una noche cuidadosamente preparada para celebrar juntos.</p>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-time">6:00 PM</div>
+          <div class="timeline-detail"><strong>Ceremonia religiosa</strong><br>Inicio de la celebración.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">8:00 PM</div>
+          <div class="timeline-detail"><strong>Cóctel de bienvenida</strong><br>Recepción de invitados.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">9:00 PM</div>
+          <div class="timeline-detail"><strong>Cena</strong><br>Brindis y momentos especiales.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">10:30 PM</div>
+          <div class="timeline-detail"><strong>Fiesta</strong><br>Música, baile y celebración.</div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section">
+  <section class="section fade">
+    <div class="container">
+      <h2 class="title">Mesa de regalos</h2>
+      <p class="subtitle">Tu presencia es nuestro regalo más importante. Si deseas tener un detalle, estas son algunas opciones.</p>
+
+      <div class="gift-grid">
+        <article class="card glass">
+          <div class="card-icon">🎁</div>
+          <h3>Liverpool</h3>
+          <p>Mesa de regalos tradicional.</p>
+          <strong>Evento: 12345678</strong>
+          <a class="btn btn-gold" href="#" target="_blank">Ver mesa</a>
+        </article>
+
+        <article class="card glass">
+          <div class="card-icon">🛒</div>
+          <h3>Amazon</h3>
+          <p>Lista digital con regalos seleccionados.</p>
+          <a class="btn btn-gold" href="#" target="_blank">Ver lista</a>
+        </article>
+
+        <article class="card glass">
+          <div class="card-icon">✈️</div>
+          <h3>Luna de miel</h3>
+          <p>Regálanos una experiencia para nuestro viaje.</p>
+          <a class="btn btn-gold" href="#" target="_blank">Aportar</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section fade">
+    <div class="container">
+      <h2 class="title">Dress code</h2>
+      <p class="subtitle">Para conservar la estética de la noche, sugerimos la siguiente etiqueta.</p>
+      <div class="dress-code">
+        <div class="dress-item"><span>🤵</span><strong>Hombres</strong><p>Traje oscuro</p></div>
+        <div class="dress-item"><span>👗</span><strong>Mujeres</strong><p>Vestido formal</p></div>
+        <div class="dress-item"><span>✨</span><strong>Estilo</strong><p>Elegante / Black tie opcional</p></div>
+        <div class="dress-item"><span>🚫</span><strong>Reservado</strong><p>Evitar blanco y dorado</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section fade">
     <div class="container">
       <h2 class="title">Momentos</h2>
-      <p class="subtitle">
-        Algunos recuerdos de nuestra historia.
-      </p>
-
+      <p class="subtitle">Una galería editorial para contar la esencia de la pareja.</p>
       <div class="gallery">
-        <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=1200&q=80">
-        <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=80">
-        <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1200&q=80">
+        <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=1200&q=85" alt="Foto 1">
+        <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=85" alt="Foto 2">
+        <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1200&q=85" alt="Foto 3">
+        <img src="https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=1200&q=85" alt="Foto 4">
+        <img src="https://images.unsplash.com/photo-1509610973147-232dfea52a97?auto=format&fit=crop&w=1200&q=85" alt="Foto 5">
       </div>
     </div>
   </section>
 
-  <section class="section">
+  <section class="section fade">
     <div class="container">
-      <div class="countdown">
-        <h2 class="title">Cuenta Regresiva</h2>
-
+      <div class="glass card">
+        <h2 class="title">Cuenta regresiva</h2>
+        <p class="subtitle">Cada segundo nos acerca al inicio de nuestra historia juntos.</p>
         <div class="timer">
-          <div class="time-box">
-            <span id="days">00</span>
-            <small>Días</small>
-          </div>
-
-          <div class="time-box">
-            <span id="hours">00</span>
-            <small>Horas</small>
-          </div>
-
-          <div class="time-box">
-            <span id="minutes">00</span>
-            <small>Minutos</small>
-          </div>
-
-          <div class="time-box">
-            <span id="seconds">00</span>
-            <small>Segundos</small>
-          </div>
+          <div class="time-box"><span id="days">00</span><small>Días</small></div>
+          <div class="time-box"><span id="hours">00</span><small>Horas</small></div>
+          <div class="time-box"><span id="minutes">00</span><small>Minutos</small></div>
+          <div class="time-box"><span id="seconds">00</span><small>Segundos</small></div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="rsvp">
-    <h2>Confirma tu asistencia</h2>
+  <section class="section fade">
+    <div class="container">
+      <h2 class="title">Detalles inteligentes</h2>
+      <p class="subtitle">Opciones premium que convierten la invitación en una experiencia digital.</p>
+      <div class="feature-grid">
+        <article class="card glass">
+          <div class="card-icon">📅</div>
+          <h3>Save the date</h3>
+          <p>Agrega el evento a Google Calendar, Apple Calendar u Outlook.</p>
+          <a class="btn btn-outline" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Boda%20Daniel%20e%20Isabella&dates=20261018T230000Z/20261019T060000Z&details=Celebraci%C3%B3n%20de%20boda&location=Ciudad%20de%20M%C3%A9xico" target="_blank">Agregar a calendario</a>
+        </article>
 
-    <p>
-      Esperamos contar contigo para celebrar este día tan especial.
-    </p>
+        <article class="card glass">
+          <div class="card-icon">🎵</div>
+          <h3>Playlist</h3>
+          <p>Comparte una canción para bailar juntos esa noche.</p>
+          <a class="btn btn-outline" href="https://wa.me/5215529134341?text=Hola,%20quiero%20sugerir%20una%20canci%C3%B3n%20para%20la%20boda:%20" target="_blank">Sugerir canción</a>
+        </article>
 
-    <a class="btn" href="https://wa.me/5215529134341?text=Hola,%20confirmo%20mi%20asistencia%20a%20la%20boda" target="_blank">
-      Confirmar por WhatsApp
-    </a>
+        <article class="card glass">
+          <div class="card-icon">📷</div>
+          <h3>Álbum compartido</h3>
+          <p>Sube fotos y videos para crear recuerdos digitales del evento.</p>
+          <a class="btn btn-outline" href="#" target="_blank">Subir fotos</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section fade">
+    <div class="container">
+      <div class="calendar-card glass">
+        <h2 class="title">Código QR</h2>
+        <p class="subtitle">Ideal para check-in, acceso rápido a la invitación o compartir la ubicación.</p>
+        <div class="qr-box"><div class="qr-fake"></div></div>
+        <p class="rsvp-note">En una invitación real, aquí se coloca el QR personalizado del cliente.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="rsvp-hero fade" id="confirmar">
+    <div class="container">
+      <h2 class="title">Confirma tu asistencia</h2>
+      <p class="subtitle">Tu confirmación nos ayuda a preparar cada detalle de esta celebración.</p>
+
+      <form class="rsvp-form glass" id="rsvpForm">
+        <div class="form-grid">
+          <input id="guestName" type="text" placeholder="Nombre completo" required>
+          <select id="attendance" required>
+            <option value="">¿Asistirás?</option>
+            <option value="Sí asistiré">Sí asistiré</option>
+            <option value="No podré asistir">No podré asistir</option>
+          </select>
+          <input id="guestCount" type="number" min="1" max="10" placeholder="Número de personas" required>
+          <input id="food" type="text" placeholder="Restricción alimenticia">
+        </div>
+        <textarea id="song" placeholder="Canción que te gustaría escuchar"></textarea>
+        <div class="actions">
+          <button class="btn btn-gold" type="submit">Enviar confirmación por WhatsApp</button>
+        </div>
+        <p class="rsvp-note">Esta demo envía la confirmación por WhatsApp. En versión avanzada se puede conectar a Google Sheets o Firebase.</p>
+      </form>
+    </div>
   </section>
 
   <footer>
-    Diseño Elegante · Te Invito a Mi Boda
+    Diseño Elegante Premium · Te Invito a Mi Boda
   </footer>
 
   <script>
     const weddingDate = new Date('2026-10-18T18:00:00').getTime();
+    const whatsappNumber = '5215529134341';
 
     function updateCountdown() {
       const now = new Date().getTime();
       const distance = weddingDate - now;
+
+      if (distance <= 0) {
+        document.querySelector('.timer').innerHTML = '<p>¡Hoy es el gran día!</p>';
+        return;
+      }
 
       const days = Math.floor(distance / (1000 * 60 * 60 * 24));
       const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-      document.getElementById('days').textContent = days;
-      document.getElementById('hours').textContent = hours;
-      document.getElementById('minutes').textContent = minutes;
-      document.getElementById('seconds').textContent = seconds;
+      document.getElementById('days').textContent = String(days).padStart(2, '0');
+      document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+      document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+      document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
     }
 
     updateCountdown();
     setInterval(updateCountdown, 1000);
-  </script>
 
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.fade').forEach(el => observer.observe(el));
+
+    document.getElementById('rsvpForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById('guestName').value.trim();
+      const attendance = document.getElementById('attendance').value;
+      const count = document.getElementById('guestCount').value;
+      const food = document.getElementById('food').value.trim() || 'Ninguna';
+      const song = document.getElementById('song').value.trim() || 'Sin sugerencia';
+
+      const message = `Hola, confirmo mi asistencia a la boda de Daniel e Isabella.%0A%0ANombre: ${encodeURIComponent(name)}%0AAsistencia: ${encodeURIComponent(attendance)}%0ANúmero de personas: ${encodeURIComponent(count)}%0ARestricción alimenticia: ${encodeURIComponent(food)}%0ACanción sugerida: ${encodeURIComponent(song)}`;
+
+      window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
+    });
+  </script>
 </body>
 </html>

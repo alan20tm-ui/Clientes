@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diseño Elegante | Invitación Digital</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #0f0f0f;
+      color: #f5f5f5;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .hero {
+      min-height: 100vh;
+      background:
+        linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.75)),
+        url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1600&q=80') center/cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .hero-content {
+      max-width: 900px;
+      animation: fadeUp 1.2s ease;
+    }
+
+    .hero span {
+      letter-spacing: 8px;
+      text-transform: uppercase;
+      font-size: .9rem;
+      color: #c8a96b;
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(4rem, 10vw, 8rem);
+      font-weight: 400;
+      margin: 1.5rem 0;
+      line-height: .95;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: #ddd;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .hero-date {
+      margin-top: 2rem;
+      font-size: 1.1rem;
+      letter-spacing: 3px;
+      color: #c8a96b;
+    }
+
+    .section {
+      padding: 6rem 1.2rem;
+    }
+
+    .container {
+      max-width: 1150px;
+      margin: auto;
+    }
+
+    .title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      font-weight: 400;
+      text-align: center;
+      color: #c8a96b;
+      margin-bottom: 1rem;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #bcbcbc;
+      max-width: 720px;
+      margin: auto auto 4rem;
+      font-size: 1.05rem;
+    }
+
+    .event-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+
+    .card {
+      background: #181818;
+      border: 1px solid rgba(200,169,107,.15);
+      border-radius: 30px;
+      padding: 3rem 2rem;
+      text-align: center;
+      box-shadow: 0 20px 50px rgba(0,0,0,.45);
+    }
+
+    .card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.5rem;
+      color: #c8a96b;
+      margin-bottom: 1rem;
+      font-weight: 400;
+    }
+
+    .card p {
+      color: #d5d5d5;
+      margin-bottom: 1rem;
+    }
+
+    .card strong {
+      display: block;
+      color: #fff;
+      margin: 1rem 0;
+      font-size: 1.1rem;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 1rem 1.5rem;
+      border-radius: 999px;
+      background: #c8a96b;
+      color: #111;
+      font-weight: 500;
+      transition: .25s;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      opacity: .9;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      border-radius: 25px;
+      box-shadow: 0 20px 40px rgba(0,0,0,.45);
+    }
+
+    .countdown {
+      background: #181818;
+      border-radius: 35px;
+      padding: 4rem 2rem;
+      text-align: center;
+      border: 1px solid rgba(200,169,107,.15);
+    }
+
+    .timer {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin-top: 3rem;
+    }
+
+    .time-box {
+      background: #111;
+      border-radius: 24px;
+      padding: 1.8rem 1rem;
+    }
+
+    .time-box span {
+      display: block;
+      font-size: 3rem;
+      color: #c8a96b;
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .time-box small {
+      text-transform: uppercase;
+      color: #bbb;
+      letter-spacing: 2px;
+      font-size: .8rem;
+    }
+
+    .rsvp {
+      text-align: center;
+      background:
+        linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.8)),
+        url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1600&q=80') center/cover;
+      padding: 7rem 1rem;
+    }
+
+    .rsvp h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 7vw, 5rem);
+      font-weight: 400;
+      color: #fff;
+      margin-bottom: 1rem;
+    }
+
+    .rsvp p {
+      max-width: 650px;
+      margin: auto;
+      color: #ddd;
+      margin-bottom: 2rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      color: #8f8f8f;
+      background: #0b0b0b;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(25px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media(max-width: 900px) {
+      .event-grid,
+      .gallery,
+      .timer {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery img {
+        height: 300px;
+      }
+
+      .section {
+        padding: 4rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <div class="hero-content">
+      <span>Invitación Premium</span>
+      <h1>Daniel & Isabella</h1>
+      <p>
+        Te invitamos a compartir con nosotros una noche inolvidable llena de amor,
+        elegancia y celebración.
+      </p>
+
+      <div class="hero-date">
+        18 · Octubre · 2026
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="title">Nuestra Celebración</h2>
+      <p class="subtitle">
+        Será un honor compartir este momento tan especial contigo.
+      </p>
+
+      <div class="event-grid">
+        <div class="card">
+          <h3>Ceremonia</h3>
+
+          <p>
+            Catedral Metropolitana<br>
+            Ciudad de México
+          </p>
+
+          <strong>6:00 PM</strong>
+
+          <a class="btn" href="https://maps.google.com" target="_blank">
+            Ver ubicación
+          </a>
+        </div>
+
+        <div class="card">
+          <h3>Recepción</h3>
+
+          <p>
+            Hacienda San Ángel<br>
+            Ciudad de México
+          </p>
+
+          <strong>8:00 PM</strong>
+
+          <a class="btn" href="https://maps.google.com" target="_blank">
+            Ver ubicación
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="title">Momentos</h2>
+      <p class="subtitle">
+        Algunos recuerdos de nuestra historia.
+      </p>
+
+      <div class="gallery">
+        <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=1200&q=80">
+        <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=80">
+        <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1200&q=80">
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="countdown">
+        <h2 class="title">Cuenta Regresiva</h2>
+
+        <div class="timer">
+          <div class="time-box">
+            <span id="days">00</span>
+            <small>Días</small>
+          </div>
+
+          <div class="time-box">
+            <span id="hours">00</span>
+            <small>Horas</small>
+          </div>
+
+          <div class="time-box">
+            <span id="minutes">00</span>
+            <small>Minutos</small>
+          </div>
+
+          <div class="time-box">
+            <span id="seconds">00</span>
+            <small>Segundos</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="rsvp">
+    <h2>Confirma tu asistencia</h2>
+
+    <p>
+      Esperamos contar contigo para celebrar este día tan especial.
+    </p>
+
+    <a class="btn" href="https://wa.me/5215529134341?text=Hola,%20confirmo%20mi%20asistencia%20a%20la%20boda" target="_blank">
+      Confirmar por WhatsApp
+    </a>
+  </section>
+
+  <footer>
+    Diseño Elegante · Te Invito a Mi Boda
+  </footer>
+
+  <script>
+    const weddingDate = new Date('2026-10-18T18:00:00').getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = weddingDate - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById('days').textContent = days;
+      document.getElementById('hours').textContent = hours;
+      document.getElementById('minutes').textContent = minutes;
+      document.getElementById('seconds').textContent = seconds;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diseño Minimalista | Invitación Digital</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #f6f6f4;
+      --text: #1f1f1f;
+      --muted: #6f6f6f;
+      --line: #dddddd;
+      --card: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .hero-content {
+      max-width: 760px;
+      animation: fadeUp 1s ease;
+    }
+
+    .hero small {
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      color: var(--muted);
+      font-size: .8rem;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(4rem, 10vw, 7rem);
+      font-weight: 500;
+      line-height: .95;
+      margin: 1.5rem 0;
+    }
+
+    .hero p {
+      max-width: 620px;
+      margin: auto;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .hero-date {
+      margin-top: 2rem;
+      letter-spacing: 3px;
+      color: var(--text);
+      font-size: .95rem;
+    }
+
+    .section {
+      padding: 5rem 1.2rem;
+    }
+
+    .container {
+      max-width: 980px;
+      margin: auto;
+    }
+
+    .title {
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: var(--muted);
+      max-width: 650px;
+      margin: 0 auto 3rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.2rem;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+
+    .card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      margin-bottom: .8rem;
+      font-weight: 500;
+    }
+
+    .card p {
+      color: var(--muted);
+      margin-bottom: .8rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: .95rem 1.4rem;
+      border-radius: 999px;
+      background: #111;
+      color: white;
+      transition: .2s ease;
+      font-size: .92rem;
+      margin-top: 1rem;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      opacity: .92;
+    }
+
+    .photo {
+      max-width: 520px;
+      margin: auto;
+    }
+
+    .photo img {
+      width: 100%;
+      border-radius: 30px;
+      box-shadow: 0 18px 45px rgba(0,0,0,.08);
+    }
+
+    .countdown {
+      text-align: center;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 34px;
+      padding: 3rem 2rem;
+    }
+
+    .timer {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .time-box {
+      padding: 1.5rem 1rem;
+      border-radius: 22px;
+      background: #fafafa;
+      border: 1px solid var(--line);
+    }
+
+    .time-box span {
+      display: block;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      line-height: 1;
+    }
+
+    .time-box small {
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--muted);
+      font-size: .72rem;
+    }
+
+    .rsvp {
+      text-align: center;
+      padding: 6rem 1rem;
+      background: #ffffff;
+      border-top: 1px solid var(--line);
+    }
+
+    .rsvp h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 6vw, 4.5rem);
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    .fade {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: .8s ease;
+    }
+
+    .fade.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media(max-width: 850px) {
+      .grid,
+      .timer {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 4rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <div class="hero-content">
+      <small>Invitación minimalista</small>
+
+      <h1>Olivia<br>& Noah</h1>
+
+      <p>
+        Queremos compartir contigo el inicio de esta nueva etapa y celebrar juntos uno de los días más importantes de nuestras vidas.
+      </p>
+
+      <div class="hero-date">
+        08 · Mayo · 2027
+      </div>
+    </div>
+  </section>
+
+  <section class="section fade">
+    <div class="container photo">
+      <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=85" alt="Foto pareja">
+    </div>
+  </section>
+
+  <section class="section fade">
+    <div class="container">
+      <h2 class="title">Detalles</h2>
+      <p class="subtitle">
+        Será un honor contar con tu presencia en nuestra celebración.
+      </p>
+
+      <div class="grid">
+        <article class="card">
+          <h3>Ceremonia</h3>
+
+          <p>
+            Capilla San Miguel<br>
+            Ciudad de México
+          </p>
+
+          <strong>5:30 PM</strong>
+
+          <br>
+
+          <a class="btn" href="https://maps.google.com" target="_blank">
+            Ver ubicación
+          </a>
+        </article>
+
+        <article class="card">
+          <h3>Recepción</h3>
+
+          <p>
+            Terraza Central<br>
+            Ciudad de México
+          </p>
+
+          <strong>8:00 PM</strong>
+
+          <br>
+
+          <a class="btn" href="https://maps.google.com" target="_blank">
+            Ver ubicación
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section fade">
+    <div class="container">
+      <div class="countdown">
+        <h2 class="title">Cuenta regresiva</h2>
+
+        <div class="timer">
+          <div class="time-box">
+            <span id="days">00</span>
+            <small>Días</small>
+          </div>
+
+          <div class="time-box">
+            <span id="hours">00</span>
+            <small>Horas</small>
+          </div>
+
+          <div class="time-box">
+            <span id="minutes">00</span>
+            <small>Minutos</small>
+          </div>
+
+          <div class="time-box">
+            <span id="seconds">00</span>
+            <small>Segundos</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="rsvp fade">
+    <h2>Confirma tu asistencia</h2>
+
+    <p style="max-width:620px;margin:auto auto 2rem;color:#6f6f6f;">
+      Esperamos compartir contigo este día tan especial.
+    </p>
+
+    <a class="btn" href="https://wa.me/5215529134341?text=Hola,%20confirmo%20mi%20asistencia%20a%20la%20boda" target="_blank">
+      Confirmar por WhatsApp
+    </a>
+  </section>
+
+  <footer>
+    Diseño Minimalista · Te Invito a Mi Boda
+  </footer>
+
+  <script>
+    const weddingDate = new Date('2027-05-08T17:30:00').getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = weddingDate - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById('days').textContent = String(days).padStart(2, '0');
+      document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+      document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+      document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>

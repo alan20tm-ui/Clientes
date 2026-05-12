@@ -23,6 +23,9 @@
     }
 
     body {
+      <a href="/" class="brand-home">
+  <img src="/TIAMB.png" alt="Te Invito a Mi Boda">
+</a>
       font-family: 'Inter', sans-serif;
       background: var(--bg);
       color: var(--text);
@@ -234,12 +237,49 @@
         transform: translateY(0);
       }
     }
+.brand-home{
+  position:fixed;
+  top:18px;
+  left:18px;
+  z-index:120;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:72px;
+  height:72px;
+  border-radius:22px;
+  background:rgba(255,255,255,.72);
+  border:1px solid rgba(0,0,0,.08);
+  backdrop-filter:blur(16px);
+  box-shadow:0 14px 34px rgba(0,0,0,.08);
+  transition:.3s ease;
+}
 
+.brand-home:hover{
+  transform:translateY(-2px) scale(1.04);
+}
+
+.brand-home img{
+  width:56px;
+  height:auto;
+  object-fit:contain;
+}
     @media(max-width: 850px) {
       .grid,
       .timer {
         grid-template-columns: 1fr;
       }
+      .brand-home{
+  width:60px;
+  height:60px;
+  top:12px;
+  left:12px;
+  border-radius:18px;
+}
+
+.brand-home img{
+  width:46px;
+}
 
       .section {
         padding: 4rem 1rem;

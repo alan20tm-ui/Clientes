@@ -426,26 +426,38 @@
     transform: translateY(0px);
   }
 }
-    @media(max-width: 1050px) {
-      .hero { grid-template-columns: 1fr; padding: 7rem 1.2rem 5rem; text-align: center; }
-      .brand-panel { min-height: auto; margin-top: 1rem; }
-      .hero-logo { 
-  width: min(82vw, 430px); 
-  min-width: 0; 
+@media(max-width: 1050px) {
+  .hero-logo {
+    width: min(84vw, 390px);
+    min-width: 0;
+  }
+}
+
+  .navbar .btn {
+    padding: .72rem 1.05rem;
+    font-size: .82rem;
+  }
+
+  .hero {
+    padding-top: 5.8rem;
+  }
 }
 
 .brand-panel::before,
 .brand-panel::after {
-  width: min(86vw, 470px);
+  display: none;
 }
-      .navbar { top: 12px; right: 12px; left: 12px; justify-content: center; gap: 1rem; }
-      .nav-links { display: none; }
-      .catalog-preview { margin-top: -1rem; padding: 0 1rem 3rem; }
-      .catalog-grid { grid-template-columns: 1fr; max-width: 430px; }
-      .card-image { height: 300px; }
-      .why-grid, .steps-grid { grid-template-columns: 1fr; }
-      .hero h1 span::before, .hero h1 span::after { display: none; }
-    }
+
+.hero-logo {
+  width: min(36vw, 520px);
+  min-width: 360px;
+  border-radius: 0;
+  opacity: 1;
+  mix-blend-mode: normal;
+  filter:
+    drop-shadow(0 0 18px rgba(244,213,141,.18))
+    drop-shadow(0 28px 70px rgba(0,0,0,.75));
+}
   </style>
 </head>
 <body>

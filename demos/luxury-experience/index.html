@@ -143,6 +143,10 @@
       object-fit:cover;
       opacity:.44;
       filter:saturate(.75) contrast(1.08);
+     
+      transform:scale(1.08);
+      will-change:transform;
+      transition:transform .2s linear;
     }
 
     .hero-fallback{
@@ -1195,7 +1199,45 @@
       document.getElementById('minutes').textContent = String(minutes).padStart(2,'0');
       document.getElementById('seconds').textContent = String(seconds).padStart(2,'0');
     }
+<script>
+  const weddingDate = new Date('2026-11-21T17:30:00').getTime();
+  const whatsappNumber = '5215541946413';
 
+  function updateCountdown(){
+    const now = new Date().getTime();
+    const distance = weddingDate - now;
+
+    if(distance <= 0){
+      const timer = document.querySelector('.timer');
+      if(timer) timer.innerHTML = '<p>¡Hoy es el gran día!</p>';
+      return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById('days').textContent = String(days).padStart(2,'0');
+    document.getElementById('hours').textContent = String(hours).padStart(2,'0');
+    document.getElementById('minutes').textContent = String(minutes).padStart(2,'0');
+    document.getElementById('seconds').textContent = String(seconds).padStart(2,'0');
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown,1000);
+
+  const heroVideo = document.querySelector('.hero-video');
+
+  window.addEventListener('scroll', ()=>{
+    const scroll = window.pageYOffset;
+
+    if(heroVideo){
+      heroVideo.style.transform =
+        `scale(1.08) translateY(${scroll * .12}px)`;
+    }
+  });
+</script>
     updateCountdown();
     setInterval(updateCountdown,1000);
 

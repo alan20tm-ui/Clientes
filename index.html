@@ -576,7 +576,117 @@ content="https://teinvitoamiboda.online/assets/preview-social.jpg">
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-10px); }
     }
+.luxury-section{
+  position:relative;
+  padding:7rem 1.2rem;
+  overflow:hidden;
+}
 
+.luxury-bg{
+  position:absolute;
+  inset:0;
+
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(244,213,141,.12),
+      transparent 28%
+    ),
+
+    radial-gradient(
+      circle at 80% 80%,
+      rgba(201,164,95,.10),
+      transparent 32%
+    );
+
+  pointer-events:none;
+}
+
+.luxury-container{
+  position:relative;
+  z-index:2;
+
+  max-width:1180px;
+  margin:auto;
+
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:4rem;
+  align-items:center;
+}
+
+.luxury-content h2{
+  font-family:'Cormorant Garamond', serif;
+  font-size:clamp(3.2rem,6vw,5.8rem);
+  line-height:.92;
+  font-weight:400;
+
+  color:var(--gold-soft);
+
+  margin:1rem 0 1.5rem;
+}
+
+.luxury-content p{
+  color:var(--muted);
+  max-width:620px;
+  font-size:1.05rem;
+}
+
+.luxury-features{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:1rem;
+
+  margin-top:2.5rem;
+}
+
+.luxury-item{
+  padding:1rem 1.1rem;
+
+  border-radius:18px;
+
+  background:rgba(255,255,255,.03);
+
+  border:1px solid rgba(244,213,141,.14);
+
+  backdrop-filter:blur(10px);
+
+  color:#f1e9dc;
+
+  font-size:.92rem;
+
+  transition:.25s ease;
+}
+
+.luxury-item:hover{
+  transform:translateY(-4px);
+
+  border-color:rgba(244,213,141,.38);
+
+  box-shadow:0 18px 40px rgba(0,0,0,.35);
+}
+
+.luxury-visual{
+  position:relative;
+}
+
+.luxury-visual img{
+  width:100%;
+
+  border-radius:28px;
+
+  border:1px solid rgba(244,213,141,.14);
+
+  box-shadow:
+    0 40px 80px rgba(0,0,0,.45),
+    0 0 60px rgba(244,213,141,.08);
+
+  transition:.35s ease;
+}
+
+.luxury-visual img:hover{
+  transform:translateY(-6px) scale(1.01);
+}
     @media (max-width: 1180px) {
       .catalog-grid,
       .why-grid,
@@ -754,7 +864,27 @@ content="https://teinvitoamiboda.online/assets/preview-social.jpg">
     right: 16px;
     bottom: 16px;
   }
+.luxury-container{
+  grid-template-columns:1fr;
+  gap:2rem;
+}
 
+.luxury-content{
+  text-align:center;
+}
+
+.luxury-content p{
+  margin:auto;
+}
+
+.luxury-features{
+  grid-template-columns:1fr;
+}
+
+.luxury-visual{
+  max-width:420px;
+  margin:auto;
+}
   .footer-grid{
     grid-template-columns:1fr;
     gap:2.5rem;
@@ -1002,7 +1132,91 @@ content="https://teinvitoamiboda.online/assets/preview-social.jpg">
 
   </div>
 </section>
+<section class="luxury-section fade">
 
+  <div class="luxury-bg"></div>
+
+  <div class="luxury-container">
+
+    <div class="luxury-content">
+
+      <div class="section-kicker">
+        Luxury Experience
+      </div>
+
+      <h2>
+        Mucho más que una invitación digital
+      </h2>
+
+      <p>
+        Creamos experiencias premium diseñadas para impresionar desde el primer momento.
+        Elegancia, exclusividad y tecnología combinadas en una experiencia inolvidable.
+      </p>
+
+      <div class="luxury-features">
+
+        <div class="luxury-item">
+          ✨ Intro cinematográfica
+        </div>
+
+        <div class="luxury-item">
+          🎵 Música personalizada
+        </div>
+
+        <div class="luxury-item">
+          ⏳ Countdown elegante
+        </div>
+
+        <div class="luxury-item">
+          📍 Google Maps integrado
+        </div>
+
+        <div class="luxury-item">
+          👗 Dress code animado
+        </div>
+
+        <div class="luxury-item">
+          💌 RSVP inteligente
+        </div>
+
+        <div class="luxury-item">
+          🖼 Galería premium
+        </div>
+
+        <div class="luxury-item">
+          🔒 Acceso privado
+        </div>
+
+      </div>
+
+      <div class="hero-actions">
+
+        <a class="btn btn-gold"
+           href="/demos/luxury-experience/">
+          Ver Luxury Experience
+        </a>
+
+        <a class="btn btn-outline"
+           href="https://wa.me/525541946413?text=Hola,%20quiero%20información%20sobre%20Luxury%20Experience"
+           target="_blank">
+          Solicitar información
+        </a>
+
+      </div>
+
+    </div>
+
+    <div class="luxury-visual">
+
+      <img
+        src="assets/luxury-preview.jpeg"
+        alt="Luxury Experience">
+
+    </div>
+
+  </div>
+
+</section>
   <section class="section fade" id="porque">
     <div class="container">
       <h2 class="title">¿Por qué elegirnos?</h2>

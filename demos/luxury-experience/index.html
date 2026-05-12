@@ -3,608 +3,669 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Luxury Experience | Invitación Digital</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <title>Luxury Experience | Valentina & Mateo</title>
+  <meta name="description" content="Demo Luxury Experience de invitación digital premium para boda. Mini-sitio privado, RSVP avanzado, pase digital, música, timeline, galería y mesa de regalos.">
+
+  <link rel="icon" type="image/png" href="/favicon.png">
+
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
-    :root {
-      --black: #050505;
-      --black-2: #101010;
-      --black-3: #171717;
-      --gold: #c9a45f;
-      --gold-light: #f4d58d;
-      --champagne: #f7efe2;
-      --muted: #c8bfb0;
-      --line: rgba(244, 213, 141, 0.24);
-      --glass: rgba(14, 14, 14, 0.78);
-      --shadow: rgba(0, 0, 0, 0.58);
+    :root{
+      --black:#030303;
+      --black2:#0b0b0b;
+      --gold:#c9a45f;
+      --gold2:#f4d58d;
+      --champagne:#f7efe2;
+      --muted:#c8bfb0;
+      --line:rgba(244,213,141,.22);
+      --glass:rgba(12,12,12,.68);
+      --shadow:rgba(0,0,0,.62);
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'Montserrat', sans-serif;
-      background: var(--black);
-      color: var(--champagne);
-      overflow-x: hidden;
-      line-height: 1.75;
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth;overflow-x:hidden}
+    body{
+      font-family:'Montserrat',sans-serif;
+      background:var(--black);
+      color:var(--champagne);
+      overflow-x:hidden;
+      line-height:1.75;
     }
 
-    a { color: inherit; text-decoration: none; }
-    img { width: 100%; display: block; }
+    a{text-decoration:none;color:inherit}
+    img{width:100%;display:block}
 
-    .ambient {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: -2;
+    .ambient{
+      position:fixed;
+      inset:0;
+      z-index:-3;
+      pointer-events:none;
       background:
-        radial-gradient(circle at 18% 18%, rgba(201,164,95,.18), transparent 30%),
-        radial-gradient(circle at 88% 8%, rgba(244,213,141,.10), transparent 24%),
-        radial-gradient(circle at 55% 92%, rgba(201,164,95,.15), transparent 34%),
-        linear-gradient(180deg, #050505, #0b0b0b 45%, #050505);
+        radial-gradient(circle at 15% 15%,rgba(244,213,141,.16),transparent 28%),
+        radial-gradient(circle at 88% 8%,rgba(201,164,95,.12),transparent 26%),
+        radial-gradient(circle at 50% 88%,rgba(244,213,141,.08),transparent 36%),
+        linear-gradient(140deg,#030303,#0c0a07 48%,#030303);
     }
 
-    .noise {
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      pointer-events: none;
-      opacity: .18;
+    .noise{
+      position:fixed;
+      inset:0;
+      z-index:-2;
+      pointer-events:none;
+      opacity:.16;
       background-image:
-        radial-gradient(circle, rgba(244,213,141,.55) 1px, transparent 1.5px),
-        radial-gradient(circle, rgba(255,255,255,.22) 1px, transparent 1.4px);
-      background-size: 110px 110px, 190px 190px;
-      animation: drift 22s linear infinite;
+        radial-gradient(circle,rgba(244,213,141,.6) 1px,transparent 1.6px),
+        radial-gradient(circle,rgba(255,255,255,.18) 1px,transparent 1.4px);
+      background-size:120px 120px,210px 210px;
+      animation:dust 28s linear infinite;
     }
 
-    @keyframes drift { from { transform: translateY(0); } to { transform: translateY(-150px); } }
-
-    .nav {
-      position: fixed;
-      top: 18px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 20;
-      display: flex;
-      gap: .45rem;
-      padding: .45rem;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: rgba(0,0,0,.52);
-      backdrop-filter: blur(16px);
-      box-shadow: 0 18px 40px rgba(0,0,0,.35);
+    @keyframes dust{
+      from{transform:translateY(0)}
+      to{transform:translateY(-160px)}
     }
 
-    .nav a {
-      font-size: .75rem;
-      color: var(--muted);
-      padding: .55rem .85rem;
-      border-radius: 999px;
-      transition: .2s ease;
-      white-space: nowrap;
+    .nav{
+      position:fixed;
+      top:16px;
+      left:50%;
+      transform:translateX(-50%);
+      z-index:50;
+      display:flex;
+      gap:.35rem;
+      padding:.42rem;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:rgba(0,0,0,.58);
+      backdrop-filter:blur(18px);
+      box-shadow:0 18px 44px rgba(0,0,0,.4);
+      max-width:calc(100vw - 24px);
+      overflow-x:auto;
+      scrollbar-width:none;
     }
 
-    .nav a:hover { background: rgba(244,213,141,.12); color: var(--gold-light); }
+    .nav::-webkit-scrollbar{display:none}
 
-    .hero {
-      min-height: 100vh;
-      position: relative;
-      display: grid;
-      place-items: center;
-      text-align: center;
-      padding: 6rem 1.2rem 3rem;
+    .nav a{
+      white-space:nowrap;
+      font-size:.72rem;
+      color:var(--muted);
+      padding:.55rem .8rem;
+      border-radius:999px;
+      transition:.25s ease;
+    }
+
+    .nav a:hover{
+      color:var(--gold2);
+      background:rgba(244,213,141,.1);
+    }
+
+    .floating{
+      position:fixed;
+      right:18px;
+      bottom:18px;
+      z-index:60;
+      display:grid;
+      gap:.65rem;
+    }
+
+    .float-btn{
+      width:54px;
+      height:54px;
+      display:grid;
+      place-items:center;
+      border-radius:50%;
+      border:1px solid var(--line);
+      background:rgba(0,0,0,.68);
+      color:var(--gold2);
+      backdrop-filter:blur(16px);
+      box-shadow:0 14px 36px rgba(0,0,0,.42);
+      font-size:1.15rem;
+    }
+
+    .hero{
+      position:relative;
+      min-height:100vh;
+      display:grid;
+      place-items:center;
+      text-align:center;
+      padding:7rem 1.2rem 4rem;
+      overflow:hidden;
+    }
+
+    .hero-video{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      opacity:.44;
+      filter:saturate(.75) contrast(1.08);
+    }
+
+    .hero-fallback{
+      position:absolute;
+      inset:0;
       background:
-        linear-gradient(rgba(0,0,0,.38), rgba(0,0,0,.84)),
+        linear-gradient(rgba(0,0,0,.38),rgba(0,0,0,.86)),
         url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1800&q=90') center/cover;
     }
 
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 1rem;
-      border: 1px solid rgba(244,213,141,.28);
-      border-radius: 34px;
-      pointer-events: none;
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:1rem;
+      border:1px solid rgba(244,213,141,.26);
+      border-radius:36px;
+      pointer-events:none;
+      z-index:2;
     }
 
-    .hero::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 180px;
-      background: linear-gradient(transparent, var(--black));
-      pointer-events: none;
+    .hero::after{
+      content:"";
+      position:absolute;
+      left:0;
+      right:0;
+      bottom:0;
+      height:220px;
+      background:linear-gradient(transparent,var(--black));
+      z-index:2;
+      pointer-events:none;
     }
 
-    .hero-content {
-      max-width: 1040px;
-      position: relative;
-      z-index: 2;
-      animation: cinematicIn 1.3s ease both;
+    .hero-content{
+      position:relative;
+      z-index:3;
+      max-width:1050px;
+      animation:cinematicIn 1.4s ease both;
     }
 
-    .eyebrow {
-      font-family: 'Cinzel', serif;
-      letter-spacing: .42em;
-      text-transform: uppercase;
-      color: var(--gold-light);
-      font-size: .78rem;
-      margin-bottom: 1.4rem;
+    .eyebrow{
+      font-family:'Cinzel',serif;
+      letter-spacing:.45em;
+      text-transform:uppercase;
+      color:var(--gold2);
+      font-size:.76rem;
+      margin-bottom:1.3rem;
     }
 
-    .script {
-      font-family: 'Great Vibes', cursive;
-      font-size: clamp(2.5rem, 7vw, 5rem);
-      color: var(--gold-light);
-      margin-bottom: .3rem;
+    .script{
+      font-family:'Great Vibes',cursive;
+      font-size:clamp(2.8rem,7vw,5.4rem);
+      color:var(--gold2);
+      margin-bottom:.25rem;
     }
 
-    h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(4.8rem, 13vw, 10.5rem);
-      font-weight: 300;
-      line-height: .82;
-      letter-spacing: -.04em;
-      margin-bottom: 1.4rem;
+    h1{
+      font-family:'Cormorant Garamond',serif;
+      font-size:clamp(4.8rem,13vw,10.8rem);
+      font-weight:300;
+      line-height:.82;
+      letter-spacing:-.045em;
+      margin-bottom:1.4rem;
+      text-shadow:0 24px 70px rgba(0,0,0,.7);
     }
 
-    .hero p {
-      max-width: 790px;
-      margin: 0 auto 2rem;
-      font-size: clamp(1rem, 2.4vw, 1.35rem);
-      color: rgba(247,239,226,.94);
+    .hero p{
+      max-width:760px;
+      margin:0 auto 1.7rem;
+      color:rgba(247,239,226,.94);
+      font-size:clamp(1rem,2.2vw,1.25rem);
     }
 
-    .date-line {
-      display: inline-flex;
-      align-items: center;
-      gap: 1.2rem;
-      margin: 1rem 0 1.6rem;
-      color: var(--gold-light);
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      font-family: 'Cinzel', serif;
-      font-size: .92rem;
+    .date-line{
+      display:inline-flex;
+      align-items:center;
+      gap:1.2rem;
+      color:var(--gold2);
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      font-family:'Cinzel',serif;
+      font-size:.92rem;
+      margin:1rem 0 1.5rem;
     }
 
     .date-line::before,
-    .date-line::after {
-      content: "";
-      width: 60px;
-      height: 1px;
-      background: var(--line);
+    .date-line::after{
+      content:"";
+      width:62px;
+      height:1px;
+      background:var(--line);
     }
 
-    .actions {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: .9rem;
-      margin-top: 1.6rem;
+    .actions{
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:.85rem;
+      margin-top:1.6rem;
     }
 
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: .45rem;
-      padding: .96rem 1.35rem;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      font-family: 'Montserrat', sans-serif;
-      font-size: .88rem;
-      font-weight: 500;
-      cursor: pointer;
-      transition: .24s ease;
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:.5rem;
+      border-radius:999px;
+      border:1px solid transparent;
+      padding:.95rem 1.35rem;
+      font-family:'Montserrat',sans-serif;
+      font-weight:600;
+      font-size:.88rem;
+      cursor:pointer;
+      transition:.25s ease;
     }
 
-    .btn:hover { transform: translateY(-2px); }
-    .btn-gold { background: linear-gradient(135deg, var(--gold), var(--gold-light)); color: #111; }
-    .btn-outline { border-color: var(--line); color: var(--gold-light); background: rgba(0,0,0,.28); }
-    .btn-soft { background: rgba(244,213,141,.1); border-color: var(--line); color: var(--champagne); }
+    .btn:hover{transform:translateY(-2px)}
+    .btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#111}
+    .btn-outline{border-color:var(--line);background:rgba(0,0,0,.34);color:var(--gold2)}
+    .btn-soft{border-color:var(--line);background:rgba(244,213,141,.09);color:var(--champagne)}
 
-    .section { padding: 6.2rem 1.15rem; }
-    .container { max-width: 1180px; margin: auto; }
-
-    .title {
-      font-family: 'Cormorant Garamond', serif;
-      text-align: center;
-      font-size: clamp(3rem, 7vw, 5.6rem);
-      line-height: .95;
-      font-weight: 300;
-      color: var(--gold-light);
-      margin-bottom: 1rem;
+    .music-panel{
+      position:fixed;
+      left:18px;
+      bottom:18px;
+      z-index:60;
+      display:flex;
+      align-items:center;
+      gap:.6rem;
+      padding:.65rem .85rem;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(0,0,0,.66);
+      backdrop-filter:blur(16px);
+      color:var(--gold2);
+      box-shadow:0 14px 36px rgba(0,0,0,.4);
     }
 
-    .subtitle {
-      text-align: center;
-      color: var(--muted);
-      max-width: 790px;
-      margin: 0 auto 3.4rem;
-      font-size: 1.03rem;
+    .music-panel button{
+      border:none;
+      background:none;
+      color:var(--gold2);
+      cursor:pointer;
+      font-weight:700;
+      font-family:'Montserrat',sans-serif;
     }
 
-    .glass {
-      background: var(--glass);
-      border: 1px solid var(--line);
-      border-radius: 34px;
-      box-shadow: 0 24px 70px var(--shadow);
-      backdrop-filter: blur(18px);
+    .section{padding:6.5rem 1.15rem}
+    .container{max-width:1180px;margin:auto}
+
+    .title{
+      font-family:'Cormorant Garamond',serif;
+      text-align:center;
+      font-size:clamp(3rem,7vw,5.8rem);
+      font-weight:300;
+      line-height:.94;
+      color:var(--gold2);
+      margin-bottom:1rem;
     }
 
-    .luxury-badge {
-      display: inline-block;
-      color: var(--gold-light);
-      border: 1px solid var(--line);
-      background: rgba(244,213,141,.08);
-      padding: .38rem .8rem;
-      border-radius: 999px;
-      font-size: .72rem;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      margin-bottom: 1rem;
+    .subtitle{
+      text-align:center;
+      max-width:790px;
+      margin:0 auto 3.2rem;
+      color:var(--muted);
+      font-size:1.02rem;
     }
 
-    .experience-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1rem;
+    .glass{
+      background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.012));
+      border:1px solid var(--line);
+      border-radius:34px;
+      box-shadow:
+        0 28px 78px var(--shadow),
+        inset 0 1px 0 rgba(255,255,255,.04);
+      backdrop-filter:blur(18px);
     }
 
-    .mini-card {
-      padding: 1.5rem;
-      text-align: center;
-      border-radius: 26px;
-      background: rgba(255,255,255,.035);
-      border: 1px solid var(--line);
+    .badge{
+      display:inline-block;
+      padding:.38rem .78rem;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(244,213,141,.08);
+      color:var(--gold2);
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      font-size:.68rem;
+      margin-bottom:1rem;
     }
 
-    .mini-card span { display: block; font-size: 2rem; margin-bottom: .6rem; }
-    .mini-card strong { color: var(--gold-light); font-family: 'Cormorant Garamond', serif; font-size: 1.55rem; font-weight: 500; }
-    .mini-card p { color: var(--muted); font-size: .9rem; }
+    .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+    .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
 
-    .access-card {
-      padding: 3rem 2rem;
-      text-align: center;
-      max-width: 900px;
-      margin: auto;
+    .mini-card,
+    .card{
+      padding:1.6rem;
+      text-align:center;
+      border-radius:28px;
+      background:rgba(255,255,255,.035);
+      border:1px solid var(--line);
+      transition:.28s ease;
     }
 
-    .guest-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2.6rem, 6vw, 4.8rem);
-      color: var(--gold-light);
-      font-weight: 300;
-      line-height: .95;
-      margin-bottom: 1rem;
+    .mini-card:hover,
+    .card:hover{
+      transform:translateY(-5px);
+      border-color:rgba(244,213,141,.42);
+      box-shadow:0 24px 60px rgba(0,0,0,.4);
     }
 
-    .access-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1rem;
-      margin-top: 2.2rem;
+    .mini-card span,
+    .card .icon{
+      display:block;
+      font-size:2rem;
+      margin-bottom:.65rem;
     }
 
-    .story-layout {
-      display: grid;
-      grid-template-columns: .9fr 1.1fr;
-      gap: 1.3rem;
-      align-items: stretch;
+    .mini-card strong{
+      display:block;
+      color:var(--gold2);
+      font-family:'Cormorant Garamond',serif;
+      font-size:1.65rem;
+      font-weight:500;
+      line-height:1;
+      margin-bottom:.35rem;
     }
 
-    .story-photo img {
-      height: 100%;
-      min-height: 620px;
-      object-fit: cover;
-      border-radius: 34px;
-      filter: saturate(.88) contrast(1.08);
+    .mini-card p,
+    .card p{
+      color:var(--muted);
+      font-size:.9rem;
     }
 
-    .story-copy {
-      padding: 3rem 2.4rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+    .card h3{
+      font-family:'Cormorant Garamond',serif;
+      color:var(--gold2);
+      font-size:2.15rem;
+      font-weight:400;
+      line-height:1;
+      margin-bottom:.75rem;
     }
 
-    .story-copy h3 {
-      font-family: 'Cormorant Garamond', serif;
-      color: var(--gold-light);
-      font-size: clamp(2.4rem, 5vw, 4.4rem);
-      font-weight: 300;
-      line-height: 1;
-      margin-bottom: 1rem;
+    .access-card{
+      padding:3rem 2rem;
+      text-align:center;
+      max-width:920px;
+      margin:auto;
     }
 
-    .event-grid, .service-grid, .gift-grid {
-      display: grid;
-      gap: 1.1rem;
+    .guest-name{
+      font-family:'Cormorant Garamond',serif;
+      color:var(--gold2);
+      font-weight:300;
+      font-size:clamp(2.7rem,6vw,4.8rem);
+      line-height:.95;
+      margin-bottom:1rem;
     }
 
-    .event-grid { grid-template-columns: repeat(2, 1fr); }
-    .service-grid { grid-template-columns: repeat(3, 1fr); }
-    .gift-grid { grid-template-columns: repeat(4, 1fr); }
-
-    .card {
-      padding: 2rem;
-      text-align: center;
+    .story-layout{
+      display:grid;
+      grid-template-columns:.9fr 1.1fr;
+      gap:1.2rem;
+      align-items:stretch;
     }
 
-    .card .icon { font-size: 2.3rem; margin-bottom: .5rem; }
-    .card h3 {
-      font-family: 'Cormorant Garamond', serif;
-      color: var(--gold-light);
-      font-size: 2.25rem;
-      font-weight: 400;
-      line-height: 1;
-      margin-bottom: .8rem;
-    }
-    .card p { color: var(--muted); margin-bottom: .9rem; }
-    .card strong { color: var(--champagne); }
-
-    .timeline {
-      position: relative;
-      max-width: 900px;
-      margin: auto;
+    .story-photo img{
+      height:100%;
+      min-height:620px;
+      object-fit:cover;
+      border-radius:34px;
+      filter:saturate(.85) contrast(1.08);
     }
 
-    .timeline::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 50%;
-      width: 1px;
-      background: var(--line);
+    .story-copy{
+      padding:3rem 2.4rem;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
     }
 
-    .timeline-item {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2.2rem;
-      margin: 2rem 0;
-      align-items: center;
+    .story-copy h3{
+      font-family:'Cormorant Garamond',serif;
+      color:var(--gold2);
+      font-size:clamp(2.4rem,5vw,4.5rem);
+      font-weight:300;
+      line-height:.98;
+      margin-bottom:1rem;
     }
 
-    .time {
-      font-family: 'Cinzel', serif;
-      color: var(--gold-light);
-      text-align: right;
-      font-size: 1.6rem;
+    .story-copy p{color:var(--muted);margin-bottom:1rem}
+
+    .timeline{
+      position:relative;
+      max-width:900px;
+      margin:auto;
     }
 
-    .detail {
-      background: rgba(255,255,255,.04);
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      padding: 1.4rem;
+    .timeline::before{
+      content:"";
+      position:absolute;
+      top:0;
+      bottom:0;
+      left:50%;
+      width:1px;
+      background:linear-gradient(transparent,var(--gold2),transparent);
+      opacity:.5;
     }
 
-    .detail strong { color: var(--champagne); }
-    .detail p { color: var(--muted); }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: 1.3fr .7fr .7fr;
-      gap: 1rem;
+    .timeline-item{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:2.2rem;
+      align-items:center;
+      margin:2rem 0;
     }
 
-    .gallery img {
-      height: 360px;
-      object-fit: cover;
-      border-radius: 28px;
-      box-shadow: 0 22px 50px var(--shadow);
-      filter: saturate(.86) contrast(1.07);
+    .time{
+      text-align:right;
+      font-family:'Cinzel',serif;
+      color:var(--gold2);
+      font-size:1.55rem;
     }
 
-    .gallery img:first-child {
-      height: 740px;
-      grid-row: span 2;
+    .detail{
+      padding:1.35rem;
+      border-radius:24px;
+      background:rgba(255,255,255,.04);
+      border:1px solid var(--line);
     }
 
-    .timer {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1rem;
-      margin-top: 2.2rem;
+    .detail strong{color:var(--champagne)}
+    .detail p{color:var(--muted)}
+
+    .gallery{
+      display:grid;
+      grid-template-columns:1.25fr .75fr .75fr;
+      gap:1rem;
     }
 
-    .time-box {
-      padding: 1.7rem 1rem;
-      border-radius: 26px;
-      text-align: center;
-      background: rgba(255,255,255,.04);
-      border: 1px solid var(--line);
+    .gallery img{
+      height:360px;
+      object-fit:cover;
+      border-radius:28px;
+      filter:saturate(.86) contrast(1.08);
+      box-shadow:0 24px 60px var(--shadow);
     }
 
-    .time-box span {
-      display: block;
-      color: var(--gold-light);
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2.7rem, 6vw, 4.5rem);
-      line-height: .9;
+    .gallery img:first-child{
+      height:740px;
+      grid-row:span 2;
     }
 
-    .time-box small {
-      color: var(--muted);
-      letter-spacing: .16em;
-      text-transform: uppercase;
-      font-size: .72rem;
+    .timer{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:1rem;
+      margin-top:2rem;
     }
 
-    .qr-layout {
-      display: grid;
-      grid-template-columns: .9fr 1.1fr;
-      gap: 1.2rem;
-      align-items: center;
+    .time-box{
+      padding:1.7rem 1rem;
+      text-align:center;
+      border-radius:26px;
+      background:rgba(255,255,255,.04);
+      border:1px solid var(--line);
     }
 
-    .qr-box {
-      width: 230px;
-      height: 230px;
-      background: #fff;
-      border-radius: 22px;
-      padding: 14px;
-      margin: auto;
-      box-shadow: 0 20px 50px rgba(0,0,0,.35);
+    .time-box span{
+      display:block;
+      color:var(--gold2);
+      font-family:'Cormorant Garamond',serif;
+      font-size:clamp(2.7rem,6vw,4.4rem);
+      line-height:.88;
     }
 
-    .qr-fake {
-      width: 100%;
-      height: 100%;
-      border: 12px solid #111;
+    .time-box small{
+      color:var(--muted);
+      text-transform:uppercase;
+      letter-spacing:.16em;
+      font-size:.7rem;
+    }
+
+    .qr-layout{
+      display:grid;
+      grid-template-columns:.9fr 1.1fr;
+      gap:1.2rem;
+      align-items:center;
+    }
+
+    .qr-box{
+      width:230px;
+      height:230px;
+      background:#fff;
+      margin:1.4rem auto 0;
+      border-radius:22px;
+      padding:14px;
+      box-shadow:0 20px 50px rgba(0,0,0,.35);
+    }
+
+    .qr-fake{
+      width:100%;
+      height:100%;
+      border:12px solid #111;
       background:
-        linear-gradient(90deg, #111 10px, transparent 10px) 0 0 / 27px 27px,
-        linear-gradient(#111 10px, transparent 10px) 0 0 / 27px 27px,
+        linear-gradient(90deg,#111 10px,transparent 10px) 0 0/27px 27px,
+        linear-gradient(#111 10px,transparent 10px) 0 0/27px 27px,
         #fff;
     }
 
-    .rsvp-section {
+    .rsvp-section{
+      padding:7rem 1.15rem;
       background:
-        linear-gradient(rgba(0,0,0,.74), rgba(0,0,0,.86)),
+        linear-gradient(rgba(0,0,0,.74),rgba(0,0,0,.88)),
         url('https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=1800&q=90') center/cover;
-      padding: 7rem 1.15rem;
     }
 
-    .rsvp-form {
-      max-width: 840px;
-      margin: auto;
-      padding: 2rem;
+    .rsvp-form{
+      max-width:880px;
+      margin:auto;
+      padding:2rem;
     }
 
-    .form-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1rem;
-      margin-bottom: 1rem;
+    .form-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:1rem;
+      margin-bottom:1rem;
     }
 
-    input, select, textarea {
-      width: 100%;
-      padding: 1rem;
-      border-radius: 18px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.055);
-      color: var(--champagne);
-      outline: none;
-      font-family: 'Montserrat', sans-serif;
+    input,select,textarea{
+      width:100%;
+      padding:1rem;
+      border-radius:18px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.06);
+      color:var(--champagne);
+      outline:none;
+      font-family:'Montserrat',sans-serif;
     }
 
-    option { color: #111; }
-    textarea { min-height: 110px; resize: vertical; }
+    option{color:#111}
+    textarea{min-height:110px;resize:vertical}
+    .note{text-align:center;color:var(--muted);font-size:.88rem;margin-top:1rem}
 
-    .note {
-      color: var(--muted);
-      text-align: center;
-      margin-top: 1rem;
-      font-size: .9rem;
+    .footer-cta{
+      text-align:center;
+      padding:6.4rem 1.2rem;
+      background:linear-gradient(135deg,rgba(201,164,95,.14),rgba(0,0,0,.45));
+      border-top:1px solid var(--line);
     }
 
-    .hotel-list {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
+    .footer-cta h2{
+      font-family:'Cormorant Garamond',serif;
+      color:var(--gold2);
+      font-size:clamp(3rem,7vw,5.6rem);
+      font-weight:300;
+      line-height:.95;
+      margin-bottom:1rem;
     }
 
-    .footer-cta {
-      text-align: center;
-      padding: 6rem 1.2rem;
-      background: linear-gradient(135deg, rgba(201,164,95,.15), rgba(0,0,0,.4));
-      border-top: 1px solid var(--line);
+    footer{
+      text-align:center;
+      padding:2rem 1rem;
+      background:#030303;
+      color:#8d8374;
+      font-size:.88rem;
     }
 
-    .footer-cta h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(3rem, 7vw, 5.5rem);
-      color: var(--gold-light);
-      font-weight: 300;
-      line-height: .96;
-      margin-bottom: 1rem;
+    .fade{
+      opacity:0;
+      transform:translateY(26px);
+      transition:.85s ease;
     }
 
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      color: #8d8374;
-      background: #030303;
+    .fade.visible{
+      opacity:1;
+      transform:translateY(0);
     }
 
-    .floating {
-      position: fixed;
-      right: 18px;
-      bottom: 18px;
-      z-index: 30;
-      display: grid;
-      gap: .65rem;
+    @keyframes cinematicIn{
+      from{opacity:0;transform:translateY(30px) scale(.98);filter:blur(8px)}
+      to{opacity:1;transform:translateY(0) scale(1);filter:blur(0)}
     }
 
-    .float-btn {
-      width: 54px;
-      height: 54px;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      background: rgba(0,0,0,.7);
-      border: 1px solid var(--line);
-      color: var(--gold-light);
-      backdrop-filter: blur(12px);
-      box-shadow: 0 14px 34px rgba(0,0,0,.38);
-      font-size: 1.25rem;
-    }
+    @media(max-width:980px){
+      .section{padding:4.8rem 1rem}
+      .grid-4,.grid-3,.grid-2,.timer,.form-grid,.story-layout,.qr-layout{
+        grid-template-columns:1fr;
+      }
 
-    .fade {
-      opacity: 0;
-      transform: translateY(26px);
-      transition: .85s ease;
-    }
-
-    .fade.visible { opacity: 1; transform: translateY(0); }
-
-    @keyframes cinematicIn {
-      from { opacity: 0; transform: translateY(30px) scale(.98); filter: blur(8px); }
-      to { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
-    }
-
-    @media (max-width: 980px) {
-      .nav { max-width: calc(100vw - 24px); overflow-x: auto; justify-content: flex-start; }
-      .section { padding: 4.5rem 1rem; }
-      .experience-grid,
-      .access-grid,
-      .event-grid,
-      .service-grid,
-      .gift-grid,
-      .timer,
-      .hotel-list,
-      .form-grid,
-      .story-layout,
-      .qr-layout { grid-template-columns: 1fr; }
-      .story-photo img { min-height: 420px; }
-      .timeline::before { left: 0; }
-      .timeline-item { grid-template-columns: 1fr; gap: .6rem; padding-left: 1.2rem; }
-      .time { text-align: left; }
-      .gallery { grid-template-columns: 1fr; }
-      .gallery img,
-      .gallery img:first-child { height: 310px; grid-row: auto; }
-      .hero::before { inset: .7rem; border-radius: 24px; }
-      .date-line::before,
-      .date-line::after { width: 32px; }
+      .story-photo img{min-height:410px}
+      .timeline::before{left:0}
+      .timeline-item{grid-template-columns:1fr;gap:.6rem;padding-left:1.2rem}
+      .time{text-align:left}
+      .gallery{grid-template-columns:1fr}
+      .gallery img,.gallery img:first-child{height:315px;grid-row:auto}
+      .hero::before{inset:.7rem;border-radius:24px}
+      .date-line::before,.date-line::after{width:34px}
+      .music-panel{left:12px;right:12px;bottom:12px;justify-content:center}
+      .floating{right:12px;bottom:84px}
+      .nav a{font-size:.68rem;padding:.5rem .72rem}
     }
   </style>
 </head>
+
 <body>
   <div class="ambient"></div>
   <div class="noise"></div>
 
+  <audio id="luxuryMusic" loop>
+    <source src="/assets/luxury/music.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="music-panel">
+    <button id="musicToggle">♫ Activar experiencia sonora</button>
+  </div>
+
   <nav class="nav" aria-label="Menú de invitación">
-    <a href="#acceso">Acceso</a>
+    <a href="#acceso">Acceso VIP</a>
     <a href="#historia">Historia</a>
     <a href="#evento">Evento</a>
+    <a href="#timeline">Timeline</a>
     <a href="#regalos">Regalos</a>
     <a href="#confirmar">RSVP</a>
   </nav>
@@ -615,15 +676,21 @@
   </div>
 
   <section class="hero">
+    <div class="hero-fallback"></div>
+
+    <video class="hero-video" autoplay muted loop playsinline>
+      <source src="/assets/luxury/hero-video.mp4" type="video/mp4">
+    </video>
+
     <div class="hero-content">
-      <div class="eyebrow">Luxury wedding experience</div>
+      <div class="eyebrow">Private luxury wedding experience</div>
       <div class="script">The beginning of forever</div>
       <h1>Valentina<br>& Mateo</h1>
       <p>Una experiencia digital privada, elegante y completamente personalizada para celebrar una historia única.</p>
       <div class="date-line">21 · Noviembre · 2026</div>
       <div class="actions">
         <a class="btn btn-gold" href="#confirmar">Confirmar asistencia</a>
-        <a class="btn btn-outline" href="#evento">Explorar invitación</a>
+        <a class="btn btn-outline" href="#acceso">Entrar al pase VIP</a>
       </div>
     </div>
   </section>
@@ -631,12 +698,13 @@
   <section class="section fade">
     <div class="container">
       <h2 class="title">Una invitación convertida en experiencia</h2>
-      <p class="subtitle">Luxury Experience integra detalles privados, confirmación avanzada, contenido exclusivo, mapa, álbum, playlist y funciones premium para invitados.</p>
-      <div class="experience-grid">
-        <div class="mini-card"><span>🔐</span><strong>Privada</strong><p>Acceso por enlace o código.</p></div>
-        <div class="mini-card"><span>🎬</span><strong>Cinematic</strong><p>Animaciones y storytelling.</p></div>
-        <div class="mini-card"><span>📲</span><strong>Interactiva</strong><p>RSVP, mapas y WhatsApp.</p></div>
-        <div class="mini-card"><span>✨</span><strong>Premium</strong><p>Diseño exclusivo.</p></div>
+      <p class="subtitle">Luxury Experience integra acceso privado, pase digital, RSVP avanzado, música, álbum compartido, timeline cinematográfico, mesa de regalos y detalles exclusivos para invitados.</p>
+
+      <div class="grid-4">
+        <div class="mini-card"><span>🔐</span><strong>Acceso VIP</strong><p>Por enlace privado o código.</p></div>
+        <div class="mini-card"><span>🎟️</span><strong>Pase digital</strong><p>Lugares, mesa y código único.</p></div>
+        <div class="mini-card"><span>🎬</span><strong>Cinemático</strong><p>Diseño emocional y animado.</p></div>
+        <div class="mini-card"><span>📲</span><strong>Interactivo</strong><p>WhatsApp, mapas y RSVP.</p></div>
       </div>
     </div>
   </section>
@@ -644,14 +712,20 @@
   <section class="section fade" id="acceso">
     <div class="container">
       <div class="access-card glass">
-        <span class="luxury-badge">Pase digital personalizado</span>
+        <span class="badge">Pase digital personalizado</span>
         <h2 class="guest-name">Familia Hernández Rivera</h2>
         <p>Hemos reservado un espacio especial para ustedes dentro de nuestra celebración.</p>
-        <div class="access-grid">
+
+        <div class="grid-4" style="margin-top:2.2rem;">
           <div class="mini-card"><span>👥</span><strong>4</strong><p>Lugares reservados</p></div>
           <div class="mini-card"><span>🍽️</span><strong>12</strong><p>Mesa asignada</p></div>
           <div class="mini-card"><span>🎟️</span><strong>VIP</strong><p>Tipo de acceso</p></div>
           <div class="mini-card"><span>🔐</span><strong>VM-1126</strong><p>Código privado</p></div>
+        </div>
+
+        <div class="actions">
+          <a class="btn btn-gold" href="#qr">Ver QR privado</a>
+          <a class="btn btn-outline" href="#confirmar">Confirmar pase</a>
         </div>
       </div>
     </div>
@@ -662,13 +736,15 @@
       <div class="story-photo">
         <img src="https://images.unsplash.com/photo-1509610973147-232dfea52a97?auto=format&fit=crop&w=1200&q=90" alt="Historia de la pareja">
       </div>
+
       <div class="story-copy glass">
-        <span class="luxury-badge">Nuestra historia</span>
+        <span class="badge">Nuestra historia</span>
         <h3>De una coincidencia a una promesa eterna</h3>
         <p>Nos encontramos sin buscarlo, nos elegimos sin dudarlo y hoy queremos celebrar el inicio de una nueva vida rodeados de quienes han sido parte de nuestra historia.</p>
         <p>Esta invitación fue creada para compartir no solo los detalles del evento, sino la emoción de este momento.</p>
+
         <div class="actions" style="justify-content:flex-start;">
-          <a class="btn btn-soft" href="#galeria">Ver galería</a>
+          <a class="btn btn-soft" href="#galeria">Ver galería editorial</a>
           <a class="btn btn-outline" href="#timeline">Ver itinerario</a>
         </div>
       </div>
@@ -678,20 +754,22 @@
   <section class="section fade" id="evento">
     <div class="container">
       <h2 class="title">Ceremonia & Recepción</h2>
-      <p class="subtitle">Cada ubicación está integrada con navegación directa para facilitar la llegada de tus invitados.</p>
-      <div class="event-grid">
+      <p class="subtitle">Direcciones ficticias integradas con navegación directa para mostrar cómo se vería la experiencia final.</p>
+
+      <div class="grid-2">
         <article class="card glass">
           <div class="icon">⛪</div>
           <h3>Ceremonia</h3>
-          <p>Templo Expiatorio<br>Guadalajara, Jalisco</p>
-          <strong>5:30 PM</strong><br><br>
+          <p>Capilla Santa Aurora<br>Bosques de las Lomas, CDMX</p>
+          <p><strong>5:30 PM</strong></p>
           <a class="btn btn-gold" href="https://maps.google.com" target="_blank">Abrir mapa</a>
         </article>
+
         <article class="card glass">
           <div class="icon">🥂</div>
           <h3>Recepción</h3>
-          <p>Hacienda Luxury Garden<br>Guadalajara, Jalisco</p>
-          <strong>8:00 PM</strong><br><br>
+          <p>Hacienda San Aurelio<br>Valle de Encinos, CDMX</p>
+          <p><strong>8:00 PM</strong></p>
           <a class="btn btn-gold" href="https://maps.google.com" target="_blank">Abrir mapa</a>
         </article>
       </div>
@@ -700,47 +778,37 @@
 
   <section class="section fade" id="timeline">
     <div class="container">
-      <h2 class="title">Itinerario cinematográfico</h2>
+      <h2 class="title">Timeline cinematográfico</h2>
       <p class="subtitle">Una guía visual de los momentos más importantes de la noche.</p>
+
       <div class="timeline">
         <div class="timeline-item"><div class="time">5:30 PM</div><div class="detail"><strong>Ceremonia</strong><p>Inicio formal de la celebración.</p></div></div>
-        <div class="timeline-item"><div class="time">7:30 PM</div><div class="detail"><strong>Cóctel</strong><p>Bienvenida, fotografías y música ambiental.</p></div></div>
+        <div class="timeline-item"><div class="time">7:00 PM</div><div class="detail"><strong>Cóctel</strong><p>Bienvenida, música ambiental y fotografías.</p></div></div>
         <div class="timeline-item"><div class="time">8:30 PM</div><div class="detail"><strong>Cena & brindis</strong><p>Momentos especiales con familia y amigos.</p></div></div>
         <div class="timeline-item"><div class="time">10:00 PM</div><div class="detail"><strong>First dance</strong><p>Baile de los novios y apertura de pista.</p></div></div>
-        <div class="timeline-item"><div class="time">11:00 PM</div><div class="detail"><strong>After party</strong><p>Celebración, música y sorpresas.</p></div></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section fade" id="regalos">
-    <div class="container">
-      <h2 class="title">Mesa de regalos premium</h2>
-      <p class="subtitle">Opciones visuales para regalos tradicionales, experiencias, luna de miel y aportaciones personalizadas.</p>
-      <div class="gift-grid">
-        <article class="card glass"><div class="icon">🎁</div><h3>Liverpool</h3><p>Mesa tradicional.</p><a class="btn btn-outline" href="#">Ver mesa</a></article>
-        <article class="card glass"><div class="icon">🛒</div><h3>Amazon</h3><p>Lista digital.</p><a class="btn btn-outline" href="#">Ver lista</a></article>
-        <article class="card glass"><div class="icon">✈️</div><h3>Luna de miel</h3><p>Regala una experiencia.</p><a class="btn btn-outline" href="#">Aportar</a></article>
-        <article class="card glass"><div class="icon">🍷</div><h3>Experiencias</h3><p>Cena, viaje o actividad.</p><a class="btn btn-outline" href="#">Elegir</a></article>
+        <div class="timeline-item"><div class="time">11:30 PM</div><div class="detail"><strong>After party</strong><p>Celebración, música y sorpresas.</p></div></div>
       </div>
     </div>
   </section>
 
   <section class="section fade">
     <div class="container">
-      <h2 class="title">Servicios inteligentes</h2>
+      <h2 class="title">Detalles premium</h2>
       <p class="subtitle">Elementos que elevan la invitación por encima de una página tradicional.</p>
-      <div class="service-grid">
-        <article class="card glass"><div class="icon">📅</div><h3>Save the date</h3><p>Agregar a Google Calendar, Apple Calendar u Outlook.</p><a class="btn btn-soft" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Boda%20Valentina%20y%20Mateo&dates=20261121T233000Z/20261122T070000Z&details=Celebraci%C3%B3n%20de%20boda&location=Guadalajara" target="_blank">Agregar</a></article>
-        <article class="card glass"><div class="icon">🎵</div><h3>Playlist</h3><p>Los invitados pueden sugerir canciones.</p><a class="btn btn-soft" href="https://wa.me/5215541946413?text=Hola,%20quiero%20sugerir%20una%20canción%20para%20la%20boda:%20" target="_blank">Sugerir</a></article>
-        <article class="card glass"><div class="icon">📸</div><h3>Álbum vivo</h3><p>Subida de fotos y videos del evento.</p><a class="btn btn-soft" href="#">Subir fotos</a></article>
+
+      <div class="grid-3">
+        <article class="card glass"><div class="icon">👗</div><h3>Dress code</h3><p>Black Tie Optional<br>Elegant Evening</p></article>
+        <article class="card glass"><div class="icon">📅</div><h3>Save the date</h3><p>Agrega el evento a tu calendario.</p><a class="btn btn-soft" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Boda%20Valentina%20y%20Mateo&dates=20261121T233000Z/20261122T070000Z&details=Celebraci%C3%B3n%20de%20boda&location=Hacienda%20San%20Aurelio" target="_blank">Agregar</a></article>
+        <article class="card glass"><div class="icon">🛎️</div><h3>Soporte</h3><p>Ajustes posteriores básicos incluidos en el paquete.</p></article>
       </div>
     </div>
   </section>
 
   <section class="section fade" id="galeria">
     <div class="container">
-      <h2 class="title">Galería editorial</h2>
-      <p class="subtitle">Un espacio visual para contar la historia de la pareja con estética premium.</p>
+      <h2 class="title">Galería editorial luxury</h2>
+      <p class="subtitle">Imágenes ficticias para mostrar una experiencia visual tipo revista premium.</p>
+
       <div class="gallery">
         <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=1200&q=90" alt="Galería 1">
         <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=90" alt="Galería 2">
@@ -756,6 +824,7 @@
       <div class="glass card">
         <h2 class="title">Cuenta regresiva</h2>
         <p class="subtitle">El gran día está cada vez más cerca.</p>
+
         <div class="timer">
           <div class="time-box"><span id="days">00</span><small>Días</small></div>
           <div class="time-box"><span id="hours">00</span><small>Horas</small></div>
@@ -766,38 +835,78 @@
     </div>
   </section>
 
-  <section class="section fade">
+  <section class="section fade" id="qr">
     <div class="container qr-layout">
       <div class="glass card">
-        <h2 class="title">QR privado</h2>
-        <p>Ideal para check-in, control de acceso, pase digital o acceso rápido desde recepción.</p>
+        <h2 class="title">QR premium privado</h2>
+        <p>Ideal para check-in, control de acceso, pase digital o validación de invitados.</p>
         <div class="qr-box"><div class="qr-fake"></div></div>
       </div>
+
       <div class="glass card">
-        <span class="luxury-badge">Opcional avanzado</span>
+        <span class="badge">Opcional avanzado</span>
         <h3>Check-in digital</h3>
-        <p>En la versión con backend, cada invitado puede tener un código único para validar asistencia, número de lugares y mesa asignada.</p>
-        <div class="actions"><a class="btn btn-outline" href="#confirmar">Confirmar ahora</a></div>
+        <p>En la versión con backend, cada invitado puede tener un código único para validar asistencia, número de lugares, mesa asignada y acceso privado.</p>
+        <a class="btn btn-outline" href="#confirmar">Confirmar ahora</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section fade" id="regalos">
+    <div class="container">
+      <h2 class="title">Mesa de regalos premium</h2>
+      <p class="subtitle">Opciones ficticias para regalos tradicionales, experiencias, luna de miel y aportaciones personalizadas.</p>
+
+      <div class="grid-4">
+        <article class="card glass"><div class="icon">🎁</div><h3>Liverpool</h3><p>Mesa tradicional.</p><a class="btn btn-outline" href="#">Ver mesa</a></article>
+        <article class="card glass"><div class="icon">🛍️</div><h3>Palacio</h3><p>Regalos premium.</p><a class="btn btn-outline" href="#">Ver mesa</a></article>
+        <article class="card glass"><div class="icon">✈️</div><h3>Luna de miel</h3><p>Experiencia en Santorini.</p><a class="btn btn-outline" href="#">Aportar</a></article>
+        <article class="card glass"><div class="icon">🍷</div><h3>Experiencias</h3><p>Cena, viaje o actividad.</p><a class="btn btn-outline" href="#">Elegir</a></article>
       </div>
     </div>
   </section>
 
   <section class="section fade">
     <div class="container">
-      <h2 class="title">Hoteles recomendados</h2>
+      <h2 class="title">Playlist & álbum compartido</h2>
+      <p class="subtitle">Funciones interactivas para que los invitados participen antes y durante el evento.</p>
+
+      <div class="grid-2">
+        <article class="card glass">
+          <div class="icon">🎵</div>
+          <h3>Playlist colaborativa</h3>
+          <p>Los invitados pueden sugerir canciones para la fiesta.</p>
+          <a class="btn btn-soft" href="https://wa.me/5215541946413?text=Hola,%20quiero%20sugerir%20una%20canción%20para%20la%20boda:%20" target="_blank">Sugerir canción</a>
+        </article>
+
+        <article class="card glass">
+          <div class="icon">📸</div>
+          <h3>Álbum en vivo</h3>
+          <p>Espacio para subir fotos y videos del evento.</p>
+          <a class="btn btn-soft" href="#">Subir fotos</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section fade">
+    <div class="container">
+      <h2 class="title">Hoteles y rutas recomendadas</h2>
       <p class="subtitle">Perfecto para bodas destino o invitados foráneos.</p>
-      <div class="hotel-list">
+
+      <div class="grid-3">
         <article class="card glass"><div class="icon">🏨</div><h3>Hotel Aura</h3><p>A 8 minutos del salón.</p><a class="btn btn-soft" href="https://maps.google.com" target="_blank">Ver mapa</a></article>
         <article class="card glass"><div class="icon">🏨</div><h3>Grand Plaza</h3><p>Opción premium cercana.</p><a class="btn btn-soft" href="https://maps.google.com" target="_blank">Ver mapa</a></article>
-        <article class="card glass"><div class="icon">🚗</div><h3>Traslado</h3><p>Ruta sugerida para invitados.</p><a class="btn btn-soft" href="https://maps.google.com" target="_blank">Ver ruta</a></article>
+        <article class="card glass"><div class="icon">🚗</div><h3>Ruta sugerida</h3><p>Trayecto recomendado para invitados.</p><a class="btn btn-soft" href="https://maps.google.com" target="_blank">Ver ruta</a></article>
       </div>
     </div>
   </section>
 
   <section class="rsvp-section fade" id="confirmar">
     <div class="container">
-      <h2 class="title">RSVP inteligente</h2>
-      <p class="subtitle">Confirmación avanzada con número de invitados, restricciones alimenticias, canción sugerida y mensaje directo por WhatsApp.</p>
+      <h2 class="title">RSVP inteligente avanzado</h2>
+      <p class="subtitle">Confirmación con número de invitados, restricciones alimenticias, mesa, código privado, canción sugerida y envío automático por WhatsApp.</p>
+
       <form class="rsvp-form glass" id="rsvpForm">
         <div class="form-grid">
           <input id="guestName" type="text" placeholder="Nombre completo" required>
@@ -808,15 +917,18 @@
           </select>
           <input id="guestCount" type="number" min="1" max="10" placeholder="Número de personas" required>
           <input id="food" type="text" placeholder="Restricción alimenticia">
-          <input id="table" type="text" placeholder="Código o mesa asignada">
+          <input id="table" type="text" placeholder="Mesa asignada o código VIP">
           <input id="phone" type="tel" placeholder="Teléfono de contacto">
         </div>
-        <textarea id="song" placeholder="Canción que te gustaría escuchar o mensaje para los novios"></textarea>
+
+        <textarea id="song" placeholder="Canción sugerida, mensaje para los novios o comentario especial"></textarea>
+
         <div class="actions">
           <button class="btn btn-gold" type="submit">Enviar confirmación</button>
           <a class="btn btn-outline" href="https://wa.me/5215541946413" target="_blank">Contactar por WhatsApp</a>
         </div>
-        <p class="note">Esta demo envía por WhatsApp. En versión completa puede guardar registros en Google Sheets, Firebase o panel privado.</p>
+
+        <p class="note">Demo ficticia: envía por WhatsApp. En versión completa puede guardar registros en Google Sheets, Firebase o panel privado.</p>
       </form>
     </div>
   </section>
@@ -824,25 +936,28 @@
   <section class="footer-cta">
     <h2>Una experiencia digital digna de su historia</h2>
     <p class="subtitle">Luxury Experience está pensada para parejas que quieren algo más que una invitación: una presentación premium, privada e inolvidable.</p>
+
     <div class="actions">
       <a class="btn btn-gold" href="https://wa.me/5215541946413?text=Hola,%20quiero%20cotizar%20una%20invitación%20Luxury%20Experience" target="_blank">Cotizar Luxury Experience</a>
+      <a class="btn btn-outline" href="/">Volver al catálogo</a>
     </div>
   </section>
 
   <footer>
-    Luxury Experience · Te Invito a Mi Boda
+    Luxury Experience · TeInvitoAMiBoda.online · Demo ficticia premium
   </footer>
 
   <script>
     const weddingDate = new Date('2026-11-21T17:30:00').getTime();
     const whatsappNumber = '5215541946413';
 
-    function updateCountdown() {
+    function updateCountdown(){
       const now = new Date().getTime();
       const distance = weddingDate - now;
 
-      if (distance <= 0) {
-        document.querySelector('.timer').innerHTML = '<p>¡Hoy es el gran día!</p>';
+      if(distance <= 0){
+        const timer = document.querySelector('.timer');
+        if(timer) timer.innerHTML = '<p>¡Hoy es el gran día!</p>';
         return;
       }
 
@@ -851,24 +966,44 @@
       const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-      document.getElementById('days').textContent = String(days).padStart(2, '0');
-      document.getElementById('hours').textContent = String(hours).padStart(2, '0');
-      document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
-      document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+      document.getElementById('days').textContent = String(days).padStart(2,'0');
+      document.getElementById('hours').textContent = String(hours).padStart(2,'0');
+      document.getElementById('minutes').textContent = String(minutes).padStart(2,'0');
+      document.getElementById('seconds').textContent = String(seconds).padStart(2,'0');
     }
 
     updateCountdown();
-    setInterval(updateCountdown, 1000);
+    setInterval(updateCountdown,1000);
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting) entry.target.classList.add('visible');
       });
-    }, { threshold: .12 });
+    },{threshold:.12});
 
-    document.querySelectorAll('.fade').forEach(el => observer.observe(el));
+    document.querySelectorAll('.fade').forEach(el=>observer.observe(el));
 
-    document.getElementById('rsvpForm').addEventListener('submit', function(e) {
+    const music = document.getElementById('luxuryMusic');
+    const musicToggle = document.getElementById('musicToggle');
+    let isPlaying = false;
+
+    musicToggle.addEventListener('click', async ()=>{
+      try{
+        if(!isPlaying){
+          await music.play();
+          musicToggle.textContent = '❚❚ Pausar experiencia sonora';
+          isPlaying = true;
+        }else{
+          music.pause();
+          musicToggle.textContent = '♫ Activar experiencia sonora';
+          isPlaying = false;
+        }
+      }catch(error){
+        alert('Tu navegador bloqueó la reproducción. Intenta tocar el botón nuevamente.');
+      }
+    });
+
+    document.getElementById('rsvpForm').addEventListener('submit', function(e){
       e.preventDefault();
 
       const name = document.getElementById('guestName').value.trim();
@@ -879,9 +1014,17 @@
       const phone = document.getElementById('phone').value.trim() || 'No indicado';
       const song = document.getElementById('song').value.trim() || 'Sin mensaje';
 
-      const message = `Hola, confirmo mi asistencia a la boda de Valentina y Mateo.%0A%0ANombre: ${encodeURIComponent(name)}%0AAsistencia: ${encodeURIComponent(attendance)}%0ANúmero de personas: ${encodeURIComponent(count)}%0ARestricción alimenticia: ${encodeURIComponent(food)}%0AMesa/Código: ${encodeURIComponent(table)}%0ATeléfono: ${encodeURIComponent(phone)}%0AMensaje o canción: ${encodeURIComponent(song)}`;
+      const message =
+        `Hola, confirmo mi asistencia a la boda de Valentina y Mateo.%0A%0A` +
+        `Nombre: ${encodeURIComponent(name)}%0A` +
+        `Asistencia: ${encodeURIComponent(attendance)}%0A` +
+        `Número de personas: ${encodeURIComponent(count)}%0A` +
+        `Restricción alimenticia: ${encodeURIComponent(food)}%0A` +
+        `Mesa/Código VIP: ${encodeURIComponent(table)}%0A` +
+        `Teléfono: ${encodeURIComponent(phone)}%0A` +
+        `Mensaje o canción: ${encodeURIComponent(song)}`;
 
-      window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
+      window.open(`https://wa.me/${whatsappNumber}?text=${message}`,'_blank');
     });
   </script>
 </body>

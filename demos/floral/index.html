@@ -325,6 +325,78 @@
   height:auto;
   object-fit:contain;
 }
+    .simple-footer{
+  text-align:center;
+  padding:4rem 1.2rem 3rem;
+
+  border-top:1px solid rgba(185,143,120,.18);
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,.35),
+      rgba(255,255,255,.6)
+    );
+}
+
+.simple-footer h3{
+  font-family:'Cormorant Garamond',serif;
+  color:var(--primary);
+  font-size:2.4rem;
+  font-weight:500;
+  margin-bottom:.8rem;
+}
+
+.simple-footer p{
+  max-width:720px;
+  margin:auto;
+  color:var(--muted);
+  line-height:1.8;
+  margin-bottom:2rem;
+}
+
+.footer-contact{
+  margin-bottom:2rem;
+}
+
+.footer-contact strong{
+  display:block;
+  color:var(--primary);
+  margin-bottom:.8rem;
+}
+
+.footer-links{
+  display:flex;
+  justify-content:center;
+  gap:1.2rem;
+  flex-wrap:wrap;
+}
+
+.footer-links a,
+.footer-legal a{
+  color:var(--muted);
+  transition:.25s ease;
+}
+
+.footer-links a:hover,
+.footer-legal a:hover{
+  color:var(--primary);
+}
+
+.footer-bottom{
+  margin-top:1rem;
+  color:var(--muted);
+  font-size:.9rem;
+}
+
+.footer-legal{
+  margin-top:1rem;
+  display:flex;
+  justify-content:center;
+  gap:1rem;
+  flex-wrap:wrap;
+  font-size:.88rem;
+}
     @media(max-width: 850px) {
       .event-grid,
       .gift-grid,
@@ -502,9 +574,35 @@
     </a>
   </section>
 
-  <footer>
-    Diseño Floral · Te Invito a Mi Boda
-  </footer>
+  <footer class="simple-footer">
+
+  <h3>Te Invito a Mi Boda</h3>
+
+  <p>
+    Invitaciones digitales premium para bodas y eventos especiales.
+    Diseños modernos, elegantes y completamente personalizados.
+  </p>
+
+  <div class="footer-contact">
+    <strong>Contacto</strong>
+
+    <div class="footer-links">
+      <a href="https://wa.me/5215541946413" target="_blank">WhatsApp</a>
+      <a href="#">Instagram</a>
+      <a href="#">TikTok</a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 TeInvitoAMiBoda.online — Todos los derechos reservados.
+  </div>
+
+  <div class="footer-legal">
+    <a href="/aviso-de-privacidad.html">Aviso de Privacidad</a>
+    <a href="/terminos-y-condiciones.html">Términos y Condiciones</a>
+  </div>
+
+</footer>
 
   <script>
     const weddingDate = new Date('2027-02-14T17:00:00').getTime();

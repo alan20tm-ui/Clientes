@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Infantil Glam | Invitación Digital</title>
+
+  <meta name="description" content="Invitación digital infantil premium para cumpleaños, 3 años y presentaciones.">
+
+  <link rel="icon" type="image/png" href="/favicon.png">
+
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+
+    :root{
+      --pink:#ffb8d7;
+      --blue:#9ddcff;
+      --yellow:#ffe38d;
+      --purple:#d7b8ff;
+      --bg:#fff8fb;
+      --text:#5a4452;
+      --muted:#876f7c;
+      --line:rgba(255,184,215,.35);
+      --shadow:rgba(255,184,215,.28);
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+      overflow-x:hidden;
+    }
+
+    body{
+      font-family:'Montserrat',sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      overflow-x:hidden;
+      line-height:1.7;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    img{
+      width:100%;
+      display:block;
+    }
+
+    .background{
+      position:fixed;
+      inset:0;
+      z-index:-5;
+
+      background:
+        radial-gradient(circle at 10% 10%,rgba(255,184,215,.35),transparent 28%),
+        radial-gradient(circle at 90% 10%,rgba(157,220,255,.32),transparent 28%),
+        radial-gradient(circle at 50% 100%,rgba(255,227,141,.25),transparent 34%),
+        linear-gradient(180deg,#fff8fb,#fff);
+    }
+
+    .confetti{
+      position:fixed;
+      inset:0;
+      z-index:-4;
+      pointer-events:none;
+      opacity:.35;
+
+      background-image:
+        radial-gradient(circle,var(--pink) 2px,transparent 2px),
+        radial-gradient(circle,var(--blue) 2px,transparent 2px),
+        radial-gradient(circle,var(--yellow) 2px,transparent 2px),
+        radial-gradient(circle,var(--purple) 2px,transparent 2px);
+
+      background-size:
+        130px 130px,
+        170px 170px,
+        220px 220px,
+        260px 260px;
+
+      animation:floatConfetti 30s linear infinite;
+    }
+
+    @keyframes floatConfetti{
+      from{
+        transform:translateY(0);
+      }
+
+      to{
+        transform:translateY(-180px);
+      }
+    }
+
+    .brand-home{
+      position:fixed;
+      top:18px;
+      left:18px;
+
+      z-index:120;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      width:74px;
+      height:74px;
+
+      border-radius:22px;
+
+      background:rgba(255,255,255,.72);
+
+      border:1px solid rgba(255,184,215,.28);
+
+      backdrop-filter:blur(16px);
+
+      box-shadow:
+        0 14px 36px rgba(0,0,0,.08);
+
+      transition:.3s ease;
+    }
+
+    .brand-home:hover{
+      transform:translateY(-2px) scale(1.04);
+    }
+
+    .brand-home img{
+      width:58px;
+      object-fit:contain;
+    }
+
+    .nav{
+      position:fixed;
+      top:18px;
+      left:50%;
+      transform:translateX(-50%);
+      z-index:100;
+
+      display:flex;
+      gap:.3rem;
+
+      padding:.45rem;
+
+      border-radius:999px;
+
+      background:rgba(255,255,255,.72);
+
+      border:1px solid rgba(255,184,215,.28);
+
+      backdrop-filter:blur(16px);
+
+      box-shadow:
+        0 14px 36px rgba(0,0,0,.08);
+    }
+
+    .nav a{
+      padding:.58rem .9rem;
+      border-radius:999px;
+      font-size:.76rem;
+      font-weight:600;
+      color:var(--muted);
+      transition:.25s ease;
+    }
+
+    .nav a:hover{
+      background:rgba(255,184,215,.18);
+      color:var(--text);
+    }
+
+    .hero{
+      min-height:100vh;
+
+      display:grid;
+      place-items:center;
+
+      text-align:center;
+
+      padding:7rem 1.2rem 4rem;
+
+      position:relative;
+
+      overflow:hidden;
+    }
+
+    .hero::before{
+      content:"";
+
+      position:absolute;
+      inset:1rem;
+
+      border-radius:38px;
+
+      border:2px dashed rgba(255,184,215,.35);
+    }
+
+    .hero-content{
+      max-width:920px;
+      position:relative;
+      z-index:3;
+    }
+
+    .eyebrow{
+      display:inline-block;
+
+      padding:.55rem 1rem;
+
+      border-radius:999px;
+
+      background:rgba(255,255,255,.8);
+
+      border:1px solid rgba(255,184,215,.28);
+
+      color:#d77ba6;
+
+      font-size:.78rem;
+      font-weight:700;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+
+      margin-bottom:1.5rem;
+    }
+
+    .hero h1{
+      font-family:'Baloo 2',cursive;
+      font-size:clamp(4rem,11vw,8rem);
+      line-height:.9;
+      color:#d77ba6;
+      margin-bottom:1rem;
+    }
+
+    .hero h1 span{
+      display:block;
+      color:#7fc5ef;
+    }
+
+    .hero p{
+      max-width:700px;
+      margin:auto;
+      font-size:1.08rem;
+      color:var(--muted);
+    }
+
+    .hero-date{
+      margin:2rem 0 1.7rem;
+
+      font-size:1.05rem;
+      font-weight:700;
+
+      color:#e0a13a;
+    }
+
+    .hero-actions{
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:.9rem;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+
+      border-radius:999px;
+
+      padding:1rem 1.3rem;
+
+      font-weight:700;
+      font-size:.88rem;
+
+      transition:.25s ease;
+    }
+
+    .btn:hover{
+      transform:translateY(-2px);
+    }
+
+    .btn-primary{
+      background:linear-gradient(135deg,var(--pink),var(--yellow));
+      color:#6a4256;
+      box-shadow:0 14px 28px var(--shadow);
+    }
+
+    .btn-outline{
+      border:2px solid rgba(255,184,215,.35);
+      background:rgba(255,255,255,.72);
+    }
+
+    .section{
+      padding:5.5rem 1.2rem;
+    }
+
+    .container{
+      max-width:1180px;
+      margin:auto;
+    }
+
+    .title{
+      text-align:center;
+      font-family:'Baloo 2',cursive;
+      font-size:clamp(2.8rem,7vw,5rem);
+      color:#d77ba6;
+      line-height:.95;
+      margin-bottom:1rem;
+    }
+
+    .subtitle{
+      max-width:760px;
+      margin:0 auto 3rem;
+      text-align:center;
+      color:var(--muted);
+    }
+
+    .glass{
+      background:rgba(255,255,255,.7);
+      border:1px solid rgba(255,184,215,.22);
+      border-radius:34px;
+      backdrop-filter:blur(16px);
+      box-shadow:0 24px 60px rgba(0,0,0,.06);
+    }
+
+    .grid-3{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:1rem;
+    }
+
+    .grid-2{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:1rem;
+    }
+
+    .card{
+      padding:1.8rem;
+      text-align:center;
+      transition:.25s ease;
+    }
+
+    .card:hover{
+      transform:translateY(-5px);
+    }
+
+    .card .icon{
+      font-size:2.6rem;
+      margin-bottom:.7rem;
+      display:block;
+    }
+
+    .card h3{
+      font-family:'Baloo 2',cursive;
+      font-size:2rem;
+      color:#d77ba6;
+      margin-bottom:.5rem;
+    }
+
+    .card p{
+      color:var(--muted);
+      font-size:.94rem;
+    }
+
+    .timer{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:1rem;
+      margin-top:2rem;
+    }
+
+    .time-box{
+      padding:1.6rem 1rem;
+      border-radius:28px;
+      background:rgba(255,255,255,.72);
+      text-align:center;
+      border:1px solid rgba(255,184,215,.22);
+    }
+
+    .time-box span{
+      display:block;
+      font-family:'Baloo 2',cursive;
+      font-size:clamp(2.5rem,6vw,4rem);
+      color:#d77ba6;
+      line-height:.9;
+    }
+
+    .time-box small{
+      color:var(--muted);
+      text-transform:uppercase;
+      font-size:.72rem;
+      letter-spacing:.08em;
+    }
+
+    .gallery{
+      display:grid;
+      grid-template-columns:1.2fr .8fr .8fr;
+      gap:1rem;
+    }
+
+    .gallery img{
+      height:320px;
+      object-fit:cover;
+      border-radius:28px;
+      box-shadow:0 24px 60px rgba(0,0,0,.08);
+    }
+
+    .gallery img:first-child{
+      height:660px;
+      grid-row:span 2;
+    }
+
+    .rsvp{
+      padding:6rem 1.2rem;
+    }
+
+    .rsvp-form{
+      max-width:850px;
+      margin:auto;
+      padding:2rem;
+    }
+
+    .form-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:1rem;
+      margin-bottom:1rem;
+    }
+
+    input,
+    select,
+    textarea{
+      width:100%;
+      padding:1rem;
+      border-radius:18px;
+      border:1px solid rgba(255,184,215,.28);
+      background:rgba(255,255,255,.84);
+      font-family:'Montserrat',sans-serif;
+      outline:none;
+      color:var(--text);
+    }
+
+    textarea{
+      min-height:110px;
+      resize:vertical;
+    }
+
+    .footer-cta{
+      text-align:center;
+      padding:6rem 1.2rem;
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255,184,215,.18),
+          rgba(255,227,141,.16)
+        );
+    }
+
+    .footer-cta h2{
+      font-family:'Baloo 2',cursive;
+      font-size:clamp(3rem,7vw,5rem);
+      color:#d77ba6;
+      line-height:.95;
+      margin-bottom:1rem;
+    }
+
+    .simple-footer{
+      text-align:center;
+      padding:4rem 1.2rem 3rem;
+
+      border-top:1px solid rgba(255,184,215,.24);
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(255,184,215,.08),
+          rgba(255,255,255,.7)
+        );
+    }
+
+    .simple-footer h3{
+      font-family:'Baloo 2',cursive;
+      color:#d77ba6;
+      font-size:2.5rem;
+      margin-bottom:.7rem;
+    }
+
+    .simple-footer p{
+      max-width:720px;
+      margin:auto;
+      color:var(--muted);
+      line-height:1.8;
+      margin-bottom:2rem;
+    }
+
+    .footer-contact{
+      margin-bottom:2rem;
+    }
+
+    .footer-contact strong{
+      display:block;
+      color:#d77ba6;
+      margin-bottom:.8rem;
+    }
+
+    .footer-links,
+    .footer-legal{
+      display:flex;
+      justify-content:center;
+      gap:1rem;
+      flex-wrap:wrap;
+    }
+
+    .footer-links a,
+    .footer-legal a{
+      color:var(--muted);
+      transition:.25s ease;
+    }
+
+    .footer-links a:hover,
+    .footer-legal a:hover{
+      color:#d77ba6;
+    }
+
+    .footer-bottom{
+      margin-top:1rem;
+      font-size:.9rem;
+      color:#99838f;
+    }
+
+    .fade{
+      opacity:0;
+      transform:translateY(40px);
+      transition:1s ease;
+    }
+
+    .fade.visible{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    @media(max-width:980px){
+
+      .brand-home{
+        width:62px;
+        height:62px;
+        top:12px;
+        left:12px;
+      }
+
+      .brand-home img{
+        width:48px;
+      }
+
+      .nav{
+        left:90px;
+        right:12px;
+        transform:none;
+
+        overflow-x:auto;
+        justify-content:flex-start;
+
+        scrollbar-width:none;
+      }
+
+      .nav::-webkit-scrollbar{
+        display:none;
+      }
+
+      .grid-3,
+      .grid-2,
+      .timer,
+      .form-grid{
+        grid-template-columns:1fr;
+      }
+
+      .gallery{
+        grid-template-columns:1fr;
+      }
+
+      .gallery img,
+      .gallery img:first-child{
+        height:300px;
+        grid-row:auto;
+      }
+
+      .hero::before{
+        inset:.7rem;
+        border-radius:24px;
+      }
+
+      .section{
+        padding:4.5rem 1rem;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+<a href="/" class="brand-home">
+  <img src="/TIAMB.png" alt="Te Invito a Mi Boda">
+</a>
+
+<nav class="nav">
+  <a href="#detalles">Detalles</a>
+  <a href="#galeria">Galería</a>
+  <a href="#rsvp">RSVP</a>
+</nav>
+
+<div class="background"></div>
+<div class="confetti"></div>
+
+<section class="hero">
+
+  <div class="hero-content">
+
+    <div class="eyebrow">
+      Invitación Infantil Premium
+    </div>
+
+    <h1>
+      Sofía
+      <span>cumple 3 años</span>
+    </h1>
+
+    <p>
+      Acompáñanos a celebrar una tarde mágica llena de juegos,
+      dulces, sonrisas y mucha diversión.
+    </p>
+
+    <div class="hero-date">
+      12 · Abril · 2027
+    </div>
+
+    <div class="hero-actions">
+      <a href="#rsvp" class="btn btn-primary">
+        Confirmar asistencia
+      </a>
+
+      <a href="#detalles" class="btn btn-outline">
+        Ver detalles
+      </a>
+    </div>
+
+  </div>
+
+</section>
+
+<section class="section fade" id="detalles">
+
+  <div class="container">
+
+    <h2 class="title">
+      Detalles del evento
+    </h2>
+
+    <p class="subtitle">
+      Todo listo para una tarde divertida e inolvidable.
+    </p>
+
+    <div class="grid-3">
+
+      <article class="card glass">
+        <span class="icon">🎈</span>
+
+        <h3>Fiesta</h3>
+
+        <p>
+          Salón Kids Fantasy<br>
+          Ciudad de México
+        </p>
+
+        <br>
+
+        <a href="https://maps.google.com" target="_blank" class="btn btn-primary">
+          Ver ubicación
+        </a>
+      </article>
+
+      <article class="card glass">
+        <span class="icon">🍭</span>
+
+        <h3>Dress Code</h3>
+
+        <p>
+          Colores pastel y ropa cómoda para divertirse.
+        </p>
+      </article>
+
+      <article class="card glass">
+        <span class="icon">🎁</span>
+
+        <h3>Regalos</h3>
+
+        <p>
+          Tu presencia será el mejor regalo para este día especial.
+        </p>
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="section fade">
+
+  <div class="container">
+
+    <h2 class="title">
+      Cuenta regresiva
+    </h2>
+
+    <p class="subtitle">
+      Cada día falta menos para la gran fiesta.
+    </p>
+
+    <div class="timer">
+
+      <div class="time-box">
+        <span id="days">00</span>
+        <small>Días</small>
+      </div>
+
+      <div class="time-box">
+        <span id="hours">00</span>
+        <small>Horas</small>
+      </div>
+
+      <div class="time-box">
+        <span id="minutes">00</span>
+        <small>Minutos</small>
+      </div>
+
+      <div class="time-box">
+        <span id="seconds">00</span>
+        <small>Segundos</small>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="section fade" id="galeria">
+
+  <div class="container">
+
+    <h2 class="title">
+      Galería divertida
+    </h2>
+
+    <p class="subtitle">
+      Un diseño alegre y perfecto para celebraciones infantiles.
+    </p>
+
+    <div class="gallery">
+
+      <img src="https://images.unsplash.com/photo-1519340241574-2cec6aef0c01?auto=format&fit=crop&w=1200&q=90">
+
+      <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=1200&q=90">
+
+      <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=1200&q=90">
+
+      <img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?auto=format&fit=crop&w=1200&q=90">
+
+      <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=1200&q=90">
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="rsvp fade" id="rsvp">
+
+  <div class="container">
+
+    <h2 class="title">
+      Confirma tu asistencia
+    </h2>
+
+    <p class="subtitle">
+      Queremos preparar una fiesta increíble para todos.
+    </p>
+
+    <form class="rsvp-form glass" id="rsvpForm">
+
+      <div class="form-grid">
+
+        <input
+          type="text"
+          id="guestName"
+          placeholder="Nombre completo"
+          required
+        >
+
+        <select id="attendance" required>
+          <option value="">¿Asistirás?</option>
+          <option value="Sí asistiré">Sí asistiré</option>
+          <option value="No podré asistir">No podré asistir</option>
+        </select>
+
+        <input
+          type="number"
+          id="guestCount"
+          placeholder="Número de personas"
+          min="1"
+          max="10"
+          required
+        >
+
+        <input
+          type="tel"
+          id="phone"
+          placeholder="Teléfono"
+        >
+
+      </div>
+
+      <textarea
+        id="message"
+        placeholder="Mensaje especial"
+      ></textarea>
+
+      <div class="hero-actions">
+
+        <button class="btn btn-primary" type="submit">
+          Enviar confirmación
+        </button>
+
+        <a
+          href="https://wa.me/5215541946413"
+          target="_blank"
+          class="btn btn-outline"
+        >
+          WhatsApp
+        </a>
+
+      </div>
+
+    </form>
+
+  </div>
+
+</section>
+
+<section class="footer-cta">
+
+  <h2>
+    Diversión, color y momentos inolvidables
+  </h2>
+
+  <p class="subtitle">
+    Ideal para cumpleaños infantiles, presentaciones y fiestas especiales.
+  </p>
+
+  <div class="hero-actions">
+
+    <a
+      href="https://wa.me/5215541946413?text=Hola,%20quiero%20cotizar%20una%20invitación%20infantil"
+      target="_blank"
+      class="btn btn-primary"
+    >
+      Cotizar este estilo
+    </a>
+
+    <a href="/" class="btn btn-outline">
+      Volver al catálogo
+    </a>
+
+  </div>
+
+</section>
+
+<footer class="simple-footer">
+
+  <h3>
+    Te Invito a Mi Boda
+  </h3>
+
+  <p>
+    Invitaciones digitales premium para bodas y eventos especiales.
+    Diseños modernos, elegantes y completamente personalizados.
+  </p>
+
+  <div class="footer-contact">
+
+    <strong>Contacto</strong>
+
+    <div class="footer-links">
+      <a href="https://wa.me/5215541946413" target="_blank">
+        WhatsApp
+      </a>
+
+      <a href="#">
+        Instagram
+      </a>
+
+      <a href="#">
+        TikTok
+      </a>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 TeInvitoAMiBoda.online — Todos los derechos reservados.
+  </div>
+
+  <div class="footer-legal">
+    <a href="/aviso-de-privacidad.html">
+      Aviso de Privacidad
+    </a>
+
+    <a href="/terminos-y-condiciones.html">
+      Términos y Condiciones
+    </a>
+  </div>
+
+</footer>
+
+<script>
+
+  const eventDate =
+    new Date('2027-04-12T17:00:00').getTime();
+
+  function updateCountdown(){
+
+    const now = new Date().getTime();
+
+    const distance =
+      eventDate - now;
+
+    if(distance <= 0){
+
+      document.querySelector('.timer')
+      .innerHTML =
+      '<p>¡Hoy es la gran fiesta!</p>';
+
+      return;
+    }
+
+    const days =
+      Math.floor(
+        distance / (1000 * 60 * 60 * 24)
+      );
+
+    const hours =
+      Math.floor(
+        (distance % (1000 * 60 * 60 * 24))
+        /
+        (1000 * 60 * 60)
+      );
+
+    const minutes =
+      Math.floor(
+        (distance % (1000 * 60 * 60))
+        /
+        (1000 * 60)
+      );
+
+    const seconds =
+      Math.floor(
+        (distance % (1000 * 60))
+        /
+        1000
+      );
+
+    document.getElementById('days')
+    .textContent =
+      String(days).padStart(2,'0');
+
+    document.getElementById('hours')
+    .textContent =
+      String(hours).padStart(2,'0');
+
+    document.getElementById('minutes')
+    .textContent =
+      String(minutes).padStart(2,'0');
+
+    document.getElementById('seconds')
+    .textContent =
+      String(seconds).padStart(2,'0');
+
+  }
+
+  updateCountdown();
+
+  setInterval(updateCountdown,1000);
+
+  const observer =
+    new IntersectionObserver((entries)=>{
+
+      entries.forEach(entry=>{
+
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+        }
+
+      });
+
+    },{threshold:.12});
+
+  document
+    .querySelectorAll('.fade')
+    .forEach(el=>observer.observe(el));
+
+  const rsvpForm =
+    document.getElementById('rsvpForm');
+
+  const whatsappNumber =
+    '5215541946413';
+
+  rsvpForm.addEventListener('submit', function(e){
+
+    e.preventDefault();
+
+    const name =
+      document.getElementById('guestName')
+      .value.trim();
+
+    const attendance =
+      document.getElementById('attendance')
+      .value;
+
+    const count =
+      document.getElementById('guestCount')
+      .value;
+
+    const phone =
+      document.getElementById('phone')
+      .value.trim() || 'No indicado';
+
+    const messageText =
+      document.getElementById('message')
+      .value.trim() || 'Sin mensaje';
+
+    const message =
+      `Hola, confirmo mi asistencia.%0A%0A` +
+      `Nombre: ${encodeURIComponent(name)}%0A` +
+      `Asistencia: ${encodeURIComponent(attendance)}%0A` +
+      `Número de personas: ${encodeURIComponent(count)}%0A` +
+      `Teléfono: ${encodeURIComponent(phone)}%0A` +
+      `Mensaje: ${encodeURIComponent(messageText)}`;
+
+    window.open(
+      `https://wa.me/${whatsappNumber}?text=${message}`,
+      '_blank'
+    );
+
+  });
+
+</script>
+
+</body>
+</html>

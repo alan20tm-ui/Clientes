@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>XV Glam | Invitación Digital</title>
+  <meta name="description" content="Demo de invitación digital para XV años estilo glam, elegante y moderna.">
+
+  <link rel="icon" type="image/png" href="/favicon.png">
+
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#100911;
+      --bg2:#1a0f18;
+      --pink:#f4bfd4;
+      --rose:#d88aaa;
+      --gold:#f3d38c;
+      --champagne:#fff4e6;
+      --muted:#d8c3cc;
+      --line:rgba(244,191,212,.24);
+      --glass:rgba(255,255,255,.06);
+      --shadow:rgba(0,0,0,.55);
+    }
+
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth;overflow-x:hidden}
+    body{
+      font-family:'Montserrat',sans-serif;
+      background:var(--bg);
+      color:var(--champagne);
+      overflow-x:hidden;
+      line-height:1.75;
+    }
+
+    a{text-decoration:none;color:inherit}
+    img{width:100%;display:block}
+
+    .ambient{
+      position:fixed;
+      inset:0;
+      z-index:-4;
+      background:
+        radial-gradient(circle at 15% 15%,rgba(244,191,212,.20),transparent 30%),
+        radial-gradient(circle at 88% 10%,rgba(243,211,140,.14),transparent 28%),
+        radial-gradient(circle at 50% 90%,rgba(216,138,170,.16),transparent 35%),
+        linear-gradient(135deg,#080508,#1a0f18 48%,#080508);
+    }
+
+    .sparkles{
+      position:fixed;
+      inset:0;
+      z-index:-3;
+      pointer-events:none;
+      opacity:.28;
+      background-image:
+        radial-gradient(circle,rgba(255,244,230,.9) 1px,transparent 1.7px),
+        radial-gradient(circle,rgba(244,191,212,.7) 1px,transparent 1.5px),
+        radial-gradient(circle,rgba(243,211,140,.75) 1px,transparent 1.6px);
+      background-size:120px 120px,170px 170px,240px 240px;
+      animation:sparkleMove 26s linear infinite;
+    }
+
+    @keyframes sparkleMove{
+      from{transform:translateY(0)}
+      to{transform:translateY(-180px)}
+    }
+
+    .brand-home{
+      position:fixed;
+      top:18px;
+      left:18px;
+      z-index:120;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      width:74px;
+      height:74px;
+      border-radius:22px;
+      background:linear-gradient(145deg,rgba(255,255,255,.10),rgba(255,255,255,.03));
+      border:1px solid rgba(244,191,212,.24);
+      backdrop-filter:blur(18px);
+      box-shadow:0 18px 42px rgba(0,0,0,.35),0 0 34px rgba(244,191,212,.14);
+      transition:.35s ease;
+    }
+
+    .brand-home:hover{
+      transform:translateY(-2px) scale(1.04);
+      box-shadow:0 22px 55px rgba(0,0,0,.48),0 0 44px rgba(244,191,212,.22);
+    }
+
+    .brand-home img{
+      width:58px;
+      height:auto;
+      object-fit:contain;
+      filter:drop-shadow(0 0 18px rgba(244,191,212,.25));
+    }
+
+    .nav{
+      position:fixed;
+      top:18px;
+      left:50%;
+      transform:translateX(-50%);
+      z-index:90;
+      display:flex;
+      gap:.3rem;
+      padding:.42rem;
+      max-width:calc(100vw - 110px);
+      overflow-x:auto;
+      scrollbar-width:none;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(16,9,17,.62);
+      backdrop-filter:blur(18px);
+      box-shadow:0 18px 44px rgba(0,0,0,.35);
+    }
+
+    .nav::-webkit-scrollbar{display:none}
+
+    .nav a{
+      white-space:nowrap;
+      padding:.55rem .78rem;
+      border-radius:999px;
+      font-size:.72rem;
+      color:var(--muted);
+      transition:.25s ease;
+    }
+
+    .nav a:hover{
+      color:var(--champagne);
+      background:rgba(244,191,212,.12);
+    }
+
+    .floating-whatsapp{
+      position:fixed;
+      right:18px;
+      bottom:18px;
+      z-index:100;
+      width:58px;
+      height:58px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      background:#25D366;
+      color:#fff;
+      font-size:1.55rem;
+      box-shadow:0 18px 42px rgba(0,0,0,.38);
+    }
+
+    .hero{
+      position:relative;
+      min-height:100vh;
+      display:grid;
+      place-items:center;
+      text-align:center;
+      padding:7rem 1.2rem 4rem;
+      overflow:hidden;
+      background:
+        linear-gradient(rgba(16,9,17,.35),rgba(16,9,17,.88)),
+        url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1800&q=90') center/cover;
+    }
+
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:1rem;
+      border-radius:38px;
+      border:1px solid rgba(244,191,212,.32);
+      pointer-events:none;
+      z-index:2;
+    }
+
+    .hero::after{
+      content:"";
+      position:absolute;
+      left:0;
+      right:0;
+      bottom:0;
+      height:220px;
+      background:linear-gradient(transparent,var(--bg));
+      pointer-events:none;
+      z-index:2;
+    }
+
+    .hero-content{
+      position:relative;
+      z-index:3;
+      max-width:1000px;
+      animation:cinemaIn 1.4s ease both;
+    }
+
+    .eyebrow{
+      font-family:'Cinzel',serif;
+      text-transform:uppercase;
+      letter-spacing:.42em;
+      color:var(--gold);
+      font-size:.76rem;
+      margin-bottom:1rem;
+    }
+
+    .script{
+      font-family:'Great Vibes',cursive;
+      font-size:clamp(3rem,7vw,5.6rem);
+      color:var(--pink);
+      line-height:1;
+      text-shadow:0 0 34px rgba(244,191,212,.25);
+    }
+
+    h1{
+      font-family:'Cormorant Garamond',serif;
+      font-size:clamp(5rem,14vw,11rem);
+      font-weight:300;
+      line-height:.82;
+      letter-spacing:-.045em;
+      margin:1rem 0;
+      text-shadow:0 30px 80px rgba(0,0,0,.75);
+    }
+
+    .hero p{
+      max-width:760px;
+      margin:0 auto;
+      color:rgba(255,244,230,.94);
+      font-size:clamp(1rem,2.2vw,1.25rem);
+    }
+
+    .date-line{
+      display:inline-flex;
+      align-items:center;
+      gap:1.2rem;
+      color:var(--gold);
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      font-family:'Cinzel',serif;
+      font-size:.92rem;
+      margin:1.7rem 0 1.5rem;
+    }
+
+    .date-line::before,
+    .date-line::after{
+      content:"";
+      width:62px;
+      height:1px;
+      background:var(--line);
+    }
+
+    .actions{
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:.85rem;
+      margin-top:1.6rem;
+    }
+
+    .btn{
+      display:inline-flex;
+      justify-content:center;
+      align-items:center;
+      gap:.5rem;
+      border-radius:999px;
+      border:1px solid transparent;
+      padding:.95rem 1.35rem;
+      font-family:'Montserrat',sans-serif;
+      font-size:.88rem;
+      font-weight:600;
+      cursor:pointer;
+      transition:.25s ease;
+    }
+
+    .btn:hover{transform:translateY(-2px)}
+    .btn-glam{background:linear-gradient(135deg,var(--rose),var(--pink),var(--gold));color:#170d12}
+    .btn-outline{border-color:var(--line);background:rgba(0,0,0,.25);color:var(--champagne)}
+    .btn-soft{border-color:var(--line);background:rgba(244,191,212,.10);color:var(--champagne)}
+
+    .section{
+      padding:6.2rem 1.15rem;
+    }
+
+    .container{
+      max-width:1180px;
+      margin:auto;
+    }
+
+    .title{
+      font-family:'Cormorant Garamond',serif;
+      text-align:center;
+      color:var(--pink);
+      font-size:clamp(3rem,7vw,5.7rem);
+      font-weight:300;
+      line-height:.94;
+      margin-bottom:1rem;
+    }
+
+    .subtitle{
+      text-align:center;
+      max-width:780px;
+      margin:0 auto 3rem;
+      color:var(--muted);
+      font-size:1.02rem;
+    }
+
+    .glass{
+      background:linear-gradient(145deg,rgba(255,255,255,.07),rgba(255,255,255,.018));
+      border:1px solid var(--line);
+      border-radius:34px;
+      box-shadow:0 28px 78px var(--shadow), inset 0 1px 0 rgba(255,255,255,.05);
+      backdrop-filter:blur(18px);
+    }
+
+    .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+    .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
+
+    .card{
+      padding:1.7rem;
+      text-align:center;
+      border-radius:28px;
+      background:rgba(255,255,255,.045);
+      border:1px solid var(--line);
+      transition:.28s ease;
+    }
+
+    .card:hover{
+      transform:translateY(-5px);
+      box-shadow:0 26px 62px rgba(0,0,0,.42);
+      border-color:rgba(244,191,212,.42);
+    }
+
+    .card .icon{
+      font-size:2.2rem;
+      display:block;
+      margin-bottom:.7rem;
+    }
+
+    .card h3{
+      font-family:'Cormorant Garamond',serif;
+      color:var(--pink);
+      font-size:2.15rem;
+      font-weight:400;
+      line-height:1;
+      margin-bottom:.7rem;
+    }
+
+    .card p{
+      color:var(--muted);
+      font-size:.92rem;
+    }
+
+    .intro-card{
+      padding:3rem 2rem;
+      text-align:center;
+      max-width:930px;
+      margin:auto;
+    }
+
+    .intro-card h2{
+      font-family:'Great Vibes',cursive;
+      color:var(--pink);
+      font-size:clamp(3rem,7vw,5.6rem);
+      font-weight:400;
+      line-height:1;
+      margin-bottom:1rem;
+    }
+
+    .story-layout{
+      display:grid;
+      grid-template-columns:.9fr 1.1fr;
+      gap:1.2rem;
+      align-items:stretch;
+    }
+
+    .story-photo img{
+      height:100%;
+      min-height:620px;
+      object-fit:cover;
+      border-radius:34px;
+      filter:saturate(.92) contrast(1.05);
+    }
+
+    .story-copy{
+      padding:3rem 2.4rem;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+    }
+
+    .story-copy h3{
+      font-family:'Cormorant Garamond',serif;
+      color:var(--pink);
+      font-size:clamp(2.5rem,5vw,4.6rem);
+      font-weight:300;
+      line-height:.98;
+      margin-bottom:1rem;
+    }
+
+    .story-copy p{
+      color:var(--muted);
+      margin-bottom:1rem;
+    }
+
+    .timer{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:1rem;
+      margin-top:2rem;
+    }
+
+    .time-box{
+      padding:1.7rem 1rem;
+      text-align:center;
+      border-radius:26px;
+      background:rgba(255,255,255,.045);
+      border:1px solid var(--line);
+    }
+
+    .time-box span{
+      display:block;
+      color:var(--pink);
+      font-family:'Cormorant Garamond',serif;
+      font-size:clamp(2.7rem,6vw,4.4rem);
+      line-height:.88;
+    }
+
+    .time-box small{
+      color:var(--muted);
+      text-transform:uppercase;
+      letter-spacing:.16em;
+      font-size:.7rem;
+    }
+
+    .timeline{
+      max-width:920px;
+      margin:auto;
+      position:relative;
+    }
+
+    .timeline::before{
+      content:"";
+      position:absolute;
+      top:0;
+      bottom:0;
+      left:50%;
+      width:1px;
+      background:linear-gradient(transparent,var(--pink),transparent);
+      opacity:.55;
+    }
+
+    .timeline-item{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:2rem;
+      align-items:center;
+      margin:2rem 0;
+    }
+
+    .timeline-time{
+      text-align:right;
+      font-family:'Cinzel',serif;
+      color:var(--gold);
+      font-size:1.5rem;
+    }
+
+    .timeline-detail{
+      padding:1.3rem;
+      border-radius:24px;
+      background:rgba(255,255,255,.045);
+      border:1px solid var(--line);
+    }
+
+    .timeline-detail strong{
+      color:var(--pink);
+    }
+
+    .timeline-detail p{
+      color:var(--muted);
+    }
+
+    .gallery{
+      display:grid;
+      grid-template-columns:1.25fr .75fr .75fr;
+      gap:1rem;
+    }
+
+    .gallery img{
+      height:360px;
+      object-fit:cover;
+      border-radius:28px;
+      box-shadow:0 24px 60px rgba(0,0,0,.45);
+      filter:saturate(.92) contrast(1.04);
+    }
+
+    .gallery img:first-child{
+      height:740px;
+      grid-row:span 2;
+    }
+
+    .rsvp{
+      padding:7rem 1.15rem;
+      background:
+        linear-gradient(rgba(16,9,17,.72),rgba(16,9,17,.9)),
+        url('https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=1800&q=90') center/cover;
+    }
+
+    .rsvp-form{
+      max-width:880px;
+      margin:auto;
+      padding:2rem;
+    }
+
+    .form-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:1rem;
+      margin-bottom:1rem;
+    }
+
+    input,select,textarea{
+      width:100%;
+      padding:1rem;
+      border-radius:18px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.07);
+      color:var(--champagne);
+      outline:none;
+      font-family:'Montserrat',sans-serif;
+    }
+
+    option{color:#111}
+    textarea{min-height:110px;resize:vertical}
+    .note{text-align:center;color:var(--muted);font-size:.88rem;margin-top:1rem}
+
+    .footer-cta{
+      text-align:center;
+      padding:6.2rem 1.2rem;
+      border-top:1px solid var(--line);
+      background:linear-gradient(135deg,rgba(244,191,212,.12),rgba(243,211,140,.06),rgba(0,0,0,.34));
+    }
+
+    .footer-cta h2{
+      font-family:'Cormorant Garamond',serif;
+      color:var(--pink);
+      font-size:clamp(3rem,7vw,5.4rem);
+      font-weight:300;
+      line-height:.95;
+      margin-bottom:1rem;
+    }
+
+    .simple-footer{
+      text-align:center;
+      padding:4rem 1.2rem 3rem;
+      border-top:1px solid rgba(244,191,212,.14);
+      background:linear-gradient(180deg,rgba(244,191,212,.04),rgba(0,0,0,.88));
+    }
+
+    .simple-footer h3{
+      font-family:'Cormorant Garamond',serif;
+      color:var(--pink);
+      font-size:2.4rem;
+      font-weight:400;
+      margin-bottom:.8rem;
+    }
+
+    .simple-footer p{
+      max-width:720px;
+      margin:auto;
+      color:var(--muted);
+      line-height:1.8;
+      margin-bottom:2rem;
+    }
+
+    .footer-contact{
+      margin-bottom:2rem;
+    }
+
+    .footer-contact strong{
+      display:block;
+      color:var(--pink);
+      margin-bottom:.8rem;
+      font-size:1rem;
+    }
+
+    .footer-links,
+    .footer-legal{
+      display:flex;
+      justify-content:center;
+      gap:1rem;
+      flex-wrap:wrap;
+    }
+
+    .footer-links a,
+    .footer-legal a{
+      color:var(--muted);
+      transition:.25s ease;
+    }
+
+    .footer-links a:hover,
+    .footer-legal a:hover{
+      color:var(--pink);
+    }
+
+    .footer-bottom{
+      margin-top:1rem;
+      color:#a9909d;
+      font-size:.9rem;
+    }
+
+    .footer-legal{
+      margin-top:1rem;
+      font-size:.88rem;
+    }
+
+    .fade{
+      opacity:0;
+      transform:translateY(38px);
+      filter:blur(8px);
+      transition:opacity 1s ease, transform 1s ease, filter 1s ease;
+    }
+
+    .fade.visible{
+      opacity:1;
+      transform:translateY(0);
+      filter:blur(0);
+    }
+
+    @keyframes cinemaIn{
+      from{opacity:0;transform:translateY(30px) scale(.98);filter:blur(8px)}
+      to{opacity:1;transform:translateY(0) scale(1);filter:blur(0)}
+    }
+
+    @media(max-width:980px){
+      .nav{
+        left:96px;
+        right:12px;
+        transform:none;
+        max-width:none;
+      }
+
+      .brand-home{
+        width:62px;
+        height:62px;
+        top:12px;
+        left:12px;
+        border-radius:18px;
+      }
+
+      .brand-home img{
+        width:48px;
+      }
+
+      .section{padding:4.8rem 1rem}
+
+      .grid-4,
+      .grid-3,
+      .grid-2,
+      .timer,
+      .form-grid,
+      .story-layout{
+        grid-template-columns:1fr;
+      }
+
+      .story-photo img{min-height:410px}
+      .timeline::before{left:0}
+      .timeline-item{grid-template-columns:1fr;gap:.6rem;padding-left:1.2rem}
+      .timeline-time{text-align:left}
+      .gallery{grid-template-columns:1fr}
+      .gallery img,
+      .gallery img:first-child{height:315px;grid-row:auto}
+      .hero::before{inset:.7rem;border-radius:24px}
+      .date-line::before,
+      .date-line::after{width:34px}
+    }
+  </style>
+</head>
+
+<body>
+
+<a href="/" class="brand-home">
+  <img src="/TIAMB.png" alt="Te Invito a Mi Boda">
+</a>
+
+<nav class="nav">
+  <a href="#detalles">Detalles</a>
+  <a href="#historia">Historia</a>
+  <a href="#timeline">Timeline</a>
+  <a href="#galeria">Galería</a>
+  <a href="#confirmar">RSVP</a>
+</nav>
+
+<a class="floating-whatsapp" href="https://wa.me/5215541946413?text=Hola,%20quiero%20cotizar%20una%20invitación%20de%20XV%20años" target="_blank">☘</a>
+
+<div class="ambient"></div>
+<div class="sparkles"></div>
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="eyebrow">Invitación digital glam</div>
+    <div class="script">Mis XV años</div>
+    <h1>Valentina</h1>
+    <p>Hay momentos que se sueñan toda la vida. Hoy quiero compartir contigo una noche llena de magia, brillo, música y recuerdos inolvidables.</p>
+    <div class="date-line">15 · Agosto · 2027</div>
+    <div class="actions">
+      <a class="btn btn-glam" href="#confirmar">Confirmar asistencia</a>
+      <a class="btn btn-outline" href="#detalles">Ver detalles</a>
+    </div>
+  </div>
+</section>
+
+<section class="section fade">
+  <div class="container">
+    <div class="intro-card glass">
+      <h2>Una noche mágica</h2>
+      <p>Con mucha emoción quiero invitarte a celebrar conmigo este momento tan especial. Tu presencia hará que esta noche sea todavía más inolvidable.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section fade" id="detalles">
+  <div class="container">
+    <h2 class="title">Detalles del evento</h2>
+    <p class="subtitle">Estos son los lugares principales de mi celebración.</p>
+
+    <div class="grid-2">
+      <article class="card glass">
+        <span class="icon">⛪</span>
+        <h3>Misa de acción de gracias</h3>
+        <p>Parroquia Santa Lucía<br>Ciudad de México</p>
+        <p><strong>5:30 PM</strong></p>
+        <a class="btn btn-glam" href="https://maps.google.com" target="_blank">Ver ubicación</a>
+      </article>
+
+      <article class="card glass">
+        <span class="icon">✨</span>
+        <h3>Recepción</h3>
+        <p>Salón Aurora Glam<br>Ciudad de México</p>
+        <p><strong>8:00 PM</strong></p>
+        <a class="btn btn-glam" href="https://maps.google.com" target="_blank">Ver ubicación</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section fade" id="historia">
+  <div class="container story-layout">
+    <div class="story-photo">
+      <img src="https://images.unsplash.com/photo-1542042161784-26ab9e041e89?auto=format&fit=crop&w=1200&q=90" alt="Foto quinceañera">
+    </div>
+
+    <div class="story-copy glass">
+      <h3>Gracias por ser parte de mi historia</h3>
+      <p>Este día representa una nueva etapa llena de sueños, ilusiones y momentos especiales.</p>
+      <p>Quiero vivir esta celebración rodeada de mi familia, mis amigos y todas las personas que han sido parte de mi camino.</p>
+      <div class="actions" style="justify-content:flex-start;">
+        <a class="btn btn-soft" href="#galeria">Ver galería</a>
+        <a class="btn btn-outline" href="#timeline">Ver itinerario</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section fade">
+  <div class="container">
+    <h2 class="title">Cuenta regresiva</h2>
+    <p class="subtitle">Cada día falta menos para celebrar juntos.</p>
+
+    <div class="timer">
+      <div class="time-box"><span id="days">00</span><small>Días</small></div>
+      <div class="time-box"><span id="hours">00</span><small>Horas</small></div>
+      <div class="time-box"><span id="minutes">00</span><small>Minutos</small></div>
+      <div class="time-box"><span id="seconds">00</span><small>Segundos</small></div>
+    </div>
+  </div>
+</section>
+
+<section class="section fade" id="timeline">
+  <div class="container">
+    <h2 class="title">Timeline de la noche</h2>
+    <p class="subtitle">Una guía de los momentos más esperados de la celebración.</p>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-time">5:30 PM</div>
+        <div class="timeline-detail"><strong>Misa</strong><p>Celebración de acción de gracias.</p></div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-time">8:00 PM</div>
+        <div class="timeline-detail"><strong>Recepción</strong><p>Bienvenida de invitados y fotografías.</p></div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-time">9:00 PM</div>
+        <div class="timeline-detail"><strong>Entrada principal</strong><p>Momento especial de presentación.</p></div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-time">9:30 PM</div>
+        <div class="timeline-detail"><strong>Vals</strong><p>Baile familiar y momento emotivo.</p></div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-time">10:30 PM</div>
+        <div class="timeline-detail"><strong>Fiesta</strong><p>Música, luces y celebración.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section fade">
+  <div class="container">
+    <h2 class="title">Detalles glam</h2>
+    <p class="subtitle">Todo lo necesario para disfrutar la noche.</p>
+
+    <div class="grid-4">
+      <article class="card glass"><span class="icon">👗</span><h3>Dress code</h3><p>Formal elegante. Se sugieren tonos neutros, negro o champagne.</p></article>
+      <article class="card glass"><span class="icon">🎵</span><h3>Playlist</h3><p>Sugiere una canción para bailar esa noche.</p><a class="btn btn-soft" href="https://wa.me/5215541946413?text=Hola,%20quiero%20sugerir%20esta%20canción%20para%20los%20XV:%20" target="_blank">Sugerir</a></article>
+      <article class="card glass"><span class="icon">🎁</span><h3>Regalos</h3><p>Tu presencia es el mejor regalo. También puedes dejar un detalle especial.</p><a class="btn btn-soft" href="#">Ver opciones</a></article>
+      <article class="card glass"><span class="icon">📅</span><h3>Calendario</h3><p>Agrega el evento para no olvidar la fecha.</p><a class="btn btn-soft" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=XV%20Valentina&dates=20270815T233000Z/20270816T060000Z&details=Celebración%20XV%20años&location=Ciudad%20de%20México" target="_blank">Agregar</a></article>
+    </div>
+  </div>
+</section>
+
+<section class="section fade" id="galeria">
+  <div class="container">
+    <h2 class="title">Galería glam</h2>
+    <p class="subtitle">Un estilo visual moderno, elegante y perfecto para redes sociales.</p>
+
+    <div class="gallery">
+      <img src="https://images.unsplash.com/photo-1529634806980-85c3dd6d34ac?auto=format&fit=crop&w=1200&q=90" alt="Galería XV">
+      <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1200&q=90" alt="Galería XV">
+      <img src="https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=1200&q=90" alt="Galería XV">
+      <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=90" alt="Galería XV">
+      <img src="https://images.unsplash.com/photo-1509610973147-232dfea52a97?auto=format&fit=crop&w=1200&q=90" alt="Galería XV">
+    </div>
+  </div>
+</section>
+
+<section class="rsvp fade" id="confirmar">
+  <div class="container">
+    <h2 class="title">Confirma tu asistencia</h2>
+    <p class="subtitle">Tu confirmación nos ayuda a preparar cada detalle de esta noche tan especial.</p>
+
+    <form class="rsvp-form glass" id="rsvpForm">
+      <div class="form-grid">
+        <input id="guestName" type="text" placeholder="Nombre completo" required>
+        <select id="attendance" required>
+          <option value="">¿Asistirás?</option>
+          <option value="Sí asistiré">Sí asistiré</option>
+          <option value="No podré asistir">No podré asistir</option>
+        </select>
+        <input id="guestCount" type="number" min="1" max="10" placeholder="Número de personas" required>
+        <input id="phone" type="tel" placeholder="Teléfono de contacto">
+      </div>
+
+      <textarea id="message" placeholder="Mensaje especial o canción sugerida"></textarea>
+
+      <div class="actions">
+        <button class="btn btn-glam" type="submit">Enviar confirmación</button>
+        <a class="btn btn-outline" href="https://wa.me/5215541946413" target="_blank">WhatsApp directo</a>
+      </div>
+
+      <p class="note">Demo ficticia: la confirmación se envía por WhatsApp.</p>
+    </form>
+  </div>
+</section>
+
+<section class="footer-cta">
+  <h2>Una invitación con brillo propio</h2>
+  <p class="subtitle">Ideal para XV años, cumpleaños glam, fiestas elegantes y eventos con estética moderna.</p>
+  <div class="actions">
+    <a class="btn btn-glam" href="https://wa.me/5215541946413?text=Hola,%20quiero%20cotizar%20una%20invitación%20para%20XV%20años" target="_blank">Cotizar este estilo</a>
+    <a class="btn btn-outline" href="/">Volver al catálogo</a>
+  </div>
+</section>
+
+<footer class="simple-footer">
+  <h3>Te Invito a Mi Boda</h3>
+
+  <p>
+    Invitaciones digitales premium para bodas y eventos especiales.
+    Diseños modernos, elegantes y completamente personalizados.
+  </p>
+
+  <div class="footer-contact">
+    <strong>Contacto</strong>
+    <div class="footer-links">
+      <a href="https://wa.me/5215541946413" target="_blank">WhatsApp</a>
+      <a href="#">Instagram</a>
+      <a href="#">TikTok</a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 TeInvitoAMiBoda.online — Todos los derechos reservados.
+  </div>
+
+  <div class="footer-legal">
+    <a href="/aviso-de-privacidad.html">Aviso de Privacidad</a>
+    <a href="/terminos-y-condiciones.html">Términos y Condiciones</a>
+  </div>
+</footer>
+
+<script>
+  const eventDate = new Date('2027-08-15T17:30:00').getTime();
+  const whatsappNumber = '5215541946413';
+
+  function updateCountdown(){
+    const now = Date.now();
+    const distance = eventDate - now;
+
+    if(distance <= 0){
+      const timer = document.querySelector('.timer');
+      if(timer) timer.innerHTML = '<p>¡Hoy es el gran día!</p>';
+      return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById('days').textContent = String(days).padStart(2,'0');
+    document.getElementById('hours').textContent = String(hours).padStart(2,'0');
+    document.getElementById('minutes').textContent = String(minutes).padStart(2,'0');
+    document.getElementById('seconds').textContent = String(seconds).padStart(2,'0');
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown,1000);
+
+  const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  },{threshold:.12});
+
+  document.querySelectorAll('.fade').forEach(el=>observer.observe(el));
+
+  const rsvpForm = document.getElementById('rsvpForm');
+
+  rsvpForm.addEventListener('submit', function(e){
+    e.preventDefault();
+
+    const name = document.getElementById('guestName').value.trim();
+    const attendance = document.getElementById('attendance').value;
+    const count = document.getElementById('guestCount').value;
+    const phone = document.getElementById('phone').value.trim() || 'No indicado';
+    const messageText = document.getElementById('message').value.trim() || 'Sin mensaje';
+
+    const message =
+      `Hola, confirmo mi asistencia a los XV de Valentina.%0A%0A` +
+      `Nombre: ${encodeURIComponent(name)}%0A` +
+      `Asistencia: ${encodeURIComponent(attendance)}%0A` +
+      `Número de personas: ${encodeURIComponent(count)}%0A` +
+      `Teléfono: ${encodeURIComponent(phone)}%0A` +
+      `Mensaje o canción: ${encodeURIComponent(messageText)}`;
+
+    window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
+  });
+</script>
+
+</body>
+</html>

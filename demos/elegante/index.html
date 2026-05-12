@@ -503,7 +503,135 @@
       from { opacity: 0; transform: translateY(30px); }
       to { opacity: 1; transform: translateY(0); }
     }
+.brand-home{
+  position:fixed;
+  top:18px;
+  left:18px;
 
+  z-index:120;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  width:74px;
+  height:74px;
+
+  border-radius:22px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.06),
+      rgba(255,255,255,.02)
+    );
+
+  border:1px solid rgba(244,213,141,.16);
+
+  backdrop-filter:blur(18px);
+
+  box-shadow:
+    0 14px 40px rgba(0,0,0,.42),
+    0 0 28px rgba(244,213,141,.10);
+
+  transition:.35s ease;
+}
+
+.brand-home:hover{
+  transform:
+    translateY(-2px)
+    scale(1.04);
+
+  border-color:
+    rgba(244,213,141,.34);
+
+  box-shadow:
+    0 20px 55px rgba(0,0,0,.55),
+    0 0 42px rgba(244,213,141,.18);
+}
+
+.brand-home img{
+  width:58px;
+  height:auto;
+
+  object-fit:contain;
+
+  filter:
+    drop-shadow(0 0 16px rgba(244,213,141,.22));
+}
+    .simple-footer{
+  text-align:center;
+  padding:4rem 1.2rem 3rem;
+
+  border-top:1px solid rgba(244,213,141,.12);
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(201,164,95,.04),
+      rgba(0,0,0,.88)
+    );
+}
+
+.simple-footer h3{
+  font-family:'Cormorant Garamond',serif;
+  color:var(--gold-2);
+  font-size:2.4rem;
+  font-weight:400;
+  margin-bottom:.8rem;
+}
+
+.simple-footer p{
+  max-width:720px;
+  margin:auto;
+  color:var(--muted);
+  line-height:1.8;
+  margin-bottom:2rem;
+}
+
+.footer-contact{
+  margin-bottom:2rem;
+}
+
+.footer-contact strong{
+  display:block;
+  color:var(--gold-2);
+  margin-bottom:.8rem;
+  font-size:1rem;
+}
+
+.footer-links{
+  display:flex;
+  justify-content:center;
+  gap:1.2rem;
+  flex-wrap:wrap;
+}
+
+.footer-links a,
+.footer-legal a{
+  color:#cfc6bb;
+  transition:.25s ease;
+}
+
+.footer-links a:hover,
+.footer-legal a:hover{
+  color:var(--gold-2);
+}
+
+.footer-bottom{
+  margin-top:1rem;
+  color:#8f8578;
+  font-size:.9rem;
+}
+
+.footer-legal{
+  margin-top:1rem;
+  display:flex;
+  justify-content:center;
+  gap:1rem;
+  flex-wrap:wrap;
+  font-size:.88rem;
+}
     @media(max-width: 900px) {
       .hero::after { inset: .7rem; border-radius: 24px; }
       .section { padding: 4.2rem 1rem; }
@@ -523,10 +651,26 @@
       .timeline-item { grid-template-columns: 1fr; gap: .6rem; padding-left: 1.2rem; }
       .timeline-time { text-align: left; }
       .eyebrow { letter-spacing: 4px; }
+      .brand-home{
+  width:62px;
+  height:62px;
+
+  top:12px;
+  left:12px;
+
+  border-radius:18px;
+}
+
+.brand-home img{
+  width:48px;
+}
     }
   </style>
 </head>
 <body>
+  <a href="/" class="brand-home">
+  <img src="/TIAMB.png" alt="Te Invito a Mi Boda">
+</a>
   <div class="luxury-bg"></div>
   <div class="sparkles"></div>
 
@@ -547,7 +691,7 @@
   </section>
 
   <div class="private-banner">
-    Invitación privada · Acceso exclusivo mediante enlace personalizado
+    Invitación digital personalizada · Diseñada especialmente para esta celebración
   </div>
 
   <section class="section fade">
@@ -559,7 +703,7 @@
         <div class="guest-info">
           <div class="pill-card"><strong>2</strong><small>Lugares</small></div>
           <div class="pill-card"><strong>14</strong><small>Mesa</small></div>
-          <div class="pill-card"><strong>VIP</strong><small>Acceso</small></div>
+          <strong>Pase digital</strong><small>Acceso</small>
         </div>
       </div>
     </div>
@@ -768,9 +912,35 @@
     </div>
   </section>
 
-  <footer>
-    Diseño Elegante Premium · Te Invito a Mi Boda
-  </footer>
+  <footer class="simple-footer">
+
+  <h3>Te Invito a Mi Boda</h3>
+
+  <p>
+    Invitaciones digitales premium para bodas y eventos especiales.
+    Diseños modernos, elegantes y completamente personalizados.
+  </p>
+
+  <div class="footer-contact">
+    <strong>Contacto</strong>
+
+    <div class="footer-links">
+      <a href="https://wa.me/5215541946413" target="_blank">WhatsApp</a>
+      <a href="#">Instagram</a>
+      <a href="#">TikTok</a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 TeInvitoAMiBoda.online — Todos los derechos reservados.
+  </div>
+
+  <div class="footer-legal">
+    <a href="/aviso-de-privacidad.html">Aviso de Privacidad</a>
+    <a href="/terminos-y-condiciones.html">Términos y Condiciones</a>
+  </div>
+
+</footer>
 
   <script>
     const weddingDate = new Date('2026-10-18T18:00:00').getTime();

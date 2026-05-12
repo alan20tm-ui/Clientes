@@ -743,7 +743,77 @@ content="https://teinvitoamiboda.online/assets/preview-social.jpg">
         font-size: clamp(3.8rem, 7vw, 6.4rem);
       }
     }
+.simple-footer{
+  text-align:center;
+  padding:4rem 1.2rem 3rem;
+  border-top:1px solid rgba(244,213,141,.12);
+  background:
+    linear-gradient(
+      180deg,
+      rgba(201,164,95,.04),
+      rgba(0,0,0,.88)
+    );
+}
 
+.simple-footer h3{
+  font-family:'Cormorant Garamond',serif;
+  color:var(--gold2);
+  font-size:2.4rem;
+  font-weight:400;
+  margin-bottom:.8rem;
+}
+
+.simple-footer p{
+  max-width:720px;
+  margin:auto;
+  color:var(--muted);
+  line-height:1.8;
+  margin-bottom:2rem;
+}
+
+.footer-contact{
+  margin-bottom:2rem;
+}
+
+.footer-contact strong{
+  display:block;
+  color:var(--gold2);
+  margin-bottom:.8rem;
+  font-size:1rem;
+}
+
+.footer-links{
+  display:flex;
+  justify-content:center;
+  gap:1.2rem;
+  flex-wrap:wrap;
+}
+
+.footer-links a,
+.footer-legal a{
+  color:#cfc6bb;
+  transition:.25s ease;
+}
+
+.footer-links a:hover,
+.footer-legal a:hover{
+  color:var(--gold2);
+}
+
+.footer-bottom{
+  margin-top:1rem;
+  color:#8f8578;
+  font-size:.9rem;
+}
+
+.footer-legal{
+  margin-top:1rem;
+  display:flex;
+  justify-content:center;
+  gap:1rem;
+  flex-wrap:wrap;
+  font-size:.88rem;
+}
     @media (max-width: 900px) {
 
   .navbar {
@@ -1300,67 +1370,32 @@ content="https://teinvitoamiboda.online/assets/preview-social.jpg">
     </div>
   </section>
 
-  <footer class="footer">
+ <footer class="simple-footer">
 
-  <div class="footer-grid">
+  <h3>Te Invito a Mi Boda</h3>
 
-    <div class="footer-brand">
-      <h3>Te Invito a Mi Boda</h3>
+  <p>
+    Invitaciones digitales premium para bodas y eventos especiales.
+    Diseños modernos, elegantes y completamente personalizados.
+  </p>
 
-      <p>
-        Invitaciones digitales premium para bodas y eventos especiales.
-        Diseños modernos, elegantes y completamente personalizados.
-      </p>
+  <div class="footer-contact">
+    <strong>Contacto</strong>
+
+    <div class="footer-links">
+      <a href="https://wa.me/5215541946413" target="_blank">WhatsApp</a>
+      <a href="#">Instagram</a>
+      <a href="#">TikTok</a>
     </div>
-
-    <div>
-      <h4>Diseños</h4>
-
-      <a href="/demos/minimalista/">Minimalista</a>
-      <a href="/demos/floral/">Floral</a>
-      <a href="/demos/elegante/">Premium</a>
-      <a href="/demos/luxury-experience/">Luxury</a>
-    </div>
-
-    <div>
-      <h4>Eventos</h4>
-
-      <a href="#">XV Años</a>
-      <a href="#">Graduaciones</a>
-      <a href="#">Bautizos</a>
-      <a href="#">Cumpleaños</a>
-      <a href="#">Eventos Especiales</a>
-    </div>
-
-    <div>
-      <h4>Contacto</h4>
-
-      <a href="https://wa.me/525541946413" target="_blank">
-        WhatsApp
-      </a>
-
-      <a href="https://instagram.com/teinvitoamiboda.online" target="_blank">
-        Instagram
-      </a>
-
-      <a href="https://tiktok.com/@teinvitoamiboda.online" target="_blank">
-        TikTok
-      </a>
-    </div>
-
   </div>
 
   <div class="footer-bottom">
+    © 2026 TeInvitoAMiBoda.online — Todos los derechos reservados.
+  </div>
 
-    <div>
-      © 2026 TeInvitoAMiBoda.online — Todos los derechos reservados.
-    </div>
-
-    <div class="footer-legal">
-      <a href="#">Aviso de Privacidad</a>
-      <a href="#">Términos y Condiciones</a>
-    </div>
-
+  <div class="footer-legal">
+    <a href="#">Aviso de Privacidad</a>
+    <a href="#">Términos y Condiciones</a>
   </div>
 
 </footer>

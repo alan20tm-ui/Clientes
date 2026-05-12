@@ -281,7 +281,50 @@
         transform: translateY(0);
       }
     }
+.brand-home{
+  position:fixed;
+  top:18px;
+  left:18px;
 
+  z-index:120;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  width:74px;
+  height:74px;
+
+  border-radius:22px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.16),
+      rgba(255,255,255,.06)
+    );
+
+  border:1px solid rgba(255,255,255,.24);
+
+  backdrop-filter:blur(18px);
+
+  box-shadow:
+    0 14px 40px rgba(0,0,0,.16);
+
+  transition:.35s ease;
+}
+
+.brand-home:hover{
+  transform:
+    translateY(-2px)
+    scale(1.04);
+}
+
+.brand-home img{
+  width:58px;
+  height:auto;
+  object-fit:contain;
+}
     @media(max-width: 850px) {
       .event-grid,
       .gift-grid,
@@ -289,6 +332,19 @@
       .timer {
         grid-template-columns: 1fr;
       }
+      .brand-home{
+  width:62px;
+  height:62px;
+
+  top:12px;
+  left:12px;
+
+  border-radius:18px;
+}
+
+.brand-home img{
+  width:48px;
+}
 
       .gallery img {
         height: 280px;
@@ -301,8 +357,11 @@
   </style>
 </head>
 <body>
+  <a href="/" class="brand-home">
+  <img src="/TIAMB.png" alt="Te Invito a Mi Boda">
+</a>
 
-  <div class="flowers"></div>
+<div class="flowers"></div>
 
   <section class="hero">
     <div class="hero-content">

@@ -27,6 +27,9 @@
     *{margin:0;padding:0;box-sizing:border-box}
     html{scroll-behavior:smooth;overflow-x:hidden}
     body{
+      <a href="/" class="brand-home">
+  <img src="/TIAMB.png" alt="Te Invito a Mi Boda">
+</a>
       font-family:'Montserrat',sans-serif;
       background:var(--black);
       color:var(--champagne);
@@ -642,7 +645,6 @@
   filter:
     blur(0);
 }
-    }
 
     @keyframes cinematicIn{
       from{opacity:0;transform:translateY(30px) scale(.98);filter:blur(8px)}
@@ -764,7 +766,9 @@
   border-radius:34px;
   overflow:hidden;
   border:1px solid var(--line);
-  background:var(--bg) center/cover;
+  background:
+  var(--bg)
+  center/cover;
   box-shadow:0 30px 80px rgba(0,0,0,.55);
 }
 
@@ -811,11 +815,80 @@
   0%,100%{transform:translateY(0)}
   50%{transform:translateY(-8px)}
 }
+      .brand-home{
+  position:fixed;
+  top:18px;
+  left:18px;
+
+  z-index:120;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  width:74px;
+  height:74px;
+
+  border-radius:22px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.06),
+      rgba(255,255,255,.02)
+    );
+
+  border:1px solid rgba(244,213,141,.16);
+
+  backdrop-filter:blur(18px);
+
+  box-shadow:
+    0 14px 40px rgba(0,0,0,.42),
+    0 0 28px rgba(244,213,141,.10);
+
+  transition:.35s ease;
+}
+
+.brand-home:hover{
+  transform:
+    translateY(-2px)
+    scale(1.04);
+
+  border-color:
+    rgba(244,213,141,.34);
+
+  box-shadow:
+    0 20px 55px rgba(0,0,0,.55),
+    0 0 42px rgba(244,213,141,.18);
+}
+
+.brand-home img{
+  width:58px;
+  height:auto;
+
+  object-fit:contain;
+
+  filter:
+    drop-shadow(0 0 16px rgba(244,213,141,.22));
+}
     @media(max-width:980px){
       .section{padding:4.8rem 1rem}
       .grid-4,.grid-3,.grid-2,.timer,.form-grid,.story-layout,.qr-layout{
         grid-template-columns:1fr;
       }
+      .brand-home{
+  width:62px;
+  height:62px;
+
+  top:12px;
+  left:12px;
+
+  border-radius:18px;
+}
+
+.brand-home img{
+  width:48px;
+}
       .scene-card{
   grid-template-columns:1fr;
   text-align:center;
@@ -1275,7 +1348,5 @@
     });
   }
 </script>
-</body>
-</html>
 </body>
 </html>

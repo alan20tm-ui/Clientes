@@ -1,1 +1,58 @@
+<!DOCTYPE html>
 
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;}
+    .card{padding:2rem;text-align:center;border-radius:28px;background:var(--card);border:1px solid var(--line);box-shadow:0 14px 34px rgba(68,37,26,.08);}
+    .card span{font-size:2.2rem;display:block;margin-bottom:.7rem;}
+    .card h3{font-family:'Playfair Display',serif;font-size:2rem;color:var(--terracotta);margin-bottom:.5rem;}
+    .card p{color:var(--muted);}
+
+    .rsvp{text-align:center;background:rgba(255,244,223,.9);padding:5rem 1rem;border-top:1px solid var(--line);}
+    footer{text-align:center;padding:3rem 1rem;color:var(--muted);font-size:.9rem;}
+
+    @keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+
+    @media(max-width:850px){
+      .grid{grid-template-columns:1fr;}
+      .brand-home{width:60px;height:60px;top:48px;left:12px;border-radius:16px;}
+      .brand-home img{width:46px;}
+    }
+  </style>
+</head>
+<body>
+
+<div class="papel"></div>
+<a href="/" class="brand-home"><img src="/TIAMB.png" alt="Te Invito a Mi Boda"></a>
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="eyebrow">Vintage Mexicano</div>
+    <h1>Fiesta<br>Mexicana</h1>
+    <p>Una celebración llena de color, tradición, flores, música y sabor mexicano.</p>
+    <div class="date">15 · Septiembre · 2027</div>
+    <a href="#confirmar" class="btn">Confirmar asistencia</a>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="title">Detalles</h2>
+    <p class="subtitle">Una noche con ambiente mexicano, antojitos y mucha alegría.</p>
+
+    <div class="grid">
+      <article class="card"><span>📅</span><h3>Fecha</h3><p>Viernes 15 de Septiembre · 7:00 PM</p></article>
+      <article class="card"><span>📍</span><h3>Lugar</h3><p>Hacienda La Tradición · CDMX</p></article>
+      <article class="card"><span>🌺</span><h3>Dress Code</h3><p>Mexicano elegante o colores vivos.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="rsvp" id="confirmar">
+  <h2 class="title">Confirma tu asistencia</h2>
+  <p class="subtitle">Será una alegría celebrar contigo.</p>
+  <a class="btn" href="https://wa.me/5215541946413?text=Hola,%20confirmo%20mi%20asistencia%20a%20la%20fiesta%20mexicana" target="_blank">Confirmar por WhatsApp</a>
+</section>
+
+<footer>Demo Vintage Mexicano · TeInvitoAMiBoda.online</footer>
+
+</body>
+</html>

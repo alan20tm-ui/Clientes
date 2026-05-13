@@ -1,1 +1,74 @@
+<!DOCTYPE html>
 
+    .subtitle{text-align:center;color:var(--muted);max-width:680px;margin:0 auto 3rem;}
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:1.2rem;
+    }
+
+    .card{
+      padding:2rem;
+      text-align:center;
+      border-radius:28px;
+      background:var(--card);
+      border:1px solid var(--line);
+      backdrop-filter:blur(12px);
+      box-shadow:0 14px 34px rgba(109,76,54,.08);
+    }
+
+    .card span{font-size:2.2rem;display:block;margin-bottom:.7rem;}
+    .card h3{font-family:'Playfair Display',serif;font-size:2rem;margin-bottom:.5rem;}
+    .card p{color:var(--muted);}
+
+    .rsvp{text-align:center;background:#fff;padding:5rem 1rem;border-top:1px solid var(--line);}
+
+    footer{text-align:center;padding:3rem 1rem;color:var(--muted);font-size:.9rem;}
+
+    @keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+
+    @media(max-width:850px){
+      .grid{grid-template-columns:1fr;}
+      .brand-home{width:60px;height:60px;top:12px;left:12px;border-radius:18px;}
+      .brand-home img{width:46px;}
+    }
+  </style>
+</head>
+<body>
+
+<a href="/" class="brand-home"><img src="/TIAMB.png" alt="Te Invito a Mi Boda"></a>
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="eyebrow">Baby Shower Moderno</div>
+    <h1>Baby<br>Mateo</h1>
+    <p>Con mucho amor esperamos la llegada de nuestro bebé. Nos encantará compartir este día tan especial contigo.</p>
+    <div class="date">16 · Marzo · 2027</div>
+    <a href="#confirmar" class="btn">Confirmar asistencia</a>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="title">Detalles</h2>
+    <p class="subtitle">Una tarde suave, familiar y llena de ternura.</p>
+
+    <div class="grid">
+      <article class="card"><span>📅</span><h3>Fecha</h3><p>Domingo 16 de Marzo · 4:00 PM</p></article>
+      <article class="card"><span>📍</span><h3>Lugar</h3><p>Jardín Encanto · Ciudad de México</p></article>
+      <article class="card"><span>🎁</span><h3>Regalitos</h3><p>Pañales etapa 1 o sobre sorpresa.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="rsvp" id="confirmar">
+  <h2 class="title">Confirma tu asistencia</h2>
+  <p class="subtitle">Nos ayudará mucho saber si podrás acompañarnos.</p>
+  <a class="btn" href="https://wa.me/5215541946413?text=Hola,%20confirmo%20mi%20asistencia%20al%20Baby%20Shower" target="_blank">Confirmar por WhatsApp</a>
+</section>
+
+<footer>Demo Baby Shower Moderno · TeInvitoAMiBoda.online</footer>
+
+</body>
+</html>

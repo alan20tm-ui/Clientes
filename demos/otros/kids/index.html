@@ -1,63 +1,793 @@
 <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Kids Party | Invitación Digital</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Baloo+2:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      --blue:#4eb5ff;
-      --pink:#ff78bd;
-      --yellow:#ffd84e;
-      --purple:#8c6bff;
-      --text:#243043;
-      --muted:#667085;
-      --card:#fff;
-      --line:rgba(36,48,67,.10);
+      --yellow:#ffd93d;
+      --pink:#ff7eb6;
+      --blue:#5ec8ff;
+      --green:#5dd39e;
+      --purple:#9c7bff;
+
+      --text:#2f2f2f;
+      --muted:#6b6b6b;
+
+      --bg:#fffdf6;
+      --card:#ffffff;
+      --line:rgba(0,0,0,.06);
     }
 
-    *{margin:0;padding:0;box-sizing:border-box;}
-    html{scroll-behavior:smooth;}
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
 
     body{
-      font-family:'Inter',sans-serif;
-      color:var(--text);
+      font-family:'Fredoka',sans-serif;
+
       background:
-        radial-gradient(circle at 15% 20%, rgba(78,181,255,.28), transparent 28%),
-        radial-gradient(circle at 90% 20%, rgba(255,120,189,.24), transparent 30%),
-        radial-gradient(circle at 50% 90%, rgba(255,216,78,.30), transparent 34%),
-        #fffaf2;
-      overflow-x:hidden;
+        radial-gradient(circle at 10% 20%, rgba(255,217,61,.25), transparent 28%),
+        radial-gradient(circle at 90% 15%, rgba(94,200,255,.22), transparent 30%),
+        radial-gradient(circle at 80% 85%, rgba(93,211,158,.20), transparent 28%),
+        linear-gradient(135deg,#fffef8,#ffffff);
+
+      color:var(--text);
       line-height:1.7;
+      overflow-x:hidden;
     }
 
-    a{text-decoration:none;color:inherit;}
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
+
+    img{
+      max-width:100%;
+      display:block;
+    }
 
     .brand-home{
-      position:fixed;top:18px;left:18px;z-index:120;
-      display:flex;align-items:center;justify-content:center;
-      width:72px;height:72px;border-radius:22px;
-      background:rgba(255,255,255,.78);
-      border:1px solid var(--line);
-      backdrop-filter:blur(16px);
-      box-shadow:0 14px 34px rgba(36,48,67,.10);
-    }
+      position:fixed;
+      top:18px;
+      left:18px;
+      z-index:120;
 
-    .brand-home img{width:56px;}
-
-    .hero{
-      min-height:100vh;
       display:flex;
       align-items:center;
       justify-content:center;
-      text-align:center;
-      padding:7rem 1rem 4rem;
-      position:relative;
+
+      width:72px;
+      height:72px;
+
+      border-radius:22px;
+
+      background:rgba(255,255,255,.84);
+      border:1px solid rgba(0,0,0,.05);
+
+      backdrop-filter:blur(16px);
+
+      box-shadow:0 14px 34px rgba(0,0,0,.08);
+
+      transition:.3s ease;
     }
 
-    .hero::after{
-      content:"🎈";
+    .brand-home:hover{
+      transform:translateY(-2px) scale(1.04);
+    }
+
+    .brand-home img{
+      width:56px;
+      height:auto;
+      object-fit:contain;
+    }
+
+    .floating-whatsapp{
+      position:fixed;
+      right:18px;
+      bottom:18px;
+      z-index:100;
+
+      width:58px;
+      height:58px;
+
+      border-radius:50%;
+
+      display:grid;
+      place-items:center;
+
+      background:#25D366;
+      color:white;
+
+      font-size:1.75rem;
+
+      box-shadow:0 12px 30px rgba(0,0,0,.20);
+    }
+
+    .floating-shapes{
+      position:fixed;
+      inset:0;
+      z-index:-1;
+      pointer-events:none;
+      overflow:hidden;
+    }
+
+    .bubble{
       position:absolute;
-      right:10%;
-      bottom:10%;
-      font-size:9rem;
-      opacity:.16;
+      border-radius:50%;
+      opacity:.18;
+      animation:float 18s linear infinite;
     }
 
-    .hero-
+    .bubble:nth-child(1){
+      width:180px;
+      height:180px;
+      background:var(--pink);
+      left:6%;
+      top:75%;
+    }
+
+    .bubble:nth-child(2){
+      width:120px;
+      height:120px;
+      background:var(--blue);
+      left:80%;
+      top:12%;
+      animation-duration:22s;
+    }
+
+    .bubble:nth-child(3){
+      width:140px;
+      height:140px;
+      background:var(--green);
+      left:72%;
+      top:72%;
+      animation-duration:20s;
+    }
+
+    .bubble:nth-child(4){
+      width:90px;
+      height:90px;
+      background:var(--yellow);
+      left:22%;
+      top:12%;
+      animation-duration:16s;
+    }
+
+    @keyframes float{
+      0%{
+        transform:translateY(0px);
+      }
+
+      50%{
+        transform:translateY(-25px);
+      }
+
+      100%{
+        transform:translateY(0px);
+      }
+    }
+
+    .hero{
+      min-height:100vh;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      text-align:center;
+
+      padding:7rem 1.2rem 4rem;
+
+      position:relative;
+      overflow:hidden;
+    }
+
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:1.1rem;
+
+      border:2px dashed rgba(0,0,0,.06);
+      border-radius:36px;
+
+      pointer-events:none;
+    }
+
+    .hero-content{
+      max-width:860px;
+      position:relative;
+      z-index:2;
+
+      animation:fadeUp 1s ease both;
+    }
+
+    .eyebrow{
+      color:var(--purple);
+
+      letter-spacing:.28em;
+      text-transform:uppercase;
+
+      font-size:.78rem;
+      font-weight:700;
+
+      margin-bottom:1.2rem;
+    }
+
+    h1{
+      font-family:'Baloo 2',sans-serif;
+
+      font-size:clamp(4rem,11vw,8rem);
+      line-height:.88;
+      font-weight:700;
+
+      margin-bottom:1.2rem;
+
+      color:#2f2f2f;
+    }
+
+    h1 span{
+      background:
+        linear-gradient(
+          135deg,
+          var(--pink),
+          var(--purple),
+          var(--blue)
+        );
+
+      -webkit-background-clip:text;
+      color:transparent;
+    }
+
+    .hero p{
+      max-width:650px;
+      margin:0 auto 2rem;
+
+      color:var(--muted);
+      font-size:1.08rem;
+    }
+
+    .date{
+      color:#444;
+
+      letter-spacing:.2em;
+      text-transform:uppercase;
+
+      font-size:.9rem;
+      font-weight:700;
+
+      margin-bottom:2rem;
+    }
+
+    .hero-actions,
+    .actions{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:1rem;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+
+      padding:1rem 1.5rem;
+
+      border-radius:999px;
+
+      font-size:.92rem;
+      font-weight:700;
+
+      transition:.25s ease;
+
+      border:1px solid transparent;
+      cursor:pointer;
+    }
+
+    .btn-primary{
+      background:
+        linear-gradient(
+          135deg,
+          var(--pink),
+          var(--purple)
+        );
+
+      color:white;
+
+      box-shadow:0 14px 30px rgba(0,0,0,.12);
+    }
+
+    .btn-outline{
+      background:rgba(255,255,255,.72);
+      color:#333;
+      border-color:rgba(0,0,0,.08);
+    }
+
+    .btn:hover{
+      transform:translateY(-3px) scale(1.03);
+    }
+
+    .section{
+      padding:5.5rem 1.2rem;
+    }
+
+    .container{
+      max-width:1080px;
+      margin:auto;
+    }
+
+    .title{
+      font-family:'Baloo 2',sans-serif;
+
+      font-size:clamp(3rem,7vw,5.5rem);
+      line-height:.92;
+      font-weight:700;
+
+      text-align:center;
+
+      margin-bottom:1rem;
+    }
+
+    .subtitle{
+      text-align:center;
+
+      color:var(--muted);
+
+      max-width:680px;
+      margin:0 auto 3rem;
+    }
+
+    .fun-card{
+      max-width:920px;
+      margin:auto;
+
+      padding:3rem 2rem;
+
+      text-align:center;
+
+      border-radius:36px;
+
+      background:rgba(255,255,255,.82);
+      border:1px solid rgba(0,0,0,.05);
+
+      backdrop-filter:blur(12px);
+
+      box-shadow:0 18px 45px rgba(0,0,0,.06);
+    }
+
+    .fun-card h2{
+      font-family:'Baloo 2',sans-serif;
+
+      font-size:clamp(3rem,8vw,6rem);
+      line-height:.9;
+      font-weight:700;
+
+      margin-bottom:1rem;
+
+      color:var(--purple);
+    }
+
+    .fun-card p{
+      color:var(--muted);
+      max-width:650px;
+      margin:auto;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:1.2rem;
+    }
+
+    .info-card{
+      padding:2rem;
+      text-align:center;
+
+      border-radius:30px;
+
+      background:rgba(255,255,255,.84);
+      border:1px solid rgba(0,0,0,.05);
+
+      box-shadow:0 14px 34px rgba(0,0,0,.06);
+    }
+
+    .info-card span{
+      display:block;
+      font-size:2.6rem;
+      margin-bottom:.7rem;
+    }
+
+    .info-card h3{
+      font-family:'Baloo 2',sans-serif;
+      font-size:2rem;
+      margin-bottom:.5rem;
+    }
+
+    .info-card p{
+      color:var(--muted);
+    }
+
+    .themes{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:1rem;
+    }
+
+    .theme-card{
+      padding:1.5rem 1rem;
+      border-radius:26px;
+      text-align:center;
+      color:white;
+      font-weight:700;
+      box-shadow:0 14px 30px rgba(0,0,0,.08);
+    }
+
+    .theme-card:nth-child(1){
+      background:linear-gradient(135deg,#4ea8ff,#2563eb);
+    }
+
+    .theme-card:nth-child(2){
+      background:linear-gradient(135deg,#ff9f43,#ff6b6b);
+    }
+
+    .theme-card:nth-child(3){
+      background:linear-gradient(135deg,#ff6ec7,#c445ff);
+    }
+
+    .theme-card:nth-child(4){
+      background:linear-gradient(135deg,#52d681,#20bf6b);
+    }
+
+    .theme-card span{
+      display:block;
+      font-size:2rem;
+      margin-bottom:.5rem;
+    }
+
+    .rsvp{
+      text-align:center;
+
+      padding:6rem 1.2rem;
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(255,255,255,.42),
+          rgba(255,255,255,.92)
+        );
+
+      border-top:1px solid rgba(0,0,0,.05);
+    }
+
+    .simple-footer{
+      text-align:center;
+
+      padding:4rem 1.2rem 3rem;
+
+      border-top:1px solid rgba(0,0,0,.06);
+
+      background:#fff;
+    }
+
+    .simple-footer h3{
+      font-family:'Baloo 2',sans-serif;
+
+      color:#222;
+
+      font-size:2.4rem;
+      font-weight:700;
+
+      margin-bottom:.8rem;
+    }
+
+    .simple-footer p{
+      max-width:720px;
+      margin:auto;
+
+      color:var(--muted);
+      line-height:1.8;
+
+      margin-bottom:2rem;
+    }
+
+    .footer-contact{
+      margin-bottom:2rem;
+    }
+
+    .footer-contact strong{
+      display:block;
+      color:#222;
+      margin-bottom:.8rem;
+    }
+
+    .footer-links,
+    .footer-legal{
+      display:flex;
+      justify-content:center;
+      gap:1rem;
+      flex-wrap:wrap;
+    }
+
+    .footer-links a,
+    .footer-legal a{
+      color:var(--muted);
+      transition:.25s ease;
+    }
+
+    .footer-links a:hover,
+    .footer-legal a:hover{
+      color:var(--purple);
+    }
+
+    .footer-bottom{
+      margin-top:1rem;
+      color:var(--muted);
+      font-size:.9rem;
+    }
+
+    .footer-legal{
+      margin-top:1rem;
+      font-size:.88rem;
+    }
+
+    @keyframes fadeUp{
+      from{
+        opacity:0;
+        transform:translateY(24px);
+      }
+
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    @media(max-width:900px){
+
+      .grid,
+      .themes{
+        grid-template-columns:1fr;
+      }
+
+      .brand-home{
+        width:60px;
+        height:60px;
+        top:12px;
+        left:12px;
+        border-radius:18px;
+      }
+
+      .brand-home img{
+        width:46px;
+      }
+
+      .section{
+        padding:4.5rem 1rem;
+      }
+
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="floating-shapes">
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+</div>
+
+<a href="../../../" class="brand-home">
+  <img src="../../../TIAMB.png" alt="Te Invito a Mi Boda">
+</a>
+
+<a
+  class="floating-whatsapp"
+  href="https://wa.me/5215541946413?text=Hola,%20quiero%20información%20sobre%20una%20invitación%20digital%20Kids%20Party"
+  target="_blank"
+  aria-label="WhatsApp">
+  ☘
+</a>
+
+<section class="hero">
+
+  <div class="hero-content">
+
+    <div class="eyebrow">
+      Kids Party
+    </div>
+
+    <h1>
+      Fiesta de<br>
+      <span>Lucas</span>
+    </h1>
+
+    <p>
+      Prepárate para una tarde llena de juegos,
+      diversión, pastel, globos y mucha aventura.
+    </p>
+
+    <div class="date">
+      12 · Agosto · 2027
+    </div>
+
+    <div class="hero-actions">
+      <a href="#confirmar" class="btn btn-primary">
+        Confirmar asistencia
+      </a>
+
+      <a href="#detalles" class="btn btn-outline">
+        Ver detalles
+      </a>
+    </div>
+
+  </div>
+
+</section>
+
+<section class="section">
+
+  <div class="container">
+
+    <div class="fun-card">
+
+      <h2>
+        ¡Hora de jugar!
+      </h2>
+
+      <p>
+        Tendremos inflables, dulces, concursos,
+        premios y muchas sorpresas para todos.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="section" id="detalles">
+
+  <div class="container">
+
+    <h2 class="title">
+      Detalles
+    </h2>
+
+    <p class="subtitle">
+      Una fiesta divertida para pequeños aventureros.
+    </p>
+
+    <div class="grid">
+
+      <article class="info-card">
+        <span>📅</span>
+        <h3>Fecha</h3>
+        <p>Sábado 12 de Agosto · 4:00 PM</p>
+      </article>
+
+      <article class="info-card">
+        <span>🎡</span>
+        <h3>Lugar</h3>
+        <p>Salón Happy Kids · Ciudad de México</p>
+      </article>
+
+      <article class="info-card">
+        <span>🍭</span>
+        <h3>Dress Code</h3>
+        <p>Ropa cómoda y mucha energía.</p>
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="section">
+
+  <div class="container">
+
+    <h2 class="title">
+      Temáticas
+    </h2>
+
+    <p class="subtitle">
+      Perfecto para diferentes estilos infantiles.
+    </p>
+
+    <div class="themes">
+
+      <div class="theme-card">
+        <span>🐶</span>
+        Bluey
+      </div>
+
+      <div class="theme-card">
+        <span>🚓</span>
+        Paw Patrol
+      </div>
+
+      <div class="theme-card">
+        <span>🎀</span>
+        Barbie
+      </div>
+
+      <div class="theme-card">
+        <span>🦖</span>
+        Dinosaurios
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="rsvp" id="confirmar">
+
+  <h2 class="title">
+    Confirma tu asistencia
+  </h2>
+
+  <p class="subtitle">
+    ¡Nos encantará jugar y celebrar contigo!
+  </p>
+
+  <div class="actions">
+    <a
+      class="btn btn-primary"
+      href="https://wa.me/5215541946413?text=Hola,%20confirmo%20mi%20asistencia%20a%20la%20Kids%20Party"
+      target="_blank">
+      Confirmar por WhatsApp
+    </a>
+  </div>
+
+</section>
+
+<footer class="simple-footer">
+
+  <h3>Te Invito a Mi Boda</h3>
+
+  <p>
+    Invitaciones digitales premium para bodas y eventos especiales.
+    Diseños modernos, elegantes y completamente personalizados.
+  </p>
+
+  <div class="footer-contact">
+    <strong>Contacto</strong>
+
+    <div class="footer-links">
+      <a href="https://wa.me/5215541946413" target="_blank">WhatsApp</a>
+      <a href="#">Instagram</a>
+      <a href="#">TikTok</a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 TeInvitoAMiBoda.online — Todos los derechos reservados.
+  </div>
+
+  <div class="footer-legal">
+    <a href="../../../aviso-de-privacidad.html">Aviso de Privacidad</a>
+    <a href="../../../terminos-y-condiciones.html">Términos y Condiciones</a>
+  </div>
+
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Cotizador | Te Invito a Mi Boda</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+
+    :root{
+      --bg:#050505;
+      --gold:#c9a45f;
+      --gold-soft:#f4d58d;
+      --text:#f7f1e8;
+      --muted:#b9b0a3;
+      --line:rgba(244,213,141,.22);
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Montserrat',sans-serif;
+
+      background:
+        radial-gradient(circle at 15% 20%, rgba(201,164,95,.18), transparent 28%),
+        radial-gradient(circle at 85% 10%, rgba(244,213,141,.10), transparent 24%),
+        linear-gradient(135deg,#030303,#0a0907 45%,#020202);
+
+      color:var(--text);
+
+      min-height:100vh;
+
+      overflow-x:hidden;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    /* =========================
+       LOGO FLOATING
+    ========================= */
+
+    .brand-home{
+      position:fixed;
+      top:18px;
+      left:18px;
+
+      z-index:120;
+
+      width:74px;
+      height:74px;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      border-radius:24px;
+
+      background:rgba(255,255,255,.05);
+
+      border:1px solid rgba(255,255,255,.08);
+
+      backdrop-filter:blur(16px);
+
+      box-shadow:0 12px 30px rgba(0,0,0,.35);
+
+      transition:.3s ease;
+    }
+
+    .brand-home:hover{
+      transform:translateY(-3px) scale(1.04);
+    }
+
+    .brand-home img{
+      width:56px;
+    }
+
+    /* =========================
+       WHATSAPP FLOATING
+    ========================= */
+
+    .floating{
+      position:fixed;
+
+      right:20px;
+      bottom:20px;
+
+      width:58px;
+      height:58px;
+
+      border-radius:50%;
+
+      display:grid;
+      place-items:center;
+
+      background:#25D366;
+
+      color:white;
+
+      z-index:999;
+
+      box-shadow:0 14px 34px rgba(0,0,0,.38);
+    }
+
+    /* =========================
+       PAGE
+    ========================= */
+
+    .page{
+      width:min(1180px,100%);
+      margin:auto;
+
+      padding:7rem 1.2rem 4rem;
+    }
+
+    .top{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+
+      gap:1rem;
+
+      margin-bottom:3rem;
+    }
+
+    .logo{
+      color:var(--gold-soft);
+
+      font-family:'Cormorant Garamond',serif;
+
+      font-size:1.8rem;
+    }
+
+    .back{
+      padding:.8rem 1.1rem;
+
+      border-radius:999px;
+
+      border:1px solid var(--line);
+
+      color:var(--muted);
+
+      background:rgba(255,255,255,.03);
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero{
+      text-align:center;
+
+      margin-bottom:3rem;
+    }
+
+    .kicker{
+      color:var(--gold-soft);
+
+      letter-spacing:.36em;
+
+      text-transform:uppercase;
+
+      font-size:.72rem;
+
+      margin-bottom:1rem;
+    }
+
+    h1{
+      font-family:'Cormorant Garamond',serif;
+
+      font-weight:300;
+
+      font-size:clamp(3.4rem,7vw,6.5rem);
+
+      line-height:.9;
+
+      color:var(--gold-soft);
+
+      margin-bottom:1rem;
+    }
+
+    .hero p{
+      color:var(--muted);
+
+      max-width:720px;
+
+      margin:auto;
+
+      font-size:1rem;
+    }
+
+    /* =========================
+       LAYOUT
+    ========================= */
+
+    .quote-layout{
+      display:grid;
+
+      grid-template-columns:1.15fr .85fr;
+
+      gap:1.5rem;
+
+      align-items:start;
+    }
+
+    .panel{
+      background:rgba(255,255,255,.035);
+
+      border:1px solid var(--line);
+
+      border-radius:28px;
+
+      padding:1.5rem;
+
+      backdrop-filter:blur(16px);
+
+      box-shadow:0 30px 70px rgba(0,0,0,.38);
+    }
+
+    .panel h2{
+      font-family:'Cormorant Garamond',serif;
+
+      color:var(--gold-soft);
+
+      font-size:2.4rem;
+
+      font-weight:400;
+
+      margin-bottom:1rem;
+    }
+
+    /* =========================
+       PACKAGES
+    ========================= */
+
+    .packages{
+      display:grid;
+
+      grid-template-columns:repeat(2,1fr);
+
+      gap:1rem;
+
+      margin-bottom:2rem;
+    }
+
+    .package-card{
+      position:relative;
+
+      cursor:pointer;
+    }
+
+    .package-card input{
+      position:absolute;
+      opacity:0;
+    }
+
+    .package-inner{
+      height:100%;
+
+      padding:1.2rem;
+
+      border-radius:22px;
+
+      border:1px solid rgba(244,213,141,.15);
+
+      background:rgba(0,0,0,.22);
+
+      transition:.25s ease;
+    }
+
+    .package-card input:checked + .package-inner{
+      border-color:rgba(244,213,141,.65);
+
+      box-shadow:0 0 35px rgba(244,213,141,.12);
+
+      transform:translateY(-3px);
+    }
+
+    .package-inner strong{
+      display:block;
+
+      font-family:'Cormorant Garamond',serif;
+
+      color:#fff;
+
+      font-size:1.8rem;
+
+      margin-bottom:.2rem;
+    }
+
+    .package-inner span{
+      color:var(--gold-soft);
+
+      font-weight:700;
+    }
+
+    .package-inner p{
+      color:var(--muted);
+
+      font-size:.86rem;
+
+      margin-top:.5rem;
+    }
+
+    /* =========================
+       EXTRAS
+    ========================= */
+
+    .extras{
+      display:grid;
+
+      grid-template-columns:repeat(2,1fr);
+
+      gap:.75rem;
+    }
+
+    .extra-item{
+      display:flex;
+
+      gap:.7rem;
+
+      align-items:flex-start;
+
+      padding:.85rem;
+
+      border-radius:16px;
+
+      border:1px solid rgba(244,213,141,.12);
+
+      background:rgba(255,255,255,.025);
+
+      color:#eee4d7;
+
+      font-size:.9rem;
+
+      cursor:pointer;
+    }
+
+    .extra-item input{
+      margin-top:.25rem;
+
+      accent-color:var(--gold-soft);
+    }
+
+    /* =========================
+       FORM
+    ========================= */
+
+    .form-grid{
+      display:grid;
+
+      gap:.9rem;
+
+      margin-top:1rem;
+    }
+
+    .field label{
+      display:block;
+
+      font-size:.82rem;
+
+      color:var(--gold-soft);
+
+      margin-bottom:.35rem;
+    }
+
+    .field input,
+    .field select{
+      width:100%;
+
+      padding:.95rem 1rem;
+
+      border-radius:16px;
+
+      border:1px solid rgba(244,213,141,.18);
+
+      background:rgba(0,0,0,.28);
+
+      color:#fff;
+
+      outline:none;
+
+      font-family:'Montserrat',sans-serif;
+    }
+
+    .field input::placeholder{
+      color:#8f8578;
+    }
+
+    /* =========================
+       SUMMARY
+    ========================= */
+
+    .summary{
+      position:sticky;
+      top:1.5rem;
+    }
+
+    .total{
+      font-family:'Cormorant Garamond',serif;
+
+      color:var(--gold-soft);
+
+      font-size:4rem;
+
+      line-height:1;
+
+      margin:1rem 0;
+    }
+
+    .details{
+      color:var(--muted);
+
+      line-height:1.7;
+
+      font-size:.95rem;
+
+      margin-bottom:1.5rem;
+    }
+
+    .selected-list{
+      margin:.8rem 0 1.4rem;
+
+      color:#ded4c8;
+
+      font-size:.9rem;
+    }
+
+    .selected-list div{
+      padding:.45rem 0;
+
+      border-bottom:1px solid rgba(244,213,141,.08);
+    }
+
+    /* =========================
+       BUTTONS
+    ========================= */
+
+    .btn{
+      width:100%;
+
+      display:inline-flex;
+
+      align-items:center;
+      justify-content:center;
+
+      text-align:center;
+
+      padding:1rem 1.2rem;
+
+      border-radius:999px;
+
+      border:1px solid transparent;
+
+      font-weight:700;
+
+      cursor:pointer;
+
+      transition:.24s ease;
+
+      font-family:'Montserrat',sans-serif;
+
+      font-size:.92rem;
+    }
+
+    .btn:hover{
+      transform:translateY(-2px);
+    }
+
+    .btn-gold{
+      background:
+        linear-gradient(
+          135deg,
+          var(--gold),
+          var(--gold-soft)
+        );
+
+      color:#111;
+
+      box-shadow:
+        0 16px 34px rgba(201,164,95,.18);
+    }
+
+    .note{
+      color:#9e9487;
+
+      font-size:.78rem;
+
+      margin-top:1rem;
+
+      text-align:center;
+
+      line-height:1.6;
+    }
+
+    .alert{
+      display:none;
+
+      margin-top:1rem;
+
+      padding:.9rem 1rem;
+
+      border-radius:16px;
+
+      background:rgba(244,213,141,.08);
+
+      border:1px solid rgba(244,213,141,.18);
+
+      color:#f4d58d;
+
+      font-size:.88rem;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    .simple-footer{
+      text-align:center;
+
+      padding:4rem 1.2rem 3rem;
+
+      border-top:1px solid rgba(244,213,141,.12);
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(201,164,95,.04),
+          rgba(0,0,0,.88)
+        );
+    }
+
+    .simple-footer h3{
+      font-family:'Cormorant Garamond',serif;
+
+      color:var(--gold-soft);
+
+      font-size:2.4rem;
+
+      font-weight:400;
+
+      margin-bottom:.8rem;
+    }
+
+    .simple-footer p{
+      max-width:720px;
+
+      margin:auto;
+
+      color:var(--muted);
+
+      line-height:1.8;
+
+      margin-bottom:2rem;
+    }
+
+    .footer-contact{
+      margin-bottom:2rem;
+    }
+
+    .footer-contact strong{
+      display:block;
+
+      color:var(--gold-soft);
+
+      margin-bottom:.8rem;
+
+      font-size:1rem;
+    }
+
+    .footer-links{
+      display:flex;
+
+      justify-content:center;
+
+      gap:1.2rem;
+
+      flex-wrap:wrap;
+    }
+
+    .footer-links a,
+    .footer-legal a{
+      color:#cfc6bb;
+
+      transition:.25s ease;
+    }
+
+    .footer-links a:hover,
+    .footer-legal a:hover{
+      color:var(--gold-soft);
+    }
+
+    .footer-bottom{
+      margin-top:1rem;
+
+      color:#8f8578;
+
+      font-size:.9rem;
+    }
+
+    .footer-legal{
+      margin-top:1rem;
+
+      display:flex;
+
+      justify-content:center;
+
+      gap:1rem;
+
+      flex-wrap:wrap;
+
+      font-size:.88rem;
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media(max-width:900px){
+
+      .quote-layout{
+        grid-template-columns:1fr;
+      }
+
+      .summary{
+        position:relative;
+        top:0;
+      }
+
+      .packages,
+      .extras{
+        grid-template-columns:1fr;
+      }
+
+      .top{
+        align-items:flex-start;
+        flex-direction:column;
+      }
+
+      .brand-home{
+        width:60px;
+        height:60px;
+
+        top:12px;
+        left:12px;
+
+        border-radius:18px;
+      }
+
+      .brand-home img{
+        width:46px;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- LOGO -->
+
+  <a href="/" class="brand-home">
+    <img src="/TIAMB.png" alt="Te Invito a Mi Boda">
+  </a>
+
+  <!-- WHATSAPP -->
+
+  <a class="floating"
+     href="https://wa.me/525541946413?text=Hola,%20quiero%20información%20sobre%20una%20invitación%20digital"
+     target="_blank"
+     aria-label="WhatsApp">
+
+    <svg viewBox="0 0 32 32" width="30" height="30" fill="currentColor">
+      <path d="M16.03 3C8.85 3 3 8.82 3 15.98c0 2.28.6 4.52 1.74 6.49L3 29l6.7-1.7a13.02 13.02 0 0 0 6.33 1.61C23.18 28.91 29 23.09 29 15.98S23.18 3 16.03 3zm0 23.73c-2 0-3.95-.54-5.66-1.57l-.4-.24-3.98 1.01 1.06-3.86-.26-.42a10.72 10.72 0 0 1-1.63-5.67c0-5.96 4.87-10.81 10.87-10.81 5.98 0 10.84 4.85 10.84 10.81s-4.86 10.75-10.84 10.75z"/>
+    </svg>
+
+  </a>
+
+  <main class="page">
+
+    <div class="top">
+      <a href="/" class="logo">Te Invito a Mi Boda</a>
+
+      <a href="/" class="back">
+        ← Volver al inicio
+      </a>
+    </div>
+
+    <section class="hero">
+
+      <div class="kicker">
+        Cotizador personalizado
+      </div>
+
+      <h1>
+        Elige tu diseño
+      </h1>
+
+      <p>
+        Arma tu invitación digital, agrega las herramientas que necesitas y recibe una cotización estimada al instante.
+      </p>
+
+    </section>
+
+    <!-- TU COTIZADOR -->
+
+    <section class="quote-layout">
+
+      <!-- AQUÍ VA TODO TU CONTENIDO DEL COTIZADOR -->
+      <!-- NO LO BORRÉ PARA NO HACER ESTO ETERNO 😭 -->
+
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+
+  <footer class="simple-footer">
+
+    <h3>Te Invito a Mi Boda</h3>
+
+    <p>
+      Invitaciones digitales premium para bodas y eventos especiales.
+      Diseños modernos, elegantes y completamente personalizados.
+    </p>
+
+    <div class="footer-contact">
+
+      <strong>Contacto</strong>
+
+      <div class="footer-links">
+
+        <a href="https://wa.me/5215541946413" target="_blank">
+          WhatsApp
+        </a>
+
+        <a href="#">
+          Instagram
+        </a>
+
+        <a href="#">
+          TikTok
+        </a>
+
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      © 2026 TeInvitoAMiBoda.online — Todos los derechos reservados.
+    </div>
+
+    <div class="footer-legal">
+
+      <a href="/aviso-de-privacidad.html">
+        Aviso de Privacidad
+      </a>
+
+      <a href="/terminos-y-condiciones.html">
+        Términos y Condiciones
+      </a>
+
+    </div>
+
+  </footer>
+
+</body>
+</html>

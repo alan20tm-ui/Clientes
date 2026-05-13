@@ -720,9 +720,323 @@
 
     <section class="quote-layout">
 
-      <!-- AQUÍ VA TODO TU CONTENIDO DEL COTIZADOR -->
-      <!-- NO LO BORRÉ PARA NO HACER ESTO ETERNO 😭 -->
+      <section class="quote-layout">
 
+  <div class="panel">
+
+    <h2>1. Selecciona tu paquete</h2>
+
+    <div class="packages">
+
+      <label class="package-card">
+        <input type="radio" name="package" value="699" data-name="Minimalista" checked>
+        <div class="package-inner">
+          <strong>Minimalista</strong>
+          <span>$699 MXN</span>
+          <p>Diseño limpio, rápido y elegante.</p>
+        </div>
+      </label>
+
+      <label class="package-card">
+        <input type="radio" name="package" value="1199" data-name="Floral">
+        <div class="package-inner">
+          <strong>Floral</strong>
+          <span>$1,199 MXN</span>
+          <p>Romántico, delicado y visual.</p>
+        </div>
+      </label>
+
+      <label class="package-card">
+        <input type="radio" name="package" value="2499" data-name="Elegante Premium">
+        <div class="package-inner">
+          <strong>Elegante Premium</strong>
+          <span>$2,499 MXN</span>
+          <p>Experiencia moderna con funciones avanzadas.</p>
+        </div>
+      </label>
+
+      <label class="package-card">
+        <input type="radio" name="package" value="4999" data-name="Luxury Experience">
+        <div class="package-inner">
+          <strong>Luxury Experience</strong>
+          <span>$4,999 MXN</span>
+          <p>Diseño cinematográfico tipo mini-app premium.</p>
+        </div>
+      </label>
+
+    </div>
+
+    <h2>2. Agrega extras</h2>
+
+    <div class="extras">
+
+      <label class="extra-item">
+        <input type="checkbox" class="extra" value="150" data-name="Música personalizada">
+        Música personalizada +$150
+      </label>
+
+      <label class="extra-item">
+        <input type="checkbox" class="extra" value="200" data-name="QR personalizado">
+        QR personalizado +$200
+      </label>
+
+      <label class="extra-item">
+        <input type="checkbox" class="extra" value="250" data-name="Galería extendida">
+        Galería extendida +$250
+      </label>
+
+      <label class="extra-item">
+        <input type="checkbox" class="extra" value="500" data-name="RSVP avanzado">
+        RSVP avanzado +$500
+      </label>
+
+      <label class="extra-item">
+        <input type="checkbox" class="extra" value="350" data-name="Playlist colaborativa">
+        Playlist colaborativa +$350
+      </label>
+
+      <label class="extra-item">
+        <input type="checkbox" class="extra" value="450" data-name="Álbum compartido">
+        Álbum compartido +$450
+      </label>
+
+      <label class="extra-item">
+        <input type="checkbox" class="extra" value="250" data-name="Save the date">
+        Save the date +$250
+      </label>
+
+      <label class="extra-item">
+        <input type="checkbox" class="extra" value="600" data-name="Pase personalizado">
+        Pase personalizado +$600
+      </label>
+
+      <label class="extra-item">
+        <input type="checkbox" class="extra" value="350" data-name="Mesa asignada">
+        Mesa asignada +$350
+      </label>
+
+      <label class="extra-item">
+        <input type="checkbox" class="extra" value="450" data-name="Acceso privado">
+        Acceso privado +$450
+      </label>
+
+      <label class="extra-item">
+        <input type="checkbox" class="extra" value="700" data-name="Firebase / Sheets">
+        Firebase / Sheets +$700
+      </label>
+
+      <label class="extra-item">
+        <input type="checkbox" class="extra" value="900" data-name="Invitados dinámicos">
+        Invitados dinámicos +$900
+      </label>
+
+    </div>
+
+  </div>
+
+  <aside class="panel summary">
+
+    <h2>Tu cotización</h2>
+
+    <div class="total" id="quoteTotal">$699</div>
+
+    <div class="details" id="quoteDetails">
+      Paquete seleccionado:
+      <strong>Minimalista</strong>
+    </div>
+
+    <div class="selected-list" id="selectedList"></div>
+
+    <div class="form-grid">
+
+      <div class="field">
+        <label>Nombre</label>
+        <input type="text" id="clientName" placeholder="Ej. Alan Salmorán">
+      </div>
+
+      <div class="field">
+        <label>WhatsApp</label>
+        <input type="tel" id="clientPhone" placeholder="55 4194 6413">
+      </div>
+
+      <div class="field">
+        <label>Tipo de evento</label>
+
+        <select id="eventType">
+          <option value="">Selecciona una opción</option>
+          <option>Boda</option>
+          <option>XV años</option>
+          <option>Bautizo</option>
+          <option>Graduación</option>
+          <option>Cumpleaños</option>
+          <option>Otro</option>
+        </select>
+
+      </div>
+
+    </div>
+
+    <button class="btn btn-gold" id="sendQuote">
+      Enviar cotización y continuar
+    </button>
+
+    <div class="alert" id="alertBox"></div>
+
+    <p class="note">
+      Después de enviar tu cotización, te contactaremos para recibir fotos, música y detalles completos del evento.
+    </p>
+
+  </aside>
+
+</section>
+
+<script>
+
+const WHATSAPP_NUMBER = "525541946413";
+
+const packageInputs = document.querySelectorAll('input[name="package"]');
+const extras = document.querySelectorAll('.extra');
+
+const quoteTotal = document.getElementById('quoteTotal');
+const quoteDetails = document.getElementById('quoteDetails');
+const selectedList = document.getElementById('selectedList');
+
+const clientName = document.getElementById('clientName');
+const clientPhone = document.getElementById('clientPhone');
+const eventType = document.getElementById('eventType');
+
+const sendQuote = document.getElementById('sendQuote');
+
+function money(amount){
+  return amount.toLocaleString('es-MX', {
+    style:'currency',
+    currency:'MXN',
+    maximumFractionDigits:0
+  });
+}
+
+function getQuote(){
+
+  const selectedPackage =
+    document.querySelector('input[name="package"]:checked');
+
+  const quote = {
+    packageName: selectedPackage.dataset.name,
+    packagePrice: Number(selectedPackage.value),
+    extras: [],
+    total: Number(selectedPackage.value)
+  };
+
+  extras.forEach(extra => {
+
+    if(extra.checked){
+
+      quote.extras.push({
+        name: extra.dataset.name,
+        price: Number(extra.value)
+      });
+
+      quote.total += Number(extra.value);
+
+    }
+
+  });
+
+  return quote;
+}
+
+function updateQuote(){
+
+  const quote = getQuote();
+
+  quoteTotal.textContent = money(quote.total);
+
+  quoteDetails.innerHTML = `
+    Paquete seleccionado:<br>
+    <strong>${quote.packageName}</strong>
+  `;
+
+  if(quote.extras.length){
+
+    selectedList.innerHTML =
+      quote.extras.map(extra => `
+        <div>
+          ${extra.name} — ${money(extra.price)}
+        </div>
+      `).join('');
+
+  }else{
+
+    selectedList.innerHTML =
+      `<div>Sin extras seleccionados</div>`;
+
+  }
+
+}
+
+function openWhatsApp(){
+
+  const quote = getQuote();
+
+  const message = encodeURIComponent(
+
+    `Hola, quiero cotizar una invitación digital.\n\n` +
+
+    `Nombre: ${clientName.value}\n` +
+
+    `WhatsApp: ${clientPhone.value}\n` +
+
+    `Evento: ${eventType.value}\n\n` +
+
+    `Paquete: ${quote.packageName}\n` +
+
+    `Extras: ${
+      quote.extras.map(e => e.name).join(", ") || "Sin extras"
+    }\n\n` +
+
+    `Total estimado: ${money(quote.total)}`
+
+  );
+
+  window.open(
+    `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`,
+    "_blank"
+  );
+
+}
+
+sendQuote.addEventListener('click', () => {
+
+  if(!clientName.value.trim()){
+    alert("Escribe tu nombre.");
+    return;
+  }
+
+  if(!clientPhone.value.trim()){
+    alert("Escribe tu WhatsApp.");
+    return;
+  }
+
+  if(!eventType.value){
+    alert("Selecciona el tipo de evento.");
+    return;
+  }
+
+  openWhatsApp();
+
+});
+
+packageInputs.forEach(input =>
+  input.addEventListener('change', updateQuote)
+);
+
+extras.forEach(extra =>
+  extra.addEventListener('change', updateQuote)
+);
+
+updateQuote();
+
+</script>
     </section>
 
   </main>

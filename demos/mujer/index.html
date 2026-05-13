@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Neon Birthday Party | Invitación Digital</title>
+  <title>Neon Birthday Party | Invitación Digital Premium</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Orbitron:wght@500;700;800&display=swap" rel="stylesheet">
 
@@ -17,12 +17,17 @@
       --cyan:#19f5ff;
       --white:#f7f7f7;
       --muted:#cfc9dc;
+      --line:rgba(255,255,255,.10);
     }
 
     *{
       margin:0;
       padding:0;
       box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
     }
 
     body{
@@ -47,22 +52,17 @@
       inset:0;
       pointer-events:none;
       overflow:hidden;
-      z-index:-1;
+      z-index:-2;
     }
 
     .lights::before,
     .lights::after{
       content:"";
-
       position:absolute;
-
       width:500px;
       height:500px;
-
       border-radius:50%;
-
       filter:blur(90px);
-
       opacity:.18;
     }
 
@@ -78,6 +78,105 @@
       bottom:-120px;
     }
 
+    .sparkles{
+      position:fixed;
+      inset:0;
+      z-index:-1;
+      pointer-events:none;
+      opacity:.45;
+
+      background-image:
+        radial-gradient(circle, rgba(255,255,255,.9) 1px, transparent 1.5px),
+        radial-gradient(circle, rgba(25,245,255,.55) 1px, transparent 1.5px);
+
+      background-size:140px 140px, 220px 220px;
+
+      animation:floatBg 20s linear infinite;
+    }
+
+    @keyframes floatBg{
+      from{
+        transform:translateY(0);
+      }
+
+      to{
+        transform:translateY(-140px);
+      }
+    }
+
+    .brand-home{
+      position:fixed;
+      top:18px;
+      left:18px;
+
+      z-index:120;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      width:74px;
+      height:74px;
+
+      border-radius:22px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,.10),
+          rgba(255,255,255,.03)
+        );
+
+      border:1px solid rgba(255,255,255,.12);
+
+      backdrop-filter:blur(18px);
+
+      box-shadow:
+        0 14px 40px rgba(0,0,0,.42),
+        0 0 24px rgba(255,60,172,.18);
+
+      transition:.35s ease;
+    }
+
+    .brand-home:hover{
+      transform:
+        translateY(-2px)
+        scale(1.04);
+
+      box-shadow:
+        0 18px 50px rgba(0,0,0,.55),
+        0 0 35px rgba(255,60,172,.25);
+    }
+
+    .brand-home img{
+      width:58px;
+      object-fit:contain;
+    }
+
+    .floating-whatsapp{
+      position:fixed;
+      right:18px;
+      bottom:18px;
+
+      z-index:100;
+
+      width:58px;
+      height:58px;
+
+      border-radius:50%;
+
+      display:grid;
+      place-items:center;
+
+      background:#25D366;
+      color:#fff;
+
+      font-size:1.8rem;
+
+      box-shadow:
+        0 12px 30px rgba(0,0,0,.45);
+    }
+
     .hero{
       min-height:100vh;
 
@@ -85,35 +184,37 @@
       align-items:center;
       justify-content:center;
 
-      padding:2rem;
-    }
+      text-align:center;
 
-    .card{
-      width:min(540px,100%);
+      padding:7rem 1.2rem 4rem;
 
       position:relative;
 
-      border-radius:34px;
-
-      overflow:hidden;
-
       background:
-        linear-gradient(
-          145deg,
-          rgba(255,255,255,.08),
-          rgba(255,255,255,.03)
-        );
+        linear-gradient(rgba(3,1,6,.58), rgba(3,1,6,.88)),
+        url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=1800&auto=format&fit=crop')
+        center/cover;
+    }
+
+    .hero::after{
+      content:"";
+
+      position:absolute;
+      inset:1.2rem;
+
+      border-radius:34px;
 
       border:1px solid rgba(255,255,255,.10);
 
-      backdrop-filter:blur(18px);
+      pointer-events:none;
+    }
 
-      box-shadow:
-        0 0 35px rgba(255,60,172,.18),
-        0 0 55px rgba(25,245,255,.12),
-        0 35px 90px rgba(0,0,0,.55);
+    .hero-content{
+      position:relative;
+      z-index:2;
+      max-width:900px;
 
-      animation:fadeUp 1s ease;
+      animation:fadeUp 1s ease both;
     }
 
     @keyframes fadeUp{
@@ -128,57 +229,12 @@
       }
     }
 
-    .hero-image{
-      height:430px;
-      position:relative;
-      overflow:hidden;
-    }
-
-    .hero-image img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      transform:scale(1.04);
-    }
-
-    .overlay{
-      position:absolute;
-      inset:0;
-
-      background:
-        linear-gradient(
-          to top,
-          rgba(3,1,6,.95),
-          rgba(3,1,6,.20)
-        );
-    }
-
-    .neon-ring{
-      position:absolute;
-      inset:18px;
-
-      border-radius:28px;
-
-      border:2px solid rgba(255,255,255,.10);
-
-      box-shadow:
-        0 0 18px rgba(255,60,172,.55),
-        inset 0 0 18px rgba(25,245,255,.22);
-
-      pointer-events:none;
-    }
-
-    .content{
-      padding:2.3rem 2rem 2.5rem;
-      text-align:center;
-    }
-
     .eyebrow{
       font-family:'Orbitron',sans-serif;
 
       color:var(--cyan);
 
-      letter-spacing:.35em;
+      letter-spacing:.38em;
 
       text-transform:uppercase;
 
@@ -193,9 +249,9 @@
     h1{
       font-family:'Orbitron',sans-serif;
 
-      font-size:4rem;
+      font-size:clamp(4rem,11vw,8rem);
 
-      line-height:.92;
+      line-height:.88;
 
       margin-bottom:1rem;
 
@@ -206,75 +262,70 @@
         0 0 34px rgba(120,75,255,.65);
     }
 
-    .subtitle{
-      color:var(--muted);
+    h1 span{
+      color:var(--pink);
+    }
+
+    .hero p{
+      max-width:720px;
+
+      margin:1rem auto 2rem;
+
+      color:#f1eff8;
+
+      font-size:clamp(1rem,2vw,1.2rem);
 
       line-height:1.8;
-
-      font-size:1rem;
-
-      margin-bottom:2rem;
     }
 
-    .info{
-      display:grid;
-      gap:1rem;
-      margin-bottom:2rem;
-    }
+    .hero-date{
+      color:var(--cyan);
 
-    .info-box{
-      padding:1rem;
-
-      border-radius:18px;
-
-      background:rgba(255,255,255,.04);
-
-      border:1px solid rgba(255,255,255,.08);
-
-      box-shadow:
-        0 0 18px rgba(120,75,255,.08);
-    }
-
-    .info-box strong{
-      display:block;
-
-      margin-bottom:.35rem;
-
-      font-size:.78rem;
-
-      letter-spacing:.18em;
+      letter-spacing:.28em;
 
       text-transform:uppercase;
 
-      color:var(--pink);
+      margin:2rem 0;
+
+      font-size:.9rem;
 
       text-shadow:
-        0 0 10px rgba(255,60,172,.8);
+        0 0 12px rgba(25,245,255,.8);
     }
 
-    .info-box p{
-      color:#fff;
-      font-size:.95rem;
-    }
-
+    .hero-actions,
     .actions{
       display:flex;
-      flex-direction:column;
+      justify-content:center;
+      align-items:center;
       gap:1rem;
+      flex-wrap:wrap;
+      margin-top:1.5rem;
     }
 
     .btn{
-      display:flex;
+      display:inline-flex;
       align-items:center;
       justify-content:center;
 
-      padding:1rem;
+      gap:.5rem;
+
+      padding:1rem 1.5rem;
 
       border-radius:999px;
 
+      font-size:.9rem;
       font-weight:700;
 
       transition:.28s ease;
+
+      border:1px solid transparent;
+    }
+
+    .btn:hover{
+      transform:
+        translateY(-3px)
+        scale(1.03);
     }
 
     .btn-primary{
@@ -302,35 +353,439 @@
         inset 0 0 10px rgba(25,245,255,.12);
     }
 
-    .btn:hover{
-      transform:
-        translateY(-3px)
-        scale(1.02);
-    }
-
-    footer{
+    .private-banner{
       text-align:center;
-      padding:2rem 1rem;
-      color:#978fb1;
-      font-size:.85rem;
+
+      padding:1rem;
+
+      background:rgba(255,255,255,.03);
+
+      border-top:1px solid rgba(255,255,255,.08);
+      border-bottom:1px solid rgba(255,255,255,.08);
+
+      color:var(--cyan);
+
+      font-size:.88rem;
+
+      letter-spacing:.08em;
     }
 
-    @media(max-width:600px){
+    .section{
+      padding:6rem 1.15rem;
+    }
 
-      .hero{
-        padding:1rem;
+    .container{
+      max-width:1160px;
+      margin:auto;
+    }
+
+    .title{
+      font-family:'Orbitron',sans-serif;
+
+      font-size:clamp(2.6rem,6vw,4.6rem);
+
+      text-align:center;
+
+      color:white;
+
+      margin-bottom:1rem;
+
+      text-shadow:
+        0 0 16px rgba(255,60,172,.45);
+    }
+
+    .subtitle{
+      text-align:center;
+
+      color:var(--muted);
+
+      max-width:760px;
+
+      margin:0 auto 3rem;
+
+      line-height:1.8;
+    }
+
+    .glass{
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,.08),
+          rgba(255,255,255,.03)
+        );
+
+      border:1px solid rgba(255,255,255,.10);
+
+      border-radius:32px;
+
+      backdrop-filter:blur(18px);
+
+      box-shadow:
+        0 0 30px rgba(255,60,172,.08),
+        0 20px 60px rgba(0,0,0,.45);
+    }
+
+    .event-grid,
+    .feature-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:1.2rem;
+    }
+
+    .event-grid{
+      grid-template-columns:repeat(2,1fr);
+    }
+
+    .card{
+      padding:2rem;
+      text-align:center;
+    }
+
+    .card-icon{
+      font-size:2.2rem;
+      margin-bottom:.7rem;
+    }
+
+    .card h3{
+      font-family:'Orbitron',sans-serif;
+
+      font-size:1.5rem;
+
+      margin-bottom:.8rem;
+
+      color:var(--pink);
+    }
+
+    .card p{
+      color:var(--muted);
+      margin-bottom:.8rem;
+    }
+
+    .card strong{
+      color:#fff;
+    }
+
+    .timeline{
+      max-width:760px;
+      margin:auto;
+      position:relative;
+    }
+
+    .timeline::before{
+      content:"";
+
+      position:absolute;
+
+      top:0;
+      bottom:0;
+      left:50%;
+
+      width:1px;
+
+      background:rgba(255,255,255,.10);
+    }
+
+    .timeline-item{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+
+      gap:2rem;
+
+      margin:2rem 0;
+
+      align-items:center;
+    }
+
+    .timeline-time{
+      text-align:right;
+
+      color:var(--cyan);
+
+      font-family:'Orbitron',sans-serif;
+
+      font-size:1.5rem;
+    }
+
+    .timeline-detail{
+      padding:1.4rem;
+
+      border-radius:22px;
+
+      background:rgba(255,255,255,.04);
+
+      border:1px solid rgba(255,255,255,.08);
+    }
+
+    .dress-code{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:1rem;
+      text-align:center;
+    }
+
+    .dress-item{
+      padding:1.4rem;
+
+      border-radius:24px;
+
+      background:rgba(255,255,255,.04);
+
+      border:1px solid rgba(255,255,255,.08);
+    }
+
+    .dress-item span{
+      font-size:2rem;
+      display:block;
+      margin-bottom:.5rem;
+    }
+
+    .timer{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:1rem;
+      margin-top:2rem;
+    }
+
+    .time-box{
+      background:rgba(255,255,255,.04);
+
+      border:1px solid rgba(255,255,255,.08);
+
+      border-radius:24px;
+
+      padding:1.7rem .8rem;
+
+      text-align:center;
+    }
+
+    .time-box span{
+      display:block;
+
+      font-family:'Orbitron',sans-serif;
+
+      font-size:clamp(2rem,6vw,3.5rem);
+
+      color:var(--pink);
+
+      line-height:1;
+
+      text-shadow:
+        0 0 16px rgba(255,60,172,.65);
+    }
+
+    .time-box small{
+      text-transform:uppercase;
+
+      letter-spacing:2px;
+
+      font-size:.72rem;
+
+      color:var(--muted);
+    }
+
+    .rsvp-hero{
+      background:
+        linear-gradient(rgba(3,1,6,.75), rgba(3,1,6,.88)),
+        url('https://images.unsplash.com/photo-1530103862676-de8c9debad1d?q=80&w=1800&auto=format&fit=crop')
+        center/cover;
+
+      text-align:center;
+
+      padding:7rem 1.2rem;
+    }
+
+    .rsvp-form{
+      max-width:760px;
+      margin:auto;
+      padding:2rem;
+    }
+
+    .form-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:1rem;
+      margin-bottom:1rem;
+    }
+
+    input,
+    select,
+    textarea{
+      width:100%;
+
+      border:1px solid rgba(255,255,255,.10);
+
+      background:rgba(255,255,255,.05);
+
+      color:#fff;
+
+      border-radius:18px;
+
+      padding:1rem;
+
+      font-family:'Montserrat',sans-serif;
+
+      outline:none;
+    }
+
+    option{
+      color:#111;
+    }
+
+    textarea{
+      min-height:110px;
+      resize:vertical;
+    }
+
+    .rsvp-note{
+      margin-top:1rem;
+
+      color:var(--muted);
+
+      text-align:center;
+
+      font-size:.9rem;
+    }
+
+    .simple-footer{
+      text-align:center;
+
+      padding:4rem 1.2rem 3rem;
+
+      border-top:1px solid rgba(255,255,255,.08);
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(255,60,172,.04),
+          rgba(0,0,0,.88)
+        );
+    }
+
+    .simple-footer h3{
+      font-family:'Orbitron',sans-serif;
+
+      color:var(--pink);
+
+      font-size:2rem;
+
+      margin-bottom:.8rem;
+    }
+
+    .simple-footer p{
+      max-width:720px;
+
+      margin:auto;
+
+      color:var(--muted);
+
+      line-height:1.8;
+
+      margin-bottom:2rem;
+    }
+
+    .footer-contact{
+      margin-bottom:2rem;
+    }
+
+    .footer-contact strong{
+      display:block;
+
+      color:var(--cyan);
+
+      margin-bottom:.8rem;
+    }
+
+    .footer-links{
+      display:flex;
+      justify-content:center;
+      gap:1.2rem;
+      flex-wrap:wrap;
+    }
+
+    .footer-links a,
+    .footer-legal a{
+      color:#cfc6bb;
+      transition:.25s ease;
+    }
+
+    .footer-links a:hover,
+    .footer-legal a:hover{
+      color:var(--pink);
+    }
+
+    .footer-bottom{
+      margin-top:1rem;
+      color:#8f8578;
+      font-size:.9rem;
+    }
+
+    .footer-legal{
+      margin-top:1rem;
+
+      display:flex;
+      justify-content:center;
+      gap:1rem;
+      flex-wrap:wrap;
+
+      font-size:.88rem;
+    }
+
+    .fade{
+      opacity:0;
+      transform:translateY(25px);
+      transition:.8s ease;
+    }
+
+    .fade.visible{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    @media(max-width:900px){
+
+      .hero::after{
+        inset:.7rem;
+        border-radius:24px;
       }
 
-      .hero-image{
-        height:340px;
+      .section{
+        padding:4.2rem 1rem;
       }
 
-      h1{
-        font-size:2.8rem;
+      .event-grid,
+      .feature-grid,
+      .form-grid,
+      .dress-code,
+      .timer{
+        grid-template-columns:1fr;
       }
 
-      .content{
-        padding:2rem 1.2rem;
+      .timeline::before{
+        left:0;
+      }
+
+      .timeline-item{
+        grid-template-columns:1fr;
+        gap:.6rem;
+        padding-left:1.2rem;
+      }
+
+      .timeline-time{
+        text-align:left;
+      }
+
+      .brand-home{
+        width:62px;
+        height:62px;
+
+        top:12px;
+        left:12px;
+
+        border-radius:18px;
+      }
+
+      .brand-home img{
+        width:48px;
       }
 
     }
@@ -340,72 +795,256 @@
 
 <body>
 
+<a href="/" class="brand-home">
+  <img src="/TIAMB.png" alt="Te Invito a Mi Boda">
+</a>
+
 <div class="lights"></div>
+<div class="sparkles"></div>
+
+<a
+  class="floating-whatsapp"
+  href="https://wa.me/5215541946413?text=Hola,%20quiero%20información%20sobre%20esta%20invitación%20digital"
+  target="_blank">
+  ☘
+</a>
 
 <section class="hero">
 
-  <div class="card">
+  <div class="hero-content">
 
-    <div class="hero-image">
+    <div class="eyebrow">
+      Neon Birthday Party
+    </div>
 
-      <img
-        src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=1400&auto=format&fit=crop"
-        alt="Fiesta Neon">
+    <h1>
+      Valeria<br>
+      <span>26</span>
+    </h1>
 
-      <div class="overlay"></div>
+    <p>
+      Prepárate para una noche llena de luces,
+      glitter, música, drinks y una fiesta inolvidable.
+    </p>
 
-      <div class="neon-ring"></div>
+    <div class="hero-date">
+      22 · Agosto · 2026
+    </div>
+
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#confirmar">
+        Confirmar asistencia
+      </a>
+
+      <a class="btn btn-secondary" href="#detalles">
+        Ver detalles
+      </a>
+    </div>
+
+  </div>
+
+</section>
+
+<div class="private-banner">
+  Invitación digital personalizada · Neon Party Experience
+</div>
+
+<section class="section fade" id="detalles">
+
+  <div class="container">
+
+    <h2 class="title">
+      Detalles del evento
+    </h2>
+
+    <p class="subtitle">
+      Una noche diseñada para bailar, celebrar y brillar.
+    </p>
+
+    <div class="event-grid">
+
+      <article class="card glass">
+
+        <div class="card-icon">💖</div>
+
+        <h3>Recepción</h3>
+
+        <p>
+          Neon Club<br>
+          Ciudad de México
+        </p>
+
+        <strong>9:00 PM</strong>
+
+        <div class="actions">
+          <a class="btn btn-primary" href="https://maps.google.com" target="_blank">
+            Ver ubicación
+          </a>
+        </div>
+
+      </article>
+
+      <article class="card glass">
+
+        <div class="card-icon">🎧</div>
+
+        <h3>Fiesta</h3>
+
+        <p>
+          DJ, luces neon, glitter bar y música toda la noche.
+        </p>
+
+        <strong>Until sunrise ✨</strong>
+
+        <div class="actions">
+          <a class="btn btn-secondary" href="#itinerario">
+            Ver itinerario
+          </a>
+        </div>
+
+      </article>
 
     </div>
 
-    <div class="content">
+  </div>
 
-      <div class="eyebrow">
-        Neon Birthday Party
+</section>
+
+<section class="section fade" id="itinerario">
+
+  <div class="container">
+
+    <h2 class="title">
+      Itinerario
+    </h2>
+
+    <p class="subtitle">
+      Cada momento pensado para disfrutar la noche al máximo.
+    </p>
+
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-time">9:00 PM</div>
+
+        <div class="timeline-detail">
+          <strong>Recepción</strong><br>
+          Drinks, fotos y bienvenida.
+        </div>
       </div>
 
-      <h1>
-        Valeria<br>
-        26
-      </h1>
+      <div class="timeline-item">
+        <div class="timeline-time">10:00 PM</div>
+
+        <div class="timeline-detail">
+          <strong>Neon Party</strong><br>
+          Inicio oficial de la fiesta.
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-time">11:30 PM</div>
+
+        <div class="timeline-detail">
+          <strong>Brindis</strong><br>
+          Momento especial de celebración.
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-time">1:00 AM</div>
+
+        <div class="timeline-detail">
+          <strong>After party</strong><br>
+          La fiesta continúa.
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="section fade">
+
+  <div class="container">
+
+    <h2 class="title">
+      Dress code
+    </h2>
+
+    <p class="subtitle">
+      Queremos una noche llena de color, glow y estilo.
+    </p>
+
+    <div class="dress-code">
+
+      <div class="dress-item">
+        <span>💗</span>
+        <strong>Neon Pink</strong>
+        <p>Color principal</p>
+      </div>
+
+      <div class="dress-item">
+        <span>✨</span>
+        <strong>Glow</strong>
+        <p>Accesorios brillantes</p>
+      </div>
+
+      <div class="dress-item">
+        <span>👗</span>
+        <strong>Party Look</strong>
+        <p>Outfit night party</p>
+      </div>
+
+      <div class="dress-item">
+        <span>🚫</span>
+        <strong>Evitar</strong>
+        <p>Colores apagados</p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="section fade">
+
+  <div class="container">
+
+    <div class="glass card">
+
+      <h2 class="title">
+        Cuenta regresiva
+      </h2>
 
       <p class="subtitle">
-        Prepárate para una noche llena de luces,
-        música, glitter y mucha fiesta.
+        Falta muy poco para la Neon Party ✨
       </p>
 
-      <div class="info">
+      <div class="timer">
 
-        <div class="info-box">
-          <strong>Fecha</strong>
-          <p>Viernes 22 de Agosto · 9:00 PM</p>
+        <div class="time-box">
+          <span id="days">00</span>
+          <small>Días</small>
         </div>
 
-        <div class="info-box">
-          <strong>Ubicación</strong>
-          <p>Neon Club · Ciudad de México</p>
+        <div class="time-box">
+          <span id="hours">00</span>
+          <small>Horas</small>
         </div>
 
-        <div class="info-box">
-          <strong>Dress Code</strong>
-          <p>Neon & Glow</p>
+        <div class="time-box">
+          <span id="minutes">00</span>
+          <small>Minutos</small>
         </div>
 
-      </div>
-
-      <div class="actions">
-
-        <a
-          class="btn btn-primary"
-          href="#">
-          Confirmar asistencia
-        </a>
-
-        <a
-          class="btn btn-secondary"
-          href="#">
-          Ver ubicación
-        </a>
+        <div class="time-box">
+          <span id="seconds">00</span>
+          <small>Segundos</small>
+        </div>
 
       </div>
 
@@ -415,9 +1054,262 @@
 
 </section>
 
-<footer>
-  Demo Neon · Cumpleaños Mujer · TeInvitoAMiBoda.online
+<section class="section fade">
+
+  <div class="container">
+
+    <h2 class="title">
+      Experiencia Neon
+    </h2>
+
+    <p class="subtitle">
+      Funciones premium para una invitación moderna e interactiva.
+    </p>
+
+    <div class="feature-grid">
+
+      <article class="card glass">
+
+        <div class="card-icon">📅</div>
+
+        <h3>Save the date</h3>
+
+        <p>
+          Agrega la fiesta a tu calendario.
+        </p>
+
+        <a class="btn btn-secondary" href="#" target="_blank">
+          Agregar calendario
+        </a>
+
+      </article>
+
+      <article class="card glass">
+
+        <div class="card-icon">🎵</div>
+
+        <h3>Playlist</h3>
+
+        <p>
+          Sugiere una canción para bailar.
+        </p>
+
+        <a class="btn btn-secondary" href="#" target="_blank">
+          Sugerir canción
+        </a>
+
+      </article>
+
+      <article class="card glass">
+
+        <div class="card-icon">📷</div>
+
+        <h3>Fotos</h3>
+
+        <p>
+          Comparte fotos y videos del evento.
+        </p>
+
+        <a class="btn btn-secondary" href="#" target="_blank">
+          Subir fotos
+        </a>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="rsvp-hero fade" id="confirmar">
+
+  <div class="container">
+
+    <h2 class="title">
+      Confirma tu asistencia
+    </h2>
+
+    <p class="subtitle">
+      Tu confirmación ayuda a preparar cada detalle de la fiesta.
+    </p>
+
+    <form class="rsvp-form glass" id="rsvpForm">
+
+      <div class="form-grid">
+
+        <input
+          id="guestName"
+          type="text"
+          placeholder="Nombre completo"
+          required>
+
+        <select id="attendance" required>
+          <option value="">¿Asistirás?</option>
+          <option value="Sí asistiré">Sí asistiré</option>
+          <option value="No podré asistir">No podré asistir</option>
+        </select>
+
+        <input
+          id="guestCount"
+          type="number"
+          min="1"
+          max="10"
+          placeholder="Número de personas"
+          required>
+
+        <input
+          id="drink"
+          type="text"
+          placeholder="Drink favorito">
+
+      </div>
+
+      <textarea
+        id="message"
+        placeholder="Mensaje para Valeria"></textarea>
+
+      <div class="actions">
+
+        <button class="btn btn-primary" type="submit">
+          Enviar confirmación por WhatsApp
+        </button>
+
+      </div>
+
+      <p class="rsvp-note">
+        Esta demo envía la confirmación por WhatsApp.
+      </p>
+
+    </form>
+
+  </div>
+
+</section>
+
+<footer class="simple-footer">
+
+  <h3>Te Invito a Mi Boda</h3>
+
+  <p>
+    Invitaciones digitales premium para bodas y eventos especiales.
+    Diseños modernos, elegantes y completamente personalizados.
+  </p>
+
+  <div class="footer-contact">
+
+    <strong>Contacto</strong>
+
+    <div class="footer-links">
+      <a href="https://wa.me/5215541946413" target="_blank">WhatsApp</a>
+      <a href="#">Instagram</a>
+      <a href="#">TikTok</a>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 TeInvitoAMiBoda.online — Todos los derechos reservados.
+  </div>
+
+  <div class="footer-legal">
+    <a href="/aviso-de-privacidad.html">Aviso de Privacidad</a>
+    <a href="/terminos-y-condiciones.html">Términos y Condiciones</a>
+  </div>
+
 </footer>
+
+<script>
+
+  const eventDate = new Date('2026-08-22T21:00:00').getTime();
+  const whatsappNumber = '5215541946413';
+
+  function updateCountdown(){
+
+    const now = new Date().getTime();
+    const distance = eventDate - now;
+
+    if(distance <= 0){
+      document.querySelector('.timer').innerHTML =
+        '<p>¡Hoy es la Neon Party!</p>';
+      return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById('days').textContent =
+      String(days).padStart(2,'0');
+
+    document.getElementById('hours').textContent =
+      String(hours).padStart(2,'0');
+
+    document.getElementById('minutes').textContent =
+      String(minutes).padStart(2,'0');
+
+    document.getElementById('seconds').textContent =
+      String(seconds).padStart(2,'0');
+
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown,1000);
+
+  const observer = new IntersectionObserver((entries)=>{
+
+    entries.forEach(entry=>{
+
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+      }
+
+    });
+
+  },{threshold:.12});
+
+  document.querySelectorAll('.fade')
+    .forEach(el=>observer.observe(el));
+
+  document.getElementById('rsvpForm')
+    .addEventListener('submit',function(e){
+
+      e.preventDefault();
+
+      const name =
+        document.getElementById('guestName').value.trim();
+
+      const attendance =
+        document.getElementById('attendance').value;
+
+      const count =
+        document.getElementById('guestCount').value;
+
+      const drink =
+        document.getElementById('drink').value.trim()
+        || 'Sin preferencia';
+
+      const message =
+        document.getElementById('message').value.trim()
+        || 'Sin mensaje';
+
+      const text =
+        `Hola, confirmo mi asistencia a la Neon Party de Valeria.%0A%0A` +
+        `Nombre: ${encodeURIComponent(name)}%0A` +
+        `Asistencia: ${encodeURIComponent(attendance)}%0A` +
+        `Número de personas: ${encodeURIComponent(count)}%0A` +
+        `Drink favorito: ${encodeURIComponent(drink)}%0A` +
+        `Mensaje: ${encodeURIComponent(message)}`;
+
+      window.open(
+        `https://wa.me/${whatsappNumber}?text=${text}`,
+        '_blank'
+      );
+
+    });
+
+</script>
 
 </body>
 </html>

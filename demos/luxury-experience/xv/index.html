@@ -1,1 +1,915 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
+  <title>XV Luxury Experience | Isabella</title>
+
+  <meta name="description" content="Invitación digital premium de XV años estilo luxury experience." />
+
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+
+    :root{
+      --bg:#050505;
+      --bg2:#0f0a0d;
+
+      --rose:#f1c3cb;
+      --rose-dark:#dba0aa;
+
+      --gold:#d9bb73;
+      --gold-soft:#f5ddb0;
+
+      --text:#f6eee7;
+      --muted:#d2c4bc;
+
+      --line:rgba(255,255,255,.08);
+
+      --glass:rgba(255,255,255,.05);
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Montserrat',sans-serif;
+
+      background:
+        radial-gradient(circle at top left, rgba(241,195,203,.14), transparent 25%),
+        radial-gradient(circle at bottom right, rgba(217,187,115,.10), transparent 28%),
+        linear-gradient(140deg,var(--bg),var(--bg2));
+
+      color:var(--text);
+
+      overflow-x:hidden;
+      line-height:1.7;
+    }
+
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
+
+    img{
+      display:block;
+      max-width:100%;
+    }
+
+    video{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .brand-home{
+      position:fixed;
+      top:18px;
+      left:18px;
+
+      z-index:120;
+
+      width:74px;
+      height:74px;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      border-radius:24px;
+
+      background:rgba(255,255,255,.06);
+
+      border:1px solid rgba(255,255,255,.08);
+
+      backdrop-filter:blur(16px);
+
+      box-shadow:0 12px 30px rgba(0,0,0,.35);
+
+      transition:.3s ease;
+    }
+
+    .brand-home:hover{
+      transform:translateY(-3px) scale(1.04);
+    }
+
+    .brand-home img{
+      width:56px;
+    }
+
+    .music-btn{
+      position:fixed;
+      top:18px;
+      right:18px;
+
+      z-index:120;
+
+      width:62px;
+      height:62px;
+
+      border-radius:50%;
+
+      border:none;
+
+      cursor:pointer;
+
+      font-size:1.3rem;
+
+      background:linear-gradient(135deg,var(--rose),var(--gold));
+
+      color:#111;
+
+      box-shadow:0 10px 24px rgba(0,0,0,.35);
+
+      transition:.3s ease;
+    }
+
+    .music-btn:hover{
+      transform:scale(1.06);
+    }
+
+    .hero{
+      position:relative;
+
+      min-height:100vh;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      text-align:center;
+
+      overflow:hidden;
+    }
+
+    .hero video{
+      position:absolute;
+      inset:0;
+      z-index:-3;
+    }
+
+    .overlay{
+      position:absolute;
+      inset:0;
+
+      background:
+        linear-gradient(to bottom, rgba(0,0,0,.35), rgba(0,0,0,.82));
+
+      z-index:-2;
+    }
+
+    .hero-content{
+      width:min(920px,92%);
+      margin:auto;
+
+      animation:fadeUp 1.2s ease both;
+    }
+
+    .eyebrow{
+      color:var(--gold-soft);
+
+      letter-spacing:.42em;
+      text-transform:uppercase;
+
+      font-size:.72rem;
+      margin-bottom:1rem;
+    }
+
+    .signature{
+      font-family:'Great Vibes',cursive;
+
+      color:var(--rose);
+
+      font-size:clamp(3rem,7vw,5rem);
+
+      margin-bottom:.4rem;
+    }
+
+    h1{
+      font-family:'Cinzel',serif;
+
+      font-size:clamp(4rem,11vw,8rem);
+
+      line-height:.92;
+      font-weight:600;
+
+      margin-bottom:1rem;
+    }
+
+    .hero p{
+      max-width:760px;
+
+      margin:0 auto 2rem;
+
+      color:var(--muted);
+
+      font-size:1.05rem;
+    }
+
+    .date{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+
+      gap:.7rem;
+
+      padding:.85rem 1.4rem;
+
+      border-radius:999px;
+
+      background:rgba(255,255,255,.06);
+
+      border:1px solid rgba(255,255,255,.08);
+
+      backdrop-filter:blur(12px);
+
+      color:var(--gold-soft);
+
+      font-size:.88rem;
+      font-weight:600;
+
+      margin-bottom:2rem;
+    }
+
+    .hero-actions,
+    .actions{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      gap:1rem;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+
+      padding:1rem 1.55rem;
+
+      border-radius:999px;
+
+      font-size:.92rem;
+      font-weight:700;
+
+      transition:.25s ease;
+
+      border:1px solid transparent;
+    }
+
+    .btn-primary{
+      background:linear-gradient(135deg,var(--rose),var(--gold));
+
+      color:#111;
+
+      box-shadow:0 12px 26px rgba(0,0,0,.28);
+    }
+
+    .btn-outline{
+      background:rgba(255,255,255,.06);
+
+      border-color:rgba(255,255,255,.08);
+
+      color:#fff;
+    }
+
+    .btn:hover{
+      transform:translateY(-3px);
+    }
+
+    .section{
+      padding:6rem 1.2rem;
+    }
+
+    .container{
+      max-width:1180px;
+      margin:auto;
+    }
+
+    .title{
+      font-family:'Cinzel',serif;
+
+      font-size:clamp(2.6rem,6vw,5rem);
+
+      line-height:1;
+      font-weight:600;
+
+      text-align:center;
+
+      margin-bottom:1rem;
+    }
+
+    .subtitle{
+      max-width:760px;
+
+      margin:0 auto 3rem;
+
+      text-align:center;
+
+      color:var(--muted);
+    }
+
+    .countdown{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+
+      gap:1rem;
+
+      max-width:920px;
+      margin:auto;
+    }
+
+    .count-card{
+      padding:2rem;
+
+      border-radius:30px;
+
+      background:var(--glass);
+
+      border:1px solid rgba(255,255,255,.08);
+
+      backdrop-filter:blur(12px);
+
+      text-align:center;
+    }
+
+    .count-card strong{
+      display:block;
+
+      font-family:'Cinzel',serif;
+
+      font-size:3rem;
+
+      color:var(--gold-soft);
+
+      margin-bottom:.5rem;
+    }
+
+    .count-card span{
+      color:var(--muted);
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      font-size:.75rem;
+    }
+
+    .details{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+
+      gap:1.2rem;
+    }
+
+    .detail-card{
+      padding:2.2rem;
+
+      border-radius:30px;
+
+      background:var(--glass);
+
+      border:1px solid rgba(255,255,255,.08);
+
+      backdrop-filter:blur(14px);
+
+      text-align:center;
+    }
+
+    .detail-card span{
+      display:block;
+
+      font-size:2rem;
+
+      margin-bottom:.8rem;
+    }
+
+    .detail-card h3{
+      font-family:'Cinzel',serif;
+
+      font-size:1.45rem;
+
+      margin-bottom:.6rem;
+    }
+
+    .detail-card p{
+      color:var(--muted);
+    }
+
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+
+      gap:1rem;
+    }
+
+    .gallery img{
+      border-radius:28px;
+
+      height:420px;
+      object-fit:cover;
+
+      border:1px solid rgba(255,255,255,.06);
+
+      box-shadow:0 16px 36px rgba(0,0,0,.28);
+    }
+
+    .quote{
+      max-width:920px;
+      margin:auto;
+
+      padding:3rem 2rem;
+
+      border-radius:36px;
+
+      background:linear-gradient(
+        145deg,
+        rgba(255,255,255,.06),
+        rgba(255,255,255,.03)
+      );
+
+      border:1px solid rgba(255,255,255,.08);
+
+      backdrop-filter:blur(14px);
+
+      text-align:center;
+    }
+
+    .quote h2{
+      font-family:'Great Vibes',cursive;
+
+      font-size:clamp(3rem,7vw,5rem);
+
+      color:var(--rose);
+
+      margin-bottom:1rem;
+    }
+
+    .quote p{
+      color:var(--muted);
+
+      max-width:720px;
+      margin:auto;
+    }
+
+    .rsvp{
+      text-align:center;
+    }
+
+    .simple-footer{
+      text-align:center;
+
+      padding:4rem 1.2rem 3rem;
+
+      border-top:1px solid rgba(255,255,255,.06);
+
+      background:#060606;
+    }
+
+    .simple-footer h3{
+      font-family:'Cinzel',serif;
+
+      font-size:2.2rem;
+
+      margin-bottom:.8rem;
+    }
+
+    .simple-footer p{
+      max-width:720px;
+
+      margin:auto auto 2rem;
+
+      color:var(--muted);
+    }
+
+    .footer-links,
+    .footer-legal{
+      display:flex;
+      justify-content:center;
+
+      gap:1rem;
+      flex-wrap:wrap;
+    }
+
+    .footer-links a,
+    .footer-legal a{
+      color:var(--muted);
+
+      transition:.25s ease;
+    }
+
+    .footer-links a:hover,
+    .footer-legal a:hover{
+      color:var(--rose);
+    }
+
+    .footer-bottom{
+      margin-top:1rem;
+
+      color:var(--muted);
+
+      font-size:.9rem;
+    }
+
+    .footer-legal{
+      margin-top:1rem;
+      font-size:.88rem;
+    }
+
+    @keyframes fadeUp{
+      from{
+        opacity:0;
+        transform:translateY(30px);
+      }
+
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    @media(max-width:980px){
+
+      .countdown,
+      .details,
+      .gallery{
+        grid-template-columns:1fr;
+      }
+
+      .gallery img{
+        height:360px;
+      }
+
+    }
+
+    @media(max-width:700px){
+
+      .brand-home{
+        width:60px;
+        height:60px;
+
+        top:12px;
+        left:12px;
+
+        border-radius:18px;
+      }
+
+      .brand-home img{
+        width:46px;
+      }
+
+      .music-btn{
+        width:54px;
+        height:54px;
+
+        top:12px;
+        right:12px;
+      }
+
+      .section{
+        padding:4.5rem 1rem;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+<a href="../../../" class="brand-home">
+  <img src="../../../TIAMB.png" alt="Te Invito a Mi Boda">
+</a>
+
+<button class="music-btn" id="musicBtn">
+  ♫
+</button>
+
+<audio
+  id="bgMusic"
+  loop
+  preload="auto">
+  <source src="../../../assets/luxury/music.mp3" type="audio/mpeg">
+</audio>
+
+<section class="hero">
+
+  <video
+    autoplay
+    muted
+    loop
+    playsinline>
+
+    <source src="../../../assets/luxury/hero-video.mp4" type="video/mp4">
+
+  </video>
+
+  <div class="overlay"></div>
+
+  <div class="hero-content">
+
+    <div class="eyebrow">
+      XV Luxury Experience
+    </div>
+
+    <div class="signature">
+      Mis XV años
+    </div>
+
+    <h1>
+      Isabella
+    </h1>
+
+    <p>
+      Hay momentos que solo suceden una vez.
+      Quiero compartir contigo la noche más especial de mi vida.
+    </p>
+
+    <div class="date">
+      ✨ 18 · Noviembre · 2027 · 7:00 PM
+    </div>
+
+    <div class="hero-actions">
+
+      <a href="#confirmar" class="btn btn-primary">
+        Confirmar asistencia
+      </a>
+
+      <a href="#detalles" class="btn btn-outline">
+        Ver detalles
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="section">
+
+  <div class="container">
+
+    <h2 class="title">
+      Cuenta regresiva
+    </h2>
+
+    <p class="subtitle">
+      Cada segundo nos acerca a una noche mágica.
+    </p>
+
+    <div class="countdown">
+
+      <div class="count-card">
+        <strong id="days">00</strong>
+        <span>Días</span>
+      </div>
+
+      <div class="count-card">
+        <strong id="hours">00</strong>
+        <span>Horas</span>
+      </div>
+
+      <div class="count-card">
+        <strong id="minutes">00</strong>
+        <span>Minutos</span>
+      </div>
+
+      <div class="count-card">
+        <strong id="seconds">00</strong>
+        <span>Segundos</span>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="section" id="detalles">
+
+  <div class="container">
+
+    <h2 class="title">
+      Detalles del evento
+    </h2>
+
+    <p class="subtitle">
+      Una experiencia elegante inspirada en lujo moderno.
+    </p>
+
+    <div class="details">
+
+      <article class="detail-card">
+        <span>📍</span>
+        <h3>Ubicación</h3>
+        <p>Luxury Garden Hall · Ciudad de México</p>
+      </article>
+
+      <article class="detail-card">
+        <span>👗</span>
+        <h3>Dress Code</h3>
+        <p>Formal elegante en tonos neutros o pastel.</p>
+      </article>
+
+      <article class="detail-card">
+        <span>🎻</span>
+        <h3>Experiencia</h3>
+        <p>Violines, DJ set, cena premium y show sorpresa.</p>
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="section">
+
+  <div class="container">
+
+    <div class="quote">
+
+      <h2>
+        Una noche inolvidable
+      </h2>
+
+      <p>
+        Gracias por formar parte de este capítulo tan importante de mi vida.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="section">
+
+  <div class="container">
+
+    <h2 class="title">
+      Galería
+    </h2>
+
+    <p class="subtitle">
+      Inspiración luxury para XV años modernos.
+    </p>
+
+    <div class="gallery">
+
+      <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1400&auto=format&fit=crop" alt="XV Luxury">
+
+      <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1400&auto=format&fit=crop" alt="XV Luxury">
+
+      <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=1400&auto=format&fit=crop" alt="XV Luxury">
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="section rsvp" id="confirmar">
+
+  <div class="container">
+
+    <h2 class="title">
+      Confirma tu asistencia
+    </h2>
+
+    <p class="subtitle">
+      Será un honor compartir esta noche contigo.
+    </p>
+
+    <div class="actions">
+
+      <a
+        href="https://wa.me/5215541946413?text=Hola,%20confirmo%20mi%20asistencia%20a%20los%20XV%20de%20Isabella"
+        target="_blank"
+        class="btn btn-primary">
+
+        Confirmar por WhatsApp
+
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+<footer class="simple-footer">
+
+  <h3>Te Invito a Mi Boda</h3>
+
+  <p>
+    Invitaciones digitales premium para bodas y eventos especiales.
+    Diseños modernos, elegantes y completamente personalizados.
+  </p>
+
+  <div class="footer-links">
+
+    <a href="https://wa.me/5215541946413" target="_blank">
+      WhatsApp
+    </a>
+
+    <a href="#">
+      Instagram
+    </a>
+
+    <a href="#">
+      TikTok
+    </a>
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 TeInvitoAMiBoda.online — Todos los derechos reservados.
+  </div>
+
+  <div class="footer-legal">
+
+    <a href="../../../aviso-de-privacidad.html">
+      Aviso de Privacidad
+    </a>
+
+    <a href="../../../terminos-y-condiciones.html">
+      Términos y Condiciones
+    </a>
+
+  </div>
+
+</footer>
+
+<script>
+
+  const targetDate = new Date("Nov 18, 2027 19:00:00").getTime();
+
+  const updateCountdown = () => {
+
+    const now = new Date().getTime();
+
+    const distance = targetDate - now;
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+
+    const hours = Math.floor(
+      (distance % (1000 * 60 * 60 * 24)) /
+      (1000 * 60 * 60)
+    );
+
+    const minutes = Math.floor(
+      (distance % (1000 * 60 * 60)) /
+      (1000 * 60)
+    );
+
+    const seconds = Math.floor(
+      (distance % (1000 * 60)) / 1000
+    );
+
+    document.getElementById("days").innerHTML = days;
+    document.getElementById("hours").innerHTML = hours;
+    document.getElementById("minutes").innerHTML = minutes;
+    document.getElementById("seconds").innerHTML = seconds;
+
+  };
+
+  setInterval(updateCountdown,1000);
+
+  updateCountdown();
+
+  const music = document.getElementById("bgMusic");
+  const musicBtn = document.getElementById("musicBtn");
+
+  let playing = false;
+
+  musicBtn.addEventListener("click", () => {
+
+    if(!playing){
+
+      music.play();
+      musicBtn.innerHTML = "❚❚";
+
+      playing = true;
+
+    }else{
+
+      music.pause();
+      musicBtn.innerHTML = "♫";
+
+      playing = false;
+
+    }
+
+  });
+
+</script>
+
+</body>
+</html>

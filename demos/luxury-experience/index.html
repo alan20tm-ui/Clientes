@@ -266,6 +266,125 @@
     .luxury-btn:hover{
       transform:translateY(-3px);
     }
+    .xv-card{
+  min-height:640px;
+}
+
+.xv-card video{
+  filter:
+    saturate(.85)
+    contrast(1.1)
+    hue-rotate(320deg)
+    brightness(.8);
+
+  transform:scale(1.1);
+}
+
+.xv-gradient{
+  position:absolute;
+  inset:0;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0,0,0,.15),
+      rgba(0,0,0,.82)
+    );
+
+  z-index:1;
+}
+
+.xv-top{
+  position:absolute;
+
+  top:24px;
+  left:24px;
+
+  z-index:3;
+}
+
+.xv-top span{
+  display:inline-flex;
+
+  padding:.5rem .9rem;
+
+  border-radius:999px;
+
+  background:rgba(255,255,255,.08);
+
+  border:1px solid rgba(255,255,255,.12);
+
+  backdrop-filter:blur(12px);
+
+  color:#ffe0f0;
+
+  font-size:.72rem;
+
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+
+.xv-center{
+  position:absolute;
+
+  inset:0;
+
+  z-index:3;
+
+  display:flex;
+  flex-direction:column;
+
+  align-items:center;
+  justify-content:center;
+
+  text-align:center;
+
+  padding:2rem;
+}
+
+.xv-center small{
+  color:#f6ddb0;
+
+  letter-spacing:.25em;
+  text-transform:uppercase;
+
+  font-size:.72rem;
+
+  margin-bottom:1rem;
+}
+
+.xv-center h2{
+  font-family:'Cinzel',serif;
+
+  font-size:clamp(4rem,8vw,6rem);
+
+  line-height:.9;
+
+  margin-bottom:1rem;
+
+  color:#fff;
+}
+
+.xv-center p{
+  max-width:420px;
+
+  color:#f4dbe3;
+
+  line-height:1.8;
+}
+
+.xv-bottom{
+  position:absolute;
+
+  left:0;
+  right:0;
+  bottom:32px;
+
+  z-index:3;
+
+  display:flex;
+  justify-content:center;
+}
 
     .simple-footer{
       text-align:center;
@@ -418,36 +537,44 @@
 
     <!-- XV -->
 
-<article class="luxury-card">
+<!-- XV -->
+
+<article class="luxury-card xv-card">
 
   <video autoplay muted loop playsinline>
     <source src="../../assets/luxury/hero-video.mp4" type="video/mp4">
   </video>
 
-  <div class="luxury-overlay"></div>
+  <div class="xv-gradient"></div>
 
-      <div class="luxury-content">
+  <div class="xv-top">
+    <span>XV Luxury Experience</span>
+  </div>
 
-        <div class="luxury-tag">
-          XV Luxury Experience
-        </div>
+  <div class="xv-center">
 
-        <h2>
-          XV Años Luxury
-        </h2>
+    <small>Private Edition</small>
 
-        <p>
-          Una experiencia premium para XV años modernos,
-          elegantes y completamente cinematográficos.
-        </p>
+    <h2>
+      Isabella
+    </h2>
 
-        <a href="./xv/" class="luxury-btn">
-          Ver demo
-        </a>
+    <p>
+      Una experiencia editorial inspirada en moda,
+      glamour y noches inolvidables.
+    </p>
 
-      </div>
+  </div>
 
-    </article>
+  <div class="xv-bottom">
+
+    <a href="./xv/" class="luxury-btn">
+      Entrar experiencia
+    </a>
+
+  </div>
+
+</article>
 
   </div>
 

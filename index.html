@@ -3,50 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Te Invito a Mi Boda | Invitaciones Digitales Premium</title>
-  <meta name="description"
-content="Invitaciones digitales premium para bodas y eventos especiales. Diseños elegantes, modernos y completamente personalizados.">
 
-<meta name="keywords"
-content="invitaciones digitales, bodas, invitaciones premium, XV años, bautizos, graduaciones, invitaciones elegantes, invitaciones online">
+  <meta name="description" content="Invitaciones digitales premium para bodas y eventos especiales. Diseños elegantes, modernos y completamente personalizados.">
+  <meta name="keywords" content="invitaciones digitales, bodas, invitaciones premium, XV años, bautizos, graduaciones, invitaciones elegantes, invitaciones online">
+  <meta name="author" content="TeInvitoAMiBoda.online">
+  <meta name="robots" content="index, follow">
 
-<meta name="author"
-content="TeInvitoAMiBoda.online">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Te Invito a Mi Boda | Invitaciones Digitales Premium">
+  <meta property="og:description" content="Diseños digitales elegantes y personalizados para bodas y eventos especiales.">
+  <meta property="og:image" content="https://teinvitoamiboda.online/assets/preview-social.jpg">
+  <meta property="og:url" content="https://teinvitoamiboda.online">
+  <meta property="og:site_name" content="TeInvitoAMiBoda.online">
 
-<meta name="robots"
-content="index, follow">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Te Invito a Mi Boda">
+  <meta name="twitter:description" content="Invitaciones digitales premium para bodas y eventos especiales.">
+  <meta name="twitter:image" content="https://teinvitoamiboda.online/assets/preview-social.jpg">
 
-<meta property="og:type"
-content="website">
-
-<meta property="og:title"
-content="Te Invito a Mi Boda | Invitaciones Digitales Premium">
-
-<meta property="og:description"
-content="Diseños digitales elegantes y personalizados para bodas y eventos especiales.">
-
-<meta property="og:image"
-content="https://teinvitoamiboda.online/assets/preview-social.jpg">
-
-<meta property="og:url"
-content="https://teinvitoamiboda.online">
-
-<meta property="og:site_name"
-content="TeInvitoAMiBoda.online">
-
-<meta name="twitter:card"
-content="summary_large_image">
-
-<meta name="twitter:title"
-content="Te Invito a Mi Boda">
-
-<meta name="twitter:description"
-content="Invitaciones digitales premium para bodas y eventos especiales.">
-
-<meta name="twitter:image"
-content="https://teinvitoamiboda.online/assets/preview-social.jpg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
-<link rel="apple-touch-icon" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/favicon.png">
 
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
@@ -61,7 +39,11 @@ content="https://teinvitoamiboda.online/assets/preview-social.jpg">
       --shadow: rgba(0, 0, 0, .55);
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
     html {
       scroll-behavior: smooth;
@@ -76,26 +58,29 @@ content="https://teinvitoamiboda.online/assets/preview-social.jpg">
       line-height: 1.7;
     }
 
-    a { color: inherit; text-decoration: none; }
-    img { width: 100%; display: block; }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      width: 100%;
+      display: block;
+    }
 
     .ambient {
-  position: fixed;
-  inset: 0;
-  z-index: -3;
-  pointer-events: none;
-  background:
-    radial-gradient(circle at 15% 20%, rgba(201,164,95,.20), transparent 28%),
-    radial-gradient(circle at 85% 10%, rgba(244,213,141,.10), transparent 24%),
-    radial-gradient(circle at 80% 88%, rgba(201,164,95,.14), transparent 35%),
-    radial-gradient(circle at 50% 50%, rgba(255,255,255,.015), transparent 60%),
-    linear-gradient(
-      135deg,
-      #030303 0%,
-      #0a0907 45%,
-      #020202 100%
-    );
-}
+      position: fixed;
+      inset: 0;
+      z-index: -3;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(201,164,95,.20), transparent 28%),
+        radial-gradient(circle at 85% 10%, rgba(244,213,141,.10), transparent 24%),
+        radial-gradient(circle at 80% 88%, rgba(201,164,95,.14), transparent 35%),
+        radial-gradient(circle at 50% 50%, rgba(255,255,255,.015), transparent 60%),
+        linear-gradient(135deg, #030303 0%, #0a0907 45%, #020202 100%);
+    }
+
     .silk {
       position: fixed;
       right: -14%;
@@ -160,7 +145,9 @@ content="https://teinvitoamiboda.online/assets/preview-social.jpg">
       transition: .2s;
     }
 
-    .nav-links a:hover { color: var(--gold-soft); }
+    .nav-links a:hover {
+      color: var(--gold-soft);
+    }
 
     .btn {
       display: inline-flex;
@@ -177,7 +164,9 @@ content="https://teinvitoamiboda.online/assets/preview-social.jpg">
       white-space: nowrap;
     }
 
-    .btn:hover { transform: translateY(-2px); }
+    .btn:hover {
+      transform: translateY(-2px);
+    }
 
     .btn-gold {
       background: linear-gradient(135deg, var(--gold), var(--gold-soft));
@@ -189,6 +178,26 @@ content="https://teinvitoamiboda.online/assets/preview-social.jpg">
       background: rgba(255,255,255,.035);
       border-color: var(--line);
       color: var(--text);
+    }
+
+    .floating {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: #25D366;
+      color: white;
+      z-index: 60;
+      box-shadow: 0 14px 34px rgba(0,0,0,.38);
+      transition: .25s ease;
+    }
+
+    .floating:hover {
+      transform: translateY(-3px) scale(1.04);
     }
 
     .hero {
@@ -267,7 +276,7 @@ content="https://teinvitoamiboda.online/assets/preview-social.jpg">
       font-weight: 300;
       font-size: clamp(4.2rem, 7vw, 7.6rem);
       line-height: .9;
-      letter-spacing:-.045em;
+      letter-spacing: -.045em;
       margin-bottom: 1.5rem;
       text-shadow: 0 18px 45px rgba(0,0,0,.45);
     }
@@ -346,43 +355,37 @@ content="https://teinvitoamiboda.online/assets/preview-social.jpg">
       gap: 1.8rem;
     }
 
-    .card{
-  position:relative;
+    .card {
+      position: relative;
+      background:
+        linear-gradient(145deg, rgba(255,255,255,.045), rgba(255,255,255,.015));
+      border: 1px solid rgba(244,213,141,.16);
+      border-radius: 26px;
+      overflow: hidden;
+      backdrop-filter: blur(18px);
+      box-shadow:
+        0 30px 70px rgba(0,0,0,.48),
+        inset 0 1px 0 rgba(255,255,255,.04);
+      transition: .35s ease;
+    }
 
-  background:
-    linear-gradient(
-      145deg,
-      rgba(255,255,255,.045),
-      rgba(255,255,255,.015)
-    );
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(120deg, transparent 20%, rgba(255,255,255,.06) 48%, transparent 75%);
+      opacity: .6;
+      pointer-events: none;
+    }
 
-  border:1px solid rgba(244,213,141,.16);
-
-  border-radius:26px;
-
-  overflow:hidden;
-
-  backdrop-filter:blur(18px);
-
-  box-shadow:
-    0 30px 70px rgba(0,0,0,.48),
-    inset 0 1px 0 rgba(255,255,255,.04);
-
-  transition:.35s ease;
-}
-
-   .card:hover{
-  transform:
-    translateY(-8px)
-    scale(1.015);
-
-  border-color:
-    rgba(244,213,141,.45);
-
-  box-shadow:
-    0 45px 90px rgba(0,0,0,.55),
-    0 0 45px rgba(244,213,141,.10);
-}
+    .card:hover {
+      transform: translateY(-8px) scale(1.015);
+      border-color: rgba(244,213,141,.45);
+      box-shadow:
+        0 45px 90px rgba(0,0,0,.55),
+        0 0 45px rgba(244,213,141,.10);
+    }
 
     .card-image {
       height: 245px;
@@ -396,25 +399,10 @@ content="https://teinvitoamiboda.online/assets/preview-social.jpg">
       object-fit: cover;
       transition: .35s ease;
     }
-.card::before{
-  content:"";
 
-  position:absolute;
-  inset:0;
-
-  background:
-    linear-gradient(
-      120deg,
-      transparent 20%,
-      rgba(255,255,255,.06) 48%,
-      transparent 75%
-    );
-
-  opacity:.6;
-
-  pointer-events:none;
-}
-    .card:hover .card-image img { transform: scale(1.04); }
+    .card:hover .card-image img {
+      transform: scale(1.04);
+    }
 
     .badge {
       position: absolute;
@@ -468,7 +456,7 @@ content="https://teinvitoamiboda.online/assets/preview-social.jpg">
     }
 
     .section {
-      padding:7rem 1.2rem;
+      padding: 7rem 1.2rem;
     }
 
     .container {
@@ -486,6 +474,7 @@ content="https://teinvitoamiboda.online/assets/preview-social.jpg">
       margin-bottom: 1rem;
     }
 
+    .event-grid,
     .why-grid,
     .steps-grid {
       display: grid;
@@ -493,72 +482,8 @@ content="https://teinvitoamiboda.online/assets/preview-social.jpg">
       gap: 1rem;
       margin-top: 3rem;
     }
-.event-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:1rem;
-  margin-top:3rem;
-}
 
-.event-card{
-  background:rgba(255,255,255,.03);
-  border:1px solid var(--line);
-  border-radius:22px;
-  padding:2rem 1rem;
-  text-align:center;
-  transition:.25s ease;
-  backdrop-filter:blur(10px);
-}
-
-.event-card:hover{
-  transform:translateY(-5px);
-  border-color:rgba(244,213,141,.45);
-  box-shadow:0 18px 40px rgba(0,0,0,.35);
-}
-
-.event-card span{
-  display:block;
-  font-size:2rem;
-  margin-bottom:.8rem;
-}
-
-.event-card h3{
-  font-family:'Cormorant Garamond', serif;
-  color:var(--gold-soft);
-  font-size:1.8rem;
-  font-weight:500;
-}
-    .event-btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-
-  margin-top:1rem;
-
-  padding:.7rem 1rem;
-
-  border-radius:999px;
-
-  background:
-    linear-gradient(
-      135deg,
-      var(--gold),
-      var(--gold-soft)
-    );
-
-  color:#111;
-
-  font-size:.82rem;
-  font-weight:700;
-
-  transition:.25s ease;
-}
-
-.event-btn:hover{
-  transform:translateY(-2px);
-  box-shadow:
-    0 12px 24px rgba(201,164,95,.25);
-}
+    .event-card,
     .info-card {
       min-width: 0;
       text-align: center;
@@ -566,14 +491,24 @@ content="https://teinvitoamiboda.online/assets/preview-social.jpg">
       border-radius: 24px;
       background: rgba(255,255,255,.03);
       border: 1px solid var(--line);
+      backdrop-filter: blur(10px);
+      transition: .25s ease;
     }
 
+    .event-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(244,213,141,.45);
+      box-shadow: 0 18px 40px rgba(0,0,0,.35);
+    }
+
+    .event-card span,
     .info-card span {
       display: block;
       font-size: 2rem;
       margin-bottom: .7rem;
     }
 
+    .event-card h3,
     .info-card h4 {
       color: var(--gold-soft);
       font-family: 'Cormorant Garamond', serif;
@@ -585,6 +520,111 @@ content="https://teinvitoamiboda.online/assets/preview-social.jpg">
     .info-card p {
       color: var(--muted);
       font-size: .9rem;
+    }
+
+    .event-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1rem;
+      padding: .7rem 1rem;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-soft));
+      color: #111;
+      font-size: .82rem;
+      font-weight: 700;
+      transition: .25s ease;
+    }
+
+    .event-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(201,164,95,.25);
+    }
+
+    .luxury-section {
+      position: relative;
+      padding: 7rem 1.2rem;
+      overflow: hidden;
+    }
+
+    .luxury-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(244,213,141,.12), transparent 28%),
+        radial-gradient(circle at 80% 80%, rgba(201,164,95,.10), transparent 32%);
+      pointer-events: none;
+    }
+
+    .luxury-container {
+      position: relative;
+      z-index: 2;
+      max-width: 1180px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .luxury-content h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3.2rem,6vw,5.8rem);
+      line-height: .92;
+      font-weight: 400;
+      color: var(--gold-soft);
+      margin: 1rem 0 1.5rem;
+    }
+
+    .luxury-content p {
+      color: var(--muted);
+      max-width: 620px;
+      font-size: 1.05rem;
+    }
+
+    .luxury-features {
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      gap: 1rem;
+      margin-top: 2.5rem;
+    }
+
+    .luxury-item {
+      padding: 1rem 1.1rem;
+      border-radius: 18px;
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(244,213,141,.14);
+      backdrop-filter: blur(10px);
+      color: #f1e9dc;
+      font-size: .92rem;
+      transition: .25s ease;
+    }
+
+    .luxury-item:hover {
+      transform: translateY(-4px);
+      border-color: rgba(244,213,141,.38);
+      box-shadow: 0 18px 40px rgba(0,0,0,.35);
+    }
+
+    .luxury-visual {
+      display: flex;
+      justify-content: center;
+      position: relative;
+    }
+
+    .luxury-visual img {
+      width: 75%;
+      max-width: 420px;
+      border-radius: 28px;
+      border: 1px solid rgba(244,213,141,.14);
+      box-shadow:
+        0 40px 80px rgba(0,0,0,.45),
+        0 0 60px rgba(244,213,141,.08);
+      transition: .35s ease;
+    }
+
+    .luxury-visual img:hover {
+      transform: translateY(-6px) scale(1.01);
     }
 
     .cta {
@@ -603,28 +643,69 @@ content="https://teinvitoamiboda.online/assets/preview-social.jpg">
       margin-bottom: 1rem;
     }
 
-    .floating {
-      position: fixed;
-      right: 20px;
-      bottom: 20px;
-      width: 58px;
-      height: 58px;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      background: #25D366;
-      color: white;
-      font-size: 1.75rem;
-      z-index: 60;
-      box-shadow: 0 14px 34px rgba(0,0,0,.38);
+    .simple-footer {
+      text-align: center;
+      padding: 4rem 1.2rem 3rem;
+      border-top: 1px solid rgba(244,213,141,.12);
+      background:
+        linear-gradient(180deg, rgba(201,164,95,.04), rgba(0,0,0,.88));
     }
 
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      color: #8c8377;
-      background: #050505;
+    .simple-footer h3 {
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--gold-soft);
+      font-size: 2.4rem;
+      font-weight: 400;
+      margin-bottom: .8rem;
+    }
+
+    .simple-footer p {
+      max-width: 720px;
+      margin: auto;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 2rem;
+    }
+
+    .footer-contact {
+      margin-bottom: 2rem;
+    }
+
+    .footer-contact strong {
+      display: block;
+      color: var(--gold-soft);
+      margin-bottom: .8rem;
+      font-size: 1rem;
+    }
+
+    .footer-links,
+    .footer-legal {
+      display: flex;
+      justify-content: center;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a,
+    .footer-legal a {
+      color: #cfc6bb;
+      transition: .25s ease;
+    }
+
+    .footer-links a:hover,
+    .footer-legal a:hover {
+      color: var(--gold-soft);
+    }
+
+    .footer-bottom {
+      margin-top: 1rem;
+      color: #8f8578;
       font-size: .9rem;
+    }
+
+    .footer-legal {
+      margin-top: 1rem;
+      font-size: .88rem;
     }
 
     .fade {
@@ -652,136 +733,10 @@ content="https://teinvitoamiboda.online/assets/preview-social.jpg">
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-10px); }
     }
-.luxury-section{
-  position:relative;
-  padding:7rem 1.2rem;
-  overflow:hidden;
-}
 
-.luxury-bg{
-  position:absolute;
-  inset:0;
-
-  background:
-    radial-gradient(
-      circle at 20% 20%,
-      rgba(244,213,141,.12),
-      transparent 28%
-    ),
-
-    radial-gradient(
-      circle at 80% 80%,
-      rgba(201,164,95,.10),
-      transparent 32%
-    );
-
-  pointer-events:none;
-}
-
-.luxury-container{
-  position:relative;
-  z-index:2;
-
-  max-width:1180px;
-  margin:auto;
-
-  display:grid;
-  grid-template-columns:1.1fr .9fr;
-  gap:4rem;
-  align-items:center;
-}
-
-.luxury-content h2{
-  font-family:'Cormorant Garamond', serif;
-  font-size:clamp(3.2rem,6vw,5.8rem);
-  line-height:.92;
-  font-weight:400;
-
-  color:var(--gold-soft);
-
-  margin:1rem 0 1.5rem;
-}
-
-.luxury-content p{
-  color:var(--muted);
-  max-width:620px;
-  font-size:1.05rem;
-}
-
-.luxury-features{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:1rem;
-
-  margin-top:2.5rem;
-}
-
-.luxury-item{
-  padding:1rem 1.1rem;
-
-  border-radius:18px;
-
-  background:rgba(255,255,255,.03);
-
-  border:1px solid rgba(244,213,141,.14);
-
-  backdrop-filter:blur(10px);
-
-  color:#f1e9dc;
-
-  font-size:.92rem;
-
-  transition:.25s ease;
-}
-
-.luxury-item:hover{
-  transform:translateY(-4px);
-
-  border-color:rgba(244,213,141,.38);
-
-  box-shadow:0 18px 40px rgba(0,0,0,.35);
-}
-
-.luxury-visual{
-  position:relative;
-}
-
-.luxury-visual{
-  display:flex;
-  justify-content:center;
-}
-
-.luxury-visual img{
-  width:75%;
-  max-width:420px;
-
-  border-radius:28px;
-
-  border:1px solid rgba(244,213,141,.14);
-
-  box-shadow:
-    0 40px 80px rgba(0,0,0,.45),
-    0 0 60px rgba(244,213,141,.08);
-
-  transition:.35s ease;
-}
-
-  border-radius:28px;
-
-  border:1px solid rgba(244,213,141,.14);
-
-  box-shadow:
-    0 40px 80px rgba(0,0,0,.45),
-    0 0 60px rgba(244,213,141,.08);
-
-  transition:.35s ease;
-}
-
-.luxury-visual img:hover{
-  transform:translateY(-6px) scale(1.01);
-}
     @media (max-width: 1180px) {
       .catalog-grid,
+      .event-grid,
       .why-grid,
       .steps-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -791,283 +746,190 @@ content="https://teinvitoamiboda.online/assets/preview-social.jpg">
         font-size: clamp(3.8rem, 7vw, 6.4rem);
       }
     }
-.simple-footer{
-  text-align:center;
-  padding:4rem 1.2rem 3rem;
-  border-top:1px solid rgba(244,213,141,.12);
-  background:
-    linear-gradient(
-      180deg,
-      rgba(201,164,95,.04),
-      rgba(0,0,0,.88)
-    );
-}
 
-.simple-footer h3{
-  font-family:'Cormorant Garamond',serif;
-  color:var(--gold2);
-  font-size:2.4rem;
-  font-weight:400;
-  margin-bottom:.8rem;
-}
-
-.simple-footer p{
-  max-width:720px;
-  margin:auto;
-  color:var(--muted);
-  line-height:1.8;
-  margin-bottom:2rem;
-}
-
-.footer-contact{
-  margin-bottom:2rem;
-}
-
-.footer-contact strong{
-  display:block;
-  color:var(--gold2);
-  margin-bottom:.8rem;
-  font-size:1rem;
-}
-
-.footer-links{
-  display:flex;
-  justify-content:center;
-  gap:1.2rem;
-  flex-wrap:wrap;
-}
-
-.footer-links a,
-.footer-legal a{
-  color:#cfc6bb;
-  transition:.25s ease;
-}
-
-.footer-links a:hover,
-.footer-legal a:hover{
-  color:var(--gold2);
-}
-
-.footer-bottom{
-  margin-top:1rem;
-  color:#8f8578;
-  font-size:.9rem;
-}
-
-.footer-legal{
-  margin-top:1rem;
-  display:flex;
-  justify-content:center;
-  gap:1rem;
-  flex-wrap:wrap;
-  font-size:.88rem;
-}
     @media (max-width: 900px) {
+      .navbar {
+        top: 12px;
+        left: 12px;
+        right: 12px;
+        width: auto;
+        max-width: none;
+        justify-content: space-between;
+        gap: .7rem;
+        padding: .45rem .5rem;
+        overflow-x: auto;
+        scrollbar-width: none;
+      }
 
-  .navbar {
-    top: 12px;
-    left: 12px;
-    right: 12px;
-    width: auto;
-    max-width: none;
-    justify-content: space-between;
-    gap: .7rem;
-    padding: .45rem .5rem;
-    overflow-x: auto;
-    scrollbar-width: none;
-  }
+      .navbar::-webkit-scrollbar,
+      .nav-links::-webkit-scrollbar {
+        display: none;
+      }
 
-  .event-grid{
-    grid-template-columns:1fr;
-    max-width:420px;
-    margin:auto;
-    margin-top:2rem;
-  }
+      .nav-links {
+        display: flex;
+        gap: 1rem;
+        overflow-x: auto;
+        scrollbar-width: none;
+      }
 
-  .navbar::-webkit-scrollbar {
-    display: none;
-  }
+      .nav-links a {
+        font-size: .76rem;
+      }
 
-  .nav-links {
-    display: flex;
-    gap: 1rem;
-    overflow-x: auto;
-    scrollbar-width: none;
-  }
+      .navbar .btn {
+        padding: .65rem .9rem;
+        font-size: .76rem;
+        flex: 0 0 auto;
+      }
 
-  .nav-links::-webkit-scrollbar {
-    display: none;
-  }
+      .hero {
+        min-height: auto;
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+        padding: 5.8rem 1.1rem 3.5rem;
+        text-align: center;
+      }
 
-  .nav-links a {
-    font-size: .76rem;
-  }
+      .hero::before {
+        inset: .7rem;
+        border-radius: 30px;
+      }
 
-  .navbar .btn {
-    padding: .65rem .9rem;
-    font-size: .76rem;
-    flex: 0 0 auto;
-  }
+      .brand-panel {
+        min-height: auto;
+        padding-top: .8rem;
+      }
 
-  .hero {
-    min-height: auto;
-    grid-template-columns: 1fr;
-    gap: 1.2rem;
-    padding: 5.8rem 1.1rem 3.5rem;
-    text-align: center;
-  }
+      .brand-glow {
+        width: 82vw;
+        opacity: .55;
+      }
 
-  .hero::before {
-    inset: .7rem;
-    border-radius: 30px;
-  }
+      .hero-logo {
+        width: min(76vw, 340px);
+        min-width: 0;
+        max-width: 340px;
+      }
 
-  .brand-panel {
-    min-height: auto;
-    padding-top: .8rem;
-  }
+      .hero-content {
+        max-width: 100%;
+      }
 
-  .brand-glow {
-    width: 82vw;
-    opacity: .55;
-  }
+      .eyebrow {
+        letter-spacing: .28em;
+        font-size: .62rem;
+        margin-bottom: 1rem;
+      }
 
-  .hero-logo {
-    width: min(76vw, 340px);
-    min-width: 0;
-    max-width: 340px;
-  }
+      .hero h1 {
+        font-size: clamp(3.1rem, 13vw, 4.6rem);
+        line-height: .92;
+        margin-bottom: 1rem;
+      }
 
-  .hero-content {
-    max-width: 100%;
-  }
+      .hero h1 span {
+        display: inline;
+      }
 
-  .eyebrow {
-    letter-spacing: .28em;
-    font-size: .62rem;
-    margin-bottom: 1rem;
-  }
+      .hero h1 span::before,
+      .hero h1 span::after {
+        display: none;
+      }
 
-  .hero h1 {
-    font-size: clamp(3.1rem, 13vw, 4.6rem);
-    line-height: .92;
-    margin-bottom: 1rem;
-  }
+      .hero p {
+        font-size: .95rem;
+        padding: 0 .2rem;
+      }
 
-  .hero h1 span {
-    display: inline;
-  }
+      .hero-actions {
+        gap: .7rem;
+        margin-top: 1.4rem;
+      }
 
-  .hero h1 span::before,
-  .hero h1 span::after {
-    display: none;
-  }
+      .hero-actions .btn {
+        width: 100%;
+        max-width: 290px;
+        padding: .85rem 1rem;
+        font-size: .84rem;
+      }
 
-  .hero p {
-    font-size: .95rem;
-    padding: 0 .2rem;
-  }
+      .catalog-preview {
+        padding: 3.2rem 1rem 3rem;
+      }
 
-  .hero-actions {
-    gap: .7rem;
-    margin-top: 1.4rem;
-  }
+      .section-kicker {
+        letter-spacing: .24em;
+        font-size: .66rem;
+        gap: .6rem;
+      }
 
-  .hero-actions .btn {
-    width: 100%;
-    max-width: 290px;
-    padding: .85rem 1rem;
-    font-size: .84rem;
-  }
+      .section-kicker::before,
+      .section-kicker::after {
+        width: 38px;
+      }
 
-  .catalog-preview {
-    padding: 3.2rem 1rem 3rem;
-    margin-top: 0;
-  }
+      .catalog-grid,
+      .event-grid,
+      .why-grid,
+      .steps-grid {
+        grid-template-columns: 1fr;
+        max-width: 420px;
+        margin-left: auto;
+        margin-right: auto;
+      }
 
-  .section-kicker {
-    letter-spacing: .24em;
-    font-size: .66rem;
-    gap: .6rem;
-  }
+      .card-image {
+        height: 310px;
+      }
 
-  .section-kicker::before,
-  .section-kicker::after {
-    width: 38px;
-  }
+      .section {
+        padding: 4.5rem 1rem;
+      }
 
-  .catalog-grid,
-  .why-grid,
-  .steps-grid {
-    grid-template-columns: 1fr;
-    max-width: 420px;
-    margin-left: auto;
-    margin-right: auto;
-  }
+      .info-card {
+        padding: 1.7rem 1.2rem;
+      }
 
-  .card-image {
-    height: 310px;
-  }
+      .cta {
+        padding: 4.8rem 1rem;
+      }
 
-  .section {
-    padding: 4.5rem 1rem;
-  }
+      .floating {
+        width: 54px;
+        height: 54px;
+        right: 16px;
+        bottom: 16px;
+      }
 
-  .info-card {
-    padding: 1.7rem 1.2rem;
-  }
+      .luxury-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
 
-  .cta {
-    padding: 4.8rem 1rem;
-  }
+      .luxury-content {
+        text-align: center;
+      }
 
-  .floating {
-    width: 54px;
-    height: 54px;
-    right: 16px;
-    bottom: 16px;
-  }
-.luxury-container{
-  grid-template-columns:1fr;
-  gap:2rem;
-}
+      .luxury-content p {
+        margin: auto;
+      }
 
-.luxury-content{
-  text-align:center;
-}
+      .luxury-features {
+        grid-template-columns: 1fr;
+      }
 
-.luxury-content p{
-  margin:auto;
-}
+      .luxury-visual {
+        max-width: 420px;
+        margin: auto;
+      }
 
-.luxury-features{
-  grid-template-columns:1fr;
-}
+      .footer-legal {
+        flex-direction: column;
+        gap: .7rem;
+      }
+    }
 
-.luxury-visual{
-  max-width:420px;
-  margin:auto;
-}
-  .footer-grid{
-    grid-template-columns:1fr;
-    gap:2.5rem;
-  }
-
-  .footer-brand p{
-    max-width:none;
-  }
-
-  .footer-bottom{
-    flex-direction:column;
-    text-align:center;
-  }
-
-  .footer-legal{
-    flex-direction:column;
-    gap:.7rem;
-  }
-
-}
     @media (max-width: 430px) {
       .nav-links a {
         font-size: .72rem;
@@ -1108,15 +970,16 @@ content="https://teinvitoamiboda.online/assets/preview-social.jpg">
 </head>
 
 <body>
+
   <div class="ambient"></div>
   <div class="silk"></div>
   <div class="gold-dust"></div>
 
-  <a class="floating" href="https://wa.me/525541946413?text=Hola,%20quiero%20información%20sobre%20una%20invitación%20digital" target="_blank" aria-label="WhatsApp">
-  <svg viewBox="0 0 32 32" width="30" height="30" fill="currentColor">
-    <path d="M16.03 3C8.85 3 3 8.82 3 15.98c0 2.28.6 4.52 1.74 6.49L3 29l6.7-1.7a13.02 13.02 0 0 0 6.33 1.61C23.18 28.91 29 23.09 29 15.98S23.18 3 16.03 3zm0 23.73c-2 0-3.95-.54-5.66-1.57l-.4-.24-3.98 1.01 1.06-3.86-.26-.42a10.72 10.72 0 0 1-1.63-5.67c0-5.96 4.87-10.81 10.87-10.81 5.98 0 10.84 4.85 10.84 10.81s-4.86 10.75-10.84 10.75zm5.95-8.08c-.32-.16-1.9-.94-2.2-1.05-.3-.11-.52-.16-.74.16-.21.32-.85 1.05-1.04 1.27-.19.21-.38.24-.7.08-.32-.16-1.36-.5-2.59-1.59-.96-.85-1.61-1.9-1.8-2.22-.19-.32-.02-.49.14-.65.15-.15.32-.38.49-.57.16-.19.21-.32.32-.54.11-.21.05-.4-.03-.56-.08-.16-.74-1.78-1.01-2.44-.27-.64-.54-.55-.74-.56h-.63c-.21 0-.56.08-.85.4-.3.32-1.12 1.1-1.12 2.68s1.15 3.1 1.31 3.31c.16.21 2.26 3.45 5.48 4.84.77.33 1.37.53 1.83.68.77.24 1.47.21 2.02.13.62-.09 1.9-.78 2.17-1.53.27-.75.27-1.39.19-1.53-.08-.13-.29-.21-.61-.37z"/>
-  </svg>
-</a>
+  <a class="floating" href="/cotizador.html" aria-label="Cotizador">
+    <svg viewBox="0 0 32 32" width="30" height="30" fill="currentColor">
+      <path d="M16.03 3C8.85 3 3 8.82 3 15.98c0 2.28.6 4.52 1.74 6.49L3 29l6.7-1.7a13.02 13.02 0 0 0 6.33 1.61C23.18 28.91 29 23.09 29 15.98S23.18 3 16.03 3zm0 23.73c-2 0-3.95-.54-5.66-1.57l-.4-.24-3.98 1.01 1.06-3.86-.26-.42a10.72 10.72 0 0 1-1.63-5.67c0-5.96 4.87-10.81 10.87-10.81 5.98 0 10.84 4.85 10.84 10.81s-4.86 10.75-10.84 10.75zm5.95-8.08c-.32-.16-1.9-.94-2.2-1.05-.3-.11-.52-.16-.74.16-.21.32-.85 1.05-1.04 1.27-.19.21-.38.24-.7.08-.32-.16-1.36-.5-2.59-1.59-.96-.85-1.61-1.9-1.8-2.22-.19-.32-.02-.49.14-.65.15-.15.32-.38.49-.57.16-.19.21-.32.32-.54.11-.21.05-.4-.03-.56-.08-.16-.74-1.78-1.01-2.44-.27-.64-.54-.55-.74-.56h-.63c-.21 0-.56.08-.85.4-.3.32-1.12 1.1-1.12 2.68s1.15 3.1 1.31 3.31c.16.21 2.26 3.45 5.48 4.84.77.33 1.37.53 1.83.68.77.24 1.47.21 2.02.13.62-.09 1.9-.78 2.17-1.53.27-.75.27-1.39.19-1.53-.08-.13-.29-.21-.61-.37z"/>
+    </svg>
+  </a>
 
   <nav class="navbar">
     <div class="nav-links">
@@ -1125,7 +988,10 @@ content="https://teinvitoamiboda.online/assets/preview-social.jpg">
       <a href="#proceso">Proceso</a>
       <a href="#contacto">Contacto</a>
     </div>
-    <a class="btn btn-gold" href="https://wa.me/525541946413?text=Hola,%20quiero%20cotizar%20una%20invitación%20digital" target="_blank">☘ Cotizar</a>
+
+    <a class="btn btn-gold" href="/cotizador.html">
+      Cotizar
+    </a>
   </nav>
 
   <section class="hero">
@@ -1136,12 +1002,23 @@ content="https://teinvitoamiboda.online/assets/preview-social.jpg">
 
     <div class="hero-content">
       <div class="eyebrow">Invitaciones digitales premium</div>
-      <h1>Diseños elegantes <span>para bodas</span> inolvidables</h1>
-      <p>Creamos experiencias digitales modernas, elegantes y personalizadas para parejas que quieren algo más que una invitación tradicional.</p>
+
+      <h1>
+        Diseños elegantes <span>para bodas</span> inolvidables
+      </h1>
+
+      <p>
+        Creamos experiencias digitales modernas, elegantes y personalizadas para parejas que quieren algo más que una invitación tradicional.
+      </p>
 
       <div class="hero-actions">
-        <a class="btn btn-gold" href="https://wa.me/525541946413?text=Hola,%20quiero%20cotizar%20una%20invitación%20digital" target="_blank">☘ Cotizar por WhatsApp</a>
-        <a class="btn btn-outline" href="#catalogo">👁 Ver diseños</a>
+        <a class="btn btn-gold" href="/cotizador.html">
+          Cotizar
+        </a>
+
+        <a class="btn btn-outline" href="#catalogo">
+          👁 Ver diseños
+        </a>
       </div>
     </div>
   </section>
@@ -1153,11 +1030,13 @@ content="https://teinvitoamiboda.online/assets/preview-social.jpg">
     </div>
 
     <div class="catalog-grid">
+
       <article class="card">
         <div class="card-image">
           <span class="badge">Minimalista</span>
           <img src="assets/minimalista-preview.jpeg" alt="Minimalista">
         </div>
+
         <div class="card-content">
           <h3>Minimalista</h3>
           <p>Menos es más, con estilo.</p>
@@ -1171,6 +1050,7 @@ content="https://teinvitoamiboda.online/assets/preview-social.jpg">
           <span class="badge">Floral</span>
           <img src="assets/floral-preview.jpeg" alt="Floral">
         </div>
+
         <div class="card-content">
           <h3>Floral</h3>
           <p>Romántico, natural y delicado.</p>
@@ -1184,6 +1064,7 @@ content="https://teinvitoamiboda.online/assets/preview-social.jpg">
           <span class="badge">Premium</span>
           <img src="assets/elegante-preview.jpeg" alt="Elegante Premium">
         </div>
+
         <div class="card-content">
           <h3>Premium</h3>
           <p>Moderno, sofisticado y elegante.</p>
@@ -1197,6 +1078,7 @@ content="https://teinvitoamiboda.online/assets/preview-social.jpg">
           <span class="badge">Luxury</span>
           <img src="assets/luxury-preview.jpeg" alt="Luxury Experience">
         </div>
+
         <div class="card-content">
           <h3>Luxury</h3>
           <p>Lujo y distinción en cada detalle.</p>
@@ -1204,343 +1086,345 @@ content="https://teinvitoamiboda.online/assets/preview-social.jpg">
           <a class="demo-link" href="/demos/luxury-experience/">Ver ejemplo →</a>
         </div>
       </article>
+
     </div>
   </section>
 
   <section class="section fade" id="otros-eventos">
-  <div class="container">
+    <div class="container">
 
-    <div class="section-head">
-      <div class="section-kicker">Más experiencias</div>
+      <div class="section-head">
+        <div class="section-kicker">Más experiencias</div>
 
-      <h2 class="title" style="margin-top:1rem;">
-        ¿Quieres invitación para otro tipo de evento?
-      </h2>
+        <h2 class="title" style="margin-top:1rem;">
+          ¿Quieres invitación para otro tipo de evento?
+        </h2>
 
-      <p class="subtitle">
-        También diseñamos invitaciones digitales elegantes y personalizadas
-        para todo tipo de celebraciones especiales.
-      </p>
-    </div>
-
-    <div class="event-grid">
-
-      <div class="event-card">
-  <span>🕊</span>
-
-  <h3>Bautizos</h3>
-
-  <a href="/demos/bautizo/" class="event-btn">
-    Ver demo
-  </a>
-</div>
-
-      <div class="event-card">
-  <span>🎀</span>
-
-  <h3>Presentaciones</h3>
-
-  <a href="/demos/infantil-glam/" class="event-btn">
-    Ver demo
-  </a>
-</div>
-
-<div class="event-card">
-  <span>🧸</span>
-
-  <h3>3 años</h3>
-
-  <a href="/demos/infantil-glam/" class="event-btn">
-    Ver demo
-  </a>
-</div>
-
-<div class="event-card">
-  <span>🎉</span>
-
-  <h3>Cumpleaños Infantiles</h3>
-
-  <a href="/demos/infantil-glam/" class="event-btn">
-    Ver demo
-  </a>
-</div>
-
-     <div class="event-card">
-  <span>🥃</span>
-
-  <h3>Cumpleaños Hombre</h3>
-
-  <a href="/demos/hombre/" class="event-btn">
-    Ver demo
-  </a>
-</div>
-
-      <div class="event-card">
-  <span>💄</span>
-
-  <h3>Cumpleaños Mujer</h3>
-
-  <a href="/demos/mujer/" class="event-btn">
-    Ver demo
-  </a>
-</div>
-
-     <div class="event-card">
-  <span>🙏</span>
-
-  <h3>Primera Comunión</h3>
-
-  <a href="/demos/sacramentos/" class="event-btn">
-    Ver demo
-  </a>
-</div>
-
-<div class="event-card">
-  <span>✨</span>
-
-  <h3>Confirmaciones</h3>
-
-  <a href="/demos/sacramentos/" class="event-btn">
-    Ver demo
-  </a>
-</div>
-
-      <div class="event-card">
-  <span>🎓</span>
-
-  <h3>Graduaciones</h3>
-
-  <a href="/demos/graduacion-premium/" class="event-btn">
-    Ver demo
-  </a>
-</div>
-
-  <div class="event-card">
-  <span>👑</span>
-  <h3>XV años</h3>
-
-  <a href="/demos/xv-glam/" class="event-btn">
-    Ver demo
-  </a>
-</div>
-      
-      <div class="event-card">
-  <span>🥂</span>
-
-  <h3>Bodas de Plata</h3>
-
-  <a href="/demos/plata/" class="event-btn">
-    Ver demo
-  </a>
-</div>
-
-      <div class="event-card">
-  <span>💛</span>
-
-  <h3>Bodas de Oro</h3>
-
-  <a href="/demos/oro/" class="event-btn">
-    Ver demo
-  </a>
-</div>
-
-      <div class="event-card">
-  <span>🎓</span>
-
-  <h3>Cenas Especiales</h3>
-
-  <a href="/demos/graduacion-premium/" class="event-btn">
-    Ver demo
-  </a>
-</div>
-
-     <div class="event-card">
-  <span>🎓</span>
-
-  <h3>Eventos Generales</h3>
-
-  <a href="/demos/graduacion-premium/" class="event-btn">
-    Ver demo
-  </a>
-</div>
-
-      <div class="event-card">
-  <span>✨</span>
-
-  <h3>Otros</h3>
-
-  <a href="./demos/otros/" class="event-btn">
-  Ver catálogo
-</a>
-</div>
-
-    </div>
-
-  </div>
-</section>
-<section class="luxury-section fade">
-
-  <div class="luxury-bg"></div>
-
-  <div class="luxury-container">
-
-    <div class="luxury-content">
-
-      <div class="section-kicker">
-        Luxury Experience
+        <p class="subtitle">
+          También diseñamos invitaciones digitales elegantes y personalizadas
+          para todo tipo de celebraciones especiales.
+        </p>
       </div>
 
-      <h2>
-        Mucho más que una invitación digital
-      </h2>
+      <div class="event-grid">
 
-      <p>
-        Creamos experiencias premium diseñadas para impresionar desde el primer momento.
-        Elegancia, exclusividad y tecnología combinadas en una experiencia inolvidable.
-      </p>
-
-      <div class="luxury-features">
-
-        <div class="luxury-item">
-          ✨ Intro cinematográfica
+        <div class="event-card">
+          <span>🕊</span>
+          <h3>Bautizos</h3>
+          <a href="/demos/bautizo/" class="event-btn">Ver demo</a>
         </div>
 
-        <div class="luxury-item">
-          🎵 Música personalizada
+        <div class="event-card">
+          <span>🎀</span>
+          <h3>Presentaciones</h3>
+          <a href="/demos/infantil-glam/" class="event-btn">Ver demo</a>
         </div>
 
-        <div class="luxury-item">
-          ⏳ Countdown elegante
+        <div class="event-card">
+          <span>🧸</span>
+          <h3>3 años</h3>
+          <a href="/demos/infantil-glam/" class="event-btn">Ver demo</a>
         </div>
 
-        <div class="luxury-item">
-          📍 Google Maps integrado
+        <div class="event-card">
+          <span>🎉</span>
+          <h3>Cumpleaños Infantiles</h3>
+          <a href="/demos/infantil-glam/" class="event-btn">Ver demo</a>
         </div>
 
-        <div class="luxury-item">
-          👗 Dress code animado
+        <div class="event-card">
+          <span>🥃</span>
+          <h3>Cumpleaños Hombre</h3>
+          <a href="/demos/hombre/" class="event-btn">Ver demo</a>
         </div>
 
-        <div class="luxury-item">
-          💌 RSVP inteligente
+        <div class="event-card">
+          <span>💄</span>
+          <h3>Cumpleaños Mujer</h3>
+          <a href="/demos/mujer/" class="event-btn">Ver demo</a>
         </div>
 
-        <div class="luxury-item">
-          🖼 Galería premium
+        <div class="event-card">
+          <span>🙏</span>
+          <h3>Primera Comunión</h3>
+          <a href="/demos/sacramentos/" class="event-btn">Ver demo</a>
         </div>
 
-        <div class="luxury-item">
-          🔒 Acceso privado
+        <div class="event-card">
+          <span>✨</span>
+          <h3>Confirmaciones</h3>
+          <a href="/demos/sacramentos/" class="event-btn">Ver demo</a>
+        </div>
+
+        <div class="event-card">
+          <span>🎓</span>
+          <h3>Graduaciones</h3>
+          <a href="/demos/graduacion-premium/" class="event-btn">Ver demo</a>
+        </div>
+
+        <div class="event-card">
+          <span>👑</span>
+          <h3>XV años</h3>
+          <a href="/demos/xv-glam/" class="event-btn">Ver demo</a>
+        </div>
+
+        <div class="event-card">
+          <span>🥂</span>
+          <h3>Bodas de Plata</h3>
+          <a href="/demos/plata/" class="event-btn">Ver demo</a>
+        </div>
+
+        <div class="event-card">
+          <span>💛</span>
+          <h3>Bodas de Oro</h3>
+          <a href="/demos/oro/" class="event-btn">Ver demo</a>
+        </div>
+
+        <div class="event-card">
+          <span>🍽</span>
+          <h3>Cenas Especiales</h3>
+          <a href="/demos/graduacion-premium/" class="event-btn">Ver demo</a>
+        </div>
+
+        <div class="event-card">
+          <span>🎊</span>
+          <h3>Eventos Generales</h3>
+          <a href="/demos/graduacion-premium/" class="event-btn">Ver demo</a>
+        </div>
+
+        <div class="event-card">
+          <span>✨</span>
+          <h3>Otros</h3>
+          <a href="/demos/otros/" class="event-btn">Ver catálogo</a>
         </div>
 
       </div>
 
-      <div class="hero-actions">
+    </div>
+  </section>
 
-        <a class="btn btn-gold"
-           href="/demos/luxury-experience/">
-          Ver Luxury Experience
-        </a>
+  <section class="luxury-section fade">
 
-        <a class="btn btn-outline"
-           href="https://wa.me/525541946413?text=Hola,%20quiero%20información%20sobre%20Luxury%20Experience"
-           target="_blank">
-          Solicitar información
-        </a>
+    <div class="luxury-bg"></div>
 
+    <div class="luxury-container">
+
+      <div class="luxury-content">
+
+        <div class="section-kicker">
+          Luxury Experience
+        </div>
+
+        <h2>
+          Mucho más que una invitación digital
+        </h2>
+
+        <p>
+          Creamos experiencias premium diseñadas para impresionar desde el primer momento.
+          Elegancia, exclusividad y tecnología combinadas en una experiencia inolvidable.
+        </p>
+
+        <div class="luxury-features">
+
+          <div class="luxury-item">✨ Intro cinematográfica</div>
+          <div class="luxury-item">🎵 Música personalizada</div>
+          <div class="luxury-item">⏳ Countdown elegante</div>
+          <div class="luxury-item">📍 Google Maps integrado</div>
+          <div class="luxury-item">👗 Dress code animado</div>
+          <div class="luxury-item">💌 RSVP inteligente</div>
+          <div class="luxury-item">🖼 Galería premium</div>
+          <div class="luxury-item">🔒 Acceso privado</div>
+
+        </div>
+
+        <div class="hero-actions">
+
+          <a class="btn btn-gold" href="/demos/luxury-experience/">
+            Ver Luxury Experience
+          </a>
+
+          <a class="btn btn-outline" href="/cotizador.html">
+            Solicitar información
+          </a>
+
+        </div>
+
+      </div>
+
+      <div class="luxury-visual">
+        <img src="assets/luxury-preview.jpeg" alt="Luxury Experience">
       </div>
 
     </div>
 
-    <div class="luxury-visual">
+  </section>
 
-      <img
-        src="assets/luxury-preview.jpeg"
-        alt="Luxury Experience">
-
-    </div>
-
-  </div>
-
-</section>
   <section class="section fade" id="porque">
     <div class="container">
+
       <h2 class="title">¿Por qué elegirnos?</h2>
-      <p class="subtitle">Diseñamos experiencias digitales modernas pensadas para impresionar desde el primer momento.</p>
+
+      <p class="subtitle">
+        Diseñamos experiencias digitales modernas pensadas para impresionar desde el primer momento.
+      </p>
 
       <div class="why-grid">
-        <div class="info-card"><span>✨</span><h4>Diseño premium</h4><p>Experiencias elegantes y modernas para bodas memorables.</p></div>
-        <div class="info-card"><span>📱</span><h4>Responsive</h4><p>Perfecto para celular, tablet y computadora.</p></div>
-        <div class="info-card"><span>⚡</span><h4>Entrega rápida</h4><p>Recibe tu invitación lista en pocos días.</p></div>
-        <div class="info-card"><span>🎬</span><h4>Experiencias únicas</h4><p>Mucho más que una invitación tradicional.</p></div>
+
+        <div class="info-card">
+          <span>✨</span>
+          <h4>Diseño premium</h4>
+          <p>Experiencias elegantes y modernas para bodas memorables.</p>
+        </div>
+
+        <div class="info-card">
+          <span>📱</span>
+          <h4>Responsive</h4>
+          <p>Perfecto para celular, tablet y computadora.</p>
+        </div>
+
+        <div class="info-card">
+          <span>⚡</span>
+          <h4>Entrega rápida</h4>
+          <p>Recibe tu invitación lista en pocos días.</p>
+        </div>
+
+        <div class="info-card">
+          <span>🎬</span>
+          <h4>Experiencias únicas</h4>
+          <p>Mucho más que una invitación tradicional.</p>
+        </div>
+
       </div>
+
     </div>
   </section>
 
   <section class="section fade" id="proceso">
     <div class="container">
+
       <h2 class="title">¿Cómo funciona?</h2>
-      <p class="subtitle">Un proceso rápido, sencillo y completamente personalizado.</p>
+
+      <p class="subtitle">
+        Un proceso rápido, sencillo y completamente personalizado.
+      </p>
 
       <div class="steps-grid">
-        <div class="info-card"><span>1️⃣</span><h4>Elige diseño</h4><p>Selecciona el estilo que más te guste.</p></div>
-        <div class="info-card"><span>2️⃣</span><h4>Envía tus datos</h4><p>Nombres, fecha, fotos y detalles del evento.</p></div>
-        <div class="info-card"><span>3️⃣</span><h4>Personalizamos</h4><p>Adaptamos la invitación completamente para ustedes.</p></div>
-        <div class="info-card"><span>4️⃣</span><h4>Comparte tu liga</h4><p>Envía tu invitación digital a todos tus invitados.</p></div>
+
+        <div class="info-card">
+          <span>1️⃣</span>
+          <h4>Elige diseño</h4>
+          <p>Selecciona el estilo que más te guste.</p>
+        </div>
+
+        <div class="info-card">
+          <span>2️⃣</span>
+          <h4>Cotiza tu invitación</h4>
+          <p>Elige paquete, extras y tipo de evento en nuestro cotizador.</p>
+        </div>
+
+        <div class="info-card">
+          <span>3️⃣</span>
+          <h4>Personalizamos</h4>
+          <p>Te contactamos para recibir fotos, música y detalles completos.</p>
+        </div>
+
+        <div class="info-card">
+          <span>4️⃣</span>
+          <h4>Comparte tu liga</h4>
+          <p>Envía tu invitación digital a todos tus invitados.</p>
+        </div>
+
       </div>
+
     </div>
   </section>
 
   <section class="cta fade" id="contacto">
-    <h2>Cotiza tu invitación personalizada</h2>
-    <p class="subtitle">Hagamos una experiencia digital inolvidable para tu boda.</p>
+
+    <h2>Elige tu diseño</h2>
+
+    <p class="subtitle">
+      Selecciona el estilo ideal para tu evento, personaliza tu invitación y recibe una cotización al instante.
+    </p>
 
     <div class="hero-actions">
-      <a class="btn btn-gold" href="https://wa.me/525541946413?text=Hola,%20quiero%20cotizar%20una%20invitación%20digital" target="_blank">Solicitar información</a>
-      <a class="btn btn-outline" href="#catalogo">Ver diseños</a>
+
+      <a class="btn btn-gold" href="/cotizador.html">
+        Cotizador
+      </a>
+
+      <a class="btn btn-outline" href="/cotizador.html">
+        Solicitar información
+      </a>
+
+      <a class="btn btn-outline" href="#catalogo">
+        Ver diseños
+      </a>
+
     </div>
+
   </section>
 
- <footer class="simple-footer">
+  <footer class="simple-footer">
 
-  <h3>Te Invito a Mi Boda</h3>
+    <h3>Te Invito a Mi Boda</h3>
 
-  <p>
-    Invitaciones digitales premium para bodas y eventos especiales.
-    Diseños modernos, elegantes y completamente personalizados.
-  </p>
+    <p>
+      Invitaciones digitales premium para bodas y eventos especiales.
+      Diseños modernos, elegantes y completamente personalizados.
+    </p>
 
-  <div class="footer-contact">
-    <strong>Contacto</strong>
+    <div class="footer-contact">
 
-    <div class="footer-links">
-      <a href="https://wa.me/5215541946413" target="_blank">WhatsApp</a>
-      <a href="#">Instagram</a>
-      <a href="#">TikTok</a>
+      <strong>Contacto</strong>
+
+      <div class="footer-links">
+
+        <a href="/cotizador.html">
+          Cotizador
+        </a>
+
+        <a href="#">
+          Instagram
+        </a>
+
+        <a href="#">
+          TikTok
+        </a>
+
+      </div>
+
     </div>
-  </div>
 
-  <div class="footer-bottom">
-    © 2026 TeInvitoAMiBoda.online — Todos los derechos reservados.
-  </div>
+    <div class="footer-bottom">
+      © 2026 TeInvitoAMiBoda.online — Todos los derechos reservados.
+    </div>
 
-  <div class="footer-legal">
-    <a href="/aviso-de-privacidad.html">Aviso de Privacidad</a>
-<a href="/terminos-y-condiciones.html">Términos y Condiciones</a>
-  </div>
+    <div class="footer-legal">
 
-</footer>
+      <a href="/aviso-de-privacidad.html">
+        Aviso de Privacidad
+      </a>
+
+      <a href="/terminos-y-condiciones.html">
+        Términos y Condiciones
+      </a>
+
+    </div>
+
+  </footer>
 
   <script>
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.1 });
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
 
-  document.querySelectorAll('.fade').forEach(el => observer.observe(el));
-</script>
+    document.querySelectorAll('.fade').forEach(el => observer.observe(el));
+  </script>
+
 </body>
 </html>

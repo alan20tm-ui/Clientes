@@ -1,67 +1,837 @@
 <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    footer{text-align:center;padding:3rem 1rem;color:var(--muted);font-size:.9rem;}
+  <title>Stream Style | Invitación Digital</title>
 
-    @keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    @media(max-width:850px){
-      .grid{grid-template-columns:1fr;}
-      .brand-home{width:60px;height:60px;top:12px;left:12px;border-radius:16px;}
-      .brand-home img{width:46px;}
+  <style>
+    :root{
+      --bg:#0b0b0b;
+      --card:#151515;
+      --card-soft:#1d1d1d;
+      --text:#ffffff;
+      --muted:#b5b5b5;
+      --red:#e50914;
+      --red-dark:#b20710;
+      --line:rgba(255,255,255,.08);
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Inter',sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(229,9,20,.18), transparent 28%),
+        radial-gradient(circle at bottom right, rgba(229,9,20,.12), transparent 26%),
+        var(--bg);
+
+      color:var(--text);
+      overflow-x:hidden;
+      line-height:1.7;
+    }
+
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
+
+    img{
+      max-width:100%;
+      display:block;
+    }
+
+    .brand-home{
+      position:fixed;
+      top:18px;
+      left:18px;
+      z-index:120;
+
+      width:72px;
+      height:72px;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      border-radius:22px;
+
+      background:rgba(20,20,20,.78);
+      border:1px solid rgba(255,255,255,.06);
+
+      backdrop-filter:blur(16px);
+
+      box-shadow:0 14px 34px rgba(0,0,0,.35);
+
+      transition:.3s ease;
+    }
+
+    .brand-home:hover{
+      transform:translateY(-2px) scale(1.04);
+    }
+
+    .brand-home img{
+      width:56px;
+      height:auto;
+      object-fit:contain;
+    }
+
+    .floating-whatsapp{
+      position:fixed;
+      right:18px;
+      bottom:18px;
+      z-index:100;
+
+      width:58px;
+      height:58px;
+
+      border-radius:50%;
+
+      display:grid;
+      place-items:center;
+
+      background:#25D366;
+      color:white;
+
+      font-size:1.75rem;
+
+      box-shadow:0 12px 30px rgba(0,0,0,.32);
+    }
+
+    .hero{
+      min-height:100vh;
+
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      align-items:center;
+
+      gap:3rem;
+
+      padding:7rem 5vw 4rem;
+
+      position:relative;
+      overflow:hidden;
+    }
+
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:1rem;
+
+      border:1px solid rgba(255,255,255,.05);
+      border-radius:32px;
+
+      pointer-events:none;
+    }
+
+    .hero::after{
+      content:"STREAM";
+      position:absolute;
+
+      top:50%;
+      right:-4%;
+
+      transform:translateY(-50%) rotate(-90deg);
+
+      font-size:7rem;
+      font-weight:900;
+
+      letter-spacing:.12em;
+
+      color:rgba(255,255,255,.03);
+
+      pointer-events:none;
+    }
+
+    .hero-content{
+      position:relative;
+      z-index:2;
+
+      animation:fadeUp 1s ease both;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+
+      padding:.45rem .85rem;
+
+      border-radius:999px;
+
+      background:rgba(229,9,20,.14);
+
+      color:#ff5f66;
+
+      font-size:.78rem;
+      font-weight:800;
+
+      letter-spacing:.08em;
+      text-transform:uppercase;
+
+      margin-bottom:1.2rem;
+    }
+
+    h1{
+      font-size:clamp(4rem,9vw,7rem);
+      line-height:.88;
+      font-weight:900;
+
+      letter-spacing:-.06em;
+
+      margin-bottom:1.2rem;
+    }
+
+    h1 span{
+      color:var(--red);
+    }
+
+    .hero p{
+      max-width:620px;
+
+      color:var(--muted);
+
+      font-size:1.05rem;
+
+      margin-bottom:2rem;
+    }
+
+    .meta{
+      display:flex;
+      gap:1rem;
+      flex-wrap:wrap;
+
+      margin-bottom:2rem;
+    }
+
+    .tag{
+      padding:.6rem 1rem;
+
+      border-radius:999px;
+
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.06);
+
+      color:#d8d8d8;
+
+      font-size:.82rem;
+      font-weight:700;
+    }
+
+    .hero-actions,
+    .actions{
+      display:flex;
+      align-items:center;
+      gap:1rem;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+
+      padding:1rem 1.55rem;
+
+      border-radius:999px;
+
+      font-size:.92rem;
+      font-weight:800;
+
+      transition:.25s ease;
+
+      border:1px solid transparent;
+
+      cursor:pointer;
+    }
+
+    .btn-primary{
+      background:var(--red);
+      color:white;
+
+      box-shadow:0 14px 30px rgba(229,9,20,.22);
+    }
+
+    .btn-primary:hover{
+      background:var(--red-dark);
+    }
+
+    .btn-outline{
+      background:rgba(255,255,255,.06);
+      border-color:rgba(255,255,255,.08);
+
+      color:white;
+    }
+
+    .btn:hover{
+      transform:translateY(-3px);
+    }
+
+    .poster{
+      position:relative;
+      z-index:2;
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(0,0,0,.12),
+          rgba(0,0,0,.82)
+        ),
+        url('https://images.unsplash.com/photo-1516280440614-37939bbacd81?q=80&w=1600&auto=format&fit=crop');
+
+      background-size:cover;
+      background-position:center;
+
+      border-radius:34px;
+
+      min-height:700px;
+
+      overflow:hidden;
+
+      display:flex;
+      align-items:flex-end;
+
+      box-shadow:0 24px 60px rgba(0,0,0,.45);
+    }
+
+    .poster-content{
+      width:100%;
+      padding:2.2rem;
+      background:
+        linear-gradient(
+          180deg,
+          transparent,
+          rgba(0,0,0,.88)
+        );
+    }
+
+    .poster-label{
+      display:inline-block;
+
+      background:var(--red);
+
+      padding:.4rem .7rem;
+
+      border-radius:10px;
+
+      font-size:.72rem;
+      font-weight:800;
+
+      letter-spacing:.08em;
+      text-transform:uppercase;
+
+      margin-bottom:1rem;
+    }
+
+    .poster-content h2{
+      font-size:2.4rem;
+      line-height:1;
+      font-weight:900;
+
+      margin-bottom:.7rem;
+    }
+
+    .poster-content p{
+      color:#d2d2d2;
+      font-size:.95rem;
+    }
+
+    .section{
+      padding:5.5rem 1.2rem;
+    }
+
+    .container{
+      max-width:1120px;
+      margin:auto;
+    }
+
+    .title{
+      font-size:clamp(2.5rem,6vw,4.8rem);
+      line-height:.95;
+      font-weight:900;
+
+      letter-spacing:-.05em;
+
+      text-align:center;
+
+      margin-bottom:1rem;
+    }
+
+    .subtitle{
+      text-align:center;
+
+      color:var(--muted);
+
+      max-width:720px;
+      margin:0 auto 3rem;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:1.2rem;
+    }
+
+    .info-card{
+      background:var(--card);
+
+      border:1px solid var(--line);
+
+      border-radius:28px;
+
+      padding:2rem;
+
+      box-shadow:0 12px 30px rgba(0,0,0,.24);
+    }
+
+    .info-card span{
+      display:block;
+      font-size:2rem;
+      margin-bottom:.7rem;
+    }
+
+    .info-card h3{
+      font-size:1.5rem;
+      margin-bottom:.5rem;
+    }
+
+    .info-card p{
+      color:var(--muted);
+    }
+
+    .episodes{
+      display:grid;
+      gap:1rem;
+    }
+
+    .episode{
+      background:var(--card-soft);
+
+      border:1px solid var(--line);
+
+      border-radius:26px;
+
+      padding:1.4rem;
+
+      display:grid;
+      grid-template-columns:120px 1fr;
+      gap:1rem;
+
+      align-items:center;
+    }
+
+    .episode-number{
+      height:100px;
+
+      border-radius:20px;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--red),
+          #ff3d47
+        );
+
+      font-size:2.3rem;
+      font-weight:900;
+    }
+
+    .episode-content strong{
+      display:block;
+      font-size:1.15rem;
+      margin-bottom:.3rem;
+    }
+
+    .episode-content p{
+      color:var(--muted);
+      font-size:.95rem;
+    }
+
+    .rsvp{
+      text-align:center;
+
+      padding:6rem 1.2rem;
+
+      background:#111;
+
+      border-top:1px solid var(--line);
+    }
+
+    .simple-footer{
+      text-align:center;
+
+      padding:4rem 1.2rem 3rem;
+
+      border-top:1px solid var(--line);
+
+      background:#0e0e0e;
+    }
+
+    .simple-footer h3{
+      color:#fff;
+
+      font-size:2rem;
+      font-weight:900;
+
+      letter-spacing:-.03em;
+
+      margin-bottom:.8rem;
+    }
+
+    .simple-footer p{
+      max-width:720px;
+      margin:auto;
+
+      color:var(--muted);
+      line-height:1.8;
+
+      margin-bottom:2rem;
+    }
+
+    .footer-contact{
+      margin-bottom:2rem;
+    }
+
+    .footer-contact strong{
+      display:block;
+      color:#fff;
+      margin-bottom:.8rem;
+    }
+
+    .footer-links,
+    .footer-legal{
+      display:flex;
+      justify-content:center;
+      gap:1rem;
+      flex-wrap:wrap;
+    }
+
+    .footer-links a,
+    .footer-legal a{
+      color:var(--muted);
+      transition:.25s ease;
+    }
+
+    .footer-links a:hover,
+    .footer-legal a:hover{
+      color:#fff;
+    }
+
+    .footer-bottom{
+      margin-top:1rem;
+      color:var(--muted);
+      font-size:.9rem;
+    }
+
+    .footer-legal{
+      margin-top:1rem;
+      font-size:.88rem;
+    }
+
+    @keyframes fadeUp{
+      from{
+        opacity:0;
+        transform:translateY(24px);
+      }
+
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    @media(max-width:980px){
+
+      .hero{
+        grid-template-columns:1fr;
+        text-align:center;
+
+        padding:7rem 1.2rem 4rem;
+      }
+
+      .hero p{
+        margin-left:auto;
+        margin-right:auto;
+      }
+
+      .hero-actions,
+      .meta{
+        justify-content:center;
+      }
+
+      .grid{
+        grid-template-columns:1fr;
+      }
+
+      .episode{
+        grid-template-columns:1fr;
+      }
+
+      .poster{
+        min-height:500px;
+      }
+
+      .hero::after{
+        display:none;
+      }
+
+      .brand-home{
+        width:60px;
+        height:60px;
+        top:12px;
+        left:12px;
+        border-radius:18px;
+      }
+
+      .brand-home img{
+        width:46px;
+      }
+
+      .section{
+        padding:4.5rem 1rem;
+      }
+
     }
   </style>
 </head>
+
 <body>
 
-<a href="/" class="brand-home"><img src="/TIAMB.png" alt="Te Invito a Mi Boda"></a>
+<a href="../../../" class="brand-home">
+  <img src="../../../TIAMB.png" alt="Te Invito a Mi Boda">
+</a>
+
+<a
+  class="floating-whatsapp"
+  href="https://wa.me/5215541946413?text=Hola,%20quiero%20información%20sobre%20una%20invitación%20digital%20tipo%20stream"
+  target="_blank"
+  aria-label="WhatsApp">
+  ☘
+</a>
 
 <section class="hero">
-  <div class="hero-content">
-    <div class="tag">Streaming Invitation</div>
-    <h1>La Fiesta<br>de Ana</h1>
 
-    <div class="meta">
-      <span>2027</span>
-      <span>·</span>
-      <span>Evento especial</span>
-      <span>·</span>
-      <span>1 noche</span>
-      <span>·</span>
-      <span>HD</span>
+  <div class="hero-content">
+
+    <div class="eyebrow">
+      Stream Style Invitation
     </div>
+
+    <h1>
+      The Big<br>
+      <span>Party</span>
+    </h1>
 
     <p>
-      Una noche digna de estreno. Dale play a una celebración llena de música,
-      amigos, fotos y momentos inolvidables.
+      Una invitación inspirada en plataformas de streaming:
+      cinematográfica, intensa y completamente diferente.
     </p>
 
-    <div class="actions">
-      <a class="btn btn-play" href="#confirmar">▶ Confirmar asistencia</a>
-      <a class="btn btn-more" href="#detalles">Más información</a>
+    <div class="meta">
+      <div class="tag">HD</div>
+      <div class="tag">EVENTO ORIGINAL</div>
+      <div class="tag">2027</div>
+      <div class="tag">+18</div>
     </div>
+
+    <div class="hero-actions">
+      <a href="#confirmar" class="btn btn-primary">
+        Confirmar asistencia
+      </a>
+
+      <a href="#episodios" class="btn btn-outline">
+        Ver episodios
+      </a>
+    </div>
+
   </div>
+
+  <div class="poster">
+
+    <div class="poster-content">
+
+      <div class="poster-label">
+        Nuevo estreno
+      </div>
+
+      <h2>
+        Sábado 18<br>
+        de Septiembre
+      </h2>
+
+      <p>
+        Una noche llena de música, luces,
+        drinks y momentos épicos.
+      </p>
+
+    </div>
+
+  </div>
+
 </section>
 
-<section class="section" id="detalles">
+<section class="section">
+
   <div class="container">
-    <h2 class="title">Detalles del episodio</h2>
-    <p class="subtitle">Todo lo que necesitas saber para ser parte de esta gran producción.</p>
+
+    <h2 class="title">
+      Detalles del estreno
+    </h2>
+
+    <p class="subtitle">
+      Diseñado para fiestas modernas, cumpleaños o eventos temáticos.
+    </p>
 
     <div class="grid">
-      <article class="card"><span>📅</span><h3>Fecha</h3><p>Sábado 10 de Junio · 8:00 PM</p></article>
-      <article class="card"><span>📍</span><h3>Locación</h3><p>Studio Party · Ciudad de México</p></article>
-      <article class="card"><span>🍿</span><h3>Dress Code</h3><p>Red carpet casual.</p></article>
+
+      <article class="info-card">
+        <span>📍</span>
+        <h3>Ubicación</h3>
+        <p>Warehouse District · Ciudad de México</p>
+      </article>
+
+      <article class="info-card">
+        <span>🎵</span>
+        <h3>Ambiente</h3>
+        <p>DJ set, luces, drinks y visuales cinematográficos.</p>
+      </article>
+
+      <article class="info-card">
+        <span>🕶️</span>
+        <h3>Dress Code</h3>
+        <p>Total black o estilo street premium.</p>
+      </article>
+
     </div>
+
   </div>
+
+</section>
+
+<section class="section" id="episodios">
+
+  <div class="container">
+
+    <h2 class="title">
+      Episodios
+    </h2>
+
+    <p class="subtitle">
+      Una manera divertida de presentar el itinerario del evento.
+    </p>
+
+    <div class="episodes">
+
+      <div class="episode">
+
+        <div class="episode-number">
+          01
+        </div>
+
+        <div class="episode-content">
+          <strong>Opening Scene</strong>
+          <p>Recepción, bienvenida y primeras bebidas.</p>
+        </div>
+
+      </div>
+
+      <div class="episode">
+
+        <div class="episode-number">
+          02
+        </div>
+
+        <div class="episode-content">
+          <strong>Main Event</strong>
+          <p>Música, fiesta y experiencias inmersivas.</p>
+        </div>
+
+      </div>
+
+      <div class="episode">
+
+        <div class="episode-number">
+          03
+        </div>
+
+        <div class="episode-content">
+          <strong>Final Chapter</strong>
+          <p>After party y cierre de la noche.</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
 </section>
 
 <section class="rsvp" id="confirmar">
-  <h2 class="title">Confirma tu asistencia</h2>
-  <p class="subtitle">Tu pase está reservado para esta función especial.</p>
-  <a class="btn btn-play" href="https://wa.me/5215541946413?text=Hola,%20confirmo%20mi%20asistencia%20a%20la%20fiesta%20streaming" target="_blank">Confirmar por WhatsApp</a>
+
+  <h2 class="title">
+    Confirma tu asistencia
+  </h2>
+
+  <p class="subtitle">
+    El estreno comienza contigo.
+  </p>
+
+  <div class="actions">
+    <a
+      class="btn btn-primary"
+      href="https://wa.me/5215541946413?text=Hola,%20confirmo%20mi%20asistencia%20al%20evento%20stream"
+      target="_blank">
+      Confirmar por WhatsApp
+    </a>
+  </div>
+
 </section>
 
-<footer>Demo Streaming Style · TeInvitoAMiBoda.online</footer>
+<footer class="simple-footer">
+
+  <h3>Te Invito a Mi Boda</h3>
+
+  <p>
+    Invitaciones digitales premium para bodas y eventos especiales.
+    Diseños modernos, elegantes y completamente personalizados.
+  </p>
+
+  <div class="footer-contact">
+    <strong>Contacto</strong>
+
+    <div class="footer-links">
+      <a href="https://wa.me/5215541946413" target="_blank">WhatsApp</a>
+      <a href="#">Instagram</a>
+      <a href="#">TikTok</a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 TeInvitoAMiBoda.online — Todos los derechos reservados.
+  </div>
+
+  <div class="footer-legal">
+    <a href="../../../aviso-de-privacidad.html">Aviso de Privacidad</a>
+    <a href="../../../terminos-y-condiciones.html">Términos y Condiciones</a>
+  </div>
+
+</footer>
 
 </body>
 </html>

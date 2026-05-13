@@ -9,14 +9,19 @@
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
+
     :root{
       --bg:#050505;
       --bg2:#0d0d0d;
+
       --gold:#d6b46a;
       --gold2:#f6ddb0;
+
       --rose:#f1c3cb;
+
       --text:#f5eee8;
       --muted:#bfb2ab;
+
       --line:rgba(255,255,255,.08);
     }
 
@@ -28,11 +33,14 @@
 
     body{
       font-family:'Montserrat',sans-serif;
+
       background:
         radial-gradient(circle at top left, rgba(241,195,203,.10), transparent 24%),
         radial-gradient(circle at bottom right, rgba(214,180,106,.08), transparent 30%),
         linear-gradient(145deg,var(--bg),var(--bg2));
+
       color:var(--text);
+
       overflow-x:hidden;
     }
 
@@ -45,17 +53,26 @@
       position:fixed;
       top:18px;
       left:18px;
+
       z-index:120;
+
       width:74px;
       height:74px;
+
       display:flex;
       align-items:center;
       justify-content:center;
+
       border-radius:24px;
+
       background:rgba(255,255,255,.05);
+
       border:1px solid rgba(255,255,255,.08);
+
       backdrop-filter:blur(16px);
+
       box-shadow:0 12px 30px rgba(0,0,0,.35);
+
       transition:.3s ease;
     }
 
@@ -67,31 +84,83 @@
       width:56px;
     }
 
-    .catalog{
-      min-height:100vh;
-      padding:3rem 1rem;
+    .hero{
+      min-height:60vh;
+
       display:flex;
       align-items:center;
       justify-content:center;
+
+      text-align:center;
+
+      padding:8rem 1rem 4rem;
+    }
+
+    .hero-content{
+      max-width:900px;
+    }
+
+    .eyebrow{
+      color:var(--gold2);
+
+      text-transform:uppercase;
+      letter-spacing:.4em;
+
+      font-size:.75rem;
+
+      margin-bottom:1rem;
+    }
+
+    h1{
+      font-family:'Cinzel',serif;
+
+      font-size:clamp(4rem,10vw,7rem);
+
+      line-height:.92;
+      font-weight:600;
+
+      margin-bottom:1rem;
+    }
+
+    .hero p{
+      max-width:720px;
+
+      margin:auto;
+
+      color:var(--muted);
+
+      line-height:1.8;
+    }
+
+    .catalog{
+      padding:1rem 1rem 6rem;
     }
 
     .catalog-grid{
-      width:100%;
-      max-width:1280px;
+      max-width:1180px;
+
+      margin:auto;
+
       display:grid;
-      grid-template-columns:repeat(2, minmax(0,1fr));
-      gap:1.6rem;
+      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+      gap:1.5rem;
     }
 
     .luxury-card{
       position:relative;
-      min-height:680px;
+
+      min-height:560px;
+
       border-radius:36px;
+
       overflow:hidden;
+
       border:1px solid rgba(255,255,255,.08);
-      box-shadow:0 20px 60px rgba(0,0,0,.45);
+
+      box-shadow:0 20px 60px rgba(0,0,0,.35);
+
       transition:.35s ease;
-      background:#111;
     }
 
     .luxury-card:hover{
@@ -102,180 +171,290 @@
     .luxury-card img{
       position:absolute;
       inset:0;
+
       width:100%;
       height:100%;
+
       object-fit:cover;
     }
 
     .luxury-overlay{
       position:absolute;
       inset:0;
-      z-index:1;
+
       background:
         linear-gradient(
           to top,
-          rgba(0,0,0,.9),
-          rgba(0,0,0,.35),
-          rgba(0,0,0,.35)
+          rgba(0,0,0,.88),
+          rgba(0,0,0,.25)
         );
     }
 
     .luxury-content{
       position:absolute;
-      left:0;
-      right:0;
-      bottom:0;
-      z-index:2;
-      padding:2.4rem;
-    }
+      inset:auto 0 0 0;
 
-    .luxury-tag,
-    .xv-top span{
-      display:inline-flex;
-      padding:.55rem 1rem;
-      border-radius:999px;
-      background:rgba(255,255,255,.08);
-      border:1px solid rgba(255,255,255,.12);
-      backdrop-filter:blur(12px);
-      color:var(--gold2);
-      font-size:.72rem;
-      letter-spacing:.14em;
-      text-transform:uppercase;
+      padding:2.2rem;
+
+      z-index:2;
     }
 
     .luxury-tag{
-      margin-bottom:1.1rem;
+      display:inline-flex;
+
+      padding:.45rem .8rem;
+
+      border-radius:999px;
+
+      background:rgba(255,255,255,.08);
+
+      border:1px solid rgba(255,255,255,.08);
+
+      backdrop-filter:blur(12px);
+
+      color:var(--gold2);
+
+      font-size:.72rem;
+
+      letter-spacing:.12em;
+      text-transform:uppercase;
+
+      margin-bottom:1rem;
     }
 
     .luxury-content h2{
       font-family:'Cinzel',serif;
-      font-size:2.65rem;
+
+      font-size:2.5rem;
+
       line-height:1;
+
       margin-bottom:1rem;
-      color:#fff;
     }
 
     .luxury-content p{
-      max-width:520px;
-      color:#ded2cc;
-      line-height:1.65;
-      margin-bottom:1.6rem;
-      font-size:1.02rem;
+      color:#d6cbc5;
+
+      line-height:1.7;
+
+      margin-bottom:1.5rem;
     }
 
     .luxury-btn{
       display:inline-flex;
+
       align-items:center;
       justify-content:center;
-      min-width:145px;
-      padding:1rem 1.65rem;
+
+      padding:1rem 1.5rem;
+
       border-radius:999px;
-      background:linear-gradient(135deg,var(--rose),var(--gold));
+
+      background:linear-gradient(
+        135deg,
+        var(--rose),
+        var(--gold)
+      );
+
       color:#111;
+
       font-weight:700;
+
       transition:.25s ease;
-      box-shadow:0 10px 28px rgba(0,0,0,.25);
     }
 
     .luxury-btn:hover{
       transform:translateY(-3px);
     }
+    .xv-card{
+  min-height:640px;
+}
 
-    .xv-card video{
-      filter:
-        saturate(.85)
-        contrast(1.1)
-        hue-rotate(320deg)
-        brightness(.78);
-      transform:scale(1.08);
-    }
+.xv-card video{
+  filter:
+    saturate(.85)
+    contrast(1.1)
+    hue-rotate(320deg)
+    brightness(.8);
 
-    .xv-gradient{
-      position:absolute;
-      inset:0;
-      z-index:1;
-      background:
-        radial-gradient(circle at top center, rgba(241,195,203,.16), transparent 38%),
-        linear-gradient(180deg, rgba(0,0,0,.18), rgba(0,0,0,.82));
-    }
+  transform:scale(1.1);
+}
 
-    .xv-top{
-      position:absolute;
-      top:24px;
-      left:28px;
-      z-index:3;
-    }
+.xv-gradient{
+  position:absolute;
+  inset:0;
 
-    .xv-top span{
-      color:#ffe0f0;
-    }
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0,0,0,.15),
+      rgba(0,0,0,.82)
+    );
 
-    .xv-center{
-      position:absolute;
-      inset:0;
-      z-index:3;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:center;
+  z-index:1;
+}
+
+.xv-top{
+  position:absolute;
+
+  top:24px;
+  left:24px;
+
+  z-index:3;
+}
+
+.xv-top span{
+  display:inline-flex;
+
+  padding:.5rem .9rem;
+
+  border-radius:999px;
+
+  background:rgba(255,255,255,.08);
+
+  border:1px solid rgba(255,255,255,.12);
+
+  backdrop-filter:blur(12px);
+
+  color:#ffe0f0;
+
+  font-size:.72rem;
+
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+
+.xv-center{
+  position:absolute;
+
+  inset:0;
+
+  z-index:3;
+
+  display:flex;
+  flex-direction:column;
+
+  align-items:center;
+  justify-content:center;
+
+  text-align:center;
+
+  padding:2rem;
+}
+
+.xv-center small{
+  color:#f6ddb0;
+
+  letter-spacing:.25em;
+  text-transform:uppercase;
+
+  font-size:.72rem;
+
+  margin-bottom:1rem;
+}
+
+.xv-center h2{
+  font-family:'Cinzel',serif;
+
+  font-size:clamp(4rem,8vw,6rem);
+
+  line-height:.9;
+
+  margin-bottom:1rem;
+
+  color:#fff;
+}
+
+.xv-center p{
+  max-width:420px;
+
+  color:#f4dbe3;
+
+  line-height:1.8;
+}
+
+.xv-bottom{
+  position:absolute;
+
+  left:0;
+  right:0;
+  bottom:32px;
+
+  z-index:3;
+
+  display:flex;
+  justify-content:center;
+}
+
+    .simple-footer{
       text-align:center;
-      padding:2rem;
+
+      padding:4rem 1.2rem 3rem;
+
+      border-top:1px solid rgba(255,255,255,.06);
+
+      background:#060606;
     }
 
-    .xv-center small{
-      color:var(--gold2);
-      letter-spacing:.28em;
-      text-transform:uppercase;
-      font-size:.72rem;
-      margin-bottom:1rem;
-    }
-
-    .xv-center h2{
+    .simple-footer h3{
       font-family:'Cinzel',serif;
-      font-size:clamp(4.4rem,8vw,6.4rem);
-      line-height:.9;
-      margin-bottom:1rem;
-      color:#fff;
-      text-shadow:0 12px 30px rgba(0,0,0,.55);
+
+      font-size:2.2rem;
+
+      margin-bottom:.8rem;
     }
 
-    .xv-center p{
-      max-width:470px;
-      color:#f4dbe3;
-      line-height:1.8;
-      font-size:1rem;
+    .simple-footer p{
+      max-width:720px;
+
+      margin:auto auto 2rem;
+
+      color:var(--muted);
     }
 
-    .xv-bottom{
-      position:absolute;
-      left:0;
-      right:0;
-      bottom:36px;
-      z-index:3;
+    .footer-links,
+    .footer-legal{
       display:flex;
       justify-content:center;
+
+      gap:1rem;
+      flex-wrap:wrap;
     }
 
-    @media(max-width:900px){
-      .catalog{
-        padding:6rem 1rem 3rem;
-      }
+    .footer-links a,
+    .footer-legal a{
+      color:var(--muted);
 
-      .catalog-grid{
-        grid-template-columns:1fr;
-      }
+      transition:.25s ease;
+    }
 
-      .luxury-card{
-        min-height:560px;
-      }
+    .footer-links a:hover,
+    .footer-legal a:hover{
+      color:var(--rose);
+    }
+
+    .footer-bottom{
+      margin-top:1rem;
+
+      color:var(--muted);
+
+      font-size:.9rem;
+    }
+
+    .footer-legal{
+      margin-top:1rem;
+      font-size:.88rem;
     }
 
     @media(max-width:700px){
+
       .brand-home{
         width:60px;
         height:60px;
+
         top:12px;
         left:12px;
+
         border-radius:18px;
       }
 
@@ -283,111 +462,166 @@
         width:46px;
       }
 
-      .catalog{
-        padding:5.5rem .9rem 2rem;
-      }
-
       .luxury-card{
         min-height:500px;
-        border-radius:28px;
       }
 
-      .luxury-content{
-        padding:1.6rem;
-      }
-
-      .luxury-content h2{
-        font-size:2.15rem;
-      }
-
-      .xv-center h2{
-        font-size:3.8rem;
-      }
     }
+
   </style>
 </head>
 
 <body>
 
-  <a href="../../" class="brand-home">
-    <img src="../../TIAMB.png" alt="Te Invito a Mi Boda">
-  </a>
+<a href="../../" class="brand-home">
+  <img src="../../TIAMB.png" alt="Te Invito a Mi Boda">
+</a>
 
-  <main class="catalog">
+<section class="hero">
 
-    <div class="catalog-grid">
+  <div class="hero-content">
 
-      <!-- BODA -->
-      <article class="luxury-card">
-
-        <video autoplay muted loop playsinline>
-          <source src="../../assets/luxury/hero-video.mp4" type="video/mp4">
-        </video>
-
-        <div class="luxury-overlay"></div>
-
-        <div class="luxury-content">
-
-          <div class="luxury-tag">
-            Luxury Wedding
-          </div>
-
-          <h2>
-            Boda Luxury
-          </h2>
-
-          <p>
-            Experiencia premium para bodas elegantes con video cinematográfico,
-            música y diseño inmersivo.
-          </p>
-
-          <a href="./boda/" class="luxury-btn">
-            Ver demo
-          </a>
-
-        </div>
-
-      </article>
-
-      <!-- XV -->
-      <article class="luxury-card xv-card">
-
-        <video autoplay muted loop playsinline>
-          <source src="../../assets/luxury/hero-video.mp4" type="video/mp4">
-        </video>
-
-        <div class="xv-gradient"></div>
-
-        <div class="xv-top">
-          <span>XV Luxury Experience</span>
-        </div>
-
-        <div class="xv-center">
-
-          <small>Private Edition</small>
-
-          <h2>
-            Isabella
-          </h2>
-
-          <p>
-            Una experiencia editorial inspirada en moda,
-            glamour y noches inolvidables.
-          </p>
-
-        </div>
-
-        <div class="xv-bottom">
-          <a href="./xv/" class="luxury-btn">
-            Entrar experiencia
-          </a>
-        </div>
-
-      </article>
-
+    <div class="eyebrow">
+      Luxury Experience
     </div>
 
-  </main>
+    <h1>
+      Catálogo Premium
+    </h1>
+
+    <p>
+      Experiencias digitales cinematográficas para bodas y XV años.
+      Diseños elegantes, inmersivos y de alto impacto visual.
+    </p>
+
+  </div>
+
+</section>
+
+<section class="catalog">
+
+  <div class="catalog-grid">
+
+    <!-- BODA -->
+
+    <article class="luxury-card">
+
+      <video autoplay muted loop playsinline>
+        <source src="../../assets/luxury/hero-video.mp4" type="video/mp4">
+      </video>
+
+      <div class="luxury-overlay"></div>
+
+      <div class="luxury-content">
+
+        <div class="luxury-tag">
+          Luxury Wedding
+        </div>
+
+        <h2>
+          Boda Luxury
+        </h2>
+
+        <p>
+          Experiencia premium para bodas elegantes con video cinematográfico,
+          música y diseño inmersivo.
+        </p>
+
+        <a href="./boda/" class="luxury-btn">
+          Ver demo
+        </a>
+
+      </div>
+
+    </article>
+
+    <!-- XV -->
+
+<!-- XV -->
+
+<article class="luxury-card xv-card">
+
+  <video autoplay muted loop playsinline>
+    <source src="../../assets/luxury/hero-video.mp4" type="video/mp4">
+  </video>
+
+  <div class="xv-gradient"></div>
+
+  <div class="xv-top">
+    <span>XV Luxury Experience</span>
+  </div>
+
+  <div class="xv-center">
+
+    <small>Private Edition</small>
+
+    <h2>
+      Isabella
+    </h2>
+
+    <p>
+      Una experiencia editorial inspirada en moda,
+      glamour y noches inolvidables.
+    </p>
+
+  </div>
+
+  <div class="xv-bottom">
+
+    <a href="./xv/" class="luxury-btn">
+      Entrar experiencia
+    </a>
+
+  </div>
+
+</article>
+
+  </div>
+
+</section>
+
+<footer class="simple-footer">
+
+  <h3>Te Invito a Mi Boda</h3>
+
+  <p>
+    Invitaciones digitales premium para bodas y eventos especiales.
+    Diseños modernos, elegantes y completamente personalizados.
+  </p>
+
+  <div class="footer-links">
+
+    <a href="https://wa.me/5215541946413" target="_blank">
+      WhatsApp
+    </a>
+
+    <a href="#">
+      Instagram
+    </a>
+
+    <a href="#">
+      TikTok
+    </a>
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 TeInvitoAMiBoda.online — Todos los derechos reservados.
+  </div>
+
+  <div class="footer-legal">
+
+    <a href="../../aviso-de-privacidad.html">
+      Aviso de Privacidad
+    </a>
+
+    <a href="../../terminos-y-condiciones.html">
+      Términos y Condiciones
+    </a>
+
+  </div>
+
+</footer>
 
 </body>
 </html>

@@ -1,1 +1,74 @@
+<!DOCTYPE html>
+    .card p{color:var(--muted);}
 
+    .reveal-box{
+      text-align:center;
+      border-radius:34px;
+      padding:3rem 2rem;
+      background:#fff;
+      box-shadow:0 18px 45px rgba(0,0,0,.07);
+    }
+
+    .reveal-word{
+      font-family:'Playfair Display',serif;
+      font-size:clamp(3rem,9vw,6rem);
+      background:linear-gradient(135deg,var(--pink),var(--blue));
+      -webkit-background-clip:text;
+      color:transparent;
+    }
+
+    footer{text-align:center;padding:3rem 1rem;color:var(--muted);font-size:.9rem;}
+
+    @keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+
+    @media(max-width:850px){
+      .grid{grid-template-columns:1fr;}
+      .brand-home{width:60px;height:60px;top:12px;left:12px;border-radius:18px;}
+      .brand-home img{width:46px;}
+    }
+  </style>
+</head>
+<body>
+
+<a href="/" class="brand-home"><img src="/TIAMB.png" alt="Te Invito a Mi Boda"></a>
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="eyebrow">Gender Reveal</div>
+    <h1><span>Boy</span><br>or<br><span>Girl?</span></h1>
+    <p>Estamos listos para descubrir juntos la sorpresa más bonita de nuestras vidas.</p>
+    <div class="date">22 · Abril · 2027</div>
+    <a href="#confirmar" class="btn">Confirmar asistencia</a>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="title">Detalles</h2>
+    <p class="subtitle">Ven vestido con el color de tu predicción: rosa o azul.</p>
+
+    <div class="grid">
+      <article class="card"><span>📅</span><h3>Fecha</h3><p>Sábado 22 de Abril · 5:00 PM</p></article>
+      <article class="card"><span>📍</span><h3>Lugar</h3><p>Terraza Nube · Ciudad de México</p></article>
+      <article class="card"><span>🎈</span><h3>Dress Code</h3><p>Rosa si crees que es niña, azul si crees que es niño.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container reveal-box">
+    <p class="subtitle">La gran pregunta...</p>
+    <div class="reveal-word">¿Niño o Niña?</div>
+  </div>
+</section>
+
+<section class="section" id="confirmar" style="text-align:center;">
+  <h2 class="title">Confirma tu asistencia</h2>
+  <p class="subtitle">Será muy especial compartir este momento contigo.</p>
+  <a class="btn" href="https://wa.me/5215541946413?text=Hola,%20confirmo%20mi%20asistencia%20al%20Gender%20Reveal" target="_blank">Confirmar por WhatsApp</a>
+</section>
+
+<footer>Demo Gender Reveal · TeInvitoAMiBoda.online</footer>
+
+</body>
+</html>

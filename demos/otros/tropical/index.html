@@ -1,1 +1,65 @@
+<!DOCTYPE html>
+    .btn{display:inline-flex;padding:.95rem 1.45rem;border-radius:999px;background:var(--aqua);color:white;font-weight:700;transition:.25s ease;}
+    .btn:hover{transform:translateY(-3px);}
 
+    .section{padding:5.5rem 1rem;}
+    .container{max-width:1080px;margin:auto;}
+
+    .title{font-family:'Playfair Display',serif;font-size:clamp(2.6rem,6vw,4.8rem);text-align:center;font-weight:500;margin-bottom:1rem;}
+    .subtitle{text-align:center;color:var(--muted);max-width:680px;margin:0 auto 3rem;}
+
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;}
+    .card{padding:2rem;text-align:center;border-radius:28px;background:var(--card);border:1px solid var(--line);backdrop-filter:blur(12px);box-shadow:0 14px 34px rgba(23,59,54,.08);}
+    .card span{font-size:2.2rem;display:block;margin-bottom:.7rem;}
+    .card h3{font-family:'Playfair Display',serif;font-size:2rem;margin-bottom:.5rem;}
+    .card p{color:var(--muted);}
+
+    .rsvp{text-align:center;background:rgba(255,255,255,.65);padding:5rem 1rem;border-top:1px solid var(--line);}
+    footer{text-align:center;padding:3rem 1rem;color:var(--muted);font-size:.9rem;}
+
+    @keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+
+    @media(max-width:850px){
+      .grid{grid-template-columns:1fr;}
+      .brand-home{width:60px;height:60px;top:12px;left:12px;border-radius:18px;}
+      .brand-home img{width:46px;}
+    }
+  </style>
+</head>
+<body>
+
+<a href="/" class="brand-home"><img src="/TIAMB.png" alt="Te Invito a Mi Boda"></a>
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="eyebrow">Tropical Beach</div>
+    <h1>Summer<br>Party</h1>
+    <p>Una celebración fresca, relajada y llena de vibra tropical frente al mar.</p>
+    <div class="date">28 · Julio · 2027</div>
+    <a href="#confirmar" class="btn">Confirmar asistencia</a>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="title">Detalles</h2>
+    <p class="subtitle">Sol, música, arena y una tarde inolvidable.</p>
+
+    <div class="grid">
+      <article class="card"><span>📅</span><h3>Fecha</h3><p>Domingo 28 de Julio · 5:00 PM</p></article>
+      <article class="card"><span>📍</span><h3>Lugar</h3><p>Beach Club Paraíso · Cancún</p></article>
+      <article class="card"><span>👗</span><h3>Dress Code</h3><p>Lino, blanco, beige o tropical.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="rsvp" id="confirmar">
+  <h2 class="title">Confirma tu asistencia</h2>
+  <p class="subtitle">Tu lugar en la playa está reservado.</p>
+  <a class="btn" href="https://wa.me/5215541946413?text=Hola,%20confirmo%20mi%20asistencia%20al%20evento%20tropical" target="_blank">Confirmar por WhatsApp</a>
+</section>
+
+<footer>Demo Tropical / Beach · TeInvitoAMiBoda.online</footer>
+
+</body>
+</html>

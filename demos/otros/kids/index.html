@@ -1,1 +1,63 @@
+<!DOCTYPE html>
 
+  <style>
+    :root{
+      --blue:#4eb5ff;
+      --pink:#ff78bd;
+      --yellow:#ffd84e;
+      --purple:#8c6bff;
+      --text:#243043;
+      --muted:#667085;
+      --card:#fff;
+      --line:rgba(36,48,67,.10);
+    }
+
+    *{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+
+    body{
+      font-family:'Inter',sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at 15% 20%, rgba(78,181,255,.28), transparent 28%),
+        radial-gradient(circle at 90% 20%, rgba(255,120,189,.24), transparent 30%),
+        radial-gradient(circle at 50% 90%, rgba(255,216,78,.30), transparent 34%),
+        #fffaf2;
+      overflow-x:hidden;
+      line-height:1.7;
+    }
+
+    a{text-decoration:none;color:inherit;}
+
+    .brand-home{
+      position:fixed;top:18px;left:18px;z-index:120;
+      display:flex;align-items:center;justify-content:center;
+      width:72px;height:72px;border-radius:22px;
+      background:rgba(255,255,255,.78);
+      border:1px solid var(--line);
+      backdrop-filter:blur(16px);
+      box-shadow:0 14px 34px rgba(36,48,67,.10);
+    }
+
+    .brand-home img{width:56px;}
+
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:7rem 1rem 4rem;
+      position:relative;
+    }
+
+    .hero::after{
+      content:"🎈";
+      position:absolute;
+      right:10%;
+      bottom:10%;
+      font-size:9rem;
+      opacity:.16;
+    }
+
+    .hero-

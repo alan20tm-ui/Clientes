@@ -893,7 +893,7 @@
 <script>
 
 const WHATSAPP_NUMBER = "525541946413";
-
+const SHEETS_ENDPOINT = "https://script.google.com/macros/s/AKfycbxQgwps_o38S_fobEjIWwufkndRlvf58Bh8P3lG2ihiVnhfq7kQsExsVWVCNhxG-sumOA/exec";
 const packageInputs = document.querySelectorAll('input[name="package"]');
 const extras = document.querySelectorAll('.extra');
 
@@ -1005,7 +1005,7 @@ function openWhatsApp(){
 
 }
 
-sendQuote.addEventListener('click', () => {
+sendQuote.addEventListener('click', async () => {
 
   if(!clientName.value.trim()){
     alert("Escribe tu nombre.");
@@ -1021,6 +1021,26 @@ sendQuote.addEventListener('click', () => {
     alert("Selecciona el tipo de evento.");
     return;
   }
+
+  const quote = getQuote();
+
+  const payload = {
+    nombre: clientName.value.trim(),
+    telefono: clientPhone.value.trim(),
+    evento: eventType.value,
+    paquete: quote.packageName,
+    extras: quote.extras.map(e => e.name).join(", ") || "Sin extras",
+    total: money(quote.total)
+  };
+
+  await fetch(SHEETS_ENDPOINT, {
+    method: "POST",
+    mode: "no-cors",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(payload)
+  });
 
   openWhatsApp();
 

@@ -1,850 +1,892 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>XV Luxury Glow Edition | Isabella</title>
-  <meta name="description" content="Demo premium de XV años con diseño luxury juvenil, pase digital, música, RSVP, playlist, álbum, hoteles, mesa de regalos y experiencia cinematográfica.">
-
-  <link rel="icon" type="image/png" href="../../../favicon.png">
-
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    :root{
-      --night:#05040a;
-      --ink:#0d0714;
-      --plum:#1d0d28;
-      --blush:#ffd1dc;
-      --blush2:#ffe8ee;
-      --lavender:#b9a7ff;
-      --aqua:#89f7fe;
-      --gold:#e7c875;
-      --champagne:#fff2df;
-      --text:#fff7f1;
-      --muted:#d8cbd2;
-      --line:rgba(255,209,220,.22);
-      --glass:rgba(255,255,255,.06);
-      --shadow:rgba(0,0,0,.58);
-    }
-
-    *{margin:0;padding:0;box-sizing:border-box}
-    html{scroll-behavior:smooth;overflow-x:hidden}
-
-    body{
-      font-family:'Montserrat',sans-serif;
-      background:
-        radial-gradient(circle at 12% 10%,rgba(255,209,220,.18),transparent 28%),
-        radial-gradient(circle at 88% 18%,rgba(137,247,254,.10),transparent 30%),
-        radial-gradient(circle at 55% 95%,rgba(185,167,255,.18),transparent 38%),
-        linear-gradient(145deg,var(--night),var(--plum));
-      color:var(--text);
-      overflow-x:hidden;
-      line-height:1.75;
-    }
-
-    a{text-decoration:none;color:inherit}
-    img{width:100%;display:block}
-
-    .brand-home{
-      position:fixed;
-      top:18px;
-      left:18px;
-      z-index:120;
-      width:74px;
-      height:74px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      border-radius:24px;
-      background:rgba(255,255,255,.07);
-      border:1px solid var(--line);
-      backdrop-filter:blur(18px);
-      box-shadow:0 14px 40px rgba(0,0,0,.45);
-      transition:.35s ease;
-    }
-
-    .brand-home:hover{transform:translateY(-3px) scale(1.04)}
-    .brand-home img{width:58px;filter:drop-shadow(0 0 16px rgba(255,209,220,.24))}
-
-    .music-panel{
-      position:fixed;
-      left:18px;
-      bottom:18px;
-      z-index:90;
-      padding:.65rem .9rem;
-      border-radius:999px;
-      border:1px solid var(--line);
-      background:rgba(0,0,0,.62);
-      backdrop-filter:blur(16px);
-      box-shadow:0 14px 36px rgba(0,0,0,.42);
-    }
-
-    .music-panel button{
-      border:0;
-      background:transparent;
-      color:var(--blush2);
-      font-family:'Montserrat',sans-serif;
-      font-weight:700;
-      cursor:pointer;
-    }
-
-    .float-whatsapp{
-      position:fixed;
-      right:18px;
-      bottom:18px;
-      z-index:90;
-      width:56px;
-      height:56px;
-      display:grid;
-      place-items:center;
-      border-radius:50%;
-      background:#25D366;
-      color:#fff;
-      box-shadow:0 14px 36px rgba(0,0,0,.42);
-      font-size:1.4rem;
-    }
-
-    .nav{
-      position:fixed;
-      top:18px;
-      left:50%;
-      transform:translateX(-50%);
-      z-index:80;
-      display:flex;
-      gap:.35rem;
-      padding:.42rem;
-      border:1px solid var(--line);
-      border-radius:999px;
-      background:rgba(0,0,0,.55);
-      backdrop-filter:blur(18px);
-      max-width:calc(100vw - 120px);
-      overflow-x:auto;
-      scrollbar-width:none;
-    }
-
-    .nav::-webkit-scrollbar{display:none}
-
-    .nav a{
-      white-space:nowrap;
-      font-size:.7rem;
-      color:var(--muted);
-      padding:.52rem .75rem;
-      border-radius:999px;
-      transition:.25s ease;
-    }
-
-    .nav a:hover{
-      color:var(--blush2);
-      background:rgba(255,209,220,.09);
-    }
-
-    .hero{
-      min-height:100vh;
-      display:grid;
-      grid-template-columns:.95fr 1.05fr;
-      align-items:stretch;
-      position:relative;
-      overflow:hidden;
-    }
-
-    .hero-video{
-      position:absolute;
-      inset:0;
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      opacity:.22;
-      filter:saturate(.8) contrast(1.15) hue-rotate(315deg);
-      transform:scale(1.08);
-      z-index:-3;
-    }
-
-    .hero::before{
-      content:"";
-      position:absolute;
-      inset:1rem;
-      border:1px solid var(--line);
-      border-radius:38px;
-      z-index:4;
-      pointer-events:none;
-    }
-
-    .hero-left{
-      min-height:100vh;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      padding:8rem 5vw 5rem;
-      position:relative;
-      z-index:5;
-    }
-
-    .hero-left::after{
-      content:"15";
-      position:absolute;
-      left:5vw;
-      bottom:4rem;
-      font-family:'Cinzel',serif;
-      font-size:clamp(10rem,20vw,18rem);
-      color:rgba(255,255,255,.035);
-      line-height:1;
-      z-index:-1;
-    }
-
-    .hero-right{
-      position:relative;
-      min-height:100vh;
-      overflow:hidden;
-      clip-path:polygon(16% 0,100% 0,100% 100%,0 100%);
-      background:
-        linear-gradient(rgba(0,0,0,.05),rgba(0,0,0,.45)),
-        url('https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1500&q=90') center/cover;
-    }
-
-    .hero-right::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:
-        linear-gradient(90deg,rgba(5,4,10,.92),transparent 46%),
-        linear-gradient(0deg,rgba(5,4,10,.86),transparent 42%);
-    }
-
-    .eyebrow{
-      font-family:'Cinzel',serif;
-      color:var(--blush2);
-      letter-spacing:.42em;
-      text-transform:uppercase;
-      font-size:.74rem;
-      margin-bottom:1.2rem;
-    }
-
-    .script{
-      font-family:'Great Vibes',cursive;
-      color:var(--gold);
-      font-size:clamp(3rem,7vw,5.4rem);
-      margin-bottom:.2rem;
-      text-shadow:0 0 30px rgba(255,209,220,.20);
-    }
-
-    h1{
-      font-family:'Cormorant Garamond',serif;
-      font-size:clamp(5.4rem,13vw,11rem);
-      line-height:.78;
-      font-weight:300;
-      letter-spacing:-.055em;
-      margin-bottom:1.4rem;
-    }
-
-    .hero-left p{
-      max-width:650px;
-      color:rgba(255,247,241,.92);
-      font-size:1.08rem;
-      margin-bottom:1.6rem;
-    }
-
-    .date-chip{
-      display:inline-flex;
-      width:max-content;
-      align-items:center;
-      gap:1rem;
-      padding:.75rem 1.1rem;
-      border-radius:999px;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.055);
-      color:var(--blush2);
-      font-family:'Cinzel',serif;
-      letter-spacing:.16em;
-      text-transform:uppercase;
-      font-size:.82rem;
-      margin-bottom:1.5rem;
-    }
-
-    .actions{
-      display:flex;
-      flex-wrap:wrap;
-      gap:.85rem;
-      margin-top:1rem;
-    }
-
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding:.95rem 1.35rem;
-      border-radius:999px;
-      border:1px solid transparent;
-      font-family:'Montserrat',sans-serif;
-      font-weight:700;
-      font-size:.88rem;
-      cursor:pointer;
-      transition:.25s ease;
-    }
-
-    .btn:hover{transform:translateY(-3px)}
-
-    .btn-main{
-      background:linear-gradient(135deg,var(--blush),var(--gold));
-      color:#160d16;
-      box-shadow:0 15px 34px rgba(0,0,0,.28);
-    }
-
-    .btn-outline{
-      border-color:var(--line);
-      background:rgba(0,0,0,.32);
-      color:var(--blush2);
-    }
-
-    .section{
-      padding:6.5rem 1.15rem;
-      position:relative;
-    }
-
-    .container{max-width:1180px;margin:auto}
-
-    .title{
-      font-family:'Cormorant Garamond',serif;
-      color:var(--blush2);
-      text-align:center;
-      font-size:clamp(3rem,7vw,5.8rem);
-      line-height:.92;
-      font-weight:300;
-      margin-bottom:1rem;
-    }
-
-    .subtitle{
-      max-width:780px;
-      margin:0 auto 3.2rem;
-      text-align:center;
-      color:var(--muted);
-      font-size:1.02rem;
-    }
-
-    .glass{
-      background:linear-gradient(145deg,rgba(255,255,255,.06),rgba(255,255,255,.016));
-      border:1px solid var(--line);
-      border-radius:36px;
-      backdrop-filter:blur(18px);
-      box-shadow:0 28px 78px var(--shadow), inset 0 1px 0 rgba(255,255,255,.04);
-    }
-
-    .badge{
-      display:inline-block;
-      padding:.38rem .78rem;
-      border-radius:999px;
-      border:1px solid var(--line);
-      background:rgba(255,209,220,.08);
-      color:var(--blush2);
-      text-transform:uppercase;
-      letter-spacing:.14em;
-      font-size:.68rem;
-      margin-bottom:1rem;
-    }
-
-    .fashion-strip{
-      display:grid;
-      grid-template-columns:1.15fr .85fr;
-      gap:1.2rem;
-      align-items:stretch;
-    }
-
-    .vip-pass{
-      padding:3rem;
-      min-height:520px;
-      display:flex;
-      flex-direction:column;
-      justify-content:space-between;
-      position:relative;
-      overflow:hidden;
-    }
-
-    .vip-pass::after{
-      content:"PRIVATE PASS";
-      position:absolute;
-      right:-5rem;
-      top:3rem;
-      transform:rotate(90deg);
-      color:rgba(255,255,255,.045);
-      font-family:'Cinzel',serif;
-      font-size:4rem;
-      white-space:nowrap;
-    }
-
-    .guest-name{
-      font-family:'Cormorant Garamond',serif;
-      color:var(--blush2);
-      font-size:clamp(3rem,7vw,5.6rem);
-      line-height:.9;
-      font-weight:300;
-      margin-bottom:1rem;
-    }
-
-    .pass-grid{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:1rem;
-      margin-top:2rem;
-    }
-
-    .pass-item{
-      padding:1.2rem;
-      border-radius:24px;
-      background:rgba(255,255,255,.04);
-      border:1px solid var(--line);
-    }
-
-    .pass-item span{
-      display:block;
-      color:var(--gold);
-      font-family:'Cinzel',serif;
-      font-size:1.8rem;
-      line-height:1;
-      margin-bottom:.3rem;
-    }
-
-    .pass-item p{color:var(--muted);font-size:.86rem}
-
-    .editorial-cover{
-      min-height:520px;
-      border-radius:36px;
-      overflow:hidden;
-      position:relative;
-      background:
-        linear-gradient(0deg,rgba(0,0,0,.72),transparent 58%),
-        url('https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1000&q=90') center/cover;
-      box-shadow:0 28px 78px var(--shadow);
-    }
-
-    .editorial-cover div{
-      position:absolute;
-      left:2rem;
-      right:2rem;
-      bottom:2rem;
-    }
-
-    .editorial-cover small{
-      color:var(--gold);
-      font-family:'Cinzel',serif;
-      letter-spacing:.18em;
-      text-transform:uppercase;
-    }
-
-    .editorial-cover h3{
-      font-family:'Cormorant Garamond',serif;
-      color:#fff;
-      font-size:clamp(2.8rem,6vw,5rem);
-      line-height:.9;
-      font-weight:300;
-    }
-
-    .runway{
-      display:grid;
-      grid-template-columns:.85fr 1.15fr;
-      gap:1.2rem;
-      align-items:stretch;
-    }
-
-    .runway-copy{
-      padding:3rem 2.4rem;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-    }
-
-    .runway-copy h3{
-      font-family:'Cormorant Garamond',serif;
-      color:var(--blush2);
-      font-size:clamp(2.8rem,6vw,5rem);
-      line-height:.9;
-      font-weight:300;
-      margin-bottom:1rem;
-    }
-
-    .runway-copy p{
-      color:var(--muted);
-      margin-bottom:1rem;
-    }
-
-    .runway-photo{
-      min-height:620px;
-      border-radius:36px;
-      overflow:hidden;
-      background:
-        linear-gradient(0deg,rgba(0,0,0,.35),transparent),
-        url('https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1100&q=90') center/cover;
-      box-shadow:0 28px 78px var(--shadow);
-    }
-
-    .quick-cards{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:1rem;
-    }
-
-    .quick-card{
-      position:relative;
-      overflow:hidden;
-      min-height:250px;
-      padding:1.5rem;
-      border-radius:34px;
-      background:
-        linear-gradient(135deg,rgba(255,209,220,.13),rgba(137,247,254,.07)),
-        rgba(255,255,255,.04);
-      border:1px solid var(--line);
-      transition:.28s ease;
-    }
-
-    .quick-card:hover{
-      transform:translateY(-6px);
-      box-shadow:0 24px 60px rgba(0,0,0,.42);
-    }
-
-    .quick-card::after{
-      content:"";
-      position:absolute;
-      width:170px;
-      height:170px;
-      border-radius:50%;
-      right:-60px;
-      bottom:-60px;
-      background:radial-gradient(circle,rgba(255,209,220,.24),transparent 70%);
-    }
-
-    .quick-card .icon{
-      width:54px;
-      height:54px;
-      display:grid;
-      place-items:center;
-      border-radius:18px;
-      background:rgba(255,255,255,.08);
-      border:1px solid rgba(255,255,255,.08);
-      font-size:1.55rem;
-      margin-bottom:1rem;
-    }
-
-    .quick-card h3{
-      font-family:'Cormorant Garamond',serif;
-      color:var(--blush2);
-      font-size:2.2rem;
-      font-weight:400;
-      line-height:1;
-      margin-bottom:.65rem;
-    }
-
-    .quick-card p{
-      color:var(--muted);
-      font-size:.92rem;
-      margin-bottom:1.2rem;
-    }
-
-    .cinema{
-      padding:8rem 1.15rem;
-      background:
-        linear-gradient(rgba(0,0,0,.72),rgba(0,0,0,.92)),
-        url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1800&q=90') center/cover fixed;
-    }
-
-    .scene-grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:1rem;
-    }
-
-    .scene{
-      min-height:520px;
-      border-radius:34px;
-      overflow:hidden;
-      position:relative;
-      border:1px solid var(--line);
-      background:var(--img) center/cover;
-      box-shadow:0 30px 80px rgba(0,0,0,.55);
-    }
-
-    .scene::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:linear-gradient(0deg,rgba(0,0,0,.86),transparent 60%);
-    }
-
-    .scene-info{
-      position:absolute;
-      z-index:2;
-      left:1.5rem;
-      right:1.5rem;
-      bottom:1.5rem;
-    }
-
-    .scene-info small{
-      color:var(--gold);
-      font-family:'Cinzel',serif;
-      letter-spacing:.16em;
-      text-transform:uppercase;
-    }
-
-    .scene-info h3{
-      color:var(--blush2);
-      font-family:'Cormorant Garamond',serif;
-      font-size:3.4rem;
-      line-height:.9;
-      font-weight:300;
-      margin:.4rem 0;
-    }
-
-    .scene-info p{color:var(--text)}
-
-    .gallery{
-      display:grid;
-      grid-template-columns:1.2fr .8fr .8fr;
-      gap:1rem;
-    }
-
-    .gallery img{
-      height:350px;
-      object-fit:cover;
-      border-radius:30px;
-      box-shadow:0 24px 60px var(--shadow);
-      filter:saturate(.9) contrast(1.08);
-    }
-
-    .gallery img:first-child{
-      height:720px;
-      grid-row:span 2;
-    }
-
-    .timer{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:1rem;
-      margin-top:2rem;
-    }
-
-    .time-box{
-      padding:1.7rem 1rem;
-      text-align:center;
-      border-radius:28px;
-      background:rgba(255,255,255,.04);
-      border:1px solid var(--line);
-    }
-
-    .time-box span{
-      display:block;
-      color:var(--blush2);
-      font-family:'Cormorant Garamond',serif;
-      font-size:clamp(2.8rem,6vw,4.6rem);
-      line-height:.88;
-    }
-
-    .time-box small{
-      color:var(--muted);
-      text-transform:uppercase;
-      letter-spacing:.16em;
-      font-size:.7rem;
-    }
-
-    .qr-layout{
-      display:grid;
-      grid-template-columns:.9fr 1.1fr;
-      gap:1.2rem;
-      align-items:center;
-    }
-
-    .qr-box{
-      width:230px;
-      height:230px;
-      background:#fff;
-      margin:1.4rem auto 0;
-      border-radius:22px;
-      padding:14px;
-      box-shadow:0 20px 50px rgba(0,0,0,.35);
-    }
-
-    .qr-fake{
-      width:100%;
-      height:100%;
-      border:12px solid #111;
-      background:
-        linear-gradient(90deg,#111 10px,transparent 10px) 0 0/27px 27px,
-        linear-gradient(#111 10px,transparent 10px) 0 0/27px 27px,
-        #fff;
-    }
-
-    .rsvp-section{
-      padding:7rem 1.15rem;
-      background:
-        linear-gradient(rgba(0,0,0,.68),rgba(0,0,0,.90)),
-        url('https://images.unsplash.com/photo-1504196606672-aef5c9cefc92?auto=format&fit=crop&w=1800&q=90') center/cover;
-    }
-
-    .rsvp-form{
-      max-width:880px;
-      margin:auto;
-      padding:2rem;
-    }
-
-    .form-grid{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:1rem;
-      margin-bottom:1rem;
-    }
-
-    input,select,textarea{
-      width:100%;
-      padding:1rem;
-      border-radius:18px;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.06);
-      color:var(--text);
-      outline:none;
-      font-family:'Montserrat',sans-serif;
-    }
-
-    option{color:#111}
-    textarea{min-height:110px;resize:vertical}
-    .note{text-align:center;color:var(--muted);font-size:.88rem;margin-top:1rem}
-
-    .footer-cta{
-      text-align:center;
-      padding:6.4rem 1.2rem;
-      background:linear-gradient(135deg,rgba(255,209,220,.12),rgba(0,0,0,.45));
-      border-top:1px solid var(--line);
-    }
-
-    .footer-cta h2{
-      font-family:'Cormorant Garamond',serif;
-      color:var(--blush2);
-      font-size:clamp(3rem,7vw,5.8rem);
-      font-weight:300;
-      line-height:.95;
-      margin-bottom:1rem;
-    }
-
-    .simple-footer{
-      text-align:center;
-      padding:4rem 1.2rem 3rem;
-      border-top:1px solid var(--line);
-      background:linear-gradient(180deg,rgba(255,209,220,.04),rgba(0,0,0,.88));
-    }
-
-    .simple-footer h3{
-      font-family:'Cormorant Garamond',serif;
-      color:var(--blush2);
-      font-size:2.4rem;
-      font-weight:400;
-      margin-bottom:.8rem;
-    }
-
-    .simple-footer p{
-      max-width:720px;
-      margin:auto;
-      color:var(--muted);
-      line-height:1.8;
-      margin-bottom:2rem;
-    }
-
-    .footer-links,
-    .footer-legal{
-      display:flex;
-      justify-content:center;
-      gap:1.2rem;
-      flex-wrap:wrap;
-    }
-
-    .footer-links a,
-    .footer-legal a{
-      color:#dacbd2;
-      transition:.25s ease;
-    }
-
-    .footer-links a:hover,
-    .footer-legal a:hover{color:var(--blush2)}
-
-    .footer-bottom{
-      margin-top:1rem;
-      color:#9c8c95;
-      font-size:.9rem;
-    }
-
-    .footer-legal{
-      margin-top:1rem;
-      font-size:.88rem;
-    }
-
-    .fade{
-      opacity:0;
-      transform:translateY(60px) scale(.96);
-      filter:blur(12px);
-      transition:opacity 1.2s ease,transform 1.2s ease,filter 1.2s ease;
-    }
-
-    .fade.visible{
-      opacity:1;
-      transform:translateY(0) scale(1);
-      filter:blur(0);
-    }
-
-    @media(max-width:980px){
-      .hero{grid-template-columns:1fr}
-
-      .hero-left{
-        text-align:center;
-        align-items:center;
-        padding:8rem 1.2rem 5rem;
-      }
-
-      .hero-right{
-        min-height:55vh;
-        clip-path:none;
-      }
-
-      .fashion-strip,
-      .runway,
-      .quick-cards,
-      .scene-grid,
-      .gallery,
-      .timer,
-      .qr-layout,
-      .form-grid{
-        grid-template-columns:1fr;
-      }
-
-      .gallery img,
-      .gallery img:first-child{
-        height:330px;
-        grid-row:auto;
-      }
-
-      .music-panel{
-        left:12px;
-        right:12px;
-        bottom:12px;
-        justify-content:center;
-      }
-
-      .float-whatsapp{
-        right:12px;
-        bottom:84px;
-      }
-
-      .nav{
-        top:86px;
-        max-width:calc(100vw - 24px);
-      }
-
-      .brand-home{
-        width:62px;
-        height:62px;
-        top:12px;
-        left:12px;
-        border-radius:18px;
-      }
-
-      .brand-home img{width:48px}
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>XV Digital Magazine | Isabella</title>
+
+<link rel="icon" type="image/png" href="../../../favicon.png">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+  --bg:#f7f0eb;
+  --bg2:#fff8f5;
+  --card:#ffffffcc;
+  --line:#ead8d2;
+  --text:#24181f;
+  --muted:#7d6c74;
+
+  --pink:#ffc6da;
+  --pink2:#ffdce8;
+
+  --lav:#d6c8ff;
+  --lav2:#efe9ff;
+
+  --gold:#d7b268;
+  --gold2:#f5dd9e;
+
+  --shadow:0 24px 70px rgba(57,33,44,.10);
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:'Inter',sans-serif;
+  background:
+    radial-gradient(circle at top left,rgba(255,198,218,.38),transparent 30%),
+    radial-gradient(circle at bottom right,rgba(214,200,255,.30),transparent 32%),
+    linear-gradient(180deg,var(--bg),#fff);
+  color:var(--text);
+  overflow-x:hidden;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+img{
+  width:100%;
+  display:block;
+}
+
+.brand-home{
+  position:fixed;
+  top:18px;
+  left:18px;
+  z-index:200;
+
+  width:74px;
+  height:74px;
+
+  border-radius:24px;
+
+  background:rgba(255,255,255,.7);
+
+  backdrop-filter:blur(16px);
+
+  border:1px solid rgba(255,255,255,.7);
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  box-shadow:var(--shadow);
+
+  transition:.3s ease;
+}
+
+.brand-home:hover{
+  transform:translateY(-3px) scale(1.03);
+}
+
+.brand-home img{
+  width:58px;
+}
+
+.music{
+  position:fixed;
+
+  bottom:18px;
+  left:18px;
+
+  z-index:200;
+}
+
+.music button{
+  border:0;
+
+  background:#fff;
+
+  padding:1rem 1.3rem;
+
+  border-radius:999px;
+
+  box-shadow:var(--shadow);
+
+  font-weight:700;
+
+  cursor:pointer;
+}
+
+.whatsapp{
+  position:fixed;
+
+  right:18px;
+  bottom:18px;
+
+  width:58px;
+  height:58px;
+
+  border-radius:50%;
+
+  background:#25D366;
+  color:#fff;
+
+  display:grid;
+  place-items:center;
+
+  font-size:1.5rem;
+
+  z-index:200;
+
+  box-shadow:var(--shadow);
+}
+
+.nav{
+  position:fixed;
+
+  top:18px;
+  left:50%;
+
+  transform:translateX(-50%);
+
+  z-index:180;
+
+  display:flex;
+  gap:.4rem;
+
+  padding:.45rem;
+
+  border-radius:999px;
+
+  background:rgba(255,255,255,.7);
+
+  backdrop-filter:blur(16px);
+
+  box-shadow:var(--shadow);
+
+  overflow:auto;
+
+  max-width:calc(100vw - 120px);
+
+  scrollbar-width:none;
+}
+
+.nav::-webkit-scrollbar{
+  display:none;
+}
+
+.nav a{
+  white-space:nowrap;
+
+  padding:.75rem 1rem;
+
+  border-radius:999px;
+
+  font-size:.8rem;
+
+  color:var(--muted);
+
+  transition:.25s ease;
+}
+
+.nav a:hover{
+  background:#fff;
+  color:#111;
+}
+
+.hero{
+  min-height:100vh;
+
+  display:grid;
+
+  grid-template-columns:1fr 1fr;
+
+  align-items:stretch;
+
+  position:relative;
+}
+
+.hero-video{
+  position:absolute;
+  inset:0;
+
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+
+  opacity:.12;
+
+  mix-blend-mode:multiply;
+}
+
+.left{
+  padding:9rem 5vw 5rem;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+
+  position:relative;
+  z-index:2;
+}
+
+.tag{
+  display:inline-flex;
+
+  width:max-content;
+
+  padding:.55rem .9rem;
+
+  border-radius:999px;
+
+  background:#fff;
+
+  border:1px solid var(--line);
+
+  font-size:.72rem;
+
+  letter-spacing:.15em;
+
+  text-transform:uppercase;
+
+  margin-bottom:1.3rem;
+
+  font-weight:700;
+
+  color:#6f5c63;
+}
+
+.script{
+  font-family:'Great Vibes',cursive;
+
+  font-size:clamp(3rem,7vw,5.4rem);
+
+  color:#b78d62;
+
+  margin-bottom:.4rem;
+}
+
+h1{
+  font-family:'Cormorant Garamond',serif;
+
+  font-size:clamp(5rem,12vw,10rem);
+
+  line-height:.82;
+
+  font-weight:500;
+
+  letter-spacing:-.05em;
+
+  margin-bottom:1.3rem;
+}
+
+.left p{
+  max-width:620px;
+
+  color:var(--muted);
+
+  line-height:1.9;
+
+  font-size:1.03rem;
+
+  margin-bottom:2rem;
+}
+
+.date{
+  display:flex;
+  gap:1rem;
+  flex-wrap:wrap;
+
+  margin-bottom:2rem;
+}
+
+.date span{
+  background:#fff;
+
+  padding:.9rem 1.2rem;
+
+  border-radius:22px;
+
+  border:1px solid var(--line);
+
+  box-shadow:var(--shadow);
+
+  font-weight:700;
+}
+
+.actions{
+  display:flex;
+  gap:1rem;
+  flex-wrap:wrap;
+}
+
+.btn{
+  display:inline-flex;
+
+  align-items:center;
+  justify-content:center;
+
+  padding:1rem 1.4rem;
+
+  border-radius:999px;
+
+  font-weight:700;
+
+  transition:.25s ease;
+}
+
+.btn:hover{
+  transform:translateY(-3px);
+}
+
+.btn-main{
+  background:linear-gradient(135deg,var(--pink),var(--gold2));
+  color:#24181f;
+
+  box-shadow:0 18px 40px rgba(215,178,104,.22);
+}
+
+.btn-outline{
+  background:#fff;
+  border:1px solid var(--line);
+}
+
+.right{
+  position:relative;
+
+  min-height:100vh;
+
+  overflow:hidden;
+}
+
+.right::before{
+  content:"";
+
+  position:absolute;
+  inset:0;
+
+  background:
+    linear-gradient(0deg,rgba(255,255,255,.25),rgba(255,255,255,.05)),
+    url('https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1400&q=90') center/cover;
+}
+
+.magazine{
+  position:absolute;
+
+  right:5vw;
+  top:50%;
+
+  transform:translateY(-50%) rotate(-7deg);
+
+  width:340px;
+
+  background:#fff;
+
+  border-radius:34px;
+
+  overflow:hidden;
+
+  box-shadow:0 35px 90px rgba(0,0,0,.15);
+}
+
+.magazine img{
+  height:470px;
+  object-fit:cover;
+}
+
+.mag-content{
+  padding:1.5rem;
+}
+
+.mag-content small{
+  text-transform:uppercase;
+
+  letter-spacing:.15em;
+
+  color:#a28f98;
+
+  font-size:.7rem;
+}
+
+.mag-content h2{
+  font-family:'Cormorant Garamond',serif;
+
+  font-size:3rem;
+
+  line-height:.9;
+
+  margin:.5rem 0;
+}
+
+.mag-content p{
+  color:var(--muted);
+
+  font-size:.9rem;
+}
+
+.section{
+  padding:7rem 1.2rem;
+}
+
+.container{
+  max-width:1200px;
+  margin:auto;
+}
+
+.title{
+  font-family:'Cormorant Garamond',serif;
+
+  font-size:clamp(3rem,7vw,6rem);
+
+  line-height:.9;
+
+  text-align:center;
+
+  margin-bottom:1rem;
+}
+
+.subtitle{
+  max-width:780px;
+
+  margin:0 auto 3rem;
+
+  text-align:center;
+
+  color:var(--muted);
+
+  line-height:1.8;
+}
+
+.grid-editorial{
+  display:grid;
+
+  grid-template-columns:1.2fr .8fr;
+
+  gap:1.2rem;
+}
+
+.big-card{
+  min-height:620px;
+
+  border-radius:42px;
+
+  overflow:hidden;
+
+  position:relative;
+
+  background:
+    linear-gradient(0deg,rgba(0,0,0,.65),transparent 55%),
+    url('https://images.unsplash.com/photo-1490725263030-1f0521cec8ec?auto=format&fit=crop&w=1400&q=90') center/cover;
+
+  box-shadow:var(--shadow);
+}
+
+.big-card .overlay{
+  position:absolute;
+
+  left:2rem;
+  right:2rem;
+  bottom:2rem;
+
+  color:#fff;
+}
+
+.big-card small{
+  letter-spacing:.18em;
+
+  text-transform:uppercase;
+
+  font-size:.72rem;
+
+  color:#f6dfb3;
+}
+
+.big-card h3{
+  font-family:'Cormorant Garamond',serif;
+
+  font-size:5rem;
+
+  line-height:.85;
+
+  font-weight:500;
+
+  margin:.4rem 0;
+}
+
+.stack{
+  display:grid;
+  gap:1.2rem;
+}
+
+.mini{
+  background:#fff;
+
+  border-radius:34px;
+
+  padding:2rem;
+
+  box-shadow:var(--shadow);
+
+  border:1px solid #fff;
+}
+
+.icon{
+  width:56px;
+  height:56px;
+
+  border-radius:18px;
+
+  display:grid;
+  place-items:center;
+
+  margin-bottom:1rem;
+
+  background:linear-gradient(135deg,var(--pink2),var(--lav2));
+
+  font-size:1.5rem;
+}
+
+.mini h4{
+  font-family:'Cormorant Garamond',serif;
+
+  font-size:2rem;
+
+  margin-bottom:.5rem;
+}
+
+.mini p{
+  color:var(--muted);
+
+  line-height:1.8;
+
+  margin-bottom:1rem;
+}
+
+.mosaic{
+  display:grid;
+
+  grid-template-columns:repeat(4,1fr);
+
+  gap:1rem;
+}
+
+.tile{
+  min-height:300px;
+
+  border-radius:34px;
+
+  padding:2rem;
+
+  position:relative;
+
+  overflow:hidden;
+
+  background:#fff;
+
+  box-shadow:var(--shadow);
+}
+
+.tile.large{
+  grid-column:span 2;
+}
+
+.tile img{
+  position:absolute;
+  inset:0;
+
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+}
+
+.tile::after{
+  content:"";
+
+  position:absolute;
+  inset:0;
+
+  background:linear-gradient(0deg,rgba(0,0,0,.7),transparent 60%);
+}
+
+.tile-content{
+  position:absolute;
+
+  left:2rem;
+  right:2rem;
+  bottom:2rem;
+
+  z-index:2;
+
+  color:#fff;
+}
+
+.tile-content h3{
+  font-family:'Cormorant Garamond',serif;
+
+  font-size:3rem;
+
+  line-height:.9;
+
+  margin-bottom:.5rem;
+}
+
+.tile-content p{
+  color:#f2f2f2;
+}
+
+.timeline{
+  display:grid;
+
+  gap:1rem;
+}
+
+.time{
+  display:grid;
+
+  grid-template-columns:180px 1fr;
+
+  gap:1rem;
+
+  background:#fff;
+
+  padding:1.5rem;
+
+  border-radius:30px;
+
+  box-shadow:var(--shadow);
+}
+
+.hour{
+  font-family:'Cormorant Garamond',serif;
+
+  font-size:3rem;
+
+  line-height:1;
+
+  color:#b98f67;
+}
+
+.time h4{
+  font-size:1.2rem;
+
+  margin-bottom:.4rem;
+}
+
+.time p{
+  color:var(--muted);
+}
+
+.gallery{
+  display:grid;
+
+  grid-template-columns:1.1fr .9fr .9fr;
+
+  gap:1rem;
+}
+
+.gallery img{
+  height:350px;
+
+  object-fit:cover;
+
+  border-radius:34px;
+
+  box-shadow:var(--shadow);
+}
+
+.gallery img:first-child{
+  height:720px;
+
+  grid-row:span 2;
+}
+
+.rsvp{
+  background:#fff;
+
+  border-radius:44px;
+
+  padding:2rem;
+
+  box-shadow:var(--shadow);
+
+  max-width:980px;
+
+  margin:auto;
+}
+
+.form{
+  display:grid;
+
+  grid-template-columns:repeat(2,1fr);
+
+  gap:1rem;
+
+  margin-top:2rem;
+}
+
+input,
+select,
+textarea{
+  width:100%;
+
+  padding:1rem;
+
+  border-radius:18px;
+
+  border:1px solid var(--line);
+
+  background:#fff;
+
+  font-family:'Inter',sans-serif;
+
+  outline:none;
+}
+
+textarea{
+  min-height:120px;
+
+  grid-column:span 2;
+
+  resize:vertical;
+}
+
+footer{
+  padding:5rem 1rem 3rem;
+
+  text-align:center;
+}
+
+footer h3{
+  font-family:'Cormorant Garamond',serif;
+
+  font-size:2.4rem;
+
+  margin-bottom:1rem;
+}
+
+footer p{
+  max-width:700px;
+
+  margin:auto;
+
+  color:var(--muted);
+
+  line-height:1.8;
+
+  margin-bottom:2rem;
+}
+
+.footer-links{
+  display:flex;
+
+  justify-content:center;
+
+  gap:1rem;
+
+  flex-wrap:wrap;
+}
+
+.footer-links a{
+  padding:.85rem 1.1rem;
+
+  border-radius:999px;
+
+  background:#fff;
+
+  box-shadow:var(--shadow);
+}
+
+.copy{
+  margin-top:2rem;
+
+  color:#9a8a91;
+
+  font-size:.9rem;
+}
+
+.fade{
+  opacity:0;
+  transform:translateY(60px);
+  transition:1s ease;
+}
+
+.fade.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+
+@media(max-width:980px){
+
+  .hero{
+    grid-template-columns:1fr;
+  }
+
+  .left{
+    padding:8rem 1.2rem 5rem;
+    text-align:center;
+    align-items:center;
+  }
+
+  .right{
+    min-height:70vh;
+  }
+
+  .magazine{
+    width:300px;
+
+    right:50%;
+    transform:translate(50%,-50%) rotate(-5deg);
+  }
+
+  .grid-editorial,
+  .mosaic,
+  .gallery,
+  .form{
+    grid-template-columns:1fr;
+  }
+
+  .tile.large{
+    grid-column:auto;
+  }
+
+  .gallery img,
+  .gallery img:first-child{
+    height:320px;
+    grid-row:auto;
+  }
+
+  .time{
+    grid-template-columns:1fr;
+  }
+
+  textarea{
+    grid-column:auto;
+  }
+
+  .nav{
+    top:90px;
+    max-width:calc(100vw - 24px);
+  }
+
+  .brand-home{
+    width:62px;
+    height:62px;
+    top:12px;
+    left:12px;
+  }
+
+  .brand-home img{
+    width:48px;
+  }
+}
+
+</style>
 </head>
 
 <body>
@@ -853,436 +895,475 @@
   <img src="../../../TIAMB.png" alt="Te Invito a Mi Boda">
 </a>
 
-<a class="float-whatsapp" href="https://wa.me/5215541946413?text=Hola,%20quiero%20información%20sobre%20XV%20Luxury%20Glow%20Edition" target="_blank">☘</a>
+<a class="whatsapp" href="https://wa.me/5215541946413?text=Hola,%20quiero%20información%20sobre%20XV%20Luxury%20Magazine" target="_blank">
+  ☘
+</a>
 
-<audio id="luxuryMusic" loop>
+<audio id="music" loop>
   <source src="../../../assets/luxury/music.mp3" type="audio/mpeg">
 </audio>
 
-<div class="music-panel">
-  <button id="musicToggle">♫ Activar experiencia sonora</button>
+<div class="music">
+  <button id="musicBtn">♫ Activar experiencia sonora</button>
 </div>
 
 <nav class="nav">
-  <a href="#vip">Pase VIP</a>
-  <a href="#detalles">Detalles</a>
+  <a href="#editorial">Editorial</a>
   <a href="#timeline">Timeline</a>
   <a href="#extras">Extras</a>
-  <a href="#galeria">Galería</a>
-  <a href="#confirmar">RSVP</a>
+  <a href="#gallery">Galería</a>
+  <a href="#rsvp">RSVP</a>
 </nav>
 
 <section class="hero">
+
   <video class="hero-video" autoplay muted loop playsinline>
     <source src="../../../assets/luxury/hero-video.mp4" type="video/mp4">
   </video>
 
-  <div class="hero-left">
-    <div class="eyebrow">XV Luxury Glow Edition</div>
-    <div class="script">Glow night</div>
-    <h1>Isabella</h1>
+  <div class="left">
+
+    <div class="tag">
+      XV Digital Magazine
+    </div>
+
+    <div class="script">
+      Glow issue
+    </div>
+
+    <h1>
+      Isabella
+    </h1>
 
     <p>
-      Una experiencia digital juvenil, elegante y cinematográfica para una noche de XV años
-      con vibra premium, luces, moda y momentos inolvidables.
+      Una experiencia inspirada en revistas editoriales,
+      backstage passes, moda, música y glow parties.
+      Moderna, juvenil y completamente premium.
     </p>
 
-    <div class="date-chip">18 · Noviembre · 2027</div>
+    <div class="date">
+      <span>18 Nov 2027</span>
+      <span>CDMX</span>
+      <span>Luxury Glow Party</span>
+    </div>
 
     <div class="actions">
-      <a class="btn btn-main" href="#confirmar">Confirmar asistencia</a>
-      <a class="btn btn-outline" href="#vip">Ver pase VIP</a>
+      <a href="#rsvp" class="btn btn-main">
+        Confirmar asistencia
+      </a>
+
+      <a href="#extras" class="btn btn-outline">
+        Ver experiencia
+      </a>
     </div>
+
   </div>
 
-  <div class="hero-right"></div>
-</section>
+  <div class="right">
 
-<section class="section fade" id="vip">
-  <div class="container fashion-strip">
-    <div class="vip-pass glass">
-      <div>
-        <span class="badge">Pase digital privado</span>
-        <h2 class="guest-name">Familia Salazar Montiel</h2>
-        <p>Este pase ha sido reservado especialmente para ustedes. Presentarlo al llegar para validar su acceso.</p>
+    <div class="magazine">
+
+      <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1200&q=90" alt="XV">
+
+      <div class="mag-content">
+        <small>Luxury Glow Edition</small>
+
+        <h2>
+          Isabella
+        </h2>
+
+        <p>
+          Fashion · Glow · Music · Memories
+        </p>
       </div>
 
-      <div class="pass-grid">
-        <div class="pass-item"><span>04</span><p>Lugares reservados</p></div>
-        <div class="pass-item"><span>07</span><p>Mesa asignada</p></div>
-        <div class="pass-item"><span>VIP</span><p>Tipo de pase</p></div>
-        <div class="pass-item"><span>XV-1811</span><p>Código privado</p></div>
-      </div>
-
-      <div class="actions">
-        <a class="btn btn-main" href="#qr">Ver QR</a>
-        <a class="btn btn-outline" href="#confirmar">Confirmar</a>
-      </div>
     </div>
 
-    <div class="editorial-cover">
-      <div>
-        <small>Private cover</small>
-        <h3>Luxury XV<br>Glow</h3>
-      </div>
-    </div>
   </div>
+
 </section>
 
-<section class="section fade" id="detalles">
+<section class="section fade" id="editorial">
+
   <div class="container">
-    <h2 class="title">Detalles con vibra moderna</h2>
+
+    <h2 class="title">
+      Una experiencia<br>que se siente exclusiva
+    </h2>
+
     <p class="subtitle">
-      Lujoso, juvenil y fácil de leer. Menos etiqueta rígida, más experiencia visual.
+      No parece invitación tradicional. Parece una portada digital premium.
     </p>
 
-    <div class="quick-cards">
-      <article class="quick-card">
-        <div class="icon">⛪</div>
-        <h3>Misa</h3>
-        <p>Parroquia Santa Regina · 5:30 PM. Momento familiar y de agradecimiento.</p>
-        <a class="btn btn-outline" href="https://maps.google.com" target="_blank">Abrir mapa</a>
+    <div class="grid-editorial">
+
+      <article class="big-card">
+
+        <div class="overlay">
+
+          <small>Cover Story</small>
+
+          <h3>
+            Glow<br>Night
+          </h3>
+
+          <p>
+            Moda, luces suaves, playlist, fotos y momentos inolvidables.
+          </p>
+
+        </div>
+
       </article>
 
-      <article class="quick-card">
-        <div class="icon">🪩</div>
-        <h3>Party</h3>
-        <p>Salón Lumière Palace · 8:00 PM. Entrada, cena, show, DJ y glow moments.</p>
-        <a class="btn btn-outline" href="https://maps.google.com" target="_blank">Abrir mapa</a>
-      </article>
+      <div class="stack">
 
-      <article class="quick-card">
-        <div class="icon">👟</div>
-        <h3>Dress vibe</h3>
-        <p>Formal glam. Blush, champagne, lavender, silver o black chic.</p>
-      </article>
-    </div>
-  </div>
-</section>
+        <article class="mini">
 
-<section class="section fade">
-  <div class="container runway">
-    <div class="runway-copy glass">
-      <span class="badge">Editorial concept</span>
+          <div class="icon">💌</div>
 
-      <h3>Una invitación con estética de portada, no de salón viejo</h3>
+          <h4>
+            Save the date
+          </h4>
 
-      <p>
-        El concepto mezcla lujo moderno, color juvenil, luces suaves,
-        elementos editoriales y secciones interactivas.
-      </p>
+          <p>
+            Agrega el evento a tu calendario y no te pierdas la noche.
+          </p>
 
-      <p>
-        Ideal para vender una experiencia de alto valor: visual, emocional y funcional.
-      </p>
+          <a class="btn btn-outline"
+             href="https://calendar.google.com/calendar/render?action=TEMPLATE"
+             target="_blank">
+            Guardar fecha
+          </a>
 
-      <div class="actions" style="justify-content:flex-start;">
-        <a class="btn btn-main" href="#galeria">Ver galería</a>
-        <a class="btn btn-outline" href="#timeline">Ver timeline</a>
+        </article>
+
+        <article class="mini">
+
+          <div class="icon">🎵</div>
+
+          <h4>
+            Playlist colaborativa
+          </h4>
+
+          <p>
+            Sugiere canciones para el DJ y forma parte del mood de la fiesta.
+          </p>
+
+          <a class="btn btn-outline"
+             href="https://wa.me/5215541946413"
+             target="_blank">
+            Sugerir canción
+          </a>
+
+        </article>
+
       </div>
+
     </div>
 
-    <div class="runway-photo"></div>
   </div>
+
 </section>
 
-<section class="cinema fade" id="timeline">
+<section class="section fade" id="timeline">
+
   <div class="container">
-    <h2 class="title">Timeline cinematográfico</h2>
-    <p class="subtitle">Una noche contada como escenas de una producción fashion-glow.</p>
 
-    <div class="scene-grid">
-      <article class="scene" style="--img:url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1200&q=90')">
-        <div class="scene-info">
-          <small>Escena 01 · 5:30 PM</small>
-          <h3>Misa</h3>
-          <p>Un momento íntimo y familiar.</p>
+    <h2 class="title">
+      Timeline de la noche
+    </h2>
+
+    <p class="subtitle">
+      Presentado como backstage editorial, no como agenda aburrida.
+    </p>
+
+    <div class="timeline">
+
+      <article class="time">
+        <div class="hour">5:30</div>
+
+        <div>
+          <h4>Misa</h4>
+          <p>Parroquia Santa Regina · Un momento íntimo y familiar.</p>
         </div>
       </article>
 
-      <article class="scene" style="--img:url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1200&q=90')">
-        <div class="scene-info">
-          <small>Escena 02 · 8:00 PM</small>
-          <h3>Entrada</h3>
-          <p>El momento protagonista de Isabella.</p>
+      <article class="time">
+        <div class="hour">8:00</div>
+
+        <div>
+          <h4>Luxury entrance</h4>
+          <p>Entrada cinematográfica de Isabella y opening visuals.</p>
         </div>
       </article>
 
-      <article class="scene" style="--img:url('https://images.unsplash.com/photo-1504196606672-aef5c9cefc92?auto=format&fit=crop&w=1200&q=90')">
-        <div class="scene-info">
-          <small>Escena 03 · 10:00 PM</small>
-          <h3>Glow party</h3>
-          <p>Vals, cena, DJ set y fiesta.</p>
+      <article class="time">
+        <div class="hour">9:00</div>
+
+        <div>
+          <h4>Dinner & glow show</h4>
+          <p>Cena, luces, vals y visuales tipo editorial.</p>
         </div>
       </article>
+
+      <article class="time">
+        <div class="hour">10:30</div>
+
+        <div>
+          <h4>After party</h4>
+          <p>DJ set, playlist colaborativa y dance floor.</p>
+        </div>
+      </article>
+
     </div>
+
   </div>
+
 </section>
 
 <section class="section fade" id="extras">
+
   <div class="container">
-    <h2 class="title">Extras premium incluidos</h2>
-    <p class="subtitle">Todo lo que hace que la demo se sienta completa y vendible.</p>
 
-    <div class="quick-cards">
-      <article class="quick-card">
-        <div class="icon">📅</div>
-        <h3>Save the date</h3>
-        <p>Agrega el evento directo a Google Calendar.</p>
-        <a class="btn btn-outline" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=XV%20Isabella&dates=20271118T233000Z/20271119T070000Z&details=XV%20Luxury%20Glow%20Edition&location=Sal%C3%B3n%20Lumi%C3%A8re%20Palace" target="_blank">Agregar</a>
-      </article>
+    <h2 class="title">
+      Extras premium
+    </h2>
 
-      <article class="quick-card">
-        <div class="icon">🎁</div>
-        <h3>Mesa de regalos</h3>
-        <p>Opciones para sobre sorpresa, experiencias o regalos seleccionados.</p>
-        <a class="btn btn-outline" href="#">Ver mesa</a>
-      </article>
-
-      <article class="quick-card">
-        <div class="icon">🎵</div>
-        <h3>Playlist</h3>
-        <p>Los invitados pueden sugerir canciones para la fiesta.</p>
-        <a class="btn btn-outline" href="https://wa.me/5215541946413?text=Hola,%20quiero%20sugerir%20esta%20canción%20para%20los%20XV:%20" target="_blank">Sugerir</a>
-      </article>
-
-      <article class="quick-card">
-        <div class="icon">📸</div>
-        <h3>Álbum en vivo</h3>
-        <p>Espacio para compartir fotos y videos del evento.</p>
-        <a class="btn btn-outline" href="#">Subir fotos</a>
-      </article>
-
-      <article class="quick-card">
-        <div class="icon">🏨</div>
-        <h3>Hoteles</h3>
-        <p>Recomendaciones para invitados foráneos.</p>
-        <a class="btn btn-outline" href="https://maps.google.com" target="_blank">Ver hoteles</a>
-      </article>
-
-      <article class="quick-card">
-        <div class="icon">🚗</div>
-        <h3>Rutas</h3>
-        <p>Accesos y ubicación del salón para llegar sin complicaciones.</p>
-        <a class="btn btn-outline" href="https://maps.google.com" target="_blank">Ver ruta</a>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section class="section fade" id="galeria">
-  <div class="container">
-    <h2 class="title">Galería editorial</h2>
-    <p class="subtitle">Visuales de moda, luces y textura juvenil luxury.</p>
-
-    <div class="gallery">
-      <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=90" alt="XV editorial 1">
-      <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1200&q=90" alt="XV editorial 2">
-      <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1200&q=90" alt="XV editorial 3">
-      <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1200&q=90" alt="XV editorial 4">
-      <img src="https://images.unsplash.com/photo-1490725263030-1f0521cec8ec?auto=format&fit=crop&w=1200&q=90" alt="XV editorial 5">
-    </div>
-  </div>
-</section>
-
-<section class="section fade">
-  <div class="container">
-    <div class="glass" style="padding:2.5rem;">
-      <h2 class="title">Cuenta regresiva</h2>
-      <p class="subtitle">Cada segundo nos acerca a una noche irrepetible.</p>
-
-      <div class="timer">
-        <div class="time-box"><span id="days">00</span><small>Días</small></div>
-        <div class="time-box"><span id="hours">00</span><small>Horas</small></div>
-        <div class="time-box"><span id="minutes">00</span><small>Minutos</small></div>
-        <div class="time-box"><span id="seconds">00</span><small>Segundos</small></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section fade" id="qr">
-  <div class="container qr-layout">
-    <div class="glass" style="padding:2rem;text-align:center;">
-      <h2 class="title">QR de acceso</h2>
-      <p>Ideal para check-in, control de invitados y validación de pase privado.</p>
-      <div class="qr-box"><div class="qr-fake"></div></div>
-    </div>
-
-    <div class="glass" style="padding:2.5rem;">
-      <span class="badge">Opcional avanzado</span>
-      <h2 class="title" style="text-align:left;">Check-in VIP</h2>
-      <p style="color:var(--muted);">
-        En versión con backend, cada invitado puede tener código único,
-        número de lugares, mesa asignada y acceso privado.
-      </p>
-      <div class="actions" style="justify-content:flex-start;">
-        <a class="btn btn-main" href="#confirmar">Confirmar pase</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="rsvp-section fade" id="confirmar">
-  <div class="container">
-    <h2 class="title">RSVP inteligente</h2>
     <p class="subtitle">
-      Confirmación con lugares, restricciones, teléfono, canción sugerida y envío automático por WhatsApp.
+      Todo lo que hace que una invitación se sienta moderna y completa.
     </p>
 
-    <form class="rsvp-form glass" id="rsvpForm">
-      <div class="form-grid">
-        <input id="guestName" type="text" placeholder="Nombre completo" required>
+    <div class="mosaic">
+
+      <article class="tile large">
+
+        <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1200&q=90">
+
+        <div class="tile-content">
+          <h3>Álbum en vivo</h3>
+          <p>Sube fotos y videos durante la fiesta.</p>
+        </div>
+
+      </article>
+
+      <article class="tile">
+
+        <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1200&q=90">
+
+        <div class="tile-content">
+          <h3>Dress vibe</h3>
+          <p>Champagne · blush · lavender · black chic.</p>
+        </div>
+
+      </article>
+
+      <article class="tile">
+
+        <img src="https://images.unsplash.com/photo-1504196606672-aef5c9cefc92?auto=format&fit=crop&w=1200&q=90">
+
+        <div class="tile-content">
+          <h3>Hotels</h3>
+          <p>Opciones para invitados foráneos.</p>
+        </div>
+
+      </article>
+
+      <article class="tile">
+
+        <img src="https://images.unsplash.com/photo-1490725263030-1f0521cec8ec?auto=format&fit=crop&w=1200&q=90">
+
+        <div class="tile-content">
+          <h3>Mesa de regalos</h3>
+          <p>Sobre sorpresa o experiencias.</p>
+        </div>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="section fade" id="gallery">
+
+  <div class="container">
+
+    <h2 class="title">
+      Editorial gallery
+    </h2>
+
+    <p class="subtitle">
+      Moda, luces y estética glow luxury.
+    </p>
+
+    <div class="gallery">
+
+      <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=90">
+
+      <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1200&q=90">
+
+      <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1200&q=90">
+
+      <img src="https://images.unsplash.com/photo-1490725263030-1f0521cec8ec?auto=format&fit=crop&w=1200&q=90">
+
+      <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1200&q=90">
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="section fade" id="rsvp">
+
+  <div class="container">
+
+    <div class="rsvp">
+
+      <h2 class="title">
+        RSVP Glow Pass
+      </h2>
+
+      <p class="subtitle">
+        Confirma asistencia, personas y canciones sugeridas.
+      </p>
+
+      <form class="form" id="rsvpForm">
+
+        <input id="name" type="text" placeholder="Nombre completo" required>
 
         <select id="attendance" required>
           <option value="">¿Asistirás?</option>
-          <option value="Sí asistiré">Sí asistiré</option>
-          <option value="No podré asistir">No podré asistir</option>
+          <option>Sí asistiré</option>
+          <option>No podré asistir</option>
         </select>
 
-        <input id="guestCount" type="number" min="1" max="10" placeholder="Número de personas" required>
-        <input id="food" type="text" placeholder="Restricción alimenticia">
-        <input id="phone" type="tel" placeholder="Teléfono de contacto">
-        <input id="table" type="hidden" value="Mesa 07 · Código XV-1811">
+        <input id="count" type="number" min="1" max="10" placeholder="Número de personas">
+
+        <input id="phone" type="tel" placeholder="Teléfono">
+
+        <textarea id="message"
+                  placeholder="Mensaje o canción sugerida"></textarea>
+
+      </form>
+
+      <div class="actions" style="justify-content:center;margin-top:2rem;">
+
+        <button class="btn btn-main" id="sendBtn">
+          Enviar confirmación
+        </button>
+
+        <a class="btn btn-outline"
+           href="https://wa.me/5215541946413"
+           target="_blank">
+          WhatsApp
+        </a>
+
       </div>
 
-      <textarea id="song" placeholder="Canción sugerida, mensaje para Isabella o comentario especial"></textarea>
+    </div>
 
-      <div class="actions">
-        <button class="btn btn-main" type="submit">Enviar confirmación</button>
-        <a class="btn btn-outline" href="https://wa.me/5215541946413" target="_blank">Contactar por WhatsApp</a>
-      </div>
-
-      <p class="note">
-        Demo ficticia: envía por WhatsApp. En versión completa puede guardar registros en Google Sheets, Firebase o panel privado.
-      </p>
-    </form>
   </div>
+
 </section>
 
-<section class="footer-cta">
-  <h2>Una edición privada para una noche única</h2>
+<footer>
 
-  <p class="subtitle">
-    XV Luxury Glow Edition está pensada para vender una experiencia premium,
-    juvenil, moderna y memorable.
-  </p>
-
-  <div class="actions" style="justify-content:center;">
-    <a class="btn btn-main" href="https://wa.me/5215541946413?text=Hola,%20quiero%20cotizar%20una%20invitación%20XV%20Luxury%20Glow%20Edition" target="_blank">Cotizar XV Luxury</a>
-    <a class="btn btn-outline" href="../">Volver a Luxury Experience</a>
-  </div>
-</section>
-
-<footer class="simple-footer">
-  <h3>Te Invito a Mi Boda</h3>
+  <h3>
+    Te Invito a Mi Boda
+  </h3>
 
   <p>
     Invitaciones digitales premium para bodas y eventos especiales.
-    Diseños modernos, elegantes y completamente personalizados.
+    Diseños modernos, editoriales y completamente personalizados.
   </p>
 
   <div class="footer-links">
-    <a href="https://wa.me/5215541946413" target="_blank">WhatsApp</a>
-    <a href="#">Instagram</a>
-    <a href="#">TikTok</a>
+
+    <a href="https://wa.me/5215541946413" target="_blank">
+      WhatsApp
+    </a>
+
+    <a href="#">
+      Instagram
+    </a>
+
+    <a href="#">
+      TikTok
+    </a>
+
   </div>
 
-  <div class="footer-bottom">
-    © 2026 TeInvitoAMiBoda.online — Todos los derechos reservados.
+  <div class="copy">
+    © 2026 TeInvitoAMiBoda.online
   </div>
 
-  <div class="footer-legal">
-    <a href="../../../aviso-de-privacidad.html">Aviso de Privacidad</a>
-    <a href="../../../terminos-y-condiciones.html">Términos y Condiciones</a>
-  </div>
 </footer>
 
 <script>
-  const eventDate = new Date('2027-11-18T19:00:00').getTime();
-  const whatsappNumber = '5215541946413';
 
-  function updateCountdown(){
-    const now = Date.now();
-    const distance = eventDate - now;
+const observer = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
+    }
+  });
+},{threshold:.12});
 
-    if(distance <= 0){
-      const timer = document.querySelector('.timer');
-      if(timer) timer.innerHTML = '<p>¡Hoy es la gran noche!</p>';
-      return;
+document.querySelectorAll('.fade').forEach(el=>{
+  observer.observe(el);
+});
+
+const music = document.getElementById('music');
+const musicBtn = document.getElementById('musicBtn');
+
+let playing = false;
+
+musicBtn.addEventListener('click',async()=>{
+
+  try{
+
+    if(!playing){
+      await music.play();
+      musicBtn.innerHTML='❚❚ Pausar música';
+      playing=true;
+    }else{
+      music.pause();
+      musicBtn.innerHTML='♫ Activar experiencia sonora';
+      playing=false;
     }
 
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-    document.getElementById('days').textContent = String(days).padStart(2,'0');
-    document.getElementById('hours').textContent = String(hours).padStart(2,'0');
-    document.getElementById('minutes').textContent = String(minutes).padStart(2,'0');
-    document.getElementById('seconds').textContent = String(seconds).padStart(2,'0');
+  }catch(error){
+    alert('Tu navegador bloqueó la reproducción automática.');
   }
 
-  updateCountdown();
-  setInterval(updateCountdown,1000);
+});
 
-  const observer = new IntersectionObserver((entries)=>{
-    entries.forEach(entry=>{
-      if(entry.isIntersecting) entry.target.classList.add('visible');
-    });
-  },{threshold:.12});
+document.getElementById('sendBtn').addEventListener('click',()=>{
 
-  document.querySelectorAll('.fade').forEach(el=>observer.observe(el));
+  const name=document.getElementById('name').value;
+  const attendance=document.getElementById('attendance').value;
+  const count=document.getElementById('count').value;
+  const phone=document.getElementById('phone').value;
+  const message=document.getElementById('message').value;
 
-  const music = document.getElementById('luxuryMusic');
-  const musicToggle = document.getElementById('musicToggle');
-  let isPlaying = false;
+  const text=
+`Hola, confirmo asistencia a los XV de Isabella.
 
-  if(music && musicToggle){
-    musicToggle.addEventListener('click',async()=>{
-      try{
-        if(!isPlaying){
-          await music.play();
-          musicToggle.textContent = '❚❚ Pausar experiencia sonora';
-          isPlaying = true;
-        }else{
-          music.pause();
-          musicToggle.textContent = '♫ Activar experiencia sonora';
-          isPlaying = false;
-        }
-      }catch(error){
-        alert('Tu navegador bloqueó la reproducción. Intenta tocar el botón nuevamente.');
-      }
-    });
-  }
+Nombre: ${name}
+Asistencia: ${attendance}
+Personas: ${count}
+Teléfono: ${phone}
+Mensaje/Canción: ${message}`;
 
-  const rsvpForm = document.getElementById('rsvpForm');
+  window.open(
+    `https://wa.me/5215541946413?text=${encodeURIComponent(text)}`,
+    '_blank'
+  );
 
-  if(rsvpForm){
-    rsvpForm.addEventListener('submit',function(e){
-      e.preventDefault();
+});
 
-      const name = document.getElementById('guestName')?.value.trim() || '';
-      const attendance = document.getElementById('attendance')?.value || '';
-      const count = document.getElementById('guestCount')?.value || '';
-      const food = document.getElementById('food')?.value.trim() || 'Ninguna';
-      const table = document.getElementById('table')?.value.trim() || 'No indicada';
-      const phone = document.getElementById('phone')?.value.trim() || 'No indicado';
-      const song = document.getElementById('song')?.value.trim() || 'Sin mensaje';
-
-      const message =
-        `Hola, confirmo mi asistencia a los XV de Isabella.%0A%0A` +
-        `Nombre: ${encodeURIComponent(name)}%0A` +
-        `Asistencia: ${encodeURIComponent(attendance)}%0A` +
-        `Número de personas: ${encodeURIComponent(count)}%0A` +
-        `Restricción alimenticia: ${encodeURIComponent(food)}%0A` +
-        `Mesa/Código: ${encodeURIComponent(table)}%0A` +
-        `Teléfono: ${encodeURIComponent(phone)}%0A` +
-        `Mensaje o canción: ${encodeURIComponent(song)}`;
-
-      window.open(`https://wa.me/${whatsappNumber}?text=${message}`,'_blank');
-    });
-  }
 </script>
 
 </body>

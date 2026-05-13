@@ -1,77 +1,648 @@
 <!DOCTYPE html>
-        radial-gradient(circle at 15% 20%, rgba(255,215,235,.70), transparent 28%),
-        radial-gradient(circle at 90% 80%, rgba(215,174,98,.20), transparent 34%),
-        linear-gradient(135deg,#fff8ef,#ffe6f4);
-      color:var(--text);
-      overflow-x:hidden;
-      line-height:1.7;
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Princesas | Invitación Digital</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#fff7ef;
+      --pink:#ffd9ec;
+      --rose:#d96fa7;
+      --rose-dark:#8f3f70;
+      --gold:#d7ae62;
+      --cream:#fffaf2;
+      --text:#5b3150;
+      --muted:#8d6b82;
+      --line:rgba(217,111,167,.20);
+      --card:rgba(255,255,255,.78);
     }
 
-    a{text-decoration:none;color:inherit;}
+    *{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+
+    body{
+      font-family:'Montserrat',sans-serif;
+      background:
+        radial-gradient(circle at 15% 18%, rgba(255,217,236,.70), transparent 30%),
+        radial-gradient(circle at 90% 80%, rgba(215,174,98,.22), transparent 34%),
+        linear-gradient(135deg,#fffaf2,#ffe6f4);
+      color:var(--text);
+      line-height:1.7;
+      overflow-x:hidden;
+    }
+
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
+
+    img{
+      max-width:100%;
+      display:block;
+    }
 
     .brand-home{
-      position:fixed;top:18px;left:18px;z-index:120;
-      display:flex;align-items:center;justify-content:center;
-      width:72px;height:72px;border-radius:22px;
-      background:rgba(255,255,255,.72);
+      position:fixed;
+      top:18px;
+      left:18px;
+      z-index:120;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      width:72px;
+      height:72px;
+
+      border-radius:22px;
+
+      background:rgba(255,255,255,.78);
       border:1px solid var(--line);
+
       backdrop-filter:blur(16px);
+
       box-shadow:0 14px 34px rgba(91,49,80,.10);
+
+      transition:.3s ease;
     }
 
-    .brand-home img{width:56px;}
+    .brand-home:hover{
+      transform:translateY(-2px) scale(1.04);
+    }
+
+    .brand-home img{
+      width:56px;
+      height:auto;
+      object-fit:contain;
+    }
+
+    .floating-whatsapp{
+      position:fixed;
+      right:18px;
+      bottom:18px;
+      z-index:100;
+
+      width:58px;
+      height:58px;
+
+      border-radius:50%;
+
+      display:grid;
+      place-items:center;
+
+      background:#25D366;
+      color:white;
+
+      font-size:1.75rem;
+
+      box-shadow:0 12px 30px rgba(91,49,80,.20);
+    }
 
     .sparkles{
       position:fixed;
       inset:0;
+      z-index:-1;
       pointer-events:none;
+
       opacity:.38;
-      background-image:radial-gradient(circle,rgba(215,174,98,.9) 1px,transparent 1.5px);
-      background-size:140px 140px;
+
+      background-image:
+        radial-gradient(circle, rgba(215,174,98,.85) 1px, transparent 1.5px),
+        radial-gradient(circle, rgba(255,255,255,.95) 1px, transparent 1.5px);
+
+      background-size:140px 140px, 220px 220px;
+
       animation:floatBg 24s linear infinite;
     }
 
-    @keyframes floatBg{from{transform:translateY(0);}to{transform:translateY(-140px);}}
+    @keyframes floatBg{
+      from{transform:translateY(0);}
+      to{transform:translateY(-140px);}
+    }
 
     .hero{
       min-height:100vh;
+
       display:flex;
       align-items:center;
       justify-content:center;
+
       text-align:center;
-      padding:7rem 1rem 4rem;
+
+      padding:7rem 1.2rem 4rem;
+
       position:relative;
+      overflow:hidden;
+    }
+
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:1.1rem;
+
+      border:1px solid rgba(217,111,167,.16);
+      border-radius:34px;
+
+      pointer-events:none;
     }
 
     .hero::after{
       content:"🏰";
+
       position:absolute;
-      right:9%;
+      right:8%;
       bottom:10%;
+
       font-size:9rem;
-      opacity:.15;
+      opacity:.14;
+
+      pointer-events:none;
     }
 
-    .hero-content{max-width:820px;position:relative;z-index:2;animation:fadeUp 1s ease both;}
+    .hero-content{
+      max-width:850px;
+      position:relative;
+      z-index:2;
 
-    .eyebrow{letter-spacing:.34em;text-transform:uppercase;color:var(--rose);font-size:.75rem;margin-bottom:1rem;font-weight:700;}
+      animation:fadeUp 1s ease both;
+    }
+
+    .eyebrow{
+      color:var(--rose);
+      letter-spacing:.34em;
+      text-transform:uppercase;
+      font-size:.74rem;
+      font-weight:700;
+      margin-bottom:1.2rem;
+    }
 
     h1{
       font-family:'Cormorant Garamond',serif;
       font-size:clamp(4.5rem,12vw,8rem);
       line-height:.92;
       font-weight:500;
-      color:var(--rose);
+      color:var(--rose-dark);
+      margin-bottom:1.2rem;
+    }
+
+    h1 span{
+      color:var(--gold);
+    }
+
+    .hero p{
+      max-width:660px;
+      margin:0 auto 2rem;
+      color:var(--muted);
+      font-size:1.08rem;
+    }
+
+    .date{
+      color:var(--gold);
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      font-size:.9rem;
+      font-weight:700;
+      margin-bottom:2rem;
+    }
+
+    .hero-actions,
+    .actions{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:1rem;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+
+      padding:.95rem 1.45rem;
+
+      border-radius:999px;
+
+      font-size:.9rem;
+      font-weight:700;
+
+      border:1px solid transparent;
+
+      transition:.25s ease;
+      cursor:pointer;
+    }
+
+    .btn-primary{
+      background:
+        linear-gradient(
+          135deg,
+          var(--rose),
+          var(--gold)
+        );
+
+      color:white;
+
+      box-shadow:0 14px 30px rgba(217,111,167,.18);
+    }
+
+    .btn-outline{
+      background:rgba(255,255,255,.62);
+      color:var(--rose-dark);
+      border-color:var(--line);
+    }
+
+    .btn:hover{
+      transform:translateY(-3px);
+    }
+
+    .section{
+      padding:5.5rem 1.2rem;
+    }
+
+    .container{
+      max-width:1080px;
+      margin:auto;
+    }
+
+    .title{
+      font-family:'Cormorant Garamond',serif;
+      font-size:clamp(3rem,7vw,5rem);
+      font-weight:500;
+      line-height:1;
+      text-align:center;
+      color:var(--rose-dark);
       margin-bottom:1rem;
     }
 
-    .hero p{max-width:650px;margin:0 auto 2rem;color:var(--muted);font-size:1.08rem;}
-    .date{letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:2rem;}
+    .subtitle{
+      text-align:center;
+      color:var(--muted);
+      max-width:680px;
+      margin:0 auto 3rem;
+    }
 
-    .btn{display:inline-flex;padding:.95rem 1.45rem;border-radius:999px;background:linear-gradient(135deg,var(--rose),var(--gold));color:white;font-weight:700;transition:.25s ease;}
-    .btn:hover{transform:translateY(-3px);}
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:1.2rem;
+    }
 
-    .section{padding:5.5rem 1rem;position:relative;z-index:2;}
-    .container{max-width:1080px;margin:auto;}
-    .title{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,7vw,5rem);text-align:center;color:var(--rose);font-weight:500;margin-bottom:1rem;}
+    .info-card{
+      padding:2rem;
+      text-align:center;
+
+      border-radius:28px;
+
+      background:var(--card);
+      border:1px solid var(--line);
+
+      backdrop-filter:blur(12px);
+
+      box-shadow:0 14px 34px rgba(91,49,80,.07);
+    }
+
+    .info-card span{
+      display:block;
+      font-size:2.2rem;
+      margin-bottom:.7rem;
+    }
+
+    .info-card h3{
+      font-family:'Cormorant Garamond',serif;
+      font-size:2.3rem;
+      font-weight:500;
+      color:var(--rose-dark);
+      margin-bottom:.5rem;
+    }
+
+    .info-card p{
+      color:var(--muted);
+    }
+
+    .magic-card{
+      max-width:900px;
+      margin:auto;
+
+      padding:3rem 2rem;
+
+      text-align:center;
+
+      border-radius:34px;
+
+      background:rgba(255,255,255,.78);
+      border:1px solid var(--line);
+
+      backdrop-filter:blur(12px);
+
+      box-shadow:0 18px 45px rgba(91,49,80,.07);
+    }
+
+    .magic-card h2{
+      font-family:'Cormorant Garamond',serif;
+      color:var(--rose-dark);
+      font-size:clamp(2.6rem,6vw,4.6rem);
+      font-weight:500;
+      line-height:1;
+      margin-bottom:1rem;
+    }
+
+    .magic-card p{
+      color:var(--muted);
+      max-width:680px;
+      margin:auto;
+    }
+
+    .rsvp{
+      text-align:center;
+
+      padding:6rem 1.2rem;
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(255,255,255,.45),
+          rgba(255,255,255,.88)
+        );
+
+      border-top:1px solid var(--line);
+    }
+
+    .simple-footer{
+      text-align:center;
+
+      padding:4rem 1.2rem 3rem;
+
+      border-top:1px solid var(--line);
+
+      background:#fff;
+    }
+
+    .simple-footer h3{
+      font-family:'Cormorant Garamond',serif;
+      color:var(--rose-dark);
+      font-size:2.5rem;
+      font-weight:500;
+      margin-bottom:.8rem;
+    }
+
+    .simple-footer p{
+      max-width:720px;
+      margin:auto;
+      color:var(--muted);
+      line-height:1.8;
+      margin-bottom:2rem;
+    }
+
+    .footer-contact{
+      margin-bottom:2rem;
+    }
+
+    .footer-contact strong{
+      display:block;
+      color:var(--rose-dark);
+      margin-bottom:.8rem;
+    }
+
+    .footer-links,
+    .footer-legal{
+      display:flex;
+      justify-content:center;
+      gap:1rem;
+      flex-wrap:wrap;
+    }
+
+    .footer-links a,
+    .footer-legal a{
+      color:var(--muted);
+      transition:.25s ease;
+    }
+
+    .footer-links a:hover,
+    .footer-legal a:hover{
+      color:var(--rose);
+    }
+
+    .footer-bottom{
+      margin-top:1rem;
+      color:var(--muted);
+      font-size:.9rem;
+    }
+
+    .footer-legal{
+      margin-top:1rem;
+      font-size:.88rem;
+    }
+
+    @keyframes fadeUp{
+      from{
+        opacity:0;
+        transform:translateY(24px);
+      }
+
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    @media(max-width:850px){
+
+      .grid{
+        grid-template-columns:1fr;
+      }
+
+      .brand-home{
+        width:60px;
+        height:60px;
+        top:12px;
+        left:12px;
+        border-radius:18px;
+      }
+
+      .brand-home img{
+        width:46px;
+      }
+
+      .hero::after{
+        right:2%;
+        bottom:8%;
+        font-size:6rem;
+      }
+
+      .section{
+        padding:4.5rem 1rem;
+      }
+
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="sparkles"></div>
+
+<a href="../../../" class="brand-home">
+  <img src="../../../TIAMB.png" alt="Te Invito a Mi Boda">
+</a>
+
+<a
+  class="floating-whatsapp"
+  href="https://wa.me/5215541946413?text=Hola,%20quiero%20información%20sobre%20una%20invitación%20digital%20de%20princesas"
+  target="_blank"
+  aria-label="WhatsApp">
+  ☘
+</a>
+
+<section class="hero">
+
+  <div class="hero-content">
+
+    <div class="eyebrow">
+      Fiesta de Princesa
+    </div>
+
+    <h1>
+      Princesa<br>
+      <span>Sofía</span>
+    </h1>
+
+    <p>
+      Te invitamos a una celebración mágica llena de brillo,
+      cuentos, pastel, juegos y mucha ilusión.
+    </p>
+
+    <div class="date">
+      05 · Octubre · 2027
+    </div>
+
+    <div class="hero-actions">
+      <a href="#confirmar" class="btn btn-primary">
+        Confirmar asistencia
+      </a>
+
+      <a href="#detalles" class="btn btn-outline">
+        Ver detalles
+      </a>
+    </div>
+
+  </div>
+
+</section>
+
+<section class="section">
+
+  <div class="container">
+
+    <div class="magic-card">
+
+      <h2>
+        Un cuento mágico
+      </h2>
+
+      <p>
+        Celebraremos un día especial como en los cuentos:
+        con corona, alegría, sorpresas, dulces y momentos inolvidables.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="section" id="detalles">
+
+  <div class="container">
+
+    <h2 class="title">
+      Detalles reales
+    </h2>
+
+    <p class="subtitle">
+      Una tarde de cuento para celebrar en familia.
+    </p>
+
+    <div class="grid">
+
+      <article class="info-card">
+        <span>📅</span>
+        <h3>Fecha</h3>
+        <p>Domingo 5 de Octubre · 3:00 PM</p>
+      </article>
+
+      <article class="info-card">
+        <span>🏰</span>
+        <h3>Castillo</h3>
+        <p>Salón Reino Mágico · Ciudad de México</p>
+      </article>
+
+      <article class="info-card">
+        <span>👗</span>
+        <h3>Dress Code</h3>
+        <p>Princesas, príncipes o tonos pastel.</p>
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="rsvp" id="confirmar">
+
+  <h2 class="title">
+    Confirma tu asistencia
+  </h2>
+
+  <p class="subtitle">
+    El reino espera tu confirmación.
+  </p>
+
+  <div class="actions">
+    <a
+      class="btn btn-primary"
+      href="https://wa.me/5215541946413?text=Hola,%20confirmo%20mi%20asistencia%20a%20la%20fiesta%20de%20princesa"
+      target="_blank">
+      Confirmar por WhatsApp
+    </a>
+  </div>
+
+</section>
+
+<footer class="simple-footer">
+
+  <h3>Te Invito a Mi Boda</h3>
+
+  <p>
+    Invitaciones digitales premium para bodas y eventos especiales.
+    Diseños modernos, elegantes y completamente personalizados.
+  </p>
+
+  <div class="footer-contact">
+    <strong>Contacto</strong>
+
+    <div class="footer-links">
+      <a href="https://wa.me/5215541946413" target="_blank">WhatsApp</a>
+      <a href="#">Instagram</a>
+      <a href="#">TikTok</a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 TeInvitoAMiBoda.online — Todos los derechos reservados.
+  </div>
+
+  <div class="footer-legal">
+    <a href="../../../aviso-de-privacidad.html">Aviso de Privacidad</a>
+    <a href="../../../terminos-y-condiciones.html">Términos y Condiciones</a>
+  </div>
+
+</footer>
+
+</body>
 </html>

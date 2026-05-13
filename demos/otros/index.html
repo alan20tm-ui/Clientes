@@ -1,4 +1,191 @@
 <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Otros Diseños | Invitaciones Digitales</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#f7f7f5;
+      --text:#151515;
+      --muted:#6b6b6b;
+      --line:#e2e2e2;
+      --card:#ffffff;
+    }
+
+    *{margin:0;padding:0;box-sizing:border-box;}
+
+    body{
+      font-family:'Inter',sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      overflow-x:hidden;
+    }
+
+    a{text-decoration:none;color:inherit;}
+
+    .brand-home{
+      position:fixed;
+      top:18px;
+      left:18px;
+      z-index:120;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      width:72px;
+      height:72px;
+      border-radius:22px;
+      background:rgba(255,255,255,.74);
+      border:1px solid rgba(0,0,0,.08);
+      backdrop-filter:blur(16px);
+      box-shadow:0 14px 34px rgba(0,0,0,.08);
+    }
+
+    .brand-home img{
+      width:56px;
+      height:auto;
+    }
+
+    .hero{
+      min-height:70vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:7rem 1rem 3rem;
+    }
+
+    .hero-content{
+      max-width:780px;
+    }
+
+    .eyebrow{
+      text-transform:uppercase;
+      letter-spacing:.42em;
+      color:var(--muted);
+      font-size:.75rem;
+      margin-bottom:1rem;
+    }
+
+    h1{
+      font-family:'Playfair Display',serif;
+      font-size:clamp(4rem,10vw,7rem);
+      font-weight:500;
+      line-height:.95;
+      margin-bottom:1rem;
+    }
+
+    .hero p{
+      color:var(--muted);
+      max-width:680px;
+      margin:auto;
+      line-height:1.8;
+    }
+
+    .section{
+      padding:2rem 1rem 5rem;
+    }
+
+    .grid{
+      max-width:1180px;
+      margin:auto;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:1.2rem;
+    }
+
+    .demo-card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:28px;
+      padding:2.4rem 2rem;
+      text-align:center;
+      transition:.25s ease;
+      box-shadow:0 10px 30px rgba(0,0,0,.035);
+    }
+
+    .demo-card:hover{
+      transform:translateY(-5px);
+      box-shadow:0 22px 45px rgba(0,0,0,.07);
+    }
+
+    .demo-card span{
+      font-size:2.5rem;
+      display:block;
+      margin-bottom:1rem;
+    }
+
+    .demo-card h3{
+      font-family:'Playfair Display',serif;
+      font-size:1.9rem;
+      font-weight:500;
+      margin-bottom:.7rem;
+    }
+
+    .demo-card p{
+      color:var(--muted);
+      line-height:1.7;
+      margin-bottom:1.2rem;
+      min-height:56px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:.9rem 1.35rem;
+      border-radius:999px;
+      background:#111;
+      color:#fff;
+      font-weight:600;
+      font-size:.9rem;
+    }
+
+    footer{
+      text-align:center;
+      padding:3rem 1rem;
+      background:#fff;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      font-size:.9rem;
+    }
+
+    @media(max-width:700px){
+      .brand-home{
+        width:60px;
+        height:60px;
+        top:12px;
+        left:12px;
+        border-radius:18px;
+      }
+
+      .brand-home img{
+        width:46px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<a href="../" class="brand-home">
+  <img src="../TIAMB.png" alt="Te Invito a Mi Boda">
+</a>
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="eyebrow">Catálogo alternativo</div>
+
+    <h1>Otros diseños</h1>
+
+    <p>
+      Invitaciones digitales modernas, minimalistas y temáticas para celebraciones especiales,
+      eventos infantiles y experiencias empresariales.
+    </p>
+  </div>
 </section>
 
 <section class="section">

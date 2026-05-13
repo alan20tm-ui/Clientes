@@ -4,348 +4,907 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Cumpleaños Hombre | Invitación Digital</title>
+  <title>Cumpleaños Hombre | Invitación Digital Premium</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      --bg:#050505;
+      --black:#050505;
+      --black-2:#111;
+      --card:rgba(20,20,20,.86);
       --gold:#c9a45f;
-      --gold-soft:#f4d58d;
+      --gold-2:#f4d58d;
       --text:#f7f1e8;
       --muted:#b9b0a3;
-      --line:rgba(244,213,141,.18);
+      --line:rgba(244,213,141,.22);
+      --shadow:rgba(0,0,0,.55);
     }
 
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
-
-    html{
-      scroll-behavior:smooth;
-    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
 
     body{
       font-family:'Montserrat',sans-serif;
-      background:
-        radial-gradient(circle at top, rgba(201,164,95,.10), transparent 30%),
-        linear-gradient(135deg,#050505,#0d0b08);
-
+      background:var(--black);
       color:var(--text);
       overflow-x:hidden;
+      line-height:1.7;
     }
 
-    a{
-      text-decoration:none;
-      color:inherit;
+    a{color:inherit;text-decoration:none;}
+    img{max-width:100%;display:block;}
+
+    .luxury-bg{
+      position:fixed;
+      inset:0;
+      z-index:-3;
+      pointer-events:none;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(201,164,95,.16), transparent 28%),
+        radial-gradient(circle at 85% 8%, rgba(244,213,141,.08), transparent 25%),
+        radial-gradient(circle at 70% 88%, rgba(201,164,95,.12), transparent 32%),
+        linear-gradient(135deg,#030303,#0b0907,#020202);
+    }
+
+    .sparkles{
+      position:fixed;
+      inset:0;
+      z-index:-2;
+      pointer-events:none;
+      opacity:.38;
+      background-image:
+        radial-gradient(circle, rgba(244,213,141,.75) 1px, transparent 1.5px),
+        radial-gradient(circle, rgba(255,255,255,.28) 1px, transparent 1.4px);
+      background-size:130px 130px, 210px 210px;
+      animation:floatBg 22s linear infinite;
+    }
+
+    @keyframes floatBg{
+      from{transform:translateY(0);}
+      to{transform:translateY(-130px);}
+    }
+
+    .brand-home{
+      position:fixed;
+      top:18px;
+      left:18px;
+      z-index:120;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      width:74px;
+      height:74px;
+      border-radius:22px;
+      background:linear-gradient(145deg,rgba(255,255,255,.06),rgba(255,255,255,.02));
+      border:1px solid rgba(244,213,141,.16);
+      backdrop-filter:blur(18px);
+      box-shadow:
+        0 14px 40px rgba(0,0,0,.42),
+        0 0 28px rgba(244,213,141,.10);
+      transition:.35s ease;
+    }
+
+    .brand-home:hover{
+      transform:translateY(-2px) scale(1.04);
+      border-color:rgba(244,213,141,.34);
+      box-shadow:
+        0 20px 55px rgba(0,0,0,.55),
+        0 0 42px rgba(244,213,141,.18);
+    }
+
+    .brand-home img{
+      width:58px;
+      height:auto;
+      object-fit:contain;
+      filter:drop-shadow(0 0 16px rgba(244,213,141,.22));
+    }
+
+    .floating-whatsapp{
+      position:fixed;
+      right:18px;
+      bottom:18px;
+      z-index:100;
+      width:58px;
+      height:58px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      background:#25D366;
+      color:#fff;
+      font-size:1.8rem;
+      box-shadow:0 12px 30px rgba(0,0,0,.45);
     }
 
     .hero{
       min-height:100vh;
+      position:relative;
       display:flex;
       align-items:center;
       justify-content:center;
-      padding:2rem;
-      position:relative;
-      overflow:hidden;
-    }
-
-    .hero::before{
-      content:"";
-
-      position:absolute;
-      inset:0;
-
-      background:
-        linear-gradient(
-          120deg,
-          transparent 20%,
-          rgba(255,255,255,.03) 50%,
-          transparent 80%
-        );
-
-      animation:shine 8s linear infinite;
-    }
-
-    @keyframes shine{
-      from{
-        transform:translateX(-100%);
-      }
-
-      to{
-        transform:translateX(100%);
-      }
-    }
-
-    .card{
-      width:min(520px,100%);
-
-      background:
-        linear-gradient(
-          145deg,
-          rgba(255,255,255,.05),
-          rgba(255,255,255,.02)
-        );
-
-      border:1px solid var(--line);
-
-      border-radius:32px;
-
-      overflow:hidden;
-
-      backdrop-filter:blur(14px);
-
-      box-shadow:
-        0 30px 80px rgba(0,0,0,.55);
-
-      animation:fadeUp 1s ease;
-    }
-
-    @keyframes fadeUp{
-      from{
-        opacity:0;
-        transform:translateY(30px);
-      }
-
-      to{
-        opacity:1;
-        transform:translateY(0);
-      }
-    }
-
-    .hero-image{
-      height:420px;
-      position:relative;
-      overflow:hidden;
-    }
-
-    .hero-image img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      transform:scale(1.03);
-    }
-
-    .overlay{
-      position:absolute;
-      inset:0;
-
-      background:
-        linear-gradient(
-          to top,
-          rgba(0,0,0,.88),
-          rgba(0,0,0,.15)
-        );
-    }
-
-    .content{
-      padding:2.2rem 2rem 2.5rem;
       text-align:center;
+      padding:7rem 1.2rem 4rem;
+      background:
+        linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.82)),
+        url('https://images.unsplash.com/photo-1513151233558-d860c5398176?q=80&w=1800&auto=format&fit=crop') center/cover;
+      overflow:hidden;
+    }
+
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:1.2rem;
+      border:1px solid rgba(244,213,141,.25);
+      border-radius:34px;
+      pointer-events:none;
+    }
+
+    .hero-content{
+      position:relative;
+      z-index:2;
+      max-width:900px;
+      animation:fadeUp 1s ease both;
     }
 
     .eyebrow{
-      color:var(--gold-soft);
-      letter-spacing:.35em;
+      color:var(--gold-2);
+      letter-spacing:.45em;
       text-transform:uppercase;
-      font-size:.72rem;
-      margin-bottom:1rem;
+      font-size:.78rem;
+      margin-bottom:1.2rem;
     }
 
-    h1{
+    .hero h1{
       font-family:'Cormorant Garamond',serif;
-      font-size:4rem;
-      line-height:.9;
+      font-size:clamp(4.5rem,11vw,8.5rem);
       font-weight:400;
-      color:var(--gold-soft);
+      line-height:.88;
+      color:var(--text);
+      margin-bottom:1rem;
+      text-shadow:0 18px 50px rgba(0,0,0,.6);
+    }
+
+    .hero h1 span{
+      color:var(--gold-2);
+    }
+
+    .hero p{
+      max-width:700px;
+      margin:1rem auto 2rem;
+      color:#eee;
+      font-size:clamp(1rem,2vw,1.25rem);
+    }
+
+    .hero-date{
+      color:var(--gold-2);
+      letter-spacing:.28em;
+      text-transform:uppercase;
+      margin:2rem 0;
+      font-size:.95rem;
+    }
+
+    .hero-actions,
+    .actions{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:1rem;
+      flex-wrap:wrap;
+      margin-top:1.4rem;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:.5rem;
+      padding:.95rem 1.45rem;
+      border-radius:999px;
+      font-size:.9rem;
+      font-weight:700;
+      transition:.25s ease;
+      border:1px solid transparent;
+      cursor:pointer;
+      font-family:'Montserrat',sans-serif;
+    }
+
+    .btn:hover{transform:translateY(-3px);}
+    .btn-gold{
+      background:linear-gradient(135deg,var(--gold),var(--gold-2));
+      color:#111;
+      box-shadow:0 14px 30px rgba(201,164,95,.20);
+    }
+
+    .btn-outline{
+      border-color:var(--line);
+      color:var(--gold-2);
+      background:rgba(0,0,0,.25);
+      backdrop-filter:blur(10px);
+    }
+
+    .private-banner{
+      text-align:center;
+      padding:1rem;
+      background:rgba(201,164,95,.10);
+      border-top:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+      color:var(--gold-2);
+      font-size:.9rem;
+    }
+
+    .section{
+      padding:6rem 1.15rem;
+    }
+
+    .container{
+      max-width:1160px;
+      margin:auto;
+    }
+
+    .title{
+      font-family:'Cormorant Garamond',serif;
+      font-size:clamp(2.8rem,6vw,5rem);
+      line-height:1;
+      text-align:center;
+      color:var(--gold-2);
+      font-weight:400;
       margin-bottom:1rem;
     }
 
     .subtitle{
+      text-align:center;
       color:var(--muted);
-      font-size:1rem;
+      max-width:760px;
+      margin:0 auto 3rem;
+      font-size:1.05rem;
+    }
+
+    .glass{
+      background:var(--card);
+      border:1px solid var(--line);
+      box-shadow:0 20px 60px var(--shadow);
+      backdrop-filter:blur(14px);
+      border-radius:32px;
+    }
+
+    .event-grid,
+    .feature-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:1.2rem;
+    }
+
+    .event-grid{
+      grid-template-columns:repeat(2,1fr);
+    }
+
+    .card{
+      padding:2rem;
+      text-align:center;
+    }
+
+    .card-icon{
+      font-size:2.2rem;
+      margin-bottom:.7rem;
+    }
+
+    .card h3{
+      font-family:'Cormorant Garamond',serif;
+      font-size:2.2rem;
+      font-weight:400;
+      color:var(--gold-2);
+      margin-bottom:.8rem;
+    }
+
+    .card p{
+      color:var(--muted);
+      margin-bottom:.8rem;
+    }
+
+    .card strong{
+      color:#fff;
+    }
+
+    .timeline{
+      max-width:760px;
+      margin:auto;
+      position:relative;
+    }
+
+    .timeline::before{
+      content:"";
+      position:absolute;
+      top:0;
+      bottom:0;
+      left:50%;
+      width:1px;
+      background:var(--line);
+    }
+
+    .timeline-item{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:2rem;
+      margin:2rem 0;
+      align-items:center;
+    }
+
+    .timeline-time{
+      text-align:right;
+      color:var(--gold-2);
+      font-family:'Cormorant Garamond',serif;
+      font-size:2rem;
+    }
+
+    .timeline-detail{
+      padding:1.4rem;
+      border-radius:22px;
+      background:rgba(255,255,255,.04);
+      border:1px solid var(--line);
+    }
+
+    .dress-code{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:1rem;
+      text-align:center;
+    }
+
+    .dress-item{
+      padding:1.4rem;
+      border-radius:24px;
+      background:rgba(255,255,255,.04);
+      border:1px solid var(--line);
+    }
+
+    .dress-item span{
+      font-size:2rem;
+      display:block;
+      margin-bottom:.5rem;
+    }
+
+    .timer{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:1rem;
+      margin-top:2.5rem;
+    }
+
+    .time-box{
+      background:rgba(255,255,255,.04);
+      border:1px solid var(--line);
+      border-radius:24px;
+      padding:1.7rem .8rem;
+      text-align:center;
+    }
+
+    .time-box span{
+      display:block;
+      font-family:'Cormorant Garamond',serif;
+      font-size:clamp(2.5rem,6vw,4rem);
+      color:var(--gold-2);
+      line-height:1;
+    }
+
+    .time-box small{
+      text-transform:uppercase;
+      letter-spacing:2px;
+      font-size:.75rem;
+      color:var(--muted);
+    }
+
+    .rsvp-hero{
+      background:
+        linear-gradient(rgba(0,0,0,.72),rgba(0,0,0,.82)),
+        url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=1800&auto=format&fit=crop') center/cover;
+      text-align:center;
+      padding:7rem 1.2rem;
+    }
+
+    .rsvp-form{
+      max-width:760px;
+      margin:auto;
+      padding:2rem;
+    }
+
+    .form-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:1rem;
+      margin-bottom:1rem;
+    }
+
+    input,
+    select,
+    textarea{
+      width:100%;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.05);
+      color:#fff;
+      border-radius:18px;
+      padding:1rem;
+      font-family:'Montserrat',sans-serif;
+      outline:none;
+    }
+
+    option{color:#111;}
+    textarea{min-height:110px;resize:vertical;}
+
+    .rsvp-note{
+      margin-top:1rem;
+      color:var(--muted);
+      text-align:center;
+      font-size:.9rem;
+    }
+
+    .simple-footer{
+      text-align:center;
+      padding:4rem 1.2rem 3rem;
+      border-top:1px solid rgba(244,213,141,.12);
+      background:
+        linear-gradient(
+          180deg,
+          rgba(201,164,95,.04),
+          rgba(0,0,0,.88)
+        );
+    }
+
+    .simple-footer h3{
+      font-family:'Cormorant Garamond',serif;
+      color:var(--gold-2);
+      font-size:2.4rem;
+      font-weight:400;
+      margin-bottom:.8rem;
+    }
+
+    .simple-footer p{
+      max-width:720px;
+      margin:auto;
+      color:var(--muted);
       line-height:1.8;
       margin-bottom:2rem;
     }
 
-    .info{
-      display:grid;
-      gap:1rem;
+    .footer-contact{
       margin-bottom:2rem;
     }
 
-    .info-box{
-      padding:1rem;
-
-      border-radius:18px;
-
-      background:rgba(255,255,255,.03);
-
-      border:1px solid rgba(244,213,141,.10);
-    }
-
-    .info-box strong{
+    .footer-contact strong{
       display:block;
-      color:var(--gold-soft);
-      margin-bottom:.35rem;
-      font-size:.82rem;
-      letter-spacing:.08em;
-      text-transform:uppercase;
+      color:var(--gold-2);
+      margin-bottom:.8rem;
+      font-size:1rem;
     }
 
-    .info-box p{
-      color:#eee;
-      font-size:.95rem;
-    }
-
-    .actions{
+    .footer-links{
       display:flex;
-      flex-direction:column;
-      gap:1rem;
-    }
-
-    .btn{
-      display:flex;
-      align-items:center;
       justify-content:center;
-
-      padding:1rem;
-
-      border-radius:999px;
-
-      font-weight:700;
-
-      transition:.28s ease;
+      gap:1.2rem;
+      flex-wrap:wrap;
     }
 
-    .btn-gold{
-      background:
-        linear-gradient(
-          135deg,
-          var(--gold),
-          var(--gold-soft)
-        );
-
-      color:#111;
+    .footer-links a,
+    .footer-legal a{
+      color:#cfc6bb;
+      transition:.25s ease;
     }
 
-    .btn-outline{
-      border:1px solid rgba(244,213,141,.22);
-      background:rgba(255,255,255,.03);
-      color:var(--text);
+    .footer-links a:hover,
+    .footer-legal a:hover{
+      color:var(--gold-2);
     }
 
-    .btn:hover{
-      transform:translateY(-3px);
-    }
-
-    footer{
-      text-align:center;
-      padding:2rem 1rem;
+    .footer-bottom{
+      margin-top:1rem;
       color:#8f8578;
+      font-size:.9rem;
+    }
+
+    .footer-legal{
+      margin-top:1rem;
+      display:flex;
+      justify-content:center;
+      gap:1rem;
+      flex-wrap:wrap;
       font-size:.88rem;
     }
 
-    @media(max-width:600px){
+    .fade{
+      opacity:0;
+      transform:translateY(25px);
+      transition:.8s ease;
+    }
 
-      .hero{
-        padding:1rem;
+    .fade.visible{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    @keyframes fadeUp{
+      from{opacity:0;transform:translateY(30px);}
+      to{opacity:1;transform:translateY(0);}
+    }
+
+    @media(max-width:900px){
+      .hero::after{
+        inset:.7rem;
+        border-radius:24px;
       }
 
-      .hero-image{
-        height:340px;
+      .section{
+        padding:4.2rem 1rem;
       }
 
-      h1{
-        font-size:3rem;
+      .event-grid,
+      .feature-grid,
+      .form-grid,
+      .dress-code,
+      .timer{
+        grid-template-columns:1fr;
       }
 
-      .content{
-        padding:2rem 1.3rem;
+      .timeline::before{
+        left:0;
       }
 
+      .timeline-item{
+        grid-template-columns:1fr;
+        gap:.6rem;
+        padding-left:1.2rem;
+      }
+
+      .timeline-time{
+        text-align:left;
+      }
+
+      .eyebrow{
+        letter-spacing:.25em;
+      }
+
+      .brand-home{
+        width:62px;
+        height:62px;
+        top:12px;
+        left:12px;
+        border-radius:18px;
+      }
+
+      .brand-home img{
+        width:48px;
+      }
     }
   </style>
 </head>
 
 <body>
 
+<a href="/" class="brand-home">
+  <img src="/TIAMB.png" alt="Te Invito a Mi Boda">
+</a>
+
+<div class="luxury-bg"></div>
+<div class="sparkles"></div>
+
+<a
+  class="floating-whatsapp"
+  href="https://wa.me/5215541946413?text=Hola,%20quiero%20información%20sobre%20esta%20invitación%20digital"
+  target="_blank"
+  aria-label="WhatsApp">
+  ☘
+</a>
+
 <section class="hero">
+  <div class="hero-content">
+    <div class="eyebrow">Invitación cumpleaños hombre</div>
 
-  <div class="card">
+    <h1>
+      Jorge<br>
+      <span>35 Años</span>
+    </h1>
 
-    <div class="hero-image">
+    <p>
+      Acompáñame a celebrar una noche increíble entre amigos,
+      música, drinks, buena vibra y una gran fiesta.
+    </p>
 
-      <img
-        src="https://images.unsplash.com/photo-1513151233558-d860c5398176?q=80&w=1400&auto=format&fit=crop"
-        alt="Cumpleaños Hombre">
-
-      <div class="overlay"></div>
-
+    <div class="hero-date">
+      18 · Julio · 2026
     </div>
 
-    <div class="content">
-
-      <div class="eyebrow">
-        Celebración especial
-      </div>
-
-      <h1>
-        Jorge<br>
-        35 Años
-      </h1>
-
-      <p class="subtitle">
-        Acompáñame a celebrar una noche increíble entre amigos,
-        música, drinks y una gran fiesta.
-      </p>
-
-      <div class="info">
-
-        <div class="info-box">
-          <strong>Fecha</strong>
-          <p>Sábado 18 de Julio · 8:00 PM</p>
-        </div>
-
-        <div class="info-box">
-          <strong>Ubicación</strong>
-          <p>Terraza Élite · Ciudad de México</p>
-        </div>
-
-        <div class="info-box">
-          <strong>Dress Code</strong>
-          <p>Black & Gold</p>
-        </div>
-
-      </div>
-
-      <div class="actions">
-
-        <a
-          class="btn btn-gold"
-          href="#">
-          Confirmar asistencia
-        </a>
-
-        <a
-          class="btn btn-outline"
-          href="#">
-          Ver ubicación
-        </a>
-
-      </div>
-
+    <div class="hero-actions">
+      <a class="btn btn-gold" href="#confirmar">Confirmar asistencia</a>
+      <a class="btn btn-outline" href="#detalles">Ver detalles</a>
     </div>
-
   </div>
-
 </section>
 
-<footer>
-  Demo · Cumpleaños Hombre · TeInvitoAMiBoda.online
+<div class="private-banner">
+  Invitación digital personalizada · Estilo elegante para cumpleaños
+</div>
+
+<section class="section fade" id="detalles">
+  <div class="container">
+    <h2 class="title">Detalles del evento</h2>
+    <p class="subtitle">
+      Una celebración diseñada para disfrutar una noche especial con las personas más cercanas.
+    </p>
+
+    <div class="event-grid">
+      <article class="card glass">
+        <div class="card-icon">🥃</div>
+        <h3>Recepción</h3>
+        <p>Terraza Élite<br>Ciudad de México</p>
+        <strong>8:00 PM</strong>
+        <div class="actions">
+          <a class="btn btn-gold" href="https://maps.google.com" target="_blank">Ver ubicación</a>
+        </div>
+      </article>
+
+      <article class="card glass">
+        <div class="card-icon">🎧</div>
+        <h3>Fiesta</h3>
+        <p>Música, drinks, brindis y celebración.</p>
+        <strong>Hasta que el cuerpo aguante</strong>
+        <div class="actions">
+          <a class="btn btn-outline" href="#itinerario">Ver itinerario</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section fade" id="itinerario">
+  <div class="container">
+    <h2 class="title">Itinerario</h2>
+    <p class="subtitle">
+      Una noche preparada para celebrar, brindar y pasarla increíble.
+    </p>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-time">8:00 PM</div>
+        <div class="timeline-detail">
+          <strong>Recepción de invitados</strong><br>
+          Llegada, fotos y primeros drinks.
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-time">9:00 PM</div>
+        <div class="timeline-detail">
+          <strong>Brindis</strong><br>
+          Momento especial para celebrar.
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-time">10:00 PM</div>
+        <div class="timeline-detail">
+          <strong>Música y fiesta</strong><br>
+          DJ, baile y buena vibra.
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-time">12:00 AM</div>
+        <div class="timeline-detail">
+          <strong>After party</strong><br>
+          La noche sigue con los mejores amigos.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section fade">
+  <div class="container">
+    <h2 class="title">Dress code</h2>
+    <p class="subtitle">
+      Para mantener la estética de la noche, sugerimos el siguiente estilo.
+    </p>
+
+    <div class="dress-code">
+      <div class="dress-item">
+        <span>🖤</span>
+        <strong>Color base</strong>
+        <p>Negro</p>
+      </div>
+
+      <div class="dress-item">
+        <span>🥇</span>
+        <strong>Detalles</strong>
+        <p>Dorado</p>
+      </div>
+
+      <div class="dress-item">
+        <span>🤵</span>
+        <strong>Estilo</strong>
+        <p>Casual elegante</p>
+      </div>
+
+      <div class="dress-item">
+        <span>🚫</span>
+        <strong>Evitar</strong>
+        <p>Ropa deportiva</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section fade">
+  <div class="container">
+    <div class="glass card">
+      <h2 class="title">Cuenta regresiva</h2>
+      <p class="subtitle">
+        Cada segundo falta menos para celebrar.
+      </p>
+
+      <div class="timer">
+        <div class="time-box"><span id="days">00</span><small>Días</small></div>
+        <div class="time-box"><span id="hours">00</span><small>Horas</small></div>
+        <div class="time-box"><span id="minutes">00</span><small>Minutos</small></div>
+        <div class="time-box"><span id="seconds">00</span><small>Segundos</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section fade">
+  <div class="container">
+    <h2 class="title">Detalles especiales</h2>
+    <p class="subtitle">
+      Funciones que hacen la invitación más completa y útil para los invitados.
+    </p>
+
+    <div class="feature-grid">
+      <article class="card glass">
+        <div class="card-icon">📅</div>
+        <h3>Save the date</h3>
+        <p>Agrega el evento a tu calendario.</p>
+        <a class="btn btn-outline" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Cumplea%C3%B1os%20Jorge%2035&dates=20260719T020000Z/20260719T070000Z&details=Celebraci%C3%B3n%20cumplea%C3%B1os&location=Ciudad%20de%20M%C3%A9xico" target="_blank">Agregar calendario</a>
+      </article>
+
+      <article class="card glass">
+        <div class="card-icon">🎵</div>
+        <h3>Playlist</h3>
+        <p>Sugiere una canción para la fiesta.</p>
+        <a class="btn btn-outline" href="https://wa.me/5215541946413?text=Hola,%20quiero%20sugerir%20esta%20canci%C3%B3n%20para%20la%20fiesta:%20" target="_blank">Sugerir canción</a>
+      </article>
+
+      <article class="card glass">
+        <div class="card-icon">📷</div>
+        <h3>Fotos</h3>
+        <p>Comparte fotos y videos del evento.</p>
+        <a class="btn btn-outline" href="#" target="_blank">Subir fotos</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="rsvp-hero fade" id="confirmar">
+  <div class="container">
+    <h2 class="title">Confirma tu asistencia</h2>
+    <p class="subtitle">
+      Tu confirmación ayuda a preparar cada detalle de la celebración.
+    </p>
+
+    <form class="rsvp-form glass" id="rsvpForm">
+      <div class="form-grid">
+        <input id="guestName" type="text" placeholder="Nombre completo" required>
+
+        <select id="attendance" required>
+          <option value="">¿Asistirás?</option>
+          <option value="Sí asistiré">Sí asistiré</option>
+          <option value="No podré asistir">No podré asistir</option>
+        </select>
+
+        <input id="guestCount" type="number" min="1" max="10" placeholder="Número de personas" required>
+
+        <input id="drink" type="text" placeholder="Drink favorito">
+      </div>
+
+      <textarea id="message" placeholder="Mensaje para el cumpleañero"></textarea>
+
+      <div class="actions">
+        <button class="btn btn-gold" type="submit">
+          Enviar confirmación por WhatsApp
+        </button>
+      </div>
+
+      <p class="rsvp-note">
+        Esta demo envía la confirmación por WhatsApp. En versión avanzada puede conectarse a Google Sheets o Firebase.
+      </p>
+    </form>
+  </div>
+</section>
+
+<footer class="simple-footer">
+
+  <h3>Te Invito a Mi Boda</h3>
+
+  <p>
+    Invitaciones digitales premium para bodas y eventos especiales.
+    Diseños modernos, elegantes y completamente personalizados.
+  </p>
+
+  <div class="footer-contact">
+    <strong>Contacto</strong>
+
+    <div class="footer-links">
+      <a href="https://wa.me/5215541946413" target="_blank">WhatsApp</a>
+      <a href="#">Instagram</a>
+      <a href="#">TikTok</a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 TeInvitoAMiBoda.online — Todos los derechos reservados.
+  </div>
+
+  <div class="footer-legal">
+    <a href="/aviso-de-privacidad.html">Aviso de Privacidad</a>
+    <a href="/terminos-y-condiciones.html">Términos y Condiciones</a>
+  </div>
+
 </footer>
+
+<script>
+  const eventDate = new Date('2026-07-18T20:00:00').getTime();
+  const whatsappNumber = '5215541946413';
+
+  function updateCountdown(){
+    const now = new Date().getTime();
+    const distance = eventDate - now;
+
+    if(distance <= 0){
+      document.querySelector('.timer').innerHTML = '<p>¡Hoy es la celebración!</p>';
+      return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById('days').textContent = String(days).padStart(2,'0');
+    document.getElementById('hours').textContent = String(hours).padStart(2,'0');
+    document.getElementById('minutes').textContent = String(minutes).padStart(2,'0');
+    document.getElementById('seconds').textContent = String(seconds).padStart(2,'0');
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown,1000);
+
+  const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+      }
+    });
+  },{threshold:.12});
+
+  document.querySelectorAll('.fade').forEach(el=>observer.observe(el));
+
+  document.getElementById('rsvpForm').addEventListener('submit',function(e){
+    e.preventDefault();
+
+    const name = document.getElementById('guestName').value.trim();
+    const attendance = document.getElementById('attendance').value;
+    const count = document.getElementById('guestCount').value;
+    const drink = document.getElementById('drink').value.trim() || 'Sin preferencia';
+    const message = document.getElementById('message').value.trim() || 'Sin mensaje';
+
+    const text =
+      `Hola, confirmo mi asistencia al cumpleaños de Jorge.%0A%0A` +
+      `Nombre: ${encodeURIComponent(name)}%0A` +
+      `Asistencia: ${encodeURIComponent(attendance)}%0A` +
+      `Número de personas: ${encodeURIComponent(count)}%0A` +
+      `Drink favorito: ${encodeURIComponent(drink)}%0A` +
+      `Mensaje: ${encodeURIComponent(message)}`;
+
+    window.open(`https://wa.me/${whatsappNumber}?text=${text}`,'_blank');
+  });
+</script>
 
 </body>
 </html>

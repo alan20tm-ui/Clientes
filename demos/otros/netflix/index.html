@@ -1,1 +1,67 @@
+<!DOCTYPE html>
 
+    footer{text-align:center;padding:3rem 1rem;color:var(--muted);font-size:.9rem;}
+
+    @keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+
+    @media(max-width:850px){
+      .grid{grid-template-columns:1fr;}
+      .brand-home{width:60px;height:60px;top:12px;left:12px;border-radius:16px;}
+      .brand-home img{width:46px;}
+    }
+  </style>
+</head>
+<body>
+
+<a href="/" class="brand-home"><img src="/TIAMB.png" alt="Te Invito a Mi Boda"></a>
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="tag">Streaming Invitation</div>
+    <h1>La Fiesta<br>de Ana</h1>
+
+    <div class="meta">
+      <span>2027</span>
+      <span>·</span>
+      <span>Evento especial</span>
+      <span>·</span>
+      <span>1 noche</span>
+      <span>·</span>
+      <span>HD</span>
+    </div>
+
+    <p>
+      Una noche digna de estreno. Dale play a una celebración llena de música,
+      amigos, fotos y momentos inolvidables.
+    </p>
+
+    <div class="actions">
+      <a class="btn btn-play" href="#confirmar">▶ Confirmar asistencia</a>
+      <a class="btn btn-more" href="#detalles">Más información</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="detalles">
+  <div class="container">
+    <h2 class="title">Detalles del episodio</h2>
+    <p class="subtitle">Todo lo que necesitas saber para ser parte de esta gran producción.</p>
+
+    <div class="grid">
+      <article class="card"><span>📅</span><h3>Fecha</h3><p>Sábado 10 de Junio · 8:00 PM</p></article>
+      <article class="card"><span>📍</span><h3>Locación</h3><p>Studio Party · Ciudad de México</p></article>
+      <article class="card"><span>🍿</span><h3>Dress Code</h3><p>Red carpet casual.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="rsvp" id="confirmar">
+  <h2 class="title">Confirma tu asistencia</h2>
+  <p class="subtitle">Tu pase está reservado para esta función especial.</p>
+  <a class="btn btn-play" href="https://wa.me/5215541946413?text=Hola,%20confirmo%20mi%20asistencia%20a%20la%20fiesta%20streaming" target="_blank">Confirmar por WhatsApp</a>
+</section>
+
+<footer>Demo Streaming Style · TeInvitoAMiBoda.online</footer>
+
+</body>
+</html>

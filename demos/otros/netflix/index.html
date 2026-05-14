@@ -4,20 +4,27 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Stream Style | Invitación Digital</title>
+  <title>Stream Style Premium | Invitación Digital</title>
+
+  <meta name="description" content="Invitación digital premium estilo streaming para cumpleaños, fiestas modernas y eventos temáticos.">
+
+  <link rel="icon" type="image/png" href="/favicon.png">
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      --bg:#0b0b0b;
+      --bg:#080808;
+      --bg2:#111;
       --card:#151515;
       --card-soft:#1d1d1d;
       --text:#ffffff;
       --muted:#b5b5b5;
       --red:#e50914;
+      --red-soft:#ff4048;
       --red-dark:#b20710;
-      --line:rgba(255,255,255,.08);
+      --line:rgba(255,255,255,.09);
+      --shadow:rgba(0,0,0,.55);
     }
 
     *{
@@ -28,15 +35,15 @@
 
     html{
       scroll-behavior:smooth;
+      overflow-x:hidden;
     }
 
     body{
       font-family:'Inter',sans-serif;
       background:
-        radial-gradient(circle at top left, rgba(229,9,20,.18), transparent 28%),
-        radial-gradient(circle at bottom right, rgba(229,9,20,.12), transparent 26%),
-        var(--bg);
-
+        radial-gradient(circle at 12% 8%, rgba(229,9,20,.22), transparent 30%),
+        radial-gradient(circle at 86% 84%, rgba(229,9,20,.13), transparent 28%),
+        linear-gradient(135deg,#050505,#111,#050505);
       color:var(--text);
       overflow-x:hidden;
       line-height:1.7;
@@ -52,74 +59,97 @@
       display:block;
     }
 
+    .cinema-glow{
+      position:fixed;
+      inset:0;
+      z-index:-4;
+      pointer-events:none;
+      background:
+        linear-gradient(115deg,transparent 0 34%,rgba(229,9,20,.14) 45%,transparent 58%),
+        linear-gradient(70deg,transparent 0 42%,rgba(255,255,255,.05) 52%,transparent 66%);
+      filter:blur(12px);
+      opacity:.9;
+      animation:cinemaGlow 9s ease-in-out infinite alternate;
+    }
+
+    @keyframes cinemaGlow{
+      from{transform:translateX(-22px)}
+      to{transform:translateX(22px)}
+    }
+
+    .grain{
+      position:fixed;
+      inset:0;
+      z-index:-3;
+      pointer-events:none;
+      opacity:.12;
+      background-image:
+        radial-gradient(circle,rgba(255,255,255,.45) 1px,transparent 1.5px);
+      background-size:90px 90px;
+      animation:grainMove 20s linear infinite;
+    }
+
+    @keyframes grainMove{
+      from{transform:translateY(0)}
+      to{transform:translateY(-120px)}
+    }
+
     .brand-home{
       position:fixed;
       top:18px;
       left:18px;
       z-index:120;
-
       width:72px;
       height:72px;
-
       display:flex;
       align-items:center;
       justify-content:center;
-
       border-radius:22px;
-
       background:rgba(20,20,20,.78);
-      border:1px solid rgba(255,255,255,.06);
-
-      backdrop-filter:blur(16px);
-
-      box-shadow:0 14px 34px rgba(0,0,0,.35);
-
+      border:1px solid rgba(255,255,255,.08);
+      backdrop-filter:blur(18px);
+      box-shadow:0 16px 40px rgba(0,0,0,.38);
       transition:.3s ease;
     }
 
     .brand-home:hover{
       transform:translateY(-2px) scale(1.04);
+      border-color:rgba(229,9,20,.28);
     }
 
     .brand-home img{
       width:56px;
-      height:auto;
       object-fit:contain;
+      filter:drop-shadow(0 0 14px rgba(229,9,20,.15));
     }
 
     .floating-whatsapp{
       position:fixed;
       right:18px;
       bottom:18px;
-      z-index:100;
-
+      z-index:150;
       width:58px;
       height:58px;
-
       border-radius:50%;
-
       display:grid;
       place-items:center;
-
       background:#25D366;
       color:white;
+      box-shadow:0 16px 38px rgba(0,0,0,.32);
+      transition:.25s ease;
+    }
 
-      font-size:1.75rem;
-
-      box-shadow:0 12px 30px rgba(0,0,0,.32);
+    .floating-whatsapp:hover{
+      transform:translateY(-3px) scale(1.04);
     }
 
     .hero{
       min-height:100vh;
-
       display:grid;
       grid-template-columns:1.1fr .9fr;
       align-items:center;
-
       gap:3rem;
-
       padding:7rem 5vw 4rem;
-
       position:relative;
       overflow:hidden;
     }
@@ -128,36 +158,30 @@
       content:"";
       position:absolute;
       inset:1rem;
-
-      border:1px solid rgba(255,255,255,.05);
-      border-radius:32px;
-
+      border:1px solid rgba(255,255,255,.06);
+      border-radius:34px;
       pointer-events:none;
+      box-shadow:
+        inset 0 0 80px rgba(229,9,20,.08),
+        inset 0 0 120px rgba(0,0,0,.28);
     }
 
     .hero::after{
       content:"STREAM";
       position:absolute;
-
       top:50%;
       right:-4%;
-
       transform:translateY(-50%) rotate(-90deg);
-
       font-size:7rem;
       font-weight:900;
-
-      letter-spacing:.12em;
-
-      color:rgba(255,255,255,.03);
-
+      letter-spacing:.14em;
+      color:rgba(255,255,255,.035);
       pointer-events:none;
     }
 
     .hero-content{
       position:relative;
       z-index:2;
-
       animation:fadeUp 1s ease both;
     }
 
@@ -165,68 +189,54 @@
       display:inline-flex;
       align-items:center;
       justify-content:center;
-
       padding:.45rem .85rem;
-
       border-radius:999px;
-
       background:rgba(229,9,20,.14);
-
-      color:#ff5f66;
-
+      border:1px solid rgba(229,9,20,.22);
+      color:#ff6b72;
       font-size:.78rem;
-      font-weight:800;
-
+      font-weight:900;
       letter-spacing:.08em;
       text-transform:uppercase;
-
       margin-bottom:1.2rem;
     }
 
     h1{
-      font-size:clamp(4rem,9vw,7rem);
-      line-height:.88;
+      font-size:clamp(4rem,9vw,7.4rem);
+      line-height:.86;
       font-weight:900;
-
-      letter-spacing:-.06em;
-
+      letter-spacing:-.07em;
       margin-bottom:1.2rem;
+      text-shadow:0 26px 70px rgba(0,0,0,.62);
     }
 
     h1 span{
       color:var(--red);
+      text-shadow:0 0 36px rgba(229,9,20,.34);
     }
 
     .hero p{
       max-width:620px;
-
       color:var(--muted);
-
       font-size:1.05rem;
-
       margin-bottom:2rem;
     }
 
     .meta{
       display:flex;
-      gap:1rem;
+      gap:.75rem;
       flex-wrap:wrap;
-
       margin-bottom:2rem;
     }
 
     .tag{
-      padding:.6rem 1rem;
-
+      padding:.58rem .95rem;
       border-radius:999px;
-
-      background:rgba(255,255,255,.05);
-      border:1px solid rgba(255,255,255,.06);
-
+      background:rgba(255,255,255,.055);
+      border:1px solid rgba(255,255,255,.075);
       color:#d8d8d8;
-
-      font-size:.82rem;
-      font-weight:700;
+      font-size:.78rem;
+      font-weight:800;
     }
 
     .hero-actions,
@@ -241,105 +251,75 @@
       display:inline-flex;
       align-items:center;
       justify-content:center;
-
       padding:1rem 1.55rem;
-
       border-radius:999px;
-
       font-size:.92rem;
-      font-weight:800;
-
+      font-weight:900;
       transition:.25s ease;
-
       border:1px solid transparent;
-
       cursor:pointer;
-    }
-
-    .btn-primary{
-      background:var(--red);
-      color:white;
-
-      box-shadow:0 14px 30px rgba(229,9,20,.22);
-    }
-
-    .btn-primary:hover{
-      background:var(--red-dark);
-    }
-
-    .btn-outline{
-      background:rgba(255,255,255,.06);
-      border-color:rgba(255,255,255,.08);
-
-      color:white;
     }
 
     .btn:hover{
       transform:translateY(-3px);
     }
 
-    .poster{
+    .btn-primary{
+      background:linear-gradient(135deg,var(--red),var(--red-soft));
+      color:white;
+      box-shadow:0 14px 32px rgba(229,9,20,.24);
+    }
+
+    .btn-primary:hover{
+      background:linear-gradient(135deg,var(--red-dark),var(--red));
+    }
+
+    .btn-outline{
+      background:rgba(255,255,255,.06);
+      border-color:rgba(255,255,255,.09);
+      color:white;
+      backdrop-filter:blur(12px);
+    }
+        .poster{
       position:relative;
       z-index:2;
-
-      background:
-        linear-gradient(
-          180deg,
-          rgba(0,0,0,.12),
-          rgba(0,0,0,.82)
-        ),
-        url('https://images.unsplash.com/photo-1516280440614-37939bbacd81?q=80&w=1600&auto=format&fit=crop');
-
-      background-size:cover;
-      background-position:center;
-
-      border-radius:34px;
-
       min-height:700px;
-
+      border-radius:34px;
       overflow:hidden;
-
       display:flex;
       align-items:flex-end;
-
-      box-shadow:0 24px 60px rgba(0,0,0,.45);
+      background:
+        linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.86)),
+        url('https://images.unsplash.com/photo-1516280440614-37939bbacd81?q=80&w=1600&auto=format&fit=crop')
+        center/cover;
+      box-shadow:0 28px 70px rgba(0,0,0,.55);
+      border:1px solid rgba(255,255,255,.08);
     }
 
     .poster-content{
       width:100%;
       padding:2.2rem;
-      background:
-        linear-gradient(
-          180deg,
-          transparent,
-          rgba(0,0,0,.88)
-        );
+      background:linear-gradient(180deg,transparent,rgba(0,0,0,.92));
     }
 
     .poster-label{
       display:inline-block;
-
       background:var(--red);
-
-      padding:.4rem .7rem;
-
+      padding:.42rem .75rem;
       border-radius:10px;
-
       font-size:.72rem;
-      font-weight:800;
-
+      font-weight:900;
       letter-spacing:.08em;
       text-transform:uppercase;
-
       margin-bottom:1rem;
     }
 
     .poster-content h2{
-      font-size:2.4rem;
+      font-size:2.5rem;
       line-height:1;
       font-weight:900;
-
       margin-bottom:.7rem;
+      letter-spacing:-.04em;
     }
 
     .poster-content p{
@@ -348,7 +328,7 @@
     }
 
     .section{
-      padding:5.5rem 1.2rem;
+      padding:5.8rem 1.2rem;
     }
 
     .container{
@@ -360,19 +340,14 @@
       font-size:clamp(2.5rem,6vw,4.8rem);
       line-height:.95;
       font-weight:900;
-
       letter-spacing:-.05em;
-
       text-align:center;
-
       margin-bottom:1rem;
     }
 
     .subtitle{
       text-align:center;
-
       color:var(--muted);
-
       max-width:720px;
       margin:0 auto 3rem;
     }
@@ -384,15 +359,17 @@
     }
 
     .info-card{
-      background:var(--card);
-
+      background:linear-gradient(145deg,rgba(255,255,255,.065),rgba(255,255,255,.025));
       border:1px solid var(--line);
-
       border-radius:28px;
-
       padding:2rem;
+      box-shadow:0 16px 34px rgba(0,0,0,.28);
+      transition:.25s ease;
+    }
 
-      box-shadow:0 12px 30px rgba(0,0,0,.24);
+    .info-card:hover{
+      transform:translateY(-5px);
+      border-color:rgba(229,9,20,.28);
     }
 
     .info-card span{
@@ -416,39 +393,32 @@
     }
 
     .episode{
-      background:var(--card-soft);
-
+      background:linear-gradient(145deg,rgba(255,255,255,.065),rgba(255,255,255,.025));
       border:1px solid var(--line);
-
       border-radius:26px;
-
       padding:1.4rem;
-
       display:grid;
       grid-template-columns:120px 1fr;
       gap:1rem;
-
       align-items:center;
+      transition:.25s ease;
+    }
+
+    .episode:hover{
+      transform:translateX(6px);
+      border-color:rgba(229,9,20,.30);
     }
 
     .episode-number{
       height:100px;
-
       border-radius:20px;
-
       display:flex;
       align-items:center;
       justify-content:center;
-
-      background:
-        linear-gradient(
-          135deg,
-          var(--red),
-          #ff3d47
-        );
-
+      background:linear-gradient(135deg,var(--red),#ff3d47);
       font-size:2.3rem;
       font-weight:900;
+      box-shadow:0 14px 32px rgba(229,9,20,.22);
     }
 
     .episode-content strong{
@@ -464,42 +434,50 @@
 
     .rsvp{
       text-align:center;
-
       padding:6rem 1.2rem;
-
-      background:#111;
-
+      background:
+        linear-gradient(135deg,rgba(229,9,20,.10),rgba(255,255,255,.03)),
+        #111;
       border-top:1px solid var(--line);
+    }
+
+    .footer-cta{
+      text-align:center;
+      padding:5.8rem 1.2rem;
+      background:
+        linear-gradient(135deg,rgba(229,9,20,.12),rgba(255,255,255,.03)),
+        linear-gradient(180deg,#0b0b0b,#050505);
+      border-top:1px solid var(--line);
+    }
+
+    .footer-cta h2{
+      font-size:clamp(2.6rem,6vw,5rem);
+      font-weight:900;
+      line-height:.95;
+      letter-spacing:-.05em;
+      margin-bottom:1rem;
     }
 
     .simple-footer{
       text-align:center;
-
       padding:4rem 1.2rem 3rem;
-
       border-top:1px solid var(--line);
-
       background:#0e0e0e;
     }
 
     .simple-footer h3{
       color:#fff;
-
       font-size:2rem;
       font-weight:900;
-
       letter-spacing:-.03em;
-
       margin-bottom:.8rem;
     }
 
     .simple-footer p{
       max-width:720px;
       margin:auto;
-
       color:var(--muted);
       line-height:1.8;
-
       margin-bottom:2rem;
     }
 
@@ -548,7 +526,6 @@
         opacity:0;
         transform:translateY(24px);
       }
-
       to{
         opacity:1;
         transform:translateY(0);
@@ -556,11 +533,9 @@
     }
 
     @media(max-width:980px){
-
       .hero{
         grid-template-columns:1fr;
         text-align:center;
-
         padding:7rem 1.2rem 4rem;
       }
 
@@ -605,7 +580,6 @@
       .section{
         padding:4.5rem 1rem;
       }
-
     }
   </style>
 </head>
@@ -616,14 +590,18 @@
   <img src="../../../TIAMB.png" alt="Te Invito a Mi Boda">
 </a>
 
+<div class="cinema-glow"></div>
+<div class="grain"></div>
+
 <a
   class="floating-whatsapp"
-  href="https://wa.me/5215541946413?text=Hola,%20quiero%20información%20sobre%20una%20invitación%20digital%20tipo%20stream"
+  href="https://wa.me/5215541946413?text=Hola,%20quiero%20cotizar%20una%20invitación%20digital%20tipo%20stream"
   target="_blank"
   aria-label="WhatsApp">
-  ☘
+  <svg viewBox="0 0 32 32" width="30" height="30" fill="currentColor">
+    <path d="M16.03 3C8.85 3 3 8.82 3 15.98c0 2.28.6 4.52 1.74 6.49L3 29l6.7-1.7a13.02 13.02 0 0 0 6.33 1.61C23.18 28.91 29 23.09 29 15.98S23.18 3 16.03 3zm0 23.73c-2 0-3.95-.54-5.66-1.57l-.4-.24-3.98 1.01 1.06-3.86-.26-.42a10.72 10.72 0 0 1-1.63-5.67c0-5.96 4.87-10.81 10.87-10.81 5.98 0 10.84 4.85 10.84 10.81s-4.86 10.75-10.84 10.75zm5.95-8.08c-.32-.16-1.9-.94-2.2-1.05-.3-.11-.52-.16-.74.16-.21.32-.85 1.05-1.04 1.27-.19.21-.38.24-.7.08-.32-.16-1.36-.5-2.59-1.59-.96-.85-1.61-1.9-1.8-2.22-.19-.32-.02-.49.14-.65.15-.15.32-.38.49-.57.16-.19.21-.32.32-.54.11-.21.05-.4-.03-.56-.08-.16-.74-1.78-1.01-2.44-.27-.64-.54-.55-.74-.56h-.63c-.21 0-.56.08-.85.4-.3.32-1.12 1.1-1.12 2.68s1.15 3.1 1.31 3.31c.16.21 2.26 3.45 5.48 4.84.77.33 1.37.53 1.83.68.77.24 1.47.21 2.02.13.62-.09 1.9-.78 2.17-1.53.27-.75.27-1.39.19-1.53-.08-.13-.29-.21-.61-.37z"/>
+  </svg>
 </a>
-
 <section class="hero">
 
   <div class="hero-content">
@@ -639,7 +617,7 @@
 
     <p>
       Una invitación inspirada en plataformas de streaming:
-      cinematográfica, intensa y completamente diferente.
+      cinematográfica, intensa, moderna y completamente diferente.
     </p>
 
     <div class="meta">
@@ -738,7 +716,6 @@
     <div class="episodes">
 
       <div class="episode">
-
         <div class="episode-number">
           01
         </div>
@@ -747,11 +724,9 @@
           <strong>Opening Scene</strong>
           <p>Recepción, bienvenida y primeras bebidas.</p>
         </div>
-
       </div>
 
       <div class="episode">
-
         <div class="episode-number">
           02
         </div>
@@ -760,11 +735,9 @@
           <strong>Main Event</strong>
           <p>Música, fiesta y experiencias inmersivas.</p>
         </div>
-
       </div>
 
       <div class="episode">
-
         <div class="episode-number">
           03
         </div>
@@ -773,7 +746,6 @@
           <strong>Final Chapter</strong>
           <p>After party y cierre de la noche.</p>
         </div>
-
       </div>
 
     </div>
@@ -798,6 +770,40 @@
       href="https://wa.me/5215541946413?text=Hola,%20confirmo%20mi%20asistencia%20al%20evento%20stream"
       target="_blank">
       Confirmar por WhatsApp
+    </a>
+
+    <a
+      class="btn btn-outline"
+      href="https://maps.google.com"
+      target="_blank">
+      Ver ubicación
+    </a>
+  </div>
+
+</section>
+
+<section class="footer-cta">
+
+  <h2>
+    Una invitación digna de estreno
+  </h2>
+
+  <p class="subtitle">
+    Ideal para cumpleaños, fiestas nocturnas, eventos temáticos y experiencias modernas.
+  </p>
+
+  <div class="actions">
+    <a
+      class="btn btn-primary"
+      href="https://wa.me/5215541946413?text=Hola,%20quiero%20cotizar%20una%20invitación%20digital%20tipo%20stream"
+      target="_blank">
+      Cotizar este estilo
+    </a>
+
+    <a
+      class="btn btn-outline"
+      href="../../../otros/">
+      Ver más diseños
     </a>
   </div>
 

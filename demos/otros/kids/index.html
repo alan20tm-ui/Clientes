@@ -4,24 +4,34 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Kids Party | Invitación Digital</title>
+  <title>Kids Party Premium | Invitación Digital</title>
+
+  <meta name="description" content="Invitación digital premium infantil para cumpleaños, fiestas temáticas y eventos divertidos.">
+
+  <link rel="icon" type="image/png" href="/favicon.png">
 
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Baloo+2:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
+
     :root{
+
       --yellow:#ffd93d;
       --pink:#ff7eb6;
       --blue:#5ec8ff;
       --green:#5dd39e;
       --purple:#9c7bff;
+      --orange:#ff9f43;
 
       --text:#2f2f2f;
       --muted:#6b6b6b;
 
-      --bg:#fffdf6;
-      --card:#ffffff;
-      --line:rgba(0,0,0,.06);
+      --bg:#fffdf8;
+
+      --line:rgba(0,0,0,.05);
+
+      --shadow:rgba(0,0,0,.08);
+
     }
 
     *{
@@ -32,19 +42,31 @@
 
     html{
       scroll-behavior:smooth;
+      overflow-x:hidden;
     }
 
     body{
+
       font-family:'Fredoka',sans-serif;
 
       background:
-        radial-gradient(circle at 10% 20%, rgba(255,217,61,.25), transparent 28%),
-        radial-gradient(circle at 90% 15%, rgba(94,200,255,.22), transparent 30%),
-        radial-gradient(circle at 80% 85%, rgba(93,211,158,.20), transparent 28%),
-        linear-gradient(135deg,#fffef8,#ffffff);
+
+        radial-gradient(circle at 10% 18%, rgba(255,217,61,.24), transparent 28%),
+
+        radial-gradient(circle at 88% 15%, rgba(94,200,255,.22), transparent 28%),
+
+        radial-gradient(circle at 82% 84%, rgba(93,211,158,.20), transparent 28%),
+
+        linear-gradient(
+          135deg,
+          #fffef8,
+          #ffffff
+        );
 
       color:var(--text);
+
       line-height:1.7;
+
       overflow-x:hidden;
     }
 
@@ -58,22 +80,109 @@
       display:block;
     }
 
-    .brand-home{
+    .confetti{
+
       position:fixed;
+
+      inset:0;
+
+      z-index:-1;
+
+      pointer-events:none;
+
+      overflow:hidden;
+    }
+
+    .dot{
+
+      position:absolute;
+
+      border-radius:50%;
+
+      opacity:.16;
+
+      animation:float 18s linear infinite;
+    }
+
+    .dot:nth-child(1){
+      width:180px;
+      height:180px;
+      background:var(--pink);
+      left:5%;
+      top:72%;
+    }
+
+    .dot:nth-child(2){
+      width:120px;
+      height:120px;
+      background:var(--blue);
+      left:82%;
+      top:14%;
+      animation-duration:20s;
+    }
+
+    .dot:nth-child(3){
+      width:140px;
+      height:140px;
+      background:var(--green);
+      left:76%;
+      top:76%;
+      animation-duration:22s;
+    }
+
+    .dot:nth-child(4){
+      width:90px;
+      height:90px;
+      background:var(--yellow);
+      left:22%;
+      top:10%;
+      animation-duration:16s;
+    }
+
+    .dot:nth-child(5){
+      width:110px;
+      height:110px;
+      background:var(--orange);
+      left:45%;
+      top:82%;
+      animation-duration:19s;
+    }
+
+    @keyframes float{
+
+      0%{
+        transform:translateY(0px);
+      }
+
+      50%{
+        transform:translateY(-24px);
+      }
+
+      100%{
+        transform:translateY(0px);
+      }
+    }
+
+    .brand-home{
+
+      position:fixed;
+
       top:18px;
       left:18px;
-      z-index:120;
 
-      display:flex;
-      align-items:center;
-      justify-content:center;
+      z-index:120;
 
       width:72px;
       height:72px;
 
       border-radius:22px;
 
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
       background:rgba(255,255,255,.84);
+
       border:1px solid rgba(0,0,0,.05);
 
       backdrop-filter:blur(16px);
@@ -89,15 +198,17 @@
 
     .brand-home img{
       width:56px;
-      height:auto;
       object-fit:contain;
     }
 
     .floating-whatsapp{
+
       position:fixed;
+
       right:18px;
       bottom:18px;
-      z-index:100;
+
+      z-index:140;
 
       width:58px;
       height:58px;
@@ -108,81 +219,24 @@
       place-items:center;
 
       background:#25D366;
+
       color:white;
 
-      font-size:1.75rem;
+      box-shadow:0 14px 34px rgba(0,0,0,.18);
 
-      box-shadow:0 12px 30px rgba(0,0,0,.20);
+      transition:.25s ease;
     }
 
-    .floating-shapes{
-      position:fixed;
-      inset:0;
-      z-index:-1;
-      pointer-events:none;
-      overflow:hidden;
-    }
-
-    .bubble{
-      position:absolute;
-      border-radius:50%;
-      opacity:.18;
-      animation:float 18s linear infinite;
-    }
-
-    .bubble:nth-child(1){
-      width:180px;
-      height:180px;
-      background:var(--pink);
-      left:6%;
-      top:75%;
-    }
-
-    .bubble:nth-child(2){
-      width:120px;
-      height:120px;
-      background:var(--blue);
-      left:80%;
-      top:12%;
-      animation-duration:22s;
-    }
-
-    .bubble:nth-child(3){
-      width:140px;
-      height:140px;
-      background:var(--green);
-      left:72%;
-      top:72%;
-      animation-duration:20s;
-    }
-
-    .bubble:nth-child(4){
-      width:90px;
-      height:90px;
-      background:var(--yellow);
-      left:22%;
-      top:12%;
-      animation-duration:16s;
-    }
-
-    @keyframes float{
-      0%{
-        transform:translateY(0px);
-      }
-
-      50%{
-        transform:translateY(-25px);
-      }
-
-      100%{
-        transform:translateY(0px);
-      }
+    .floating-whatsapp:hover{
+      transform:translateY(-3px) scale(1.04);
     }
 
     .hero{
+
       min-height:100vh;
 
       display:flex;
+
       align-items:center;
       justify-content:center;
 
@@ -191,32 +245,42 @@
       padding:7rem 1.2rem 4rem;
 
       position:relative;
+
       overflow:hidden;
     }
 
     .hero::before{
-      content:"";
-      position:absolute;
-      inset:1.1rem;
 
-      border:2px dashed rgba(0,0,0,.06);
+      content:"";
+
+      position:absolute;
+
+      inset:1rem;
+
+      border:2px dashed rgba(0,0,0,.05);
+
       border-radius:36px;
 
       pointer-events:none;
     }
 
     .hero-content{
-      max-width:860px;
+
+      max-width:920px;
+
       position:relative;
+
       z-index:2;
 
       animation:fadeUp 1s ease both;
     }
 
     .eyebrow{
+
       color:var(--purple);
 
-      letter-spacing:.28em;
+      letter-spacing:.24em;
+
       text-transform:uppercase;
 
       font-size:.78rem;
@@ -226,10 +290,13 @@
     }
 
     h1{
+
       font-family:'Baloo 2',sans-serif;
 
       font-size:clamp(4rem,11vw,8rem);
-      line-height:.88;
+
+      line-height:.86;
+
       font-weight:700;
 
       margin-bottom:1.2rem;
@@ -238,6 +305,7 @@
     }
 
     h1 span{
+
       background:
         linear-gradient(
           135deg,
@@ -247,40 +315,63 @@
         );
 
       -webkit-background-clip:text;
+
       color:transparent;
     }
 
     .hero p{
-      max-width:650px;
+
+      max-width:660px;
+
       margin:0 auto 2rem;
 
       color:var(--muted);
+
       font-size:1.08rem;
     }
 
     .date{
-      color:#444;
 
-      letter-spacing:.2em;
-      text-transform:uppercase;
+      display:inline-flex;
 
-      font-size:.9rem;
+      align-items:center;
+      justify-content:center;
+
+      gap:.5rem;
+
+      padding:.85rem 1.2rem;
+
+      border-radius:999px;
+
+      background:rgba(255,255,255,.76);
+
+      border:1px solid rgba(0,0,0,.05);
+
+      font-size:.88rem;
       font-weight:700;
 
       margin-bottom:2rem;
+
+      box-shadow:0 10px 24px rgba(0,0,0,.05);
     }
 
     .hero-actions,
     .actions{
+
       display:flex;
+
       justify-content:center;
       align-items:center;
+
       gap:1rem;
+
       flex-wrap:wrap;
     }
 
     .btn{
+
       display:inline-flex;
+
       align-items:center;
       justify-content:center;
 
@@ -294,10 +385,16 @@
       transition:.25s ease;
 
       border:1px solid transparent;
+
       cursor:pointer;
     }
 
+    .btn:hover{
+      transform:translateY(-3px) scale(1.03);
+    }
+
     .btn-primary{
+
       background:
         linear-gradient(
           135deg,
@@ -307,17 +404,16 @@
 
       color:white;
 
-      box-shadow:0 14px 30px rgba(0,0,0,.12);
+      box-shadow:0 14px 30px rgba(0,0,0,.10);
     }
 
     .btn-outline{
-      background:rgba(255,255,255,.72);
-      color:#333;
-      border-color:rgba(0,0,0,.08);
-    }
 
-    .btn:hover{
-      transform:translateY(-3px) scale(1.03);
+      background:rgba(255,255,255,.80);
+
+      border-color:rgba(0,0,0,.06);
+
+      color:#333;
     }
 
     .section{
@@ -328,287 +424,438 @@
       max-width:1080px;
       margin:auto;
     }
+    <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    .title{
-      font-family:'Baloo 2',sans-serif;
+  <title>Kids Party Premium | Invitación Digital</title>
 
-      font-size:clamp(3rem,7vw,5.5rem);
-      line-height:.92;
-      font-weight:700;
+  <meta name="description" content="Invitación digital premium infantil para cumpleaños, fiestas temáticas y eventos divertidos.">
 
-      text-align:center;
+  <link rel="icon" type="image/png" href="/favicon.png">
 
-      margin-bottom:1rem;
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Baloo+2:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+
+    :root{
+
+      --yellow:#ffd93d;
+      --pink:#ff7eb6;
+      --blue:#5ec8ff;
+      --green:#5dd39e;
+      --purple:#9c7bff;
+      --orange:#ff9f43;
+
+      --text:#2f2f2f;
+      --muted:#6b6b6b;
+
+      --bg:#fffdf8;
+
+      --line:rgba(0,0,0,.05);
+
+      --shadow:rgba(0,0,0,.08);
+
     }
 
-    .subtitle{
-      text-align:center;
-
-      color:var(--muted);
-
-      max-width:680px;
-      margin:0 auto 3rem;
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
     }
 
-    .fun-card{
-      max-width:920px;
-      margin:auto;
-
-      padding:3rem 2rem;
-
-      text-align:center;
-
-      border-radius:36px;
-
-      background:rgba(255,255,255,.82);
-      border:1px solid rgba(0,0,0,.05);
-
-      backdrop-filter:blur(12px);
-
-      box-shadow:0 18px 45px rgba(0,0,0,.06);
+    html{
+      scroll-behavior:smooth;
+      overflow-x:hidden;
     }
 
-    .fun-card h2{
-      font-family:'Baloo 2',sans-serif;
+    body{
 
-      font-size:clamp(3rem,8vw,6rem);
-      line-height:.9;
-      font-weight:700;
-
-      margin-bottom:1rem;
-
-      color:var(--purple);
-    }
-
-    .fun-card p{
-      color:var(--muted);
-      max-width:650px;
-      margin:auto;
-    }
-
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:1.2rem;
-    }
-
-    .info-card{
-      padding:2rem;
-      text-align:center;
-
-      border-radius:30px;
-
-      background:rgba(255,255,255,.84);
-      border:1px solid rgba(0,0,0,.05);
-
-      box-shadow:0 14px 34px rgba(0,0,0,.06);
-    }
-
-    .info-card span{
-      display:block;
-      font-size:2.6rem;
-      margin-bottom:.7rem;
-    }
-
-    .info-card h3{
-      font-family:'Baloo 2',sans-serif;
-      font-size:2rem;
-      margin-bottom:.5rem;
-    }
-
-    .info-card p{
-      color:var(--muted);
-    }
-
-    .themes{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:1rem;
-    }
-
-    .theme-card{
-      padding:1.5rem 1rem;
-      border-radius:26px;
-      text-align:center;
-      color:white;
-      font-weight:700;
-      box-shadow:0 14px 30px rgba(0,0,0,.08);
-    }
-
-    .theme-card:nth-child(1){
-      background:linear-gradient(135deg,#4ea8ff,#2563eb);
-    }
-
-    .theme-card:nth-child(2){
-      background:linear-gradient(135deg,#ff9f43,#ff6b6b);
-    }
-
-    .theme-card:nth-child(3){
-      background:linear-gradient(135deg,#ff6ec7,#c445ff);
-    }
-
-    .theme-card:nth-child(4){
-      background:linear-gradient(135deg,#52d681,#20bf6b);
-    }
-
-    .theme-card span{
-      display:block;
-      font-size:2rem;
-      margin-bottom:.5rem;
-    }
-
-    .rsvp{
-      text-align:center;
-
-      padding:6rem 1.2rem;
+      font-family:'Fredoka',sans-serif;
 
       background:
+
+        radial-gradient(circle at 10% 18%, rgba(255,217,61,.24), transparent 28%),
+
+        radial-gradient(circle at 88% 15%, rgba(94,200,255,.22), transparent 28%),
+
+        radial-gradient(circle at 82% 84%, rgba(93,211,158,.20), transparent 28%),
+
         linear-gradient(
-          180deg,
-          rgba(255,255,255,.42),
-          rgba(255,255,255,.92)
+          135deg,
+          #fffef8,
+          #ffffff
         );
 
-      border-top:1px solid rgba(0,0,0,.05);
+      color:var(--text);
+
+      line-height:1.7;
+
+      overflow-x:hidden;
     }
 
-    .simple-footer{
-      text-align:center;
-
-      padding:4rem 1.2rem 3rem;
-
-      border-top:1px solid rgba(0,0,0,.06);
-
-      background:#fff;
+    a{
+      color:inherit;
+      text-decoration:none;
     }
 
-    .simple-footer h3{
-      font-family:'Baloo 2',sans-serif;
-
-      color:#222;
-
-      font-size:2.4rem;
-      font-weight:700;
-
-      margin-bottom:.8rem;
-    }
-
-    .simple-footer p{
-      max-width:720px;
-      margin:auto;
-
-      color:var(--muted);
-      line-height:1.8;
-
-      margin-bottom:2rem;
-    }
-
-    .footer-contact{
-      margin-bottom:2rem;
-    }
-
-    .footer-contact strong{
+    img{
+      max-width:100%;
       display:block;
-      color:#222;
-      margin-bottom:.8rem;
     }
 
-    .footer-links,
-    .footer-legal{
+    .confetti{
+
+      position:fixed;
+
+      inset:0;
+
+      z-index:-1;
+
+      pointer-events:none;
+
+      overflow:hidden;
+    }
+
+    .dot{
+
+      position:absolute;
+
+      border-radius:50%;
+
+      opacity:.16;
+
+      animation:float 18s linear infinite;
+    }
+
+    .dot:nth-child(1){
+      width:180px;
+      height:180px;
+      background:var(--pink);
+      left:5%;
+      top:72%;
+    }
+
+    .dot:nth-child(2){
+      width:120px;
+      height:120px;
+      background:var(--blue);
+      left:82%;
+      top:14%;
+      animation-duration:20s;
+    }
+
+    .dot:nth-child(3){
+      width:140px;
+      height:140px;
+      background:var(--green);
+      left:76%;
+      top:76%;
+      animation-duration:22s;
+    }
+
+    .dot:nth-child(4){
+      width:90px;
+      height:90px;
+      background:var(--yellow);
+      left:22%;
+      top:10%;
+      animation-duration:16s;
+    }
+
+    .dot:nth-child(5){
+      width:110px;
+      height:110px;
+      background:var(--orange);
+      left:45%;
+      top:82%;
+      animation-duration:19s;
+    }
+
+    @keyframes float{
+
+      0%{
+        transform:translateY(0px);
+      }
+
+      50%{
+        transform:translateY(-24px);
+      }
+
+      100%{
+        transform:translateY(0px);
+      }
+    }
+
+    .brand-home{
+
+      position:fixed;
+
+      top:18px;
+      left:18px;
+
+      z-index:120;
+
+      width:72px;
+      height:72px;
+
+      border-radius:22px;
+
       display:flex;
+      align-items:center;
       justify-content:center;
-      gap:1rem;
-      flex-wrap:wrap;
+
+      background:rgba(255,255,255,.84);
+
+      border:1px solid rgba(0,0,0,.05);
+
+      backdrop-filter:blur(16px);
+
+      box-shadow:0 14px 34px rgba(0,0,0,.08);
+
+      transition:.3s ease;
     }
 
-    .footer-links a,
-    .footer-legal a{
-      color:var(--muted);
+    .brand-home:hover{
+      transform:translateY(-2px) scale(1.04);
+    }
+
+    .brand-home img{
+      width:56px;
+      object-fit:contain;
+    }
+
+    .floating-whatsapp{
+
+      position:fixed;
+
+      right:18px;
+      bottom:18px;
+
+      z-index:140;
+
+      width:58px;
+      height:58px;
+
+      border-radius:50%;
+
+      display:grid;
+      place-items:center;
+
+      background:#25D366;
+
+      color:white;
+
+      box-shadow:0 14px 34px rgba(0,0,0,.18);
+
       transition:.25s ease;
     }
 
-    .footer-links a:hover,
-    .footer-legal a:hover{
+    .floating-whatsapp:hover{
+      transform:translateY(-3px) scale(1.04);
+    }
+
+    .hero{
+
+      min-height:100vh;
+
+      display:flex;
+
+      align-items:center;
+      justify-content:center;
+
+      text-align:center;
+
+      padding:7rem 1.2rem 4rem;
+
+      position:relative;
+
+      overflow:hidden;
+    }
+
+    .hero::before{
+
+      content:"";
+
+      position:absolute;
+
+      inset:1rem;
+
+      border:2px dashed rgba(0,0,0,.05);
+
+      border-radius:36px;
+
+      pointer-events:none;
+    }
+
+    .hero-content{
+
+      max-width:920px;
+
+      position:relative;
+
+      z-index:2;
+
+      animation:fadeUp 1s ease both;
+    }
+
+    .eyebrow{
+
       color:var(--purple);
+
+      letter-spacing:.24em;
+
+      text-transform:uppercase;
+
+      font-size:.78rem;
+      font-weight:700;
+
+      margin-bottom:1.2rem;
     }
 
-    .footer-bottom{
-      margin-top:1rem;
+    h1{
+
+      font-family:'Baloo 2',sans-serif;
+
+      font-size:clamp(4rem,11vw,8rem);
+
+      line-height:.86;
+
+      font-weight:700;
+
+      margin-bottom:1.2rem;
+
+      color:#2f2f2f;
+    }
+
+    h1 span{
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--pink),
+          var(--purple),
+          var(--blue)
+        );
+
+      -webkit-background-clip:text;
+
+      color:transparent;
+    }
+
+    .hero p{
+
+      max-width:660px;
+
+      margin:0 auto 2rem;
+
       color:var(--muted);
-      font-size:.9rem;
+
+      font-size:1.08rem;
     }
 
-    .footer-legal{
-      margin-top:1rem;
+    .date{
+
+      display:inline-flex;
+
+      align-items:center;
+      justify-content:center;
+
+      gap:.5rem;
+
+      padding:.85rem 1.2rem;
+
+      border-radius:999px;
+
+      background:rgba(255,255,255,.76);
+
+      border:1px solid rgba(0,0,0,.05);
+
       font-size:.88rem;
+      font-weight:700;
+
+      margin-bottom:2rem;
+
+      box-shadow:0 10px 24px rgba(0,0,0,.05);
     }
 
-    @keyframes fadeUp{
-      from{
-        opacity:0;
-        transform:translateY(24px);
-      }
+    .hero-actions,
+    .actions{
 
-      to{
-        opacity:1;
-        transform:translateY(0);
-      }
+      display:flex;
+
+      justify-content:center;
+      align-items:center;
+
+      gap:1rem;
+
+      flex-wrap:wrap;
     }
 
-    @media(max-width:900px){
+    .btn{
 
-      .grid,
-      .themes{
-        grid-template-columns:1fr;
-      }
+      display:inline-flex;
 
-      .brand-home{
-        width:60px;
-        height:60px;
-        top:12px;
-        left:12px;
-        border-radius:18px;
-      }
+      align-items:center;
+      justify-content:center;
 
-      .brand-home img{
-        width:46px;
-      }
+      padding:1rem 1.5rem;
 
-      .section{
-        padding:4.5rem 1rem;
-      }
+      border-radius:999px;
 
+      font-size:.92rem;
+      font-weight:700;
+
+      transition:.25s ease;
+
+      border:1px solid transparent;
+
+      cursor:pointer;
     }
-  </style>
-</head>
 
-<body>
+    .btn:hover{
+      transform:translateY(-3px) scale(1.03);
+    }
 
-<div class="floating-shapes">
-  <div class="bubble"></div>
-  <div class="bubble"></div>
-  <div class="bubble"></div>
-  <div class="bubble"></div>
-</div>
+    .btn-primary{
 
-<a href="../../../" class="brand-home">
-  <img src="../../../TIAMB.png" alt="Te Invito a Mi Boda">
-</a>
+      background:
+        linear-gradient(
+          135deg,
+          var(--pink),
+          var(--purple)
+        );
 
-<a
-  class="floating-whatsapp"
-  href="https://wa.me/5215541946413?text=Hola,%20quiero%20información%20sobre%20una%20invitación%20digital%20Kids%20Party"
-  target="_blank"
-  aria-label="WhatsApp">
-  ☘
-</a>
+      color:white;
 
-<section class="hero">
+      box-shadow:0 14px 30px rgba(0,0,0,.10);
+    }
+
+    .btn-outline{
+
+      background:rgba(255,255,255,.80);
+
+      border-color:rgba(0,0,0,.06);
+
+      color:#333;
+    }
+
+    .section{
+      padding:5.5rem 1.2rem;
+    }
+
+    .container{
+      max-width:1080px;
+      margin:auto;
+    }
+    <section class="hero">
 
   <div class="hero-content">
 
     <div class="eyebrow">
-      Kids Party
+      Kids Party Premium
     </div>
 
     <h1>
@@ -617,12 +864,12 @@
     </h1>
 
     <p>
-      Prepárate para una tarde llena de juegos,
-      diversión, pastel, globos y mucha aventura.
+      Prepárate para una tarde llena de juegos, pastel,
+      globos, risas, premios y mucha aventura.
     </p>
 
     <div class="date">
-      12 · Agosto · 2027
+      🎈 12 Agosto 2027 · 4:00 PM
     </div>
 
     <div class="hero-actions">
@@ -643,7 +890,7 @@
 
   <div class="container">
 
-    <div class="fun-card">
+    <div class="fun-card glass">
 
       <h2>
         ¡Hora de jugar!
@@ -651,7 +898,7 @@
 
       <p>
         Tendremos inflables, dulces, concursos,
-        premios y muchas sorpresas para todos.
+        premios, piñata y muchas sorpresas para todos.
       </p>
 
     </div>
@@ -674,19 +921,19 @@
 
     <div class="grid">
 
-      <article class="info-card">
+      <article class="info-card glass">
         <span>📅</span>
         <h3>Fecha</h3>
         <p>Sábado 12 de Agosto · 4:00 PM</p>
       </article>
 
-      <article class="info-card">
+      <article class="info-card glass">
         <span>🎡</span>
         <h3>Lugar</h3>
         <p>Salón Happy Kids · Ciudad de México</p>
       </article>
 
-      <article class="info-card">
+      <article class="info-card glass">
         <span>🍭</span>
         <h3>Dress Code</h3>
         <p>Ropa cómoda y mucha energía.</p>
@@ -703,11 +950,55 @@
   <div class="container">
 
     <h2 class="title">
+      Itinerario
+    </h2>
+
+    <p class="subtitle">
+      Una tarde pensada para jugar, reír y celebrar.
+    </p>
+
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-time">4:00 PM</div>
+        <div class="timeline-detail">
+          <strong>Bienvenida</strong>
+          <p>Recepción de invitados y primeras fotos.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-time">5:00 PM</div>
+        <div class="timeline-detail">
+          <strong>Juegos y dinámicas</strong>
+          <p>Concursos, inflables y actividades para todos.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-time">6:00 PM</div>
+        <div class="timeline-detail">
+          <strong>Pastel y piñata</strong>
+          <p>El momento más dulce de la fiesta.</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="section">
+
+  <div class="container">
+
+    <h2 class="title">
       Temáticas
     </h2>
 
     <p class="subtitle">
-      Perfecto para diferentes estilos infantiles.
+      Adaptable para diferentes estilos infantiles.
     </p>
 
     <div class="themes">
@@ -749,12 +1040,50 @@
   </p>
 
   <div class="actions">
+
     <a
       class="btn btn-primary"
       href="https://wa.me/5215541946413?text=Hola,%20confirmo%20mi%20asistencia%20a%20la%20Kids%20Party"
       target="_blank">
       Confirmar por WhatsApp
     </a>
+
+    <a
+      class="btn btn-outline"
+      href="https://maps.google.com"
+      target="_blank">
+      Ver ubicación
+    </a>
+
+  </div>
+
+</section>
+
+<section class="footer-cta">
+
+  <h2>
+    Una invitación llena de color
+  </h2>
+
+  <p class="subtitle">
+    Ideal para cumpleaños infantiles, fiestas temáticas, salones de juegos y celebraciones familiares.
+  </p>
+
+  <div class="actions">
+
+    <a
+      class="btn btn-primary"
+      href="https://wa.me/5215541946413?text=Hola,%20quiero%20cotizar%20una%20invitación%20digital%20Kids%20Party"
+      target="_blank">
+      Cotizar este estilo
+    </a>
+
+    <a
+      class="btn btn-outline"
+      href="../../../otros/">
+      Ver más diseños
+    </a>
+
   </div>
 
 </section>
@@ -764,8 +1093,8 @@
   <h3>Te Invito a Mi Boda</h3>
 
   <p>
-    Invitaciones digitales premium para bodas y eventos especiales.
-    Diseños modernos, elegantes y completamente personalizados.
+    Invitaciones digitales premium para bodas, cumpleaños infantiles y eventos especiales.
+    Diseños modernos, divertidos y completamente personalizados.
   </p>
 
   <div class="footer-contact">

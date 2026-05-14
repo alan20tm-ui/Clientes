@@ -424,433 +424,358 @@
       max-width:1080px;
       margin:auto;
     }
-    <!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Kids Party Premium | Invitación Digital</title>
-
-  <meta name="description" content="Invitación digital premium infantil para cumpleaños, fiestas temáticas y eventos divertidos.">
-
-  <link rel="icon" type="image/png" href="/favicon.png">
-
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Baloo+2:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <style>
-
-    :root{
-
-      --yellow:#ffd93d;
-      --pink:#ff7eb6;
-      --blue:#5ec8ff;
-      --green:#5dd39e;
-      --purple:#9c7bff;
-      --orange:#ff9f43;
-
-      --text:#2f2f2f;
-      --muted:#6b6b6b;
-
-      --bg:#fffdf8;
-
-      --line:rgba(0,0,0,.05);
-
-      --shadow:rgba(0,0,0,.08);
-
-    }
-
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
-
-    html{
-      scroll-behavior:smooth;
-      overflow-x:hidden;
-    }
-
-    body{
-
-      font-family:'Fredoka',sans-serif;
-
-      background:
-
-        radial-gradient(circle at 10% 18%, rgba(255,217,61,.24), transparent 28%),
-
-        radial-gradient(circle at 88% 15%, rgba(94,200,255,.22), transparent 28%),
-
-        radial-gradient(circle at 82% 84%, rgba(93,211,158,.20), transparent 28%),
-
-        linear-gradient(
-          135deg,
-          #fffef8,
-          #ffffff
-        );
-
-      color:var(--text);
-
-      line-height:1.7;
-
-      overflow-x:hidden;
-    }
-
-    a{
-      color:inherit;
-      text-decoration:none;
-    }
-
-    img{
-      max-width:100%;
-      display:block;
-    }
-
-    .confetti{
-
-      position:fixed;
-
-      inset:0;
-
-      z-index:-1;
-
-      pointer-events:none;
-
-      overflow:hidden;
-    }
-
-    .dot{
-
-      position:absolute;
-
-      border-radius:50%;
-
-      opacity:.16;
-
-      animation:float 18s linear infinite;
-    }
-
-    .dot:nth-child(1){
-      width:180px;
-      height:180px;
-      background:var(--pink);
-      left:5%;
-      top:72%;
-    }
-
-    .dot:nth-child(2){
-      width:120px;
-      height:120px;
-      background:var(--blue);
-      left:82%;
-      top:14%;
-      animation-duration:20s;
-    }
-
-    .dot:nth-child(3){
-      width:140px;
-      height:140px;
-      background:var(--green);
-      left:76%;
-      top:76%;
-      animation-duration:22s;
-    }
-
-    .dot:nth-child(4){
-      width:90px;
-      height:90px;
-      background:var(--yellow);
-      left:22%;
-      top:10%;
-      animation-duration:16s;
-    }
-
-    .dot:nth-child(5){
-      width:110px;
-      height:110px;
-      background:var(--orange);
-      left:45%;
-      top:82%;
-      animation-duration:19s;
-    }
-
-    @keyframes float{
-
-      0%{
-        transform:translateY(0px);
-      }
-
-      50%{
-        transform:translateY(-24px);
-      }
-
-      100%{
-        transform:translateY(0px);
-      }
-    }
-
-    .brand-home{
-
-      position:fixed;
-
-      top:18px;
-      left:18px;
-
-      z-index:120;
-
-      width:72px;
-      height:72px;
-
-      border-radius:22px;
-
-      display:flex;
-      align-items:center;
-      justify-content:center;
-
-      background:rgba(255,255,255,.84);
-
-      border:1px solid rgba(0,0,0,.05);
-
-      backdrop-filter:blur(16px);
-
-      box-shadow:0 14px 34px rgba(0,0,0,.08);
-
-      transition:.3s ease;
-    }
-
-    .brand-home:hover{
-      transform:translateY(-2px) scale(1.04);
-    }
-
-    .brand-home img{
-      width:56px;
-      object-fit:contain;
-    }
-
-    .floating-whatsapp{
-
-      position:fixed;
-
-      right:18px;
-      bottom:18px;
-
-      z-index:140;
-
-      width:58px;
-      height:58px;
-
-      border-radius:50%;
-
-      display:grid;
-      place-items:center;
-
-      background:#25D366;
-
-      color:white;
-
-      box-shadow:0 14px 34px rgba(0,0,0,.18);
-
-      transition:.25s ease;
-    }
-
-    .floating-whatsapp:hover{
-      transform:translateY(-3px) scale(1.04);
-    }
-
-    .hero{
-
-      min-height:100vh;
-
-      display:flex;
-
-      align-items:center;
-      justify-content:center;
-
-      text-align:center;
-
-      padding:7rem 1.2rem 4rem;
-
-      position:relative;
-
-      overflow:hidden;
-    }
-
-    .hero::before{
-
-      content:"";
-
-      position:absolute;
-
-      inset:1rem;
-
-      border:2px dashed rgba(0,0,0,.05);
-
-      border-radius:36px;
-
-      pointer-events:none;
-    }
-
-    .hero-content{
-
-      max-width:920px;
-
-      position:relative;
-
-      z-index:2;
-
-      animation:fadeUp 1s ease both;
-    }
-
-    .eyebrow{
-
-      color:var(--purple);
-
-      letter-spacing:.24em;
-
-      text-transform:uppercase;
-
-      font-size:.78rem;
-      font-weight:700;
-
-      margin-bottom:1.2rem;
-    }
-
-    h1{
-
+        .title{
       font-family:'Baloo 2',sans-serif;
-
-      font-size:clamp(4rem,11vw,8rem);
-
-      line-height:.86;
-
+      font-size:clamp(3rem,7vw,5.5rem);
+      line-height:.92;
       font-weight:700;
-
-      margin-bottom:1.2rem;
-
-      color:#2f2f2f;
+      text-align:center;
+      margin-bottom:1rem;
     }
 
-    h1 span{
-
-      background:
-        linear-gradient(
-          135deg,
-          var(--pink),
-          var(--purple),
-          var(--blue)
-        );
-
-      -webkit-background-clip:text;
-
-      color:transparent;
-    }
-
-    .hero p{
-
-      max-width:660px;
-
-      margin:0 auto 2rem;
-
+    .subtitle{
+      text-align:center;
       color:var(--muted);
-
-      font-size:1.08rem;
+      max-width:700px;
+      margin:0 auto 3rem;
     }
 
-    .date{
-
-      display:inline-flex;
-
-      align-items:center;
-      justify-content:center;
-
-      gap:.5rem;
-
-      padding:.85rem 1.2rem;
-
-      border-radius:999px;
-
-      background:rgba(255,255,255,.76);
-
+    .glass{
+      background:rgba(255,255,255,.84);
       border:1px solid rgba(0,0,0,.05);
-
-      font-size:.88rem;
-      font-weight:700;
-
-      margin-bottom:2rem;
-
-      box-shadow:0 10px 24px rgba(0,0,0,.05);
+      box-shadow:0 18px 45px rgba(0,0,0,.06);
+      backdrop-filter:blur(14px);
+      border-radius:36px;
     }
 
-    .hero-actions,
-    .actions{
-
-      display:flex;
-
-      justify-content:center;
-      align-items:center;
-
-      gap:1rem;
-
-      flex-wrap:wrap;
+    .fun-card{
+      max-width:920px;
+      margin:auto;
+      padding:3rem 2rem;
+      text-align:center;
+      position:relative;
+      overflow:hidden;
     }
 
-    .btn{
+    .fun-card::before{
+      content:"🎈";
+      position:absolute;
+      left:1.4rem;
+      top:.6rem;
+      font-size:4rem;
+      opacity:.10;
+    }
 
-      display:inline-flex;
+    .fun-card::after{
+      content:"⭐";
+      position:absolute;
+      right:1.6rem;
+      bottom:.8rem;
+      font-size:3.4rem;
+      opacity:.10;
+    }
 
-      align-items:center;
-      justify-content:center;
-
-      padding:1rem 1.5rem;
-
-      border-radius:999px;
-
-      font-size:.92rem;
+    .fun-card h2{
+      font-family:'Baloo 2',sans-serif;
+      font-size:clamp(3rem,8vw,6rem);
+      line-height:.9;
       font-weight:700;
+      margin-bottom:1rem;
+      color:var(--purple);
+    }
 
+    .fun-card p{
+      color:var(--muted);
+      max-width:680px;
+      margin:auto;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:1.2rem;
+    }
+
+    .info-card{
+      padding:2rem;
+      text-align:center;
       transition:.25s ease;
-
-      border:1px solid transparent;
-
-      cursor:pointer;
     }
 
-    .btn:hover{
-      transform:translateY(-3px) scale(1.03);
+    .info-card:hover{
+      transform:translateY(-5px);
     }
 
-    .btn-primary{
+    .info-card span{
+      display:block;
+      font-size:2.5rem;
+      margin-bottom:.7rem;
+    }
 
-      background:
-        linear-gradient(
-          135deg,
-          var(--pink),
-          var(--purple)
-        );
+    .info-card h3{
+      font-family:'Baloo 2',sans-serif;
+      font-size:2rem;
+      margin-bottom:.5rem;
+    }
 
+    .info-card p{
+      color:var(--muted);
+    }
+
+    .themes{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:1rem;
+    }
+
+    .theme-card{
+      padding:1.6rem 1rem;
+      border-radius:28px;
+      text-align:center;
       color:white;
-
-      box-shadow:0 14px 30px rgba(0,0,0,.10);
+      font-weight:700;
+      position:relative;
+      overflow:hidden;
+      box-shadow:0 14px 30px rgba(0,0,0,.08);
     }
 
-    .btn-outline{
+    .theme-card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(180deg,rgba(255,255,255,.14),transparent);
+      pointer-events:none;
+    }
 
-      background:rgba(255,255,255,.80);
+    .theme-card:nth-child(1){
+      background:linear-gradient(135deg,#4ea8ff,#2563eb);
+    }
 
-      border-color:rgba(0,0,0,.06);
+    .theme-card:nth-child(2){
+      background:linear-gradient(135deg,#ff9f43,#ff6b6b);
+    }
 
+    .theme-card:nth-child(3){
+      background:linear-gradient(135deg,#ff6ec7,#c445ff);
+    }
+
+    .theme-card:nth-child(4){
+      background:linear-gradient(135deg,#52d681,#20bf6b);
+    }
+
+    .theme-card span{
+      display:block;
+      font-size:2rem;
+      margin-bottom:.5rem;
+    }
+
+    .timeline{
+      max-width:760px;
+      margin:auto;
+      position:relative;
+    }
+
+    .timeline::before{
+      content:"";
+      position:absolute;
+      top:0;
+      bottom:0;
+      left:50%;
+      width:2px;
+      background:linear-gradient(var(--pink),var(--blue),var(--green));
+      opacity:.35;
+    }
+
+    .timeline-item{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:2rem;
+      align-items:center;
+      margin:2rem 0;
+    }
+
+    .timeline-time{
+      text-align:right;
+      font-family:'Baloo 2',sans-serif;
+      font-size:2rem;
+      color:var(--purple);
+    }
+
+    .timeline-detail{
+      padding:1.3rem;
+      border-radius:26px;
+      background:rgba(255,255,255,.84);
+      border:1px solid rgba(0,0,0,.05);
+      box-shadow:0 12px 28px rgba(0,0,0,.05);
+    }
+
+    .timeline-detail strong{
       color:#333;
     }
 
-    .section{
-      padding:5.5rem 1.2rem;
+    .timeline-detail p{
+      color:var(--muted);
     }
 
-    .container{
-      max-width:1080px;
-      margin:auto;
+    .rsvp{
+      text-align:center;
+      padding:6rem 1.2rem;
+      background:linear-gradient(180deg,rgba(255,255,255,.42),rgba(255,255,255,.94));
+      border-top:1px solid rgba(0,0,0,.05);
     }
-    <section class="hero">
+
+    .footer-cta{
+      text-align:center;
+      padding:5.8rem 1.2rem;
+      background:linear-gradient(135deg,rgba(255,126,182,.12),rgba(94,200,255,.12),rgba(93,211,158,.10));
+      border-top:1px solid rgba(0,0,0,.05);
+    }
+
+    .footer-cta h2{
+      font-family:'Baloo 2',sans-serif;
+      font-size:clamp(3rem,7vw,5.4rem);
+      line-height:.92;
+      margin-bottom:1rem;
+    }
+
+    .simple-footer{
+      text-align:center;
+      padding:4rem 1.2rem 3rem;
+      border-top:1px solid rgba(0,0,0,.06);
+      background:#fff;
+    }
+
+    .simple-footer h3{
+      font-family:'Baloo 2',sans-serif;
+      color:#222;
+      font-size:2.4rem;
+      font-weight:700;
+      margin-bottom:.8rem;
+    }
+
+    .simple-footer p{
+      max-width:720px;
+      margin:auto;
+      color:var(--muted);
+      line-height:1.8;
+      margin-bottom:2rem;
+    }
+
+    .footer-contact{
+      margin-bottom:2rem;
+    }
+
+    .footer-contact strong{
+      display:block;
+      color:#222;
+      margin-bottom:.8rem;
+    }
+
+    .footer-links,
+    .footer-legal{
+      display:flex;
+      justify-content:center;
+      gap:1rem;
+      flex-wrap:wrap;
+    }
+
+    .footer-links a,
+    .footer-legal a{
+      color:var(--muted);
+      transition:.25s ease;
+    }
+
+    .footer-links a:hover,
+    .footer-legal a:hover{
+      color:var(--purple);
+    }
+
+    .footer-bottom{
+      margin-top:1rem;
+      color:var(--muted);
+      font-size:.9rem;
+    }
+
+    .footer-legal{
+      margin-top:1rem;
+      font-size:.88rem;
+    }
+
+    @keyframes fadeUp{
+      from{
+        opacity:0;
+        transform:translateY(24px);
+      }
+
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    @media(max-width:900px){
+      .grid,
+      .themes{
+        grid-template-columns:1fr;
+      }
+
+      .timeline::before{
+        left:0;
+      }
+
+      .timeline-item{
+        grid-template-columns:1fr;
+        gap:.6rem;
+        padding-left:1.2rem;
+      }
+
+      .timeline-time{
+        text-align:left;
+      }
+
+      .brand-home{
+        width:60px;
+        height:60px;
+        top:12px;
+        left:12px;
+        border-radius:18px;
+      }
+
+      .brand-home img{
+        width:46px;
+      }
+
+      .section{
+        padding:4.5rem 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="confetti">
+  <div class="dot"></div>
+  <div class="dot"></div>
+  <div class="dot"></div>
+  <div class="dot"></div>
+  <div class="dot"></div>
+</div>
+
+<a href="../../../" class="brand-home">
+  <img src="../../../TIAMB.png" alt="Te Invito a Mi Boda">
+</a>
+
+<a
+  class="floating-whatsapp"
+  href="https://wa.me/5215541946413?text=Hola,%20quiero%20cotizar%20una%20invitación%20digital%20Kids%20Party"
+  target="_blank"
+  aria-label="WhatsApp">
+  <svg viewBox="0 0 32 32" width="30" height="30" fill="currentColor">
+    <path d="M16.03 3C8.85 3 3 8.82 3 15.98c0 2.28.6 4.52 1.74 6.49L3 29l6.7-1.7a13.02 13.02 0 0 0 6.33 1.61C23.18 28.91 29 23.09 29 15.98S23.18 3 16.03 3zm0 23.73c-2 0-3.95-.54-5.66-1.57l-.4-.24-3.98 1.01 1.06-3.86-.26-.42a10.72 10.72 0 0 1-1.63-5.67c0-5.96 4.87-10.81 10.87-10.81 5.98 0 10.84 4.85 10.84 10.81s-4.86 10.75-10.84 10.75zm5.95-8.08c-.32-.16-1.9-.94-2.2-1.05-.3-.11-.52-.16-.74.16-.21.32-.85 1.05-1.04 1.27-.19.21-.38.24-.7.08-.32-.16-1.36-.5-2.59-1.59-.96-.85-1.61-1.9-1.8-2.22-.19-.32-.02-.49.14-.65.15-.15.32-.38.49-.57.16-.19.21-.32.32-.54.11-.21.05-.4-.03-.56-.08-.16-.74-1.78-1.01-2.44-.27-.64-.54-.55-.74-.56h-.63c-.21 0-.56.08-.85.4-.3.32-1.12 1.1-1.12 2.68s1.15 3.1 1.31 3.31c.16.21 2.26 3.45 5.48 4.84.77.33 1.37.53 1.83.68.77.24 1.47.21 2.02.13.62-.09 1.9-.78 2.17-1.53.27-.75.27-1.39.19-1.53-.08-.13-.29-.21-.61-.37z"/>
+  </svg>
+</a>
+<section class="hero">
 
   <div class="hero-content">
 

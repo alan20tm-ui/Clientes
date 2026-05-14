@@ -5,11 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Neon Birthday Party | Invitación Digital Premium</title>
+  <meta name="description" content="Invitación digital premium para cumpleaños de mujer estilo neon con cuenta regresiva, ubicación, RSVP y WhatsApp.">
+
+  <link rel="icon" type="image/png" href="/favicon.png">
 
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Orbitron:wght@500;700;800&display=swap" rel="stylesheet">
 
   <style>
-
     :root{
       --bg:#05010d;
       --pink:#ff3cac;
@@ -20,15 +22,8 @@
       --line:rgba(255,255,255,.10);
     }
 
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
-
-    html{
-      scroll-behavior:smooth;
-    }
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth;overflow-x:hidden}
 
     body{
       font-family:'Montserrat',sans-serif;
@@ -36,16 +31,12 @@
         radial-gradient(circle at top left, rgba(255,60,172,.25), transparent 28%),
         radial-gradient(circle at bottom right, rgba(25,245,255,.20), transparent 30%),
         linear-gradient(135deg,#04010a,#0a0314,#030106);
-
       color:var(--white);
       overflow-x:hidden;
       min-height:100vh;
     }
 
-    a{
-      text-decoration:none;
-      color:inherit;
-    }
+    a{text-decoration:none;color:inherit}
 
     .lights{
       position:fixed;
@@ -84,65 +75,40 @@
       z-index:-1;
       pointer-events:none;
       opacity:.45;
-
       background-image:
         radial-gradient(circle, rgba(255,255,255,.9) 1px, transparent 1.5px),
         radial-gradient(circle, rgba(25,245,255,.55) 1px, transparent 1.5px);
-
       background-size:140px 140px, 220px 220px;
-
       animation:floatBg 20s linear infinite;
     }
 
     @keyframes floatBg{
-      from{
-        transform:translateY(0);
-      }
-
-      to{
-        transform:translateY(-140px);
-      }
+      from{transform:translateY(0)}
+      to{transform:translateY(-140px)}
     }
 
     .brand-home{
       position:fixed;
       top:18px;
       left:18px;
-
       z-index:120;
-
       display:flex;
       align-items:center;
       justify-content:center;
-
       width:74px;
       height:74px;
-
       border-radius:22px;
-
-      background:
-        linear-gradient(
-          145deg,
-          rgba(255,255,255,.10),
-          rgba(255,255,255,.03)
-        );
-
+      background:linear-gradient(145deg,rgba(255,255,255,.10),rgba(255,255,255,.03));
       border:1px solid rgba(255,255,255,.12);
-
       backdrop-filter:blur(18px);
-
       box-shadow:
         0 14px 40px rgba(0,0,0,.42),
         0 0 24px rgba(255,60,172,.18);
-
       transition:.35s ease;
     }
 
     .brand-home:hover{
-      transform:
-        translateY(-2px)
-        scale(1.04);
-
+      transform:translateY(-2px) scale(1.04);
       box-shadow:
         0 18px 50px rgba(0,0,0,.55),
         0 0 35px rgba(255,60,172,.25);
@@ -153,43 +119,70 @@
       object-fit:contain;
     }
 
+    .nav{
+      position:fixed;
+      top:18px;
+      left:50%;
+      transform:translateX(-50%);
+      z-index:110;
+      display:flex;
+      gap:.3rem;
+      padding:.45rem;
+      max-width:calc(100vw - 130px);
+      overflow-x:auto;
+      scrollbar-width:none;
+      border-radius:999px;
+      background:rgba(10,3,20,.72);
+      border:1px solid rgba(255,255,255,.12);
+      backdrop-filter:blur(18px);
+      box-shadow:0 14px 36px rgba(0,0,0,.38);
+    }
+
+    .nav::-webkit-scrollbar{display:none}
+
+    .nav a{
+      white-space:nowrap;
+      padding:.58rem .9rem;
+      border-radius:999px;
+      font-size:.76rem;
+      font-weight:700;
+      color:var(--muted);
+      transition:.25s ease;
+    }
+
+    .nav a:hover{
+      background:rgba(255,60,172,.12);
+      color:var(--cyan);
+    }
+
     .floating-whatsapp{
       position:fixed;
       right:18px;
       bottom:18px;
-
-      z-index:100;
-
+      z-index:200;
       width:58px;
       height:58px;
-
       border-radius:50%;
-
       display:grid;
       place-items:center;
-
       background:#25D366;
       color:#fff;
+      box-shadow:0 18px 42px rgba(0,0,0,.38);
+      transition:.25s ease;
+    }
 
-      font-size:1.8rem;
-
-      box-shadow:
-        0 12px 30px rgba(0,0,0,.45);
+    .floating-whatsapp:hover{
+      transform:translateY(-3px) scale(1.04);
     }
 
     .hero{
       min-height:100vh;
-
       display:flex;
       align-items:center;
       justify-content:center;
-
       text-align:center;
-
       padding:7rem 1.2rem 4rem;
-
       position:relative;
-
       background:
         linear-gradient(rgba(3,1,6,.58), rgba(3,1,6,.88)),
         url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=1800&auto=format&fit=crop')
@@ -198,102 +191,68 @@
 
     .hero::after{
       content:"";
-
       position:absolute;
       inset:1.2rem;
-
       border-radius:34px;
-
       border:1px solid rgba(255,255,255,.10);
-
       pointer-events:none;
+      box-shadow:
+        inset 0 0 70px rgba(255,60,172,.10),
+        inset 0 0 90px rgba(25,245,255,.08);
     }
 
     .hero-content{
       position:relative;
       z-index:2;
       max-width:900px;
-
       animation:fadeUp 1s ease both;
     }
 
     @keyframes fadeUp{
-      from{
-        opacity:0;
-        transform:translateY(30px);
-      }
-
-      to{
-        opacity:1;
-        transform:translateY(0);
-      }
+      from{opacity:0;transform:translateY(30px)}
+      to{opacity:1;transform:translateY(0)}
     }
 
     .eyebrow{
       font-family:'Orbitron',sans-serif;
-
       color:var(--cyan);
-
       letter-spacing:.38em;
-
       text-transform:uppercase;
-
       font-size:.72rem;
-
       margin-bottom:1rem;
-
-      text-shadow:
-        0 0 12px rgba(25,245,255,.8);
+      text-shadow:0 0 12px rgba(25,245,255,.8);
     }
 
     h1{
       font-family:'Orbitron',sans-serif;
-
       font-size:clamp(4rem,11vw,8rem);
-
       line-height:.88;
-
       margin-bottom:1rem;
-
       color:#fff;
-
       text-shadow:
         0 0 18px rgba(255,60,172,.85),
         0 0 34px rgba(120,75,255,.65);
     }
 
-    h1 span{
-      color:var(--pink);
-    }
+    h1 span{color:var(--pink)}
 
     .hero p{
       max-width:720px;
-
       margin:1rem auto 2rem;
-
       color:#f1eff8;
-
       font-size:clamp(1rem,2vw,1.2rem);
-
       line-height:1.8;
     }
 
     .hero-date{
       color:var(--cyan);
-
       letter-spacing:.28em;
-
       text-transform:uppercase;
-
       margin:2rem 0;
-
       font-size:.9rem;
-
-      text-shadow:
-        0 0 12px rgba(25,245,255,.8);
+      text-shadow:0 0 12px rgba(25,245,255,.8);
     }
-
-    .hero-actions,
+        .hero-actions,
     .actions{
       display:flex;
       justify-content:center;
@@ -307,66 +266,41 @@
       display:inline-flex;
       align-items:center;
       justify-content:center;
-
       gap:.5rem;
-
       padding:1rem 1.5rem;
-
       border-radius:999px;
-
       font-size:.9rem;
       font-weight:700;
-
       transition:.28s ease;
-
       border:1px solid transparent;
+      cursor:pointer;
     }
 
     .btn:hover{
-      transform:
-        translateY(-3px)
-        scale(1.03);
+      transform:translateY(-3px) scale(1.03);
     }
 
     .btn-primary{
-      background:
-        linear-gradient(
-          135deg,
-          var(--pink),
-          var(--purple)
-        );
-
+      background:linear-gradient(135deg,var(--pink),var(--purple));
       color:white;
-
-      box-shadow:
-        0 0 24px rgba(255,60,172,.45);
+      box-shadow:0 0 24px rgba(255,60,172,.45);
     }
 
     .btn-secondary{
       border:1px solid rgba(25,245,255,.35);
-
       background:rgba(255,255,255,.03);
-
       color:var(--cyan);
-
-      box-shadow:
-        inset 0 0 10px rgba(25,245,255,.12);
+      box-shadow:inset 0 0 10px rgba(25,245,255,.12);
     }
 
     .private-banner{
       text-align:center;
-
       padding:1rem;
-
       background:rgba(255,255,255,.03);
-
       border-top:1px solid rgba(255,255,255,.08);
       border-bottom:1px solid rgba(255,255,255,.08);
-
       color:var(--cyan);
-
       font-size:.88rem;
-
       letter-spacing:.08em;
     }
 
@@ -381,45 +315,26 @@
 
     .title{
       font-family:'Orbitron',sans-serif;
-
       font-size:clamp(2.6rem,6vw,4.6rem);
-
       text-align:center;
-
       color:white;
-
       margin-bottom:1rem;
-
-      text-shadow:
-        0 0 16px rgba(255,60,172,.45);
+      text-shadow:0 0 16px rgba(255,60,172,.45);
     }
 
     .subtitle{
       text-align:center;
-
       color:var(--muted);
-
       max-width:760px;
-
       margin:0 auto 3rem;
-
       line-height:1.8;
     }
 
     .glass{
-      background:
-        linear-gradient(
-          145deg,
-          rgba(255,255,255,.08),
-          rgba(255,255,255,.03)
-        );
-
+      background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.03));
       border:1px solid rgba(255,255,255,.10);
-
       border-radius:32px;
-
       backdrop-filter:blur(18px);
-
       box-shadow:
         0 0 30px rgba(255,60,172,.08),
         0 20px 60px rgba(0,0,0,.45);
@@ -448,11 +363,8 @@
 
     .card h3{
       font-family:'Orbitron',sans-serif;
-
       font-size:1.5rem;
-
       margin-bottom:.8rem;
-
       color:var(--pink);
     }
 
@@ -461,9 +373,7 @@
       margin-bottom:.8rem;
     }
 
-    .card strong{
-      color:#fff;
-    }
+    .card strong{color:#fff}
 
     .timeline{
       max-width:760px;
@@ -473,46 +383,33 @@
 
     .timeline::before{
       content:"";
-
       position:absolute;
-
       top:0;
       bottom:0;
       left:50%;
-
       width:1px;
-
       background:rgba(255,255,255,.10);
     }
 
     .timeline-item{
       display:grid;
       grid-template-columns:1fr 1fr;
-
       gap:2rem;
-
       margin:2rem 0;
-
       align-items:center;
     }
 
     .timeline-time{
       text-align:right;
-
       color:var(--cyan);
-
       font-family:'Orbitron',sans-serif;
-
       font-size:1.5rem;
     }
 
     .timeline-detail{
       padding:1.4rem;
-
       border-radius:22px;
-
       background:rgba(255,255,255,.04);
-
       border:1px solid rgba(255,255,255,.08);
     }
 
@@ -525,11 +422,8 @@
 
     .dress-item{
       padding:1.4rem;
-
       border-radius:24px;
-
       background:rgba(255,255,255,.04);
-
       border:1px solid rgba(255,255,255,.08);
     }
 
@@ -548,38 +442,25 @@
 
     .time-box{
       background:rgba(255,255,255,.04);
-
       border:1px solid rgba(255,255,255,.08);
-
       border-radius:24px;
-
       padding:1.7rem .8rem;
-
       text-align:center;
     }
 
     .time-box span{
       display:block;
-
       font-family:'Orbitron',sans-serif;
-
       font-size:clamp(2rem,6vw,3.5rem);
-
       color:var(--pink);
-
       line-height:1;
-
-      text-shadow:
-        0 0 16px rgba(255,60,172,.65);
+      text-shadow:0 0 16px rgba(255,60,172,.65);
     }
 
     .time-box small{
       text-transform:uppercase;
-
       letter-spacing:2px;
-
       font-size:.72rem;
-
       color:var(--muted);
     }
 
@@ -588,9 +469,7 @@
         linear-gradient(rgba(3,1,6,.75), rgba(3,1,6,.88)),
         url('https://images.unsplash.com/photo-1530103862676-de8c9debad1d?q=80&w=1800&auto=format&fit=crop')
         center/cover;
-
       text-align:center;
-
       padding:7rem 1.2rem;
     }
 
@@ -611,25 +490,16 @@
     select,
     textarea{
       width:100%;
-
       border:1px solid rgba(255,255,255,.10);
-
       background:rgba(255,255,255,.05);
-
       color:#fff;
-
       border-radius:18px;
-
       padding:1rem;
-
       font-family:'Montserrat',sans-serif;
-
       outline:none;
     }
 
-    option{
-      color:#111;
-    }
+    option{color:#111}
 
     textarea{
       min-height:110px;
@@ -638,48 +508,49 @@
 
     .rsvp-note{
       margin-top:1rem;
-
       color:var(--muted);
-
       text-align:center;
-
       font-size:.9rem;
+    }
+
+    .footer-cta{
+      text-align:center;
+      padding:5.8rem 1.2rem;
+      background:
+        linear-gradient(135deg,rgba(255,60,172,.12),rgba(25,245,255,.10)),
+        linear-gradient(180deg,rgba(5,1,13,.92),rgba(0,0,0,.96));
+      border-top:1px solid rgba(255,255,255,.08);
+    }
+
+    .footer-cta h2{
+      font-family:'Orbitron',sans-serif;
+      color:#fff;
+      font-size:clamp(2.4rem,6vw,4.4rem);
+      margin-bottom:1rem;
+      text-shadow:
+        0 0 18px rgba(255,60,172,.55),
+        0 0 24px rgba(25,245,255,.24);
     }
 
     .simple-footer{
       text-align:center;
-
       padding:4rem 1.2rem 3rem;
-
       border-top:1px solid rgba(255,255,255,.08);
-
-      background:
-        linear-gradient(
-          180deg,
-          rgba(255,60,172,.04),
-          rgba(0,0,0,.88)
-        );
+      background:linear-gradient(180deg,rgba(255,60,172,.04),rgba(0,0,0,.88));
     }
 
     .simple-footer h3{
       font-family:'Orbitron',sans-serif;
-
       color:var(--pink);
-
       font-size:2rem;
-
       margin-bottom:.8rem;
     }
 
     .simple-footer p{
       max-width:720px;
-
       margin:auto;
-
       color:var(--muted);
-
       line-height:1.8;
-
       margin-bottom:2rem;
     }
 
@@ -689,16 +560,15 @@
 
     .footer-contact strong{
       display:block;
-
       color:var(--cyan);
-
       margin-bottom:.8rem;
     }
 
-    .footer-links{
+    .footer-links,
+    .footer-legal{
       display:flex;
       justify-content:center;
-      gap:1.2rem;
+      gap:1rem;
       flex-wrap:wrap;
     }
 
@@ -721,12 +591,6 @@
 
     .footer-legal{
       margin-top:1rem;
-
-      display:flex;
-      justify-content:center;
-      gap:1rem;
-      flex-wrap:wrap;
-
       font-size:.88rem;
     }
 
@@ -742,7 +606,6 @@
     }
 
     @media(max-width:900px){
-
       .hero::after{
         inset:.7rem;
         border-radius:24px;
@@ -760,9 +623,7 @@
         grid-template-columns:1fr;
       }
 
-      .timeline::before{
-        left:0;
-      }
+      .timeline::before{left:0}
 
       .timeline-item{
         grid-template-columns:1fr;
@@ -770,26 +631,26 @@
         padding-left:1.2rem;
       }
 
-      .timeline-time{
-        text-align:left;
-      }
+      .timeline-time{text-align:left}
 
       .brand-home{
         width:62px;
         height:62px;
-
         top:12px;
         left:12px;
-
         border-radius:18px;
       }
 
-      .brand-home img{
-        width:48px;
+      .brand-home img{width:48px}
+
+      .nav{
+        left:90px;
+        right:12px;
+        transform:none;
+        max-width:none;
+        justify-content:flex-start;
       }
-
     }
-
   </style>
 </head>
 
@@ -799,23 +660,29 @@
   <img src="/TIAMB.png" alt="Te Invito a Mi Boda">
 </a>
 
+<nav class="nav">
+  <a href="#detalles">Detalles</a>
+  <a href="#itinerario">Itinerario</a>
+  <a href="#dress">Dress Code</a>
+  <a href="#experiencia">Experiencia</a>
+  <a href="#confirmar">RSVP</a>
+</nav>
+
 <div class="lights"></div>
 <div class="sparkles"></div>
 
 <a
   class="floating-whatsapp"
-  href="https://wa.me/5215541946413?text=Hola,%20quiero%20información%20sobre%20esta%20invitación%20digital"
-  target="_blank">
-  ☘
+  href="https://wa.me/5215541946413?text=Hola,%20quiero%20cotizar%20una%20invitación%20de%20cumpleaños%20neon"
+  target="_blank"
+  aria-label="WhatsApp">
+  <svg viewBox="0 0 32 32" width="30" height="30" fill="currentColor">
+    <path d="M16.03 3C8.85 3 3 8.82 3 15.98c0 2.28.6 4.52 1.74 6.49L3 29l6.7-1.7a13.02 13.02 0 0 0 6.33 1.61C23.18 28.91 29 23.09 29 15.98S23.18 3 16.03 3zm0 23.73c-2 0-3.95-.54-5.66-1.57l-.4-.24-3.98 1.01 1.06-3.86-.26-.42a10.72 10.72 0 0 1-1.63-5.67c0-5.96 4.87-10.81 10.87-10.81 5.98 0 10.84 4.85 10.84 10.81s-4.86 10.75-10.84 10.75zm5.95-8.08c-.32-.16-1.9-.94-2.2-1.05-.3-.11-.52-.16-.74.16-.21.32-.85 1.05-1.04 1.27-.19.21-.38.24-.7.08-.32-.16-1.36-.5-2.59-1.59-.96-.85-1.61-1.9-1.8-2.22-.19-.32-.02-.49.14-.65.15-.15.32-.38.49-.57.16-.19.21-.32.32-.54.11-.21.05-.4-.03-.56-.08-.16-.74-1.78-1.01-2.44-.27-.64-.54-.55-.74-.56h-.63c-.21 0-.56.08-.85.4-.3.32-1.12 1.1-1.12 2.68s1.15 3.1 1.31 3.31c.16.21 2.26 3.45 5.48 4.84.77.33 1.37.53 1.83.68.77.24 1.47.21 2.02.13.62-.09 1.9-.78 2.17-1.53.27-.75.27-1.39.19-1.53-.08-.13-.29-.21-.61-.37z"/>
+  </svg>
 </a>
-
 <section class="hero">
-
   <div class="hero-content">
-
-    <div class="eyebrow">
-      Neon Birthday Party
-    </div>
+    <div class="eyebrow">Neon Birthday Party</div>
 
     <h1>
       Valeria<br>
@@ -832,17 +699,10 @@
     </div>
 
     <div class="hero-actions">
-      <a class="btn btn-primary" href="#confirmar">
-        Confirmar asistencia
-      </a>
-
-      <a class="btn btn-secondary" href="#detalles">
-        Ver detalles
-      </a>
+      <a class="btn btn-primary" href="#confirmar">Confirmar asistencia</a>
+      <a class="btn btn-secondary" href="#detalles">Ver detalles</a>
     </div>
-
   </div>
-
 </section>
 
 <div class="private-banner">
@@ -850,30 +710,18 @@
 </div>
 
 <section class="section fade" id="detalles">
-
   <div class="container">
-
-    <h2 class="title">
-      Detalles del evento
-    </h2>
+    <h2 class="title">Detalles del evento</h2>
 
     <p class="subtitle">
       Una noche diseñada para bailar, celebrar y brillar.
     </p>
 
     <div class="event-grid">
-
       <article class="card glass">
-
         <div class="card-icon">💖</div>
-
         <h3>Recepción</h3>
-
-        <p>
-          Neon Club<br>
-          Ciudad de México
-        </p>
-
+        <p>Neon Club<br>Ciudad de México</p>
         <strong>9:00 PM</strong>
 
         <div class="actions">
@@ -881,19 +729,12 @@
             Ver ubicación
           </a>
         </div>
-
       </article>
 
       <article class="card glass">
-
         <div class="card-icon">🎧</div>
-
         <h3>Fiesta</h3>
-
-        <p>
-          DJ, luces neon, glitter bar y música toda la noche.
-        </p>
-
+        <p>DJ, luces neon, glitter bar y música toda la noche.</p>
         <strong>Until sunrise ✨</strong>
 
         <div class="actions">
@@ -901,32 +742,22 @@
             Ver itinerario
           </a>
         </div>
-
       </article>
-
     </div>
-
   </div>
-
 </section>
 
 <section class="section fade" id="itinerario">
-
   <div class="container">
-
-    <h2 class="title">
-      Itinerario
-    </h2>
+    <h2 class="title">Itinerario</h2>
 
     <p class="subtitle">
       Cada momento pensado para disfrutar la noche al máximo.
     </p>
 
     <div class="timeline">
-
       <div class="timeline-item">
         <div class="timeline-time">9:00 PM</div>
-
         <div class="timeline-detail">
           <strong>Recepción</strong><br>
           Drinks, fotos y bienvenida.
@@ -935,7 +766,6 @@
 
       <div class="timeline-item">
         <div class="timeline-time">10:00 PM</div>
-
         <div class="timeline-detail">
           <strong>Neon Party</strong><br>
           Inicio oficial de la fiesta.
@@ -944,7 +774,6 @@
 
       <div class="timeline-item">
         <div class="timeline-time">11:30 PM</div>
-
         <div class="timeline-detail">
           <strong>Brindis</strong><br>
           Momento especial de celebración.
@@ -953,33 +782,24 @@
 
       <div class="timeline-item">
         <div class="timeline-time">1:00 AM</div>
-
         <div class="timeline-detail">
           <strong>After party</strong><br>
           La fiesta continúa.
         </div>
       </div>
-
     </div>
-
   </div>
-
 </section>
 
-<section class="section fade">
-
+<section class="section fade" id="dress">
   <div class="container">
-
-    <h2 class="title">
-      Dress code
-    </h2>
+    <h2 class="title">Dress code</h2>
 
     <p class="subtitle">
       Queremos una noche llena de color, glow y estilo.
     </p>
 
     <div class="dress-code">
-
       <div class="dress-item">
         <span>💗</span>
         <strong>Neon Pink</strong>
@@ -1003,146 +823,75 @@
         <strong>Evitar</strong>
         <p>Colores apagados</p>
       </div>
-
     </div>
-
   </div>
-
 </section>
 
 <section class="section fade">
-
   <div class="container">
-
     <div class="glass card">
-
-      <h2 class="title">
-        Cuenta regresiva
-      </h2>
+      <h2 class="title">Cuenta regresiva</h2>
 
       <p class="subtitle">
         Falta muy poco para la Neon Party ✨
       </p>
 
       <div class="timer">
-
-        <div class="time-box">
-          <span id="days">00</span>
-          <small>Días</small>
-        </div>
-
-        <div class="time-box">
-          <span id="hours">00</span>
-          <small>Horas</small>
-        </div>
-
-        <div class="time-box">
-          <span id="minutes">00</span>
-          <small>Minutos</small>
-        </div>
-
-        <div class="time-box">
-          <span id="seconds">00</span>
-          <small>Segundos</small>
-        </div>
-
+        <div class="time-box"><span id="days">00</span><small>Días</small></div>
+        <div class="time-box"><span id="hours">00</span><small>Horas</small></div>
+        <div class="time-box"><span id="minutes">00</span><small>Minutos</small></div>
+        <div class="time-box"><span id="seconds">00</span><small>Segundos</small></div>
       </div>
-
     </div>
-
   </div>
-
 </section>
 
-<section class="section fade">
-
+<section class="section fade" id="experiencia">
   <div class="container">
-
-    <h2 class="title">
-      Experiencia Neon
-    </h2>
+    <h2 class="title">Experiencia Neon</h2>
 
     <p class="subtitle">
       Funciones premium para una invitación moderna e interactiva.
     </p>
 
     <div class="feature-grid">
-
       <article class="card glass">
-
         <div class="card-icon">📅</div>
-
         <h3>Save the date</h3>
-
-        <p>
-          Agrega la fiesta a tu calendario.
-        </p>
-
-        <a class="btn btn-secondary" href="#" target="_blank">
-          Agregar calendario
-        </a>
-
+        <p>Agrega la fiesta a tu calendario.</p>
+        <a class="btn btn-secondary" href="#" target="_blank">Agregar calendario</a>
       </article>
 
       <article class="card glass">
-
         <div class="card-icon">🎵</div>
-
         <h3>Playlist</h3>
-
-        <p>
-          Sugiere una canción para bailar.
-        </p>
-
-        <a class="btn btn-secondary" href="#" target="_blank">
+        <p>Sugiere una canción para bailar.</p>
+        <a class="btn btn-secondary" href="https://wa.me/5215541946413?text=Hola,%20quiero%20sugerir%20esta%20canción%20para%20la%20Neon%20Party:%20" target="_blank">
           Sugerir canción
         </a>
-
       </article>
 
       <article class="card glass">
-
         <div class="card-icon">📷</div>
-
         <h3>Fotos</h3>
-
-        <p>
-          Comparte fotos y videos del evento.
-        </p>
-
-        <a class="btn btn-secondary" href="#" target="_blank">
-          Subir fotos
-        </a>
-
+        <p>Comparte fotos y videos del evento.</p>
+        <a class="btn btn-secondary" href="#" target="_blank">Subir fotos</a>
       </article>
-
     </div>
-
   </div>
-
 </section>
 
 <section class="rsvp-hero fade" id="confirmar">
-
   <div class="container">
-
-    <h2 class="title">
-      Confirma tu asistencia
-    </h2>
+    <h2 class="title">Confirma tu asistencia</h2>
 
     <p class="subtitle">
       Tu confirmación ayuda a preparar cada detalle de la fiesta.
     </p>
 
     <form class="rsvp-form glass" id="rsvpForm">
-
       <div class="form-grid">
-
-        <input
-          id="guestName"
-          type="text"
-          placeholder="Nombre completo"
-          required>
+        <input id="guestName" type="text" placeholder="Nombre completo" required>
 
         <select id="attendance" required>
           <option value="">¿Asistirás?</option>
@@ -1150,54 +899,57 @@
           <option value="No podré asistir">No podré asistir</option>
         </select>
 
-        <input
-          id="guestCount"
-          type="number"
-          min="1"
-          max="10"
-          placeholder="Número de personas"
-          required>
+        <input id="guestCount" type="number" min="1" max="10" placeholder="Número de personas" required>
 
-        <input
-          id="drink"
-          type="text"
-          placeholder="Drink favorito">
-
+        <input id="drink" type="text" placeholder="Drink favorito">
       </div>
 
-      <textarea
-        id="message"
-        placeholder="Mensaje para Valeria"></textarea>
+      <textarea id="message" placeholder="Mensaje para Valeria"></textarea>
 
       <div class="actions">
-
         <button class="btn btn-primary" type="submit">
-          Enviar confirmación por WhatsApp
+          Enviar confirmación
         </button>
 
+        <a class="btn btn-secondary" href="https://wa.me/5215541946413" target="_blank">
+          WhatsApp directo
+        </a>
       </div>
 
       <p class="rsvp-note">
         Esta demo envía la confirmación por WhatsApp.
       </p>
-
     </form>
-
   </div>
+</section>
 
+<section class="footer-cta">
+  <h2>Una invitación neon y premium</h2>
+
+  <p class="subtitle">
+    Ideal para cumpleaños de mujer, fiestas glow, eventos nocturnos y celebraciones llenas de color.
+  </p>
+
+  <div class="actions">
+    <a class="btn btn-primary" href="https://wa.me/5215541946413?text=Hola,%20quiero%20cotizar%20una%20invitación%20de%20cumpleaños%20neon" target="_blank">
+      Cotizar este estilo
+    </a>
+
+    <a class="btn btn-secondary" href="/">
+      Volver al catálogo
+    </a>
+  </div>
 </section>
 
 <footer class="simple-footer">
-
   <h3>Te Invito a Mi Boda</h3>
 
   <p>
-    Invitaciones digitales premium para bodas y eventos especiales.
+    Invitaciones digitales premium para bodas, cumpleaños y eventos especiales.
     Diseños modernos, elegantes y completamente personalizados.
   </p>
 
   <div class="footer-contact">
-
     <strong>Contacto</strong>
 
     <div class="footer-links">
@@ -1205,7 +957,6 @@
       <a href="#">Instagram</a>
       <a href="#">TikTok</a>
     </div>
-
   </div>
 
   <div class="footer-bottom">
@@ -1216,22 +967,19 @@
     <a href="/aviso-de-privacidad.html">Aviso de Privacidad</a>
     <a href="/terminos-y-condiciones.html">Términos y Condiciones</a>
   </div>
-
 </footer>
 
 <script>
-
   const eventDate = new Date('2026-08-22T21:00:00').getTime();
   const whatsappNumber = '5215541946413';
 
   function updateCountdown(){
-
-    const now = new Date().getTime();
+    const now = Date.now();
     const distance = eventDate - now;
 
     if(distance <= 0){
-      document.querySelector('.timer').innerHTML =
-        '<p>¡Hoy es la Neon Party!</p>';
+      const timer = document.querySelector('.timer');
+      if(timer) timer.innerHTML = '<p>¡Hoy es la Neon Party!</p>';
       return;
     }
 
@@ -1240,75 +988,44 @@
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    document.getElementById('days').textContent =
-      String(days).padStart(2,'0');
-
-    document.getElementById('hours').textContent =
-      String(hours).padStart(2,'0');
-
-    document.getElementById('minutes').textContent =
-      String(minutes).padStart(2,'0');
-
-    document.getElementById('seconds').textContent =
-      String(seconds).padStart(2,'0');
-
+    document.getElementById('days').textContent = String(days).padStart(2,'0');
+    document.getElementById('hours').textContent = String(hours).padStart(2,'0');
+    document.getElementById('minutes').textContent = String(minutes).padStart(2,'0');
+    document.getElementById('seconds').textContent = String(seconds).padStart(2,'0');
   }
 
   updateCountdown();
   setInterval(updateCountdown,1000);
 
   const observer = new IntersectionObserver((entries)=>{
-
     entries.forEach(entry=>{
-
       if(entry.isIntersecting){
         entry.target.classList.add('visible');
       }
-
     });
-
   },{threshold:.12});
 
-  document.querySelectorAll('.fade')
-    .forEach(el=>observer.observe(el));
+  document.querySelectorAll('.fade').forEach(el=>observer.observe(el));
 
-  document.getElementById('rsvpForm')
-    .addEventListener('submit',function(e){
+  document.getElementById('rsvpForm').addEventListener('submit',function(e){
+    e.preventDefault();
 
-      e.preventDefault();
+    const name = document.getElementById('guestName').value.trim();
+    const attendance = document.getElementById('attendance').value;
+    const count = document.getElementById('guestCount').value;
+    const drink = document.getElementById('drink').value.trim() || 'Sin preferencia';
+    const messageText = document.getElementById('message').value.trim() || 'Sin mensaje';
 
-      const name =
-        document.getElementById('guestName').value.trim();
+    const text =
+      `Hola, confirmo mi asistencia a la Neon Party de Valeria.%0A%0A` +
+      `Nombre: ${encodeURIComponent(name)}%0A` +
+      `Asistencia: ${encodeURIComponent(attendance)}%0A` +
+      `Número de personas: ${encodeURIComponent(count)}%0A` +
+      `Drink favorito: ${encodeURIComponent(drink)}%0A` +
+      `Mensaje: ${encodeURIComponent(messageText)}`;
 
-      const attendance =
-        document.getElementById('attendance').value;
-
-      const count =
-        document.getElementById('guestCount').value;
-
-      const drink =
-        document.getElementById('drink').value.trim()
-        || 'Sin preferencia';
-
-      const message =
-        document.getElementById('message').value.trim()
-        || 'Sin mensaje';
-
-      const text =
-        `Hola, confirmo mi asistencia a la Neon Party de Valeria.%0A%0A` +
-        `Nombre: ${encodeURIComponent(name)}%0A` +
-        `Asistencia: ${encodeURIComponent(attendance)}%0A` +
-        `Número de personas: ${encodeURIComponent(count)}%0A` +
-        `Drink favorito: ${encodeURIComponent(drink)}%0A` +
-        `Mensaje: ${encodeURIComponent(message)}`;
-
-      window.open(
-        `https://wa.me/${whatsappNumber}?text=${text}`,
-        '_blank'
-      );
-
-    });
-
+    window.open(`https://wa.me/${whatsappNumber}?text=${text}`,'_blank');
+  });
 </script>
 
 </body>

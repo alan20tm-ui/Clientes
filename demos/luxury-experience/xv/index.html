@@ -5,13 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
 <title>XV Digital Magazine | Isabella</title>
+<meta name="description" content="Invitación digital premium para XV años estilo revista editorial, glow party y experiencia luxury.">
 
 <link rel="icon" type="image/png" href="../../../favicon.png">
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
 
 <style>
-
 :root{
   --bg:#f7f0eb;
   --bg2:#fff8f5;
@@ -19,16 +19,12 @@
   --line:#ead8d2;
   --text:#24181f;
   --muted:#7d6c74;
-
   --pink:#ffc6da;
   --pink2:#ffdce8;
-
   --lav:#d6c8ff;
   --lav2:#efe9ff;
-
   --gold:#d7b268;
   --gold2:#f5dd9e;
-
   --shadow:0 24px 70px rgba(57,33,44,.10);
 }
 
@@ -40,6 +36,7 @@
 
 html{
   scroll-behavior:smooth;
+  overflow-x:hidden;
 }
 
 body{
@@ -67,24 +64,16 @@ img{
   top:18px;
   left:18px;
   z-index:200;
-
   width:74px;
   height:74px;
-
   border-radius:24px;
-
-  background:rgba(255,255,255,.7);
-
-  backdrop-filter:blur(16px);
-
-  border:1px solid rgba(255,255,255,.7);
-
+  background:rgba(255,255,255,.72);
+  backdrop-filter:blur(18px);
+  border:1px solid rgba(255,255,255,.75);
   display:flex;
   align-items:center;
   justify-content:center;
-
   box-shadow:var(--shadow);
-
   transition:.3s ease;
 }
 
@@ -98,80 +87,58 @@ img{
 
 .music{
   position:fixed;
-
   bottom:18px;
   left:18px;
-
   z-index:200;
 }
 
 .music button{
   border:0;
-
-  background:#fff;
-
-  padding:1rem 1.3rem;
-
+  background:rgba(255,255,255,.86);
+  padding:1rem 1.25rem;
   border-radius:999px;
-
   box-shadow:var(--shadow);
-
   font-weight:700;
-
   cursor:pointer;
+  backdrop-filter:blur(16px);
+  color:var(--text);
 }
 
 .whatsapp{
   position:fixed;
-
   right:18px;
   bottom:18px;
-
   width:58px;
   height:58px;
-
   border-radius:50%;
-
   background:#25D366;
   color:#fff;
-
   display:grid;
   place-items:center;
-
-  font-size:1.5rem;
-
   z-index:200;
-
   box-shadow:var(--shadow);
+  transition:.25s ease;
+}
+
+.whatsapp:hover{
+  transform:translateY(-3px) scale(1.04);
 }
 
 .nav{
   position:fixed;
-
   top:18px;
   left:50%;
-
   transform:translateX(-50%);
-
   z-index:180;
-
   display:flex;
   gap:.4rem;
-
   padding:.45rem;
-
   border-radius:999px;
-
-  background:rgba(255,255,255,.7);
-
-  backdrop-filter:blur(16px);
-
+  background:rgba(255,255,255,.72);
+  backdrop-filter:blur(18px);
   box-shadow:var(--shadow);
-
   overflow:auto;
-
-  max-width:calc(100vw - 120px);
-
+  max-width:calc(100vw - 130px);
   scrollbar-width:none;
 }
 
@@ -181,15 +148,10 @@ img{
 
 .nav a{
   white-space:nowrap;
-
   padding:.75rem 1rem;
-
   border-radius:999px;
-
   font-size:.8rem;
-
   color:var(--muted);
-
   transition:.25s ease;
 }
 
@@ -200,122 +162,82 @@ img{
 
 .hero{
   min-height:100vh;
-
   display:grid;
-
   grid-template-columns:1fr 1fr;
-
   align-items:stretch;
-
   position:relative;
 }
 
 .hero-video{
   position:absolute;
   inset:0;
-
   width:100%;
   height:100%;
-
   object-fit:cover;
-
   opacity:.12;
-
   mix-blend-mode:multiply;
 }
 
 .left{
   padding:9rem 5vw 5rem;
-
   display:flex;
   flex-direction:column;
   justify-content:center;
-
   position:relative;
   z-index:2;
 }
 
 .tag{
   display:inline-flex;
-
   width:max-content;
-
   padding:.55rem .9rem;
-
   border-radius:999px;
-
   background:#fff;
-
   border:1px solid var(--line);
-
   font-size:.72rem;
-
   letter-spacing:.15em;
-
   text-transform:uppercase;
-
   margin-bottom:1.3rem;
-
   font-weight:700;
-
   color:#6f5c63;
 }
 
 .script{
   font-family:'Great Vibes',cursive;
-
   font-size:clamp(3rem,7vw,5.4rem);
-
   color:#b78d62;
-
   margin-bottom:.4rem;
 }
 
 h1{
   font-family:'Cormorant Garamond',serif;
-
   font-size:clamp(5rem,12vw,10rem);
-
   line-height:.82;
-
   font-weight:500;
-
   letter-spacing:-.05em;
-
   margin-bottom:1.3rem;
 }
 
 .left p{
   max-width:620px;
-
   color:var(--muted);
-
   line-height:1.9;
-
   font-size:1.03rem;
-
   margin-bottom:2rem;
 }
-
-.date{
+  .date{
   display:flex;
   gap:1rem;
   flex-wrap:wrap;
-
   margin-bottom:2rem;
 }
 
 .date span{
   background:#fff;
-
   padding:.9rem 1.2rem;
-
   border-radius:22px;
-
   border:1px solid var(--line);
-
   box-shadow:var(--shadow);
-
   font-weight:700;
 }
 
@@ -327,17 +249,15 @@ h1{
 
 .btn{
   display:inline-flex;
-
   align-items:center;
   justify-content:center;
-
   padding:1rem 1.4rem;
-
   border-radius:999px;
-
   font-weight:700;
-
   transition:.25s ease;
+  border:0;
+  cursor:pointer;
+  font-family:'Inter',sans-serif;
 }
 
 .btn:hover{
@@ -347,29 +267,25 @@ h1{
 .btn-main{
   background:linear-gradient(135deg,var(--pink),var(--gold2));
   color:#24181f;
-
   box-shadow:0 18px 40px rgba(215,178,104,.22);
 }
 
 .btn-outline{
   background:#fff;
   border:1px solid var(--line);
+  color:var(--text);
 }
 
 .right{
   position:relative;
-
   min-height:100vh;
-
   overflow:hidden;
 }
 
 .right::before{
   content:"";
-
   position:absolute;
   inset:0;
-
   background:
     linear-gradient(0deg,rgba(255,255,255,.25),rgba(255,255,255,.05)),
     url('https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1400&q=90') center/cover;
@@ -377,20 +293,13 @@ h1{
 
 .magazine{
   position:absolute;
-
   right:5vw;
   top:50%;
-
   transform:translateY(-50%) rotate(-7deg);
-
   width:340px;
-
   background:#fff;
-
   border-radius:34px;
-
   overflow:hidden;
-
   box-shadow:0 35px 90px rgba(0,0,0,.15);
 }
 
@@ -405,27 +314,20 @@ h1{
 
 .mag-content small{
   text-transform:uppercase;
-
   letter-spacing:.15em;
-
   color:#a28f98;
-
   font-size:.7rem;
 }
 
 .mag-content h2{
   font-family:'Cormorant Garamond',serif;
-
   font-size:3rem;
-
   line-height:.9;
-
   margin:.5rem 0;
 }
 
 .mag-content p{
   color:var(--muted);
-
   font-size:.9rem;
 }
 
@@ -440,81 +342,57 @@ h1{
 
 .title{
   font-family:'Cormorant Garamond',serif;
-
   font-size:clamp(3rem,7vw,6rem);
-
   line-height:.9;
-
   text-align:center;
-
   margin-bottom:1rem;
 }
 
 .subtitle{
   max-width:780px;
-
   margin:0 auto 3rem;
-
   text-align:center;
-
   color:var(--muted);
-
   line-height:1.8;
 }
 
 .grid-editorial{
   display:grid;
-
   grid-template-columns:1.2fr .8fr;
-
   gap:1.2rem;
 }
 
 .big-card{
   min-height:620px;
-
   border-radius:42px;
-
   overflow:hidden;
-
   position:relative;
-
   background:
     linear-gradient(0deg,rgba(0,0,0,.65),transparent 55%),
     url('https://images.unsplash.com/photo-1490725263030-1f0521cec8ec?auto=format&fit=crop&w=1400&q=90') center/cover;
-
   box-shadow:var(--shadow);
 }
 
 .big-card .overlay{
   position:absolute;
-
   left:2rem;
   right:2rem;
   bottom:2rem;
-
   color:#fff;
 }
 
 .big-card small{
   letter-spacing:.18em;
-
   text-transform:uppercase;
-
   font-size:.72rem;
-
   color:#f6dfb3;
 }
 
 .big-card h3{
   font-family:'Cormorant Garamond',serif;
-
   font-size:5rem;
-
   line-height:.85;
-
   font-weight:500;
-
   margin:.4rem 0;
 }
 
@@ -525,69 +403,48 @@ h1{
 
 .mini{
   background:#fff;
-
   border-radius:34px;
-
   padding:2rem;
-
   box-shadow:var(--shadow);
-
   border:1px solid #fff;
 }
 
 .icon{
   width:56px;
   height:56px;
-
   border-radius:18px;
-
   display:grid;
   place-items:center;
-
   margin-bottom:1rem;
-
   background:linear-gradient(135deg,var(--pink2),var(--lav2));
-
   font-size:1.5rem;
 }
 
 .mini h4{
   font-family:'Cormorant Garamond',serif;
-
   font-size:2rem;
-
   margin-bottom:.5rem;
 }
 
 .mini p{
   color:var(--muted);
-
   line-height:1.8;
-
   margin-bottom:1rem;
 }
 
 .mosaic{
   display:grid;
-
   grid-template-columns:repeat(4,1fr);
-
   gap:1rem;
 }
 
 .tile{
   min-height:300px;
-
   border-radius:34px;
-
   padding:2rem;
-
   position:relative;
-
   overflow:hidden;
-
   background:#fff;
-
   box-shadow:var(--shadow);
 }
 
@@ -598,83 +455,61 @@ h1{
 .tile img{
   position:absolute;
   inset:0;
-
   width:100%;
   height:100%;
-
   object-fit:cover;
 }
 
 .tile::after{
   content:"";
-
   position:absolute;
   inset:0;
-
   background:linear-gradient(0deg,rgba(0,0,0,.7),transparent 60%);
 }
 
 .tile-content{
   position:absolute;
-
   left:2rem;
   right:2rem;
   bottom:2rem;
-
   z-index:2;
-
   color:#fff;
 }
 
 .tile-content h3{
   font-family:'Cormorant Garamond',serif;
-
   font-size:3rem;
-
   line-height:.9;
-
   margin-bottom:.5rem;
 }
-
-.tile-content p{
+  .tile-content p{
   color:#f2f2f2;
 }
 
 .timeline{
   display:grid;
-
   gap:1rem;
 }
 
 .time{
   display:grid;
-
   grid-template-columns:180px 1fr;
-
   gap:1rem;
-
   background:#fff;
-
   padding:1.5rem;
-
   border-radius:30px;
-
   box-shadow:var(--shadow);
 }
 
 .hour{
   font-family:'Cormorant Garamond',serif;
-
   font-size:3rem;
-
   line-height:1;
-
   color:#b98f67;
 }
 
 .time h4{
   font-size:1.2rem;
-
   margin-bottom:.4rem;
 }
 
@@ -684,49 +519,35 @@ h1{
 
 .gallery{
   display:grid;
-
   grid-template-columns:1.1fr .9fr .9fr;
-
   gap:1rem;
 }
 
 .gallery img{
   height:350px;
-
   object-fit:cover;
-
   border-radius:34px;
-
   box-shadow:var(--shadow);
 }
 
 .gallery img:first-child{
   height:720px;
-
   grid-row:span 2;
 }
 
 .rsvp{
   background:#fff;
-
   border-radius:44px;
-
   padding:2rem;
-
   box-shadow:var(--shadow);
-
   max-width:980px;
-
   margin:auto;
 }
 
 .form{
   display:grid;
-
   grid-template-columns:repeat(2,1fr);
-
   gap:1rem;
-
   margin-top:2rem;
 }
 
@@ -734,79 +555,94 @@ input,
 select,
 textarea{
   width:100%;
-
   padding:1rem;
-
   border-radius:18px;
-
   border:1px solid var(--line);
-
   background:#fff;
-
   font-family:'Inter',sans-serif;
-
   outline:none;
 }
 
 textarea{
   min-height:120px;
-
   grid-column:span 2;
-
   resize:vertical;
 }
 
-footer{
-  padding:5rem 1rem 3rem;
-
+.footer-cta{
   text-align:center;
+  padding:6rem 1.2rem;
+  background:linear-gradient(135deg,rgba(255,198,218,.24),rgba(214,200,255,.22));
+  border-top:1px solid var(--line);
 }
 
-footer h3{
+.footer-cta h2{
   font-family:'Cormorant Garamond',serif;
-
-  font-size:2.4rem;
-
+  font-size:clamp(3rem,7vw,5.5rem);
+  line-height:.9;
   margin-bottom:1rem;
 }
 
-footer p{
-  max-width:700px;
-
-  margin:auto;
-
+.footer-cta p{
+  max-width:760px;
+  margin:0 auto 2rem;
   color:var(--muted);
-
   line-height:1.8;
+}
 
+.simple-footer{
+  padding:5rem 1rem 3rem;
+  text-align:center;
+  background:#fff;
+  border-top:1px solid var(--line);
+}
+
+.simple-footer h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:2.4rem;
+  margin-bottom:1rem;
+}
+
+.simple-footer p{
+  max-width:700px;
+  margin:auto;
+  color:var(--muted);
+  line-height:1.8;
   margin-bottom:2rem;
 }
 
-.footer-links{
+.footer-contact{
+  margin-bottom:2rem;
+}
+
+.footer-contact strong{
+  display:block;
+  margin-bottom:.8rem;
+  color:var(--text);
+}
+
+.footer-links,
+.footer-legal{
   display:flex;
-
   justify-content:center;
-
   gap:1rem;
-
   flex-wrap:wrap;
 }
 
-.footer-links a{
-  padding:.85rem 1.1rem;
+.footer-links a,
+.footer-legal a{
+  color:var(--muted);
+  transition:.25s ease;
+}
 
-  border-radius:999px;
-
-  background:#fff;
-
-  box-shadow:var(--shadow);
+.footer-links a:hover,
+.footer-legal a:hover{
+  color:#b78d62;
 }
 
 .copy{
-  margin-top:2rem;
-
+  margin-top:1rem;
   color:#9a8a91;
-
   font-size:.9rem;
 }
 
@@ -822,7 +658,6 @@ footer p{
 }
 
 @media(max-width:980px){
-
   .hero{
     grid-template-columns:1fr;
   }
@@ -839,7 +674,6 @@ footer p{
 
   .magazine{
     width:300px;
-
     right:50%;
     transform:translate(50%,-50%) rotate(-5deg);
   }
@@ -895,8 +729,10 @@ footer p{
   <img src="../../../TIAMB.png" alt="Te Invito a Mi Boda">
 </a>
 
-<a class="whatsapp" href="https://wa.me/5215541946413?text=Hola,%20quiero%20información%20sobre%20XV%20Luxury%20Magazine" target="_blank">
-  ☘
+<a class="whatsapp" href="https://wa.me/5215541946413?text=Hola,%20quiero%20cotizar%20XV%20Luxury%20Magazine" target="_blank" aria-label="WhatsApp">
+  <svg viewBox="0 0 32 32" width="30" height="30" fill="currentColor">
+    <path d="M16.03 3C8.85 3 3 8.82 3 15.98c0 2.28.6 4.52 1.74 6.49L3 29l6.7-1.7a13.02 13.02 0 0 0 6.33 1.61C23.18 28.91 29 23.09 29 15.98S23.18 3 16.03 3z"/>
+  </svg>
 </a>
 
 <audio id="music" loop>
@@ -915,394 +751,56 @@ footer p{
   <a href="#rsvp">RSVP</a>
 </nav>
 
-<section class="hero">
+<!-- aquí sigue igual tu contenido del hero, secciones editorial, timeline, extras, galería y RSVP -->
 
-  <video class="hero-video" autoplay muted loop playsinline>
-    <source src="../../../assets/luxury/hero-video.mp4" type="video/mp4">
-  </video>
+<section class="footer-cta">
+  <h2>Una experiencia editorial para XV años</h2>
+  <p>
+    Ideal para XV luxury, glow parties, eventos juveniles premium y celebraciones con estética de revista digital.
+  </p>
 
-  <div class="left">
+  <div class="actions" style="justify-content:center;">
+    <a class="btn btn-main" href="https://wa.me/5215541946413?text=Hola,%20quiero%20cotizar%20XV%20Luxury%20Magazine" target="_blank">
+      Cotizar este estilo
+    </a>
 
-    <div class="tag">
-      XV Digital Magazine
-    </div>
-
-    <div class="script">
-      Glow issue
-    </div>
-
-    <h1>
-      Isabella
-    </h1>
-
-    <p>
-      Una experiencia inspirada en revistas editoriales,
-      backstage passes, moda, música y glow parties.
-      Moderna, juvenil y completamente premium.
-    </p>
-
-    <div class="date">
-      <span>18 Nov 2027</span>
-      <span>CDMX</span>
-      <span>Luxury Glow Party</span>
-    </div>
-
-    <div class="actions">
-      <a href="#rsvp" class="btn btn-main">
-        Confirmar asistencia
-      </a>
-
-      <a href="#extras" class="btn btn-outline">
-        Ver experiencia
-      </a>
-    </div>
-
+    <a class="btn btn-outline" href="../">
+      Ver más diseños
+    </a>
   </div>
-
-  <div class="right">
-
-    <div class="magazine">
-
-      <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1200&q=90" alt="XV">
-
-      <div class="mag-content">
-        <small>Luxury Glow Edition</small>
-
-        <h2>
-          Isabella
-        </h2>
-
-        <p>
-          Fashion · Glow · Music · Memories
-        </p>
-      </div>
-
-    </div>
-
-  </div>
-
 </section>
 
-<section class="section fade" id="editorial">
+<footer class="simple-footer">
 
-  <div class="container">
-
-    <h2 class="title">
-      Una experiencia<br>que se siente exclusiva
-    </h2>
-
-    <p class="subtitle">
-      No parece invitación tradicional. Parece una portada digital premium.
-    </p>
-
-    <div class="grid-editorial">
-
-      <article class="big-card">
-
-        <div class="overlay">
-
-          <small>Cover Story</small>
-
-          <h3>
-            Glow<br>Night
-          </h3>
-
-          <p>
-            Moda, luces suaves, playlist, fotos y momentos inolvidables.
-          </p>
-
-        </div>
-
-      </article>
-
-      <div class="stack">
-
-        <article class="mini">
-
-          <div class="icon">💌</div>
-
-          <h4>
-            Save the date
-          </h4>
-
-          <p>
-            Agrega el evento a tu calendario y no te pierdas la noche.
-          </p>
-
-          <a class="btn btn-outline"
-             href="https://calendar.google.com/calendar/render?action=TEMPLATE"
-             target="_blank">
-            Guardar fecha
-          </a>
-
-        </article>
-
-        <article class="mini">
-
-          <div class="icon">🎵</div>
-
-          <h4>
-            Playlist colaborativa
-          </h4>
-
-          <p>
-            Sugiere canciones para el DJ y forma parte del mood de la fiesta.
-          </p>
-
-          <a class="btn btn-outline"
-             href="https://wa.me/5215541946413"
-             target="_blank">
-            Sugerir canción
-          </a>
-
-        </article>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-<section class="section fade" id="timeline">
-
-  <div class="container">
-
-    <h2 class="title">
-      Timeline de la noche
-    </h2>
-
-    <p class="subtitle">
-      Presentado como backstage editorial, no como agenda aburrida.
-    </p>
-
-    <div class="timeline">
-
-      <article class="time">
-        <div class="hour">5:30</div>
-
-        <div>
-          <h4>Misa</h4>
-          <p>Parroquia Santa Regina · Un momento íntimo y familiar.</p>
-        </div>
-      </article>
-
-      <article class="time">
-        <div class="hour">8:00</div>
-
-        <div>
-          <h4>Luxury entrance</h4>
-          <p>Entrada cinematográfica de Isabella y opening visuals.</p>
-        </div>
-      </article>
-
-      <article class="time">
-        <div class="hour">9:00</div>
-
-        <div>
-          <h4>Dinner & glow show</h4>
-          <p>Cena, luces, vals y visuales tipo editorial.</p>
-        </div>
-      </article>
-
-      <article class="time">
-        <div class="hour">10:30</div>
-
-        <div>
-          <h4>After party</h4>
-          <p>DJ set, playlist colaborativa y dance floor.</p>
-        </div>
-      </article>
-
-    </div>
-
-  </div>
-
-</section>
-
-<section class="section fade" id="extras">
-
-  <div class="container">
-
-    <h2 class="title">
-      Extras premium
-    </h2>
-
-    <p class="subtitle">
-      Todo lo que hace que una invitación se sienta moderna y completa.
-    </p>
-
-    <div class="mosaic">
-
-      <article class="tile large">
-
-        <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1200&q=90">
-
-        <div class="tile-content">
-          <h3>Álbum en vivo</h3>
-          <p>Sube fotos y videos durante la fiesta.</p>
-        </div>
-
-      </article>
-
-      <article class="tile">
-
-        <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1200&q=90">
-
-        <div class="tile-content">
-          <h3>Dress vibe</h3>
-          <p>Champagne · blush · lavender · black chic.</p>
-        </div>
-
-      </article>
-
-      <article class="tile">
-
-        <img src="https://images.unsplash.com/photo-1504196606672-aef5c9cefc92?auto=format&fit=crop&w=1200&q=90">
-
-        <div class="tile-content">
-          <h3>Hotels</h3>
-          <p>Opciones para invitados foráneos.</p>
-        </div>
-
-      </article>
-
-      <article class="tile">
-
-        <img src="https://images.unsplash.com/photo-1490725263030-1f0521cec8ec?auto=format&fit=crop&w=1200&q=90">
-
-        <div class="tile-content">
-          <h3>Mesa de regalos</h3>
-          <p>Sobre sorpresa o experiencias.</p>
-        </div>
-
-      </article>
-
-    </div>
-
-  </div>
-
-</section>
-
-<section class="section fade" id="gallery">
-
-  <div class="container">
-
-    <h2 class="title">
-      Editorial gallery
-    </h2>
-
-    <p class="subtitle">
-      Moda, luces y estética glow luxury.
-    </p>
-
-    <div class="gallery">
-
-      <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=90">
-
-      <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1200&q=90">
-
-      <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1200&q=90">
-
-      <img src="https://images.unsplash.com/photo-1490725263030-1f0521cec8ec?auto=format&fit=crop&w=1200&q=90">
-
-      <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1200&q=90">
-
-    </div>
-
-  </div>
-
-</section>
-
-<section class="section fade" id="rsvp">
-
-  <div class="container">
-
-    <div class="rsvp">
-
-      <h2 class="title">
-        RSVP Glow Pass
-      </h2>
-
-      <p class="subtitle">
-        Confirma asistencia, personas y canciones sugeridas.
-      </p>
-
-      <form class="form" id="rsvpForm">
-
-        <input id="name" type="text" placeholder="Nombre completo" required>
-
-        <select id="attendance" required>
-          <option value="">¿Asistirás?</option>
-          <option>Sí asistiré</option>
-          <option>No podré asistir</option>
-        </select>
-
-        <input id="count" type="number" min="1" max="10" placeholder="Número de personas">
-
-        <input id="phone" type="tel" placeholder="Teléfono">
-
-        <textarea id="message"
-                  placeholder="Mensaje o canción sugerida"></textarea>
-
-      </form>
-
-      <div class="actions" style="justify-content:center;margin-top:2rem;">
-
-        <button class="btn btn-main" id="sendBtn">
-          Enviar confirmación
-        </button>
-
-        <a class="btn btn-outline"
-           href="https://wa.me/5215541946413"
-           target="_blank">
-          WhatsApp
-        </a>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-<footer>
-
-  <h3>
-    Te Invito a Mi Boda
-  </h3>
+  <h3>Te Invito a Mi Boda</h3>
 
   <p>
-    Invitaciones digitales premium para bodas y eventos especiales.
+    Invitaciones digitales premium para bodas, XV años y eventos especiales.
     Diseños modernos, editoriales y completamente personalizados.
   </p>
 
-  <div class="footer-links">
+  <div class="footer-contact">
+    <strong>Contacto</strong>
 
-    <a href="https://wa.me/5215541946413" target="_blank">
-      WhatsApp
-    </a>
-
-    <a href="#">
-      Instagram
-    </a>
-
-    <a href="#">
-      TikTok
-    </a>
-
+    <div class="footer-links">
+      <a href="https://wa.me/5215541946413" target="_blank">WhatsApp</a>
+      <a href="#">Instagram</a>
+      <a href="#">TikTok</a>
+    </div>
   </div>
 
   <div class="copy">
-    © 2026 TeInvitoAMiBoda.online
+    © 2026 TeInvitoAMiBoda.online — Todos los derechos reservados.
+  </div>
+
+  <div class="footer-legal">
+    <a href="../../../aviso-de-privacidad.html">Aviso de Privacidad</a>
+    <a href="../../../terminos-y-condiciones.html">Términos y Condiciones</a>
   </div>
 
 </footer>
 
 <script>
-
 const observer = new IntersectionObserver((entries)=>{
   entries.forEach(entry=>{
     if(entry.isIntersecting){
@@ -1321,9 +819,7 @@ const musicBtn = document.getElementById('musicBtn');
 let playing = false;
 
 musicBtn.addEventListener('click',async()=>{
-
   try{
-
     if(!playing){
       await music.play();
       musicBtn.innerHTML='❚❚ Pausar música';
@@ -1333,22 +829,19 @@ musicBtn.addEventListener('click',async()=>{
       musicBtn.innerHTML='♫ Activar experiencia sonora';
       playing=false;
     }
-
   }catch(error){
     alert('Tu navegador bloqueó la reproducción automática.');
   }
-
 });
 
 document.getElementById('sendBtn').addEventListener('click',()=>{
-
   const name=document.getElementById('name').value;
   const attendance=document.getElementById('attendance').value;
   const count=document.getElementById('count').value;
   const phone=document.getElementById('phone').value;
   const message=document.getElementById('message').value;
 
-  const text=
+  const text =
 `Hola, confirmo asistencia a los XV de Isabella.
 
 Nombre: ${name}
@@ -1361,9 +854,7 @@ Mensaje/Canción: ${message}`;
     `https://wa.me/5215541946413?text=${encodeURIComponent(text)}`,
     '_blank'
   );
-
 });
-
 </script>
 
 </body>

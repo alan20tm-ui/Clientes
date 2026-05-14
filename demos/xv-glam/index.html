@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>XV Glam | Invitación Digital</title>
-  <meta name="description" content="Demo de invitación digital para XV años estilo glam, elegante y moderna.">
+  <title>XV Glam | Invitación Digital Premium</title>
+  <meta name="description" content="Invitación digital premium para XV años estilo glam, elegante, moderna y personalizada.">
 
   <link rel="icon" type="image/png" href="/favicon.png">
 
@@ -17,6 +17,7 @@
       --bg2:#1a0f18;
       --pink:#f4bfd4;
       --rose:#d88aaa;
+      --rose-2:#b96a8f;
       --gold:#f3d38c;
       --champagne:#fff4e6;
       --muted:#d8c3cc;
@@ -26,7 +27,12 @@
     }
 
     *{margin:0;padding:0;box-sizing:border-box}
-    html{scroll-behavior:smooth;overflow-x:hidden}
+
+    html{
+      scroll-behavior:smooth;
+      overflow-x:hidden;
+    }
+
     body{
       font-family:'Montserrat',sans-serif;
       background:var(--bg);
@@ -41,12 +47,31 @@
     .ambient{
       position:fixed;
       inset:0;
-      z-index:-4;
+      z-index:-5;
+      pointer-events:none;
       background:
-        radial-gradient(circle at 15% 15%,rgba(244,191,212,.20),transparent 30%),
-        radial-gradient(circle at 88% 10%,rgba(243,211,140,.14),transparent 28%),
-        radial-gradient(circle at 50% 90%,rgba(216,138,170,.16),transparent 35%),
+        radial-gradient(circle at 15% 15%,rgba(244,191,212,.22),transparent 30%),
+        radial-gradient(circle at 88% 10%,rgba(243,211,140,.15),transparent 28%),
+        radial-gradient(circle at 50% 90%,rgba(216,138,170,.18),transparent 35%),
         linear-gradient(135deg,#080508,#1a0f18 48%,#080508);
+    }
+
+    .silk-glow{
+      position:fixed;
+      inset:0;
+      z-index:-4;
+      pointer-events:none;
+      opacity:.22;
+      background:
+        linear-gradient(115deg,transparent 0 34%,rgba(255,244,230,.20) 45%,transparent 58%),
+        linear-gradient(70deg,transparent 0 42%,rgba(244,191,212,.22) 52%,transparent 66%);
+      filter:blur(10px);
+      animation:silkMove 9s ease-in-out infinite alternate;
+    }
+
+    @keyframes silkMove{
+      from{transform:translateX(-18px)}
+      to{transform:translateX(18px)}
     }
 
     .sparkles{
@@ -54,7 +79,7 @@
       inset:0;
       z-index:-3;
       pointer-events:none;
-      opacity:.28;
+      opacity:.30;
       background-image:
         radial-gradient(circle,rgba(255,244,230,.9) 1px,transparent 1.7px),
         radial-gradient(circle,rgba(244,191,212,.7) 1px,transparent 1.5px),
@@ -78,17 +103,21 @@
       justify-content:center;
       width:74px;
       height:74px;
-      border-radius:22px;
+      border-radius:24px;
       background:linear-gradient(145deg,rgba(255,255,255,.10),rgba(255,255,255,.03));
       border:1px solid rgba(244,191,212,.24);
       backdrop-filter:blur(18px);
-      box-shadow:0 18px 42px rgba(0,0,0,.35),0 0 34px rgba(244,191,212,.14);
+      box-shadow:
+        0 18px 42px rgba(0,0,0,.35),
+        0 0 34px rgba(244,191,212,.14);
       transition:.35s ease;
     }
 
     .brand-home:hover{
       transform:translateY(-2px) scale(1.04);
-      box-shadow:0 22px 55px rgba(0,0,0,.48),0 0 44px rgba(244,191,212,.22);
+      box-shadow:
+        0 22px 55px rgba(0,0,0,.48),
+        0 0 44px rgba(244,191,212,.22);
     }
 
     .brand-home img{
@@ -103,16 +132,16 @@
       top:18px;
       left:50%;
       transform:translateX(-50%);
-      z-index:90;
+      z-index:110;
       display:flex;
       gap:.3rem;
       padding:.42rem;
-      max-width:calc(100vw - 110px);
+      max-width:calc(100vw - 130px);
       overflow-x:auto;
       scrollbar-width:none;
       border-radius:999px;
       border:1px solid var(--line);
-      background:rgba(16,9,17,.62);
+      background:rgba(16,9,17,.68);
       backdrop-filter:blur(18px);
       box-shadow:0 18px 44px rgba(0,0,0,.35);
     }
@@ -121,9 +150,10 @@
 
     .nav a{
       white-space:nowrap;
-      padding:.55rem .78rem;
+      padding:.55rem .82rem;
       border-radius:999px;
       font-size:.72rem;
+      font-weight:700;
       color:var(--muted);
       transition:.25s ease;
     }
@@ -137,7 +167,7 @@
       position:fixed;
       right:18px;
       bottom:18px;
-      z-index:100;
+      z-index:200;
       width:58px;
       height:58px;
       border-radius:50%;
@@ -145,8 +175,12 @@
       place-items:center;
       background:#25D366;
       color:#fff;
-      font-size:1.55rem;
       box-shadow:0 18px 42px rgba(0,0,0,.38);
+      transition:.25s ease;
+    }
+
+    .floating-whatsapp:hover{
+      transform:translateY(-3px) scale(1.04);
     }
 
     .hero{
@@ -158,7 +192,7 @@
       padding:7rem 1.2rem 4rem;
       overflow:hidden;
       background:
-        linear-gradient(rgba(16,9,17,.35),rgba(16,9,17,.88)),
+        linear-gradient(rgba(16,9,17,.28),rgba(16,9,17,.90)),
         url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1800&q=90') center/cover;
     }
 
@@ -170,6 +204,9 @@
       border:1px solid rgba(244,191,212,.32);
       pointer-events:none;
       z-index:2;
+      box-shadow:
+        inset 0 0 75px rgba(244,191,212,.09),
+        inset 0 0 95px rgba(243,211,140,.07);
     }
 
     .hero::after{
@@ -178,10 +215,27 @@
       left:0;
       right:0;
       bottom:0;
-      height:220px;
+      height:230px;
       background:linear-gradient(transparent,var(--bg));
       pointer-events:none;
       z-index:2;
+    }
+
+    .crown-mark{
+      position:absolute;
+      right:9%;
+      top:16%;
+      font-size:7.5rem;
+      opacity:.18;
+      filter:drop-shadow(0 0 22px rgba(243,211,140,.26));
+      animation:floatCrown 6s ease-in-out infinite;
+      pointer-events:none;
+      z-index:2;
+    }
+
+    @keyframes floatCrown{
+      0%,100%{transform:translateY(0) rotate(8deg)}
+      50%{transform:translateY(-16px) rotate(4deg)}
     }
 
     .hero-content{
@@ -192,17 +246,25 @@
     }
 
     .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:.5rem 1rem;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.055);
+      backdrop-filter:blur(14px);
       font-family:'Cinzel',serif;
       text-transform:uppercase;
-      letter-spacing:.42em;
+      letter-spacing:.30em;
       color:var(--gold);
-      font-size:.76rem;
+      font-size:.72rem;
       margin-bottom:1rem;
     }
 
     .script{
       font-family:'Great Vibes',cursive;
-      font-size:clamp(3rem,7vw,5.6rem);
+      font-size:clamp(3.2rem,7vw,5.8rem);
       color:var(--pink);
       line-height:1;
       text-shadow:0 0 34px rgba(244,191,212,.25);
@@ -210,7 +272,7 @@
 
     h1{
       font-family:'Cormorant Garamond',serif;
-      font-size:clamp(5rem,14vw,11rem);
+      font-size:clamp(5.2rem,14vw,11rem);
       font-weight:300;
       line-height:.82;
       letter-spacing:-.045em;
@@ -244,8 +306,7 @@
       height:1px;
       background:var(--line);
     }
-
-    .actions{
+        .actions{
       display:flex;
       justify-content:center;
       flex-wrap:wrap;
@@ -263,15 +324,33 @@
       padding:.95rem 1.35rem;
       font-family:'Montserrat',sans-serif;
       font-size:.88rem;
-      font-weight:600;
+      font-weight:700;
       cursor:pointer;
       transition:.25s ease;
     }
 
-    .btn:hover{transform:translateY(-2px)}
-    .btn-glam{background:linear-gradient(135deg,var(--rose),var(--pink),var(--gold));color:#170d12}
-    .btn-outline{border-color:var(--line);background:rgba(0,0,0,.25);color:var(--champagne)}
-    .btn-soft{border-color:var(--line);background:rgba(244,191,212,.10);color:var(--champagne)}
+    .btn:hover{
+      transform:translateY(-2px);
+    }
+
+    .btn-glam{
+      background:linear-gradient(135deg,var(--rose-2),var(--rose),var(--pink),var(--gold));
+      color:#170d12;
+      box-shadow:0 16px 36px rgba(244,191,212,.22);
+    }
+
+    .btn-outline{
+      border-color:var(--line);
+      background:rgba(0,0,0,.25);
+      color:var(--champagne);
+      backdrop-filter:blur(12px);
+    }
+
+    .btn-soft{
+      border-color:var(--line);
+      background:rgba(244,191,212,.10);
+      color:var(--champagne);
+    }
 
     .section{
       padding:6.2rem 1.15rem;
@@ -301,16 +380,32 @@
     }
 
     .glass{
-      background:linear-gradient(145deg,rgba(255,255,255,.07),rgba(255,255,255,.018));
+      background:linear-gradient(145deg,rgba(255,255,255,.075),rgba(255,255,255,.02));
       border:1px solid var(--line);
       border-radius:34px;
-      box-shadow:0 28px 78px var(--shadow), inset 0 1px 0 rgba(255,255,255,.05);
+      box-shadow:
+        0 28px 78px var(--shadow),
+        inset 0 1px 0 rgba(255,255,255,.05);
       backdrop-filter:blur(18px);
     }
 
-    .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
-    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
-    .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
+    .grid-4{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:1rem;
+    }
+
+    .grid-3{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:1rem;
+    }
+
+    .grid-2{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:1rem;
+    }
 
     .card{
       padding:1.7rem;
@@ -352,6 +447,26 @@
       text-align:center;
       max-width:930px;
       margin:auto;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .intro-card::before{
+      content:"✦";
+      position:absolute;
+      left:2rem;
+      top:1rem;
+      font-size:4rem;
+      color:rgba(244,191,212,.16);
+    }
+
+    .intro-card::after{
+      content:"✦";
+      position:absolute;
+      right:2rem;
+      bottom:1rem;
+      font-size:4rem;
+      color:rgba(243,211,140,.16);
     }
 
     .intro-card h2{
@@ -375,7 +490,8 @@
       min-height:620px;
       object-fit:cover;
       border-radius:34px;
-      filter:saturate(.92) contrast(1.05);
+      filter:saturate(.94) contrast(1.06);
+      box-shadow:0 28px 78px rgba(0,0,0,.42);
     }
 
     .story-copy{
@@ -412,6 +528,7 @@
       border-radius:26px;
       background:rgba(255,255,255,.045);
       border:1px solid var(--line);
+      box-shadow:0 18px 45px rgba(0,0,0,.26);
     }
 
     .time-box span{
@@ -487,7 +604,7 @@
       object-fit:cover;
       border-radius:28px;
       box-shadow:0 24px 60px rgba(0,0,0,.45);
-      filter:saturate(.92) contrast(1.04);
+      filter:saturate(.94) contrast(1.04);
     }
 
     .gallery img:first-child{
@@ -515,7 +632,9 @@
       margin-bottom:1rem;
     }
 
-    input,select,textarea{
+    input,
+    select,
+    textarea{
       width:100%;
       padding:1rem;
       border-radius:18px;
@@ -526,15 +645,28 @@
       font-family:'Montserrat',sans-serif;
     }
 
-    option{color:#111}
-    textarea{min-height:110px;resize:vertical}
-    .note{text-align:center;color:var(--muted);font-size:.88rem;margin-top:1rem}
+    option{
+      color:#111;
+    }
+
+    textarea{
+      min-height:110px;
+      resize:vertical;
+    }
+
+    .note{
+      text-align:center;
+      color:var(--muted);
+      font-size:.88rem;
+      margin-top:1rem;
+    }
 
     .footer-cta{
       text-align:center;
       padding:6.2rem 1.2rem;
       border-top:1px solid var(--line);
-      background:linear-gradient(135deg,rgba(244,191,212,.12),rgba(243,211,140,.06),rgba(0,0,0,.34));
+      background:
+        linear-gradient(135deg,rgba(244,191,212,.13),rgba(243,211,140,.07),rgba(0,0,0,.34));
     }
 
     .footer-cta h2{
@@ -624,8 +756,16 @@
     }
 
     @keyframes cinemaIn{
-      from{opacity:0;transform:translateY(30px) scale(.98);filter:blur(8px)}
-      to{opacity:1;transform:translateY(0) scale(1);filter:blur(0)}
+      from{
+        opacity:0;
+        transform:translateY(30px) scale(.98);
+        filter:blur(8px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+        filter:blur(0);
+      }
     }
 
     @media(max-width:980px){
@@ -648,7 +788,9 @@
         width:48px;
       }
 
-      .section{padding:4.8rem 1rem}
+      .section{
+        padding:4.8rem 1rem;
+      }
 
       .grid-4,
       .grid-3,
@@ -659,16 +801,47 @@
         grid-template-columns:1fr;
       }
 
-      .story-photo img{min-height:410px}
-      .timeline::before{left:0}
-      .timeline-item{grid-template-columns:1fr;gap:.6rem;padding-left:1.2rem}
-      .timeline-time{text-align:left}
-      .gallery{grid-template-columns:1fr}
+      .story-photo img{
+        min-height:410px;
+      }
+
+      .timeline::before{
+        left:0;
+      }
+
+      .timeline-item{
+        grid-template-columns:1fr;
+        gap:.6rem;
+        padding-left:1.2rem;
+      }
+
+      .timeline-time{
+        text-align:left;
+      }
+
+      .gallery{
+        grid-template-columns:1fr;
+      }
+
       .gallery img,
-      .gallery img:first-child{height:315px;grid-row:auto}
-      .hero::before{inset:.7rem;border-radius:24px}
+      .gallery img:first-child{
+        height:315px;
+        grid-row:auto;
+      }
+
+      .hero::before{
+        inset:.7rem;
+        border-radius:24px;
+      }
+
       .date-line::before,
-      .date-line::after{width:34px}
+      .date-line::after{
+        width:34px;
+      }
+
+      .crown-mark{
+        display:none;
+      }
     }
   </style>
 </head>
@@ -687,18 +860,36 @@
   <a href="#confirmar">RSVP</a>
 </nav>
 
-<a class="floating-whatsapp" href="https://wa.me/5215541946413?text=Hola,%20quiero%20cotizar%20una%20invitación%20de%20XV%20años" target="_blank">☘</a>
+<a
+  class="floating-whatsapp"
+  href="https://wa.me/5215541946413?text=Hola,%20quiero%20cotizar%20una%20invitación%20de%20XV%20años"
+  target="_blank"
+  aria-label="WhatsApp">
+  <svg viewBox="0 0 32 32" width="30" height="30" fill="currentColor">
+    <path d="M16.03 3C8.85 3 8.82 3 15.98c0 2.28.6 4.52 1.74 6.49L3 29l6.7-1.7a13.02 13.02 0 0 0 6.33 1.61C23.18 28.91 29 23.09 29 15.98S23.18 3 16.03 3zm0 23.73c-2 0-3.95-.54-5.66-1.57l-.4-.24-3.98 1.01 1.06-3.86-.26-.42a10.72 10.72 0 0 1-1.63-5.67c0-5.96 4.87-10.81 10.87-10.81 5.98 0 10.84 4.85 10.84 10.81s-4.86 10.75-10.84 10.75zm5.95-8.08c-.32-.16-1.9-.94-2.2-1.05-.3-.11-.52-.16-.74.16-.21.32-.85 1.05-1.04 1.27-.19.21-.38.24-.7.08-.32-.16-1.36-.5-2.59-1.59-.96-.85-1.61-1.9-1.8-2.22-.19-.32-.02-.49.14-.65.15-.15.32-.38.49-.57.16-.19.21-.32.32-.54.11-.21.05-.4-.03-.56-.08-.16-.74-1.78-1.01-2.44-.27-.64-.54-.55-.74-.56h-.63c-.21 0-.56.08-.85.4-.3.32-1.12 1.1-1.12 2.68s1.15 3.1 1.31 3.31c.16.21 2.26 3.45 5.48 4.84.77.33 1.37.53 1.83.68.77.24 1.47.21 2.02.13.62-.09 1.9-.78 2.17-1.53.27-.75.27-1.39.19-1.53-.08-.13-.29-.21-.61-.37z"/>
+  </svg>
+</a>
 
 <div class="ambient"></div>
+<div class="silk-glow"></div>
 <div class="sparkles"></div>
-
 <section class="hero">
+  <div class="crown-mark">♛</div>
+
   <div class="hero-content">
     <div class="eyebrow">Invitación digital glam</div>
+
     <div class="script">Mis XV años</div>
+
     <h1>Valentina</h1>
-    <p>Hay momentos que se sueñan toda la vida. Hoy quiero compartir contigo una noche llena de magia, brillo, música y recuerdos inolvidables.</p>
+
+    <p>
+      Hay momentos que se sueñan toda la vida. Hoy quiero compartir contigo
+      una noche llena de magia, brillo, música y recuerdos inolvidables.
+    </p>
+
     <div class="date-line">15 · Agosto · 2027</div>
+
     <div class="actions">
       <a class="btn btn-glam" href="#confirmar">Confirmar asistencia</a>
       <a class="btn btn-outline" href="#detalles">Ver detalles</a>
@@ -710,7 +901,11 @@
   <div class="container">
     <div class="intro-card glass">
       <h2>Una noche mágica</h2>
-      <p>Con mucha emoción quiero invitarte a celebrar conmigo este momento tan especial. Tu presencia hará que esta noche sea todavía más inolvidable.</p>
+
+      <p>
+        Con mucha emoción quiero invitarte a celebrar conmigo este momento tan especial.
+        Tu presencia hará que esta noche sea todavía más inolvidable.
+      </p>
     </div>
   </div>
 </section>
@@ -718,7 +913,10 @@
 <section class="section fade" id="detalles">
   <div class="container">
     <h2 class="title">Detalles del evento</h2>
-    <p class="subtitle">Estos son los lugares principales de mi celebración.</p>
+
+    <p class="subtitle">
+      Estos son los lugares principales de mi celebración.
+    </p>
 
     <div class="grid-2">
       <article class="card glass">
@@ -748,8 +946,16 @@
 
     <div class="story-copy glass">
       <h3>Gracias por ser parte de mi historia</h3>
-      <p>Este día representa una nueva etapa llena de sueños, ilusiones y momentos especiales.</p>
-      <p>Quiero vivir esta celebración rodeada de mi familia, mis amigos y todas las personas que han sido parte de mi camino.</p>
+
+      <p>
+        Este día representa una nueva etapa llena de sueños, ilusiones y momentos especiales.
+      </p>
+
+      <p>
+        Quiero vivir esta celebración rodeada de mi familia, mis amigos y todas las personas
+        que han sido parte de mi camino.
+      </p>
+
       <div class="actions" style="justify-content:flex-start;">
         <a class="btn btn-soft" href="#galeria">Ver galería</a>
         <a class="btn btn-outline" href="#timeline">Ver itinerario</a>
@@ -775,32 +981,50 @@
 <section class="section fade" id="timeline">
   <div class="container">
     <h2 class="title">Timeline de la noche</h2>
-    <p class="subtitle">Una guía de los momentos más esperados de la celebración.</p>
+
+    <p class="subtitle">
+      Una guía de los momentos más esperados de la celebración.
+    </p>
 
     <div class="timeline">
       <div class="timeline-item">
         <div class="timeline-time">5:30 PM</div>
-        <div class="timeline-detail"><strong>Misa</strong><p>Celebración de acción de gracias.</p></div>
+        <div class="timeline-detail">
+          <strong>Misa</strong>
+          <p>Celebración de acción de gracias.</p>
+        </div>
       </div>
 
       <div class="timeline-item">
         <div class="timeline-time">8:00 PM</div>
-        <div class="timeline-detail"><strong>Recepción</strong><p>Bienvenida de invitados y fotografías.</p></div>
+        <div class="timeline-detail">
+          <strong>Recepción</strong>
+          <p>Bienvenida de invitados y fotografías.</p>
+        </div>
       </div>
 
       <div class="timeline-item">
         <div class="timeline-time">9:00 PM</div>
-        <div class="timeline-detail"><strong>Entrada principal</strong><p>Momento especial de presentación.</p></div>
+        <div class="timeline-detail">
+          <strong>Entrada principal</strong>
+          <p>Momento especial de presentación.</p>
+        </div>
       </div>
 
       <div class="timeline-item">
         <div class="timeline-time">9:30 PM</div>
-        <div class="timeline-detail"><strong>Vals</strong><p>Baile familiar y momento emotivo.</p></div>
+        <div class="timeline-detail">
+          <strong>Vals</strong>
+          <p>Baile familiar y momento emotivo.</p>
+        </div>
       </div>
 
       <div class="timeline-item">
         <div class="timeline-time">10:30 PM</div>
-        <div class="timeline-detail"><strong>Fiesta</strong><p>Música, luces y celebración.</p></div>
+        <div class="timeline-detail">
+          <strong>Fiesta</strong>
+          <p>Música, luces y celebración.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -809,13 +1033,42 @@
 <section class="section fade">
   <div class="container">
     <h2 class="title">Detalles glam</h2>
-    <p class="subtitle">Todo lo necesario para disfrutar la noche.</p>
+
+    <p class="subtitle">
+      Todo lo necesario para disfrutar la noche.
+    </p>
 
     <div class="grid-4">
-      <article class="card glass"><span class="icon">👗</span><h3>Dress code</h3><p>Formal elegante. Se sugieren tonos neutros, negro o champagne.</p></article>
-      <article class="card glass"><span class="icon">🎵</span><h3>Playlist</h3><p>Sugiere una canción para bailar esa noche.</p><a class="btn btn-soft" href="https://wa.me/5215541946413?text=Hola,%20quiero%20sugerir%20esta%20canción%20para%20los%20XV:%20" target="_blank">Sugerir</a></article>
-      <article class="card glass"><span class="icon">🎁</span><h3>Regalos</h3><p>Tu presencia es el mejor regalo. También puedes dejar un detalle especial.</p><a class="btn btn-soft" href="#">Ver opciones</a></article>
-      <article class="card glass"><span class="icon">📅</span><h3>Calendario</h3><p>Agrega el evento para no olvidar la fecha.</p><a class="btn btn-soft" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=XV%20Valentina&dates=20270815T233000Z/20270816T060000Z&details=Celebración%20XV%20años&location=Ciudad%20de%20México" target="_blank">Agregar</a></article>
+      <article class="card glass">
+        <span class="icon">👗</span>
+        <h3>Dress code</h3>
+        <p>Formal elegante. Se sugieren tonos neutros, negro o champagne.</p>
+      </article>
+
+      <article class="card glass">
+        <span class="icon">🎵</span>
+        <h3>Playlist</h3>
+        <p>Sugiere una canción para bailar esa noche.</p>
+        <a class="btn btn-soft" href="https://wa.me/5215541946413?text=Hola,%20quiero%20sugerir%20esta%20canción%20para%20los%20XV:%20" target="_blank">
+          Sugerir
+        </a>
+      </article>
+
+      <article class="card glass">
+        <span class="icon">🎁</span>
+        <h3>Regalos</h3>
+        <p>Tu presencia es el mejor regalo. También puedes dejar un detalle especial.</p>
+        <a class="btn btn-soft" href="#">Ver opciones</a>
+      </article>
+
+      <article class="card glass">
+        <span class="icon">📅</span>
+        <h3>Calendario</h3>
+        <p>Agrega el evento para no olvidar la fecha.</p>
+        <a class="btn btn-soft" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=XV%20Valentina&dates=20270815T233000Z/20270816T060000Z&details=Celebración%20XV%20años&location=Ciudad%20de%20México" target="_blank">
+          Agregar
+        </a>
+      </article>
     </div>
   </div>
 </section>
@@ -823,7 +1076,10 @@
 <section class="section fade" id="galeria">
   <div class="container">
     <h2 class="title">Galería glam</h2>
-    <p class="subtitle">Un estilo visual moderno, elegante y perfecto para redes sociales.</p>
+
+    <p class="subtitle">
+      Un estilo visual moderno, elegante y perfecto para redes sociales.
+    </p>
 
     <div class="gallery">
       <img src="https://images.unsplash.com/photo-1529634806980-85c3dd6d34ac?auto=format&fit=crop&w=1200&q=90" alt="Galería XV">
@@ -838,17 +1094,23 @@
 <section class="rsvp fade" id="confirmar">
   <div class="container">
     <h2 class="title">Confirma tu asistencia</h2>
-    <p class="subtitle">Tu confirmación nos ayuda a preparar cada detalle de esta noche tan especial.</p>
+
+    <p class="subtitle">
+      Tu confirmación nos ayuda a preparar cada detalle de esta noche tan especial.
+    </p>
 
     <form class="rsvp-form glass" id="rsvpForm">
       <div class="form-grid">
         <input id="guestName" type="text" placeholder="Nombre completo" required>
+
         <select id="attendance" required>
           <option value="">¿Asistirás?</option>
           <option value="Sí asistiré">Sí asistiré</option>
           <option value="No podré asistir">No podré asistir</option>
         </select>
+
         <input id="guestCount" type="number" min="1" max="10" placeholder="Número de personas" required>
+
         <input id="phone" type="tel" placeholder="Teléfono de contacto">
       </div>
 
@@ -866,10 +1128,19 @@
 
 <section class="footer-cta">
   <h2>Una invitación con brillo propio</h2>
-  <p class="subtitle">Ideal para XV años, cumpleaños glam, fiestas elegantes y eventos con estética moderna.</p>
+
+  <p class="subtitle">
+    Ideal para XV años, cumpleaños glam, fiestas elegantes y eventos con estética moderna.
+  </p>
+
   <div class="actions">
-    <a class="btn btn-glam" href="https://wa.me/5215541946413?text=Hola,%20quiero%20cotizar%20una%20invitación%20para%20XV%20años" target="_blank">Cotizar este estilo</a>
-    <a class="btn btn-outline" href="/">Volver al catálogo</a>
+    <a class="btn btn-glam" href="https://wa.me/5215541946413?text=Hola,%20quiero%20cotizar%20una%20invitación%20para%20XV%20años" target="_blank">
+      Cotizar este estilo
+    </a>
+
+    <a class="btn btn-outline" href="/">
+      Volver al catálogo
+    </a>
   </div>
 </section>
 
@@ -877,12 +1148,13 @@
   <h3>Te Invito a Mi Boda</h3>
 
   <p>
-    Invitaciones digitales premium para bodas y eventos especiales.
+    Invitaciones digitales premium para bodas, XV años y eventos especiales.
     Diseños modernos, elegantes y completamente personalizados.
   </p>
 
   <div class="footer-contact">
     <strong>Contacto</strong>
+
     <div class="footer-links">
       <a href="https://wa.me/5215541946413" target="_blank">WhatsApp</a>
       <a href="#">Instagram</a>

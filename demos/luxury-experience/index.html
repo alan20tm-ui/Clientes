@@ -5,24 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
   <title>Luxury Experience | Catálogo Premium</title>
+  <meta name="description" content="Catálogo premium de invitaciones digitales cinematográficas para bodas, XV años y eventos elegantes.">
+
+  <link rel="icon" type="image/png" href="/favicon.png">
 
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
-
     :root{
       --bg:#050505;
       --bg2:#0d0d0d;
-
       --gold:#d6b46a;
       --gold2:#f6ddb0;
-
       --rose:#f1c3cb;
-
       --text:#f5eee8;
       --muted:#bfb2ab;
-
       --line:rgba(255,255,255,.08);
+      --glass:rgba(255,255,255,.055);
     }
 
     *{
@@ -31,17 +30,20 @@
       box-sizing:border-box;
     }
 
+    html{
+      scroll-behavior:smooth;
+      overflow-x:hidden;
+    }
+
     body{
       font-family:'Montserrat',sans-serif;
-
       background:
-        radial-gradient(circle at top left, rgba(241,195,203,.10), transparent 24%),
-        radial-gradient(circle at bottom right, rgba(214,180,106,.08), transparent 30%),
+        radial-gradient(circle at top left, rgba(241,195,203,.11), transparent 26%),
+        radial-gradient(circle at bottom right, rgba(214,180,106,.10), transparent 32%),
         linear-gradient(145deg,var(--bg),var(--bg2));
-
       color:var(--text);
-
       overflow-x:hidden;
+      line-height:1.7;
     }
 
     a{
@@ -49,374 +51,401 @@
       color:inherit;
     }
 
+    img{
+      max-width:100%;
+      display:block;
+    }
+
+    .ambient-glow{
+      position:fixed;
+      inset:0;
+      z-index:-3;
+      pointer-events:none;
+      background:
+        radial-gradient(circle at 18% 18%,rgba(241,195,203,.16),transparent 30%),
+        radial-gradient(circle at 82% 78%,rgba(214,180,106,.12),transparent 34%);
+    }
+
+    .grain{
+      position:fixed;
+      inset:0;
+      z-index:-2;
+      pointer-events:none;
+      opacity:.08;
+      background-image:url('https://www.transparenttextures.com/patterns/black-paper.png');
+    }
+
     .brand-home{
       position:fixed;
       top:18px;
       left:18px;
-
       z-index:120;
-
       width:74px;
       height:74px;
-
       display:flex;
       align-items:center;
       justify-content:center;
-
       border-radius:24px;
-
-      background:rgba(255,255,255,.05);
-
-      border:1px solid rgba(255,255,255,.08);
-
-      backdrop-filter:blur(16px);
-
-      box-shadow:0 12px 30px rgba(0,0,0,.35);
-
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.09);
+      backdrop-filter:blur(18px);
+      box-shadow:0 14px 34px rgba(0,0,0,.38);
       transition:.3s ease;
     }
 
     .brand-home:hover{
       transform:translateY(-3px) scale(1.04);
+      border-color:rgba(246,221,176,.24);
     }
 
     .brand-home img{
       width:56px;
+      object-fit:contain;
+    }
+
+    .floating-whatsapp{
+      position:fixed;
+      right:18px;
+      bottom:18px;
+      z-index:150;
+      width:58px;
+      height:58px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      background:#25D366;
+      color:#fff;
+      box-shadow:0 18px 42px rgba(0,0,0,.36);
+      transition:.25s ease;
+    }
+
+    .floating-whatsapp:hover{
+      transform:translateY(-3px) scale(1.04);
     }
 
     .hero{
-      min-height:60vh;
-
+      min-height:68vh;
       display:flex;
       align-items:center;
       justify-content:center;
-
       text-align:center;
-
       padding:8rem 1rem 4rem;
+      position:relative;
+    }
+
+    .hero::after{
+      content:"";
+      position:absolute;
+      bottom:1.5rem;
+      left:50%;
+      transform:translateX(-50%);
+      width:min(860px,86vw);
+      height:1px;
+      background:linear-gradient(90deg,transparent,rgba(246,221,176,.22),transparent);
     }
 
     .hero-content{
-      max-width:900px;
+      max-width:930px;
+      animation:fadeUp 1s ease both;
     }
 
     .eyebrow{
       color:var(--gold2);
-
       text-transform:uppercase;
-      letter-spacing:.4em;
-
+      letter-spacing:.42em;
       font-size:.75rem;
-
+      font-weight:600;
       margin-bottom:1rem;
     }
 
     h1{
       font-family:'Cinzel',serif;
-
-      font-size:clamp(4rem,10vw,7rem);
-
+      font-size:clamp(4rem,10vw,7.3rem);
       line-height:.92;
       font-weight:600;
-
       margin-bottom:1rem;
+      text-shadow:0 26px 70px rgba(0,0,0,.56);
     }
 
     .hero p{
-      max-width:720px;
-
+      max-width:740px;
       margin:auto;
-
       color:var(--muted);
-
-      line-height:1.8;
+      line-height:1.85;
+      font-size:1.03rem;
     }
-
-    .catalog{
+        .catalog{
       padding:1rem 1rem 6rem;
     }
 
     .catalog-grid{
-      max-width:1180px;
-
+      max-width:1200px;
       margin:auto;
-
       display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-
-      gap:1.5rem;
+      grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
+      gap:1.6rem;
     }
 
     .luxury-card{
       position:relative;
-
-      min-height:560px;
-
-      border-radius:36px;
-
+      min-height:620px;
+      border-radius:38px;
       overflow:hidden;
-
       border:1px solid rgba(255,255,255,.08);
-
-      box-shadow:0 20px 60px rgba(0,0,0,.35);
-
+      box-shadow:0 24px 70px rgba(0,0,0,.40);
       transition:.35s ease;
+      background:#111;
     }
 
     .luxury-card:hover{
       transform:translateY(-8px);
+      box-shadow:0 36px 90px rgba(0,0,0,.50);
     }
 
     .luxury-card video,
     .luxury-card img{
       position:absolute;
       inset:0;
-
       width:100%;
       height:100%;
-
       object-fit:cover;
+      transition:1.2s ease;
+    }
+
+    .luxury-card:hover video,
+    .luxury-card:hover img{
+      transform:scale(1.05);
     }
 
     .luxury-overlay{
       position:absolute;
       inset:0;
-
       background:
         linear-gradient(
-          to top,
-          rgba(0,0,0,.88),
-          rgba(0,0,0,.25)
+          180deg,
+          rgba(0,0,0,.12),
+          rgba(0,0,0,.84)
         );
     }
 
     .luxury-content{
       position:absolute;
       inset:auto 0 0 0;
-
-      padding:2.2rem;
-
-      z-index:2;
+      padding:2.4rem;
+      z-index:3;
     }
 
     .luxury-tag{
       display:inline-flex;
-
-      padding:.45rem .8rem;
-
+      align-items:center;
+      justify-content:center;
+      padding:.45rem .85rem;
       border-radius:999px;
-
       background:rgba(255,255,255,.08);
-
-      border:1px solid rgba(255,255,255,.08);
-
-      backdrop-filter:blur(12px);
-
+      border:1px solid rgba(255,255,255,.10);
+      backdrop-filter:blur(14px);
       color:var(--gold2);
-
       font-size:.72rem;
-
       letter-spacing:.12em;
       text-transform:uppercase;
-
       margin-bottom:1rem;
     }
 
     .luxury-content h2{
       font-family:'Cinzel',serif;
-
-      font-size:2.5rem;
-
-      line-height:1;
-
+      font-size:2.8rem;
+      line-height:.95;
       margin-bottom:1rem;
+      text-shadow:0 10px 30px rgba(0,0,0,.45);
     }
 
     .luxury-content p{
-      color:#d6cbc5;
-
-      line-height:1.7;
-
-      margin-bottom:1.5rem;
+      color:#ddd1cb;
+      line-height:1.75;
+      margin-bottom:1.6rem;
+      max-width:460px;
     }
 
     .luxury-btn{
       display:inline-flex;
-
       align-items:center;
       justify-content:center;
-
       padding:1rem 1.5rem;
-
       border-radius:999px;
-
-      background:linear-gradient(
-        135deg,
-        var(--rose),
-        var(--gold)
-      );
-
+      background:
+        linear-gradient(
+          135deg,
+          var(--rose),
+          var(--gold)
+        );
       color:#111;
-
       font-weight:700;
-
       transition:.25s ease;
+      box-shadow:0 12px 30px rgba(214,180,106,.16);
     }
 
     .luxury-btn:hover{
       transform:translateY(-3px);
     }
+
     .xv-card{
-  min-height:640px;
-}
+      min-height:700px;
+    }
 
-.xv-card video{
-  filter:
-    saturate(.85)
-    contrast(1.1)
-    hue-rotate(320deg)
-    brightness(.8);
+    .xv-card video{
+      filter:
+        saturate(.88)
+        contrast(1.1)
+        hue-rotate(320deg)
+        brightness(.78);
+      transform:scale(1.08);
+    }
 
-  transform:scale(1.1);
-}
+    .xv-gradient{
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(
+          180deg,
+          rgba(0,0,0,.10),
+          rgba(0,0,0,.88)
+        );
+      z-index:1;
+    }
 
-.xv-gradient{
-  position:absolute;
-  inset:0;
+    .xv-top{
+      position:absolute;
+      top:26px;
+      left:26px;
+      z-index:3;
+    }
 
-  background:
-    linear-gradient(
-      180deg,
-      rgba(0,0,0,.15),
-      rgba(0,0,0,.82)
-    );
+    .xv-top span{
+      display:inline-flex;
+      padding:.5rem .95rem;
+      border-radius:999px;
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.12);
+      backdrop-filter:blur(14px);
+      color:#ffe0f0;
+      font-size:.72rem;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+    }
 
-  z-index:1;
-}
-
-.xv-top{
-  position:absolute;
-
-  top:24px;
-  left:24px;
-
-  z-index:3;
-}
-
-.xv-top span{
-  display:inline-flex;
-
-  padding:.5rem .9rem;
-
-  border-radius:999px;
-
-  background:rgba(255,255,255,.08);
-
-  border:1px solid rgba(255,255,255,.12);
-
-  backdrop-filter:blur(12px);
-
-  color:#ffe0f0;
-
-  font-size:.72rem;
-
-  letter-spacing:.12em;
-  text-transform:uppercase;
-}
-
-.xv-center{
-  position:absolute;
-
-  inset:0;
-
-  z-index:3;
-
-  display:flex;
-  flex-direction:column;
-
-  align-items:center;
-  justify-content:center;
-
-  text-align:center;
-
-  padding:2rem;
-}
-
-.xv-center small{
-  color:#f6ddb0;
-
-  letter-spacing:.25em;
-  text-transform:uppercase;
-
-  font-size:.72rem;
-
-  margin-bottom:1rem;
-}
-
-.xv-center h2{
-  font-family:'Cinzel',serif;
-
-  font-size:clamp(4rem,8vw,6rem);
-
-  line-height:.9;
-
-  margin-bottom:1rem;
-
-  color:#fff;
-}
-
-.xv-center p{
-  max-width:420px;
-
-  color:#f4dbe3;
-
-  line-height:1.8;
-}
-
-.xv-bottom{
-  position:absolute;
-
-  left:0;
-  right:0;
-  bottom:32px;
-
-  z-index:3;
-
-  display:flex;
-  justify-content:center;
-}
-
-    .simple-footer{
+    .xv-center{
+      position:absolute;
+      inset:0;
+      z-index:3;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
       text-align:center;
+      padding:2rem;
+    }
 
-      padding:4rem 1.2rem 3rem;
+    .xv-center small{
+      color:var(--gold2);
+      letter-spacing:.25em;
+      text-transform:uppercase;
+      font-size:.72rem;
+      margin-bottom:1rem;
+    }
 
+    .xv-center h2{
+      font-family:'Cinzel',serif;
+      font-size:clamp(4rem,8vw,6rem);
+      line-height:.9;
+      margin-bottom:1rem;
+      color:#fff;
+      text-shadow:0 18px 40px rgba(0,0,0,.45);
+    }
+
+    .xv-center p{
+      max-width:420px;
+      color:#f3dce4;
+      line-height:1.85;
+    }
+
+    .xv-bottom{
+      position:absolute;
+      left:0;
+      right:0;
+      bottom:34px;
+      z-index:3;
+      display:flex;
+      justify-content:center;
+    }
+
+    .footer-cta{
+      padding:6rem 1.2rem;
+      text-align:center;
       border-top:1px solid rgba(255,255,255,.06);
+      background:
+        linear-gradient(
+          135deg,
+          rgba(241,195,203,.06),
+          rgba(214,180,106,.05)
+        );
+    }
 
+    .footer-cta h2{
+      font-family:'Cinzel',serif;
+      font-size:clamp(3rem,6vw,5rem);
+      line-height:.95;
+      margin-bottom:1rem;
+    }
+
+    .footer-cta p{
+      max-width:760px;
+      margin:auto;
+      color:var(--muted);
+      line-height:1.9;
+      margin-bottom:2rem;
+    }
+
+    .actions{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:1rem;
+      flex-wrap:wrap;
+    }
+        .simple-footer{
+      text-align:center;
+      padding:4rem 1.2rem 3rem;
+      border-top:1px solid rgba(255,255,255,.06);
       background:#060606;
     }
 
     .simple-footer h3{
       font-family:'Cinzel',serif;
-
-      font-size:2.2rem;
-
+      font-size:2.3rem;
       margin-bottom:.8rem;
     }
 
     .simple-footer p{
       max-width:720px;
-
       margin:auto auto 2rem;
-
       color:var(--muted);
+      line-height:1.9;
+    }
+
+    .footer-contact{
+      margin-bottom:2rem;
+    }
+
+    .footer-contact strong{
+      display:block;
+      margin-bottom:.8rem;
+      color:var(--gold2);
     }
 
     .footer-links,
     .footer-legal{
       display:flex;
       justify-content:center;
-
       gap:1rem;
       flex-wrap:wrap;
     }
@@ -424,7 +453,6 @@
     .footer-links a,
     .footer-legal a{
       color:var(--muted);
-
       transition:.25s ease;
     }
 
@@ -435,9 +463,7 @@
 
     .footer-bottom{
       margin-top:1rem;
-
       color:var(--muted);
-
       font-size:.9rem;
     }
 
@@ -446,15 +472,27 @@
       font-size:.88rem;
     }
 
+    @keyframes fadeUp{
+      from{
+        opacity:0;
+        transform:translateY(24px);
+        filter:blur(6px);
+      }
+
+      to{
+        opacity:1;
+        transform:translateY(0);
+        filter:blur(0);
+      }
+    }
+
     @media(max-width:700px){
 
       .brand-home{
         width:60px;
         height:60px;
-
         top:12px;
         left:12px;
-
         border-radius:18px;
       }
 
@@ -463,7 +501,20 @@
       }
 
       .luxury-card{
-        min-height:500px;
+        min-height:520px;
+      }
+
+      .xv-card{
+        min-height:580px;
+      }
+
+      .catalog-grid{
+        grid-template-columns:1fr;
+      }
+
+      .hero{
+        min-height:58vh;
+        padding:7rem 1rem 3rem;
       }
 
     }
@@ -473,8 +524,23 @@
 
 <body>
 
+<div class="ambient-glow"></div>
+<div class="grain"></div>
+
 <a href="../../" class="brand-home">
   <img src="../../TIAMB.png" alt="Te Invito a Mi Boda">
+</a>
+
+<a
+  class="floating-whatsapp"
+  href="https://wa.me/5215541946413?text=Hola,%20quiero%20cotizar%20una%20invitación%20Luxury%20Experience"
+  target="_blank"
+  aria-label="WhatsApp">
+
+  <svg viewBox="0 0 32 32" width="30" height="30" fill="currentColor">
+    <path d="M16.03 3C8.85 3 3 8.82 3 15.98c0 2.28.6 4.52 1.74 6.49L3 29l6.7-1.7a13.02 13.02 0 0 0 6.33 1.61C23.18 28.91 29 23.09 29 15.98S23.18 3 16.03 3zm0 23.73c-2 0-3.95-.54-5.66-1.57l-.4-.24-3.98 1.01 1.06-3.86-.26-.42a10.72 10.72 0 0 1-1.63-5.67c0-5.96 4.87-10.81 10.87-10.81 5.98 0 10.84 4.85 10.84 10.81s-4.86 10.75-10.84 10.75zm5.95-8.08c-.32-.16-1.9-.94-2.2-1.05-.3-.11-.52-.16-.74.16-.21.32-.85 1.05-1.04 1.27-.19.21-.38.24-.7.08-.32-.16-1.36-.5-2.59-1.59-.96-.85-1.61-1.9-1.8-2.22-.19-.32-.02-.49.14-.65.15-.15.32-.38.49-.57.16-.19.21-.32.32-.54.11-.21.05-.4-.03-.56-.08-.16-.74-1.78-1.01-2.44-.27-.64-.54-.55-.74-.56h-.63c-.21 0-.56.08-.85.4-.3.32-1.12 1.1-1.12 2.68s1.15 3.1 1.31 3.31c.16.21 2.26 3.45 5.48 4.84.77.33 1.37.53 1.83.68.77.24 1.47.21 2.02.13.62-.09 1.9-.78 2.17-1.53.27-.75.27-1.39.19-1.53-.08-.13-.29-.21-.61-.37z"/>
+  </svg>
+
 </a>
 
 <section class="hero">
@@ -491,7 +557,7 @@
 
     <p>
       Experiencias digitales cinematográficas para bodas y XV años.
-      Diseños elegantes, inmersivos y de alto impacto visual.
+      Diseños inmersivos, elegantes y pensados para eventos inolvidables.
     </p>
 
   </div>
@@ -505,9 +571,7 @@
     <!-- BODA -->
 
     <article class="luxury-card">
-<div class="xv-top">
-    <span>XV Luxury Experience</span>
-  </div>
+
       <video autoplay muted loop playsinline>
         <source src="../../assets/luxury/hero-video.mp4" type="video/mp4">
       </video>
@@ -526,7 +590,7 @@
 
         <p>
           Experiencia premium para bodas elegantes con video cinematográfico,
-          música y diseño inmersivo.
+          música ambiental y diseño inmersivo.
         </p>
 
         <a href="./boda/" class="luxury-btn">
@@ -539,42 +603,76 @@
 
     <!-- XV -->
 
-<article class="luxury-card xv-card">
+    <article class="luxury-card xv-card">
 
-  <video autoplay muted loop playsinline>
-    <source src="../../assets/luxury/hero-video.mp4" type="video/mp4">
-  </video>
+      <video autoplay muted loop playsinline>
+        <source src="../../assets/luxury/hero-video.mp4" type="video/mp4">
+      </video>
 
-  <div class="xv-gradient"></div>
+      <div class="xv-gradient"></div>
 
-  <div class="xv-top">
-    <span>XV Luxury Experience</span>
+      <div class="xv-top">
+        <span>XV Luxury Experience</span>
+      </div>
+
+      <div class="xv-center">
+
+        <small>Private Edition</small>
+
+        <h2>
+          Isabella
+        </h2>
+
+        <p>
+          Una experiencia editorial inspirada en moda,
+          glamour y noches inolvidables.
+        </p>
+
+      </div>
+
+      <div class="xv-bottom">
+
+        <a href="./xv/" class="luxury-btn">
+          Ver demo
+        </a>
+
+      </div>
+
+    </article>
+
   </div>
 
-  <div class="xv-center">
+</section>
 
-    <small>Private Edition</small>
+<section class="footer-cta">
 
-    <h2>
-      Isabella
-    </h2>
+  <h2>
+    Experiencias digitales de lujo
+  </h2>
 
-    <p>
-      Una experiencia editorial inspirada en moda,
-      glamour y noches inolvidables.
-    </p>
+  <p>
+    Diseños cinematográficos premium para bodas, XV años y celebraciones exclusivas.
+    Invitaciones inmersivas con estética editorial y detalles elegantes.
+  </p>
 
-  </div>
+  <div class="actions">
 
-  <div class="xv-bottom">
+    <a
+      class="luxury-btn"
+      href="https://wa.me/5215541946413?text=Hola,%20quiero%20cotizar%20una%20Luxury%20Experience"
+      target="_blank">
 
-    <a href="./xv/" class="luxury-btn">
-      Ver demo
+      Cotizar este estilo
+
     </a>
 
-  </div>
+    <a
+      class="luxury-btn"
+      href="../">
 
-</article>
+      Ver más diseños
+
+    </a>
 
   </div>
 
@@ -582,26 +680,36 @@
 
 <footer class="simple-footer">
 
-  <h3>Te Invito a Mi Boda</h3>
+  <h3>
+    Te Invito a Mi Boda
+  </h3>
 
   <p>
     Invitaciones digitales premium para bodas y eventos especiales.
-    Diseños modernos, elegantes y completamente personalizados.
+    Diseños modernos, cinematográficos y completamente personalizados.
   </p>
 
-  <div class="footer-links">
+  <div class="footer-contact">
 
-    <a href="https://wa.me/5215541946413" target="_blank">
-      WhatsApp
-    </a>
+    <strong>
+      Contacto
+    </strong>
 
-    <a href="#">
-      Instagram
-    </a>
+    <div class="footer-links">
 
-    <a href="#">
-      TikTok
-    </a>
+      <a href="https://wa.me/5215541946413" target="_blank">
+        WhatsApp
+      </a>
+
+      <a href="#">
+        Instagram
+      </a>
+
+      <a href="#">
+        TikTok
+      </a>
+
+    </div>
 
   </div>
 

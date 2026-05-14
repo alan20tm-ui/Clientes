@@ -220,6 +220,38 @@
       font-size:.86rem;
       line-height:1.6;
     }
+    .discount-badge{
+  position:absolute;
+  top:12px;
+  right:12px;
+  padding:.45rem .7rem;
+  border-radius:999px;
+  font-size:.68rem;
+  font-weight:700;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  background:linear-gradient(135deg,#f4d58d,#c9a45f);
+  color:#111;
+  box-shadow:0 10px 24px rgba(201,164,95,.25);
+}
+
+.discount-badge.luxury{
+  background:linear-gradient(135deg,#fff,#f4d58d);
+}
+
+.old-price{
+  text-decoration:line-through;
+  color:#8f8578;
+  font-size:.92rem;
+  margin-bottom:.2rem;
+}
+
+.price{
+  color:var(--gold-soft);
+  font-weight:700;
+  font-size:1.15rem;
+  margin-bottom:.8rem;
+}
 
     .extras{
       display:grid;
@@ -488,50 +520,97 @@
       <div class="panel-inner">
         <h2 class="section-title"><span>◇</span>1. Selecciona tu paquete</h2>
         <p class="section-desc">Elige el paquete que mejor se adapte a tu evento.</p>
+<div class="packages">
 
-        <div class="packages">
+  <label class="package-card">
+    <input type="radio" name="package" value="500" data-name="Minimalista" checked>
 
-          <label class="package-card">
-            <input type="radio" name="package" value="699" data-name="Minimalista" checked>
-            <div class="package-inner">
-              <div class="package-icon">◈</div>
-              <strong>Minimalista</strong>
-              <div class="price">$699 MXN</div>
-              <p>Diseño limpio, rápido y elegante.</p>
-            </div>
-          </label>
+    <div class="package-inner">
 
-          <label class="package-card">
-            <input type="radio" name="package" value="1199" data-name="Floral">
-            <div class="package-inner">
-              <div class="package-icon">✿</div>
-              <strong>Floral</strong>
-              <div class="price">$1,199 MXN</div>
-              <p>Romántico, delicado y visual.</p>
-            </div>
-          </label>
+      <div class="discount-badge">
+        Lanzamiento
+      </div>
 
-          <label class="package-card">
-            <input type="radio" name="package" value="2499" data-name="Elegante Premium">
-            <div class="package-inner">
-              <div class="package-icon">◇</div>
-              <strong>Premium</strong>
-              <div class="price">$2,499 MXN</div>
-              <p>Experiencia moderna con funciones avanzadas.</p>
-            </div>
-          </label>
+      <div class="package-icon">◈</div>
 
-          <label class="package-card">
-            <input type="radio" name="package" value="4999" data-name="Luxury Experience">
-            <div class="package-inner">
-              <div class="package-icon">♕</div>
-              <strong>Luxury</strong>
-              <div class="price">$4,999 MXN</div>
-              <p>Diseño cinematográfico tipo mini-app premium.</p>
-            </div>
-          </label>
+      <strong>Minimalista</strong>
 
-        </div>
+      <div class="old-price">$699 MXN</div>
+
+      <div class="price">$500 MXN</div>
+
+      <p>Diseño limpio, rápido y elegante.</p>
+
+    </div>
+  </label>
+
+  <label class="package-card">
+    <input type="radio" name="package" value="1000" data-name="Floral">
+
+    <div class="package-inner">
+
+      <div class="discount-badge">
+        Oferta especial
+      </div>
+
+      <div class="package-icon">✿</div>
+
+      <strong>Floral</strong>
+
+      <div class="old-price">$1,199 MXN</div>
+
+      <div class="price">$1,000 MXN</div>
+
+      <p>Romántico, delicado y visual.</p>
+
+    </div>
+  </label>
+
+  <label class="package-card">
+    <input type="radio" name="package" value="2000" data-name="Elegante Premium">
+
+    <div class="package-inner">
+
+      <div class="discount-badge">
+        -20%
+      </div>
+
+      <div class="package-icon">◇</div>
+
+      <strong>Premium</strong>
+
+      <div class="old-price">$2,499 MXN</div>
+
+      <div class="price">$2,000 MXN</div>
+
+      <p>Experiencia moderna con funciones avanzadas.</p>
+
+    </div>
+  </label>
+
+  <label class="package-card">
+    <input type="radio" name="package" value="3500" data-name="Luxury Experience">
+
+    <div class="package-inner">
+
+      <div class="discount-badge luxury">
+        Luxury Deal
+      </div>
+
+      <div class="package-icon">♕</div>
+
+      <strong>Luxury</strong>
+
+      <div class="old-price">$4,999 MXN</div>
+
+      <div class="price">$3,500 MXN</div>
+
+      <p>Diseño cinematográfico tipo mini-app premium.</p>
+
+    </div>
+  </label>
+
+</div>
 
         <h2 class="section-title"><span>☆</span>2. Agrega extras</h2>
         <p class="section-desc">Personaliza tu invitación con herramientas especiales.</p>

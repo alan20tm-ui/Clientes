@@ -4,31 +4,37 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <title>Cumpleaños Hombre Harry Potter | Invitación Digital</title>
-  <meta name="description" content="Invitación digital premium para cumpleaños de hombre con temática Harry Potter, cuenta regresiva, ubicación, galería y confirmación por WhatsApp.">
+  <title>Cumpleaños Hombre Mágico | Invitación Digital Premium</title>
+  <meta name="description" content="Invitación digital premium para cumpleaños de hombre con temática mágica, cuenta regresiva, ubicación, galería y confirmación por WhatsApp.">
 
   <link rel="icon" type="image/png" href="/favicon.png">
 
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Cinzel:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      --black:#050403;
-      --black-2:#100c08;
-      --brown:#1c1209;
+      --black:#050302;
+      --black-2:#0e0804;
+      --brown:#1b1008;
+      --wine:#65131f;
+      --red:#8f1d2c;
+      --green:#123b2b;
+      --blue:#18375c;
       --gold:#c9a45f;
       --gold-soft:#f4d58d;
-      --wine:#5f111c;
-      --red:#8b1e2d;
-      --green:#123b2a;
-      --text:#f7f1e8;
-      --muted:#c2b6a7;
-      --line:rgba(244,213,141,.22);
-      --card:rgba(20,14,9,.86);
-      --shadow:rgba(0,0,0,.62);
+      --paper:#e8d4a5;
+      --text:#f8f1e6;
+      --muted:#c9bda9;
+      --line:rgba(244,213,141,.24);
+      --card:rgba(18,11,6,.86);
+      --shadow:rgba(0,0,0,.65);
     }
 
-    *{margin:0;padding:0;box-sizing:border-box}
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
 
     html{
       scroll-behavior:smooth;
@@ -43,50 +49,155 @@
       line-height:1.75;
     }
 
-    a{text-decoration:none;color:inherit}
-    img{width:100%;display:block}
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    img{
+      display:block;
+      width:100%;
+    }
 
     .magic-bg{
       position:fixed;
       inset:0;
-      z-index:-5;
+      z-index:-6;
       pointer-events:none;
       background:
-        radial-gradient(circle at 12% 12%,rgba(201,164,95,.20),transparent 28%),
-        radial-gradient(circle at 88% 8%,rgba(95,17,28,.25),transparent 30%),
-        radial-gradient(circle at 65% 88%,rgba(18,59,42,.18),transparent 34%),
-        linear-gradient(135deg,#030201,#100905,#030201);
+        radial-gradient(circle at 14% 16%,rgba(201,164,95,.22),transparent 28%),
+        radial-gradient(circle at 86% 10%,rgba(101,19,31,.28),transparent 30%),
+        radial-gradient(circle at 74% 86%,rgba(18,59,43,.22),transparent 34%),
+        radial-gradient(circle at 20% 88%,rgba(24,55,92,.18),transparent 28%),
+        linear-gradient(135deg,#020100,#0d0703,#020100);
     }
 
-    .parchment-glow{
+    .stone-texture{
       position:fixed;
       inset:0;
-      z-index:-4;
+      z-index:-5;
       pointer-events:none;
-      opacity:.16;
-      background:
-        radial-gradient(ellipse at 20% 35%,#f4d58d 0%,transparent 28%),
-        radial-gradient(ellipse at 80% 22%,#fff2bd 0%,transparent 24%),
-        radial-gradient(ellipse at 50% 90%,#c9a45f 0%,transparent 30%);
-      filter:blur(12px);
+      opacity:.18;
+      background-image:
+        linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px),
+        linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px);
+      background-size:80px 80px;
+      mask-image:linear-gradient(to bottom,transparent,#000 12%,#000 90%,transparent);
     }
 
     .sparkles{
       position:fixed;
       inset:0;
-      z-index:-3;
+      z-index:-4;
       pointer-events:none;
-      opacity:.35;
+      opacity:.38;
       background-image:
-        radial-gradient(circle, rgba(244,213,141,.85) 1px, transparent 1.5px),
-        radial-gradient(circle, rgba(255,255,255,.35) 1px, transparent 1.4px);
-      background-size:120px 120px, 210px 210px;
-      animation:floatBg 24s linear infinite;
+        radial-gradient(circle,rgba(244,213,141,.9) 1px,transparent 1.5px),
+        radial-gradient(circle,rgba(255,255,255,.36) 1px,transparent 1.3px),
+        radial-gradient(circle,rgba(201,164,95,.52) 1.5px,transparent 2px);
+      background-size:110px 110px,190px 190px,260px 260px;
+      animation:floatBg 28s linear infinite;
     }
 
     @keyframes floatBg{
       from{transform:translateY(0)}
-      to{transform:translateY(-120px)}
+      to{transform:translateY(-130px)}
+    }
+
+    .floating-candles{
+      position:fixed;
+      inset:0;
+      z-index:-3;
+      pointer-events:none;
+      overflow:hidden;
+    }
+
+    .candle{
+      position:absolute;
+      width:10px;
+      height:42px;
+      border-radius:8px;
+      background:linear-gradient(#fff6d7,#b99a60);
+      box-shadow:0 0 24px rgba(244,213,141,.55);
+      opacity:.48;
+      animation:floatCandle 9s ease-in-out infinite;
+    }
+
+    .candle::before{
+      content:"";
+      position:absolute;
+      top:-14px;
+      left:50%;
+      width:10px;
+      height:16px;
+      transform:translateX(-50%);
+      border-radius:50% 50% 45% 45%;
+      background:radial-gradient(circle,#fff8c8 10%,#f4b94a 45%,transparent 70%);
+      box-shadow:0 0 22px rgba(244,213,141,.95);
+    }
+
+    .candle:nth-child(1){left:9%;top:22%;animation-delay:0s}
+    .candle:nth-child(2){left:23%;top:64%;animation-delay:1.7s}
+    .candle:nth-child(3){left:78%;top:18%;animation-delay:3s}
+    .candle:nth-child(4){left:88%;top:58%;animation-delay:4.4s}
+    .candle:nth-child(5){left:52%;top:12%;animation-delay:2.3s}
+
+    @keyframes floatCandle{
+      0%,100%{transform:translateY(0)}
+      50%{transform:translateY(-24px)}
+    }
+
+    .floating-letters{
+      position:fixed;
+      inset:0;
+      z-index:-2;
+      pointer-events:none;
+      overflow:hidden;
+    }
+
+    .letter{
+      position:absolute;
+      width:72px;
+      height:48px;
+      border-radius:4px;
+      background:linear-gradient(145deg,#e9d5a8,#b9955b);
+      border:1px solid rgba(80,45,15,.35);
+      box-shadow:0 12px 28px rgba(0,0,0,.34);
+      opacity:.26;
+      transform:rotate(-12deg);
+      animation:letterFloat 16s ease-in-out infinite;
+    }
+
+    .letter::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(35deg,transparent 49%,rgba(90,48,18,.42) 50%,transparent 51%),
+        linear-gradient(-35deg,transparent 49%,rgba(90,48,18,.35) 50%,transparent 51%);
+    }
+
+    .letter::after{
+      content:"";
+      position:absolute;
+      width:16px;
+      height:16px;
+      border-radius:50%;
+      background:var(--wine);
+      left:50%;
+      top:50%;
+      transform:translate(-50%,-50%);
+      box-shadow:0 0 8px rgba(0,0,0,.25);
+    }
+
+    .letter:nth-child(1){left:6%;top:44%;animation-delay:0s}
+    .letter:nth-child(2){left:84%;top:32%;animation-delay:3s;transform:rotate(13deg)}
+    .letter:nth-child(3){left:66%;top:76%;animation-delay:6s;transform:rotate(-7deg)}
+    .letter:nth-child(4){left:31%;top:18%;animation-delay:9s;transform:rotate(9deg)}
+
+    @keyframes letterFloat{
+      0%,100%{translate:0 0;rotate:0deg}
+      50%{translate:0 -35px;rotate:6deg}
     }
 
     .brand-home{
@@ -140,7 +251,9 @@
       box-shadow:0 14px 36px rgba(0,0,0,.38);
     }
 
-    .nav::-webkit-scrollbar{display:none}
+    .nav::-webkit-scrollbar{
+      display:none;
+    }
 
     .nav a{
       white-space:nowrap;
@@ -186,8 +299,9 @@
       padding:7rem 1.2rem 4rem;
       overflow:hidden;
       background:
-        linear-gradient(rgba(0,0,0,.34),rgba(0,0,0,.86)),
-        url('https://images.unsplash.com/photo-1518709268805-4e9042af2176?auto=format&fit=crop&w=1800&q=90') center/cover;
+        linear-gradient(rgba(0,0,0,.22),rgba(0,0,0,.88)),
+        radial-gradient(circle at 50% 28%,rgba(244,213,141,.16),transparent 28%),
+        linear-gradient(135deg,#140806,#070302 68%);
     }
 
     .hero::before{
@@ -198,6 +312,77 @@
       border:1px solid rgba(244,213,141,.24);
       pointer-events:none;
       box-shadow:inset 0 0 70px rgba(201,164,95,.10);
+    }
+
+    .castle{
+      position:absolute;
+      bottom:-2px;
+      left:50%;
+      width:min(960px,96vw);
+      height:290px;
+      transform:translateX(-50%);
+      opacity:.28;
+      pointer-events:none;
+    }
+
+    .tower,
+    .hall{
+      position:absolute;
+      bottom:0;
+      background:linear-gradient(180deg,#22130a,#090503);
+      border:1px solid rgba(244,213,141,.20);
+      box-shadow:0 0 35px rgba(0,0,0,.65);
+    }
+
+    .tower::before{
+      content:"";
+      position:absolute;
+      left:50%;
+      top:-54px;
+      transform:translateX(-50%);
+      width:0;
+      height:0;
+      border-left:42px solid transparent;
+      border-right:42px solid transparent;
+      border-bottom:54px solid #34110e;
+      filter:drop-shadow(0 0 12px rgba(244,213,141,.10));
+    }
+
+    .tower::after,
+    .hall::after{
+      content:"";
+      position:absolute;
+      inset:28px 18px auto;
+      height:12px;
+      background:
+        radial-gradient(circle,#f4d58d 0 3px,transparent 4px),
+        radial-gradient(circle,#f4d58d 0 3px,transparent 4px);
+      background-size:34px 12px;
+      opacity:.55;
+    }
+
+    .tower-1{left:3%;width:92px;height:210px}
+    .tower-2{left:20%;width:112px;height:255px}
+    .tower-3{right:20%;width:112px;height:255px}
+    .tower-4{right:3%;width:92px;height:210px}
+
+    .hall{
+      left:28%;
+      width:44%;
+      height:170px;
+      border-radius:24px 24px 0 0;
+    }
+
+    .moon{
+      position:absolute;
+      top:18%;
+      right:14%;
+      width:96px;
+      height:96px;
+      border-radius:50%;
+      background:radial-gradient(circle,#fff8d8,#d7bd75 62%,transparent 70%);
+      box-shadow:0 0 70px rgba(244,213,141,.32);
+      opacity:.68;
     }
 
     .hero-content{
@@ -223,15 +408,14 @@
       margin-bottom:1.4rem;
       backdrop-filter:blur(14px);
     }
-
-    .spell{
+        .spell{
       font-family:'Cinzel',serif;
       color:var(--gold-soft);
       font-size:clamp(1.4rem,3vw,2.1rem);
-      letter-spacing:.22em;
+      letter-spacing:.24em;
       text-transform:uppercase;
       margin-bottom:.5rem;
-      text-shadow:0 0 18px rgba(244,213,141,.28);
+      text-shadow:0 0 18px rgba(244,213,141,.35);
     }
 
     h1{
@@ -313,7 +497,8 @@
       color:var(--gold-soft);
       backdrop-filter:blur(12px);
     }
-        .section{
+
+    .section{
       padding:5.8rem 1.2rem;
     }
 
@@ -352,6 +537,18 @@
       text-align:center;
       max-width:920px;
       margin:auto;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .intro-card::before{
+      content:"⚡";
+      position:absolute;
+      right:2rem;
+      top:1rem;
+      font-size:4rem;
+      color:rgba(244,213,141,.18);
+      transform:rotate(12deg);
     }
 
     .intro-card h2{
@@ -370,6 +567,12 @@
       gap:1rem;
     }
 
+    .grid-4{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:1rem;
+    }
+
     .grid-2{
       display:grid;
       grid-template-columns:repeat(2,1fr);
@@ -380,6 +583,8 @@
       padding:1.8rem;
       text-align:center;
       transition:.25s ease;
+      position:relative;
+      overflow:hidden;
     }
 
     .card:hover{
@@ -406,6 +611,29 @@
       font-size:.94rem;
     }
 
+    .house-card{
+      min-height:190px;
+    }
+
+    .house-card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      opacity:.18;
+      background:linear-gradient(135deg,var(--house-a),var(--house-b));
+      pointer-events:none;
+    }
+
+    .house-card > *{
+      position:relative;
+      z-index:2;
+    }
+
+    .gryffindor{--house-a:#7f101c;--house-b:#c9a45f}
+    .slytherin{--house-a:#0d4b34;--house-b:#c9c9c9}
+    .ravenclaw{--house-a:#173e6e;--house-b:#b8793a}
+    .hufflepuff{--house-a:#d6a629;--house-b:#111}
+
     .timer{
       display:grid;
       grid-template-columns:repeat(4,1fr);
@@ -419,6 +647,7 @@
       border-radius:28px;
       background:rgba(255,255,255,.045);
       border:1px solid var(--line);
+      box-shadow:0 18px 45px rgba(0,0,0,.32);
     }
 
     .time-box span{
@@ -443,13 +672,84 @@
       align-items:stretch;
     }
 
-    .story-photo img{
-      height:100%;
+    .story-visual{
       min-height:560px;
-      object-fit:cover;
       border-radius:34px;
+      position:relative;
+      overflow:hidden;
       box-shadow:0 24px 60px var(--shadow);
-      filter:saturate(.9) contrast(1.06);
+      background:
+        radial-gradient(circle at 50% 24%,rgba(244,213,141,.24),transparent 24%),
+        linear-gradient(180deg,#1b0b07,#060302);
+      border:1px solid var(--line);
+    }
+
+    .platform{
+      position:absolute;
+      left:8%;
+      right:8%;
+      bottom:72px;
+      height:18px;
+      background:linear-gradient(90deg,transparent,var(--gold-soft),transparent);
+      opacity:.58;
+    }
+
+    .train{
+      position:absolute;
+      left:10%;
+      right:10%;
+      bottom:92px;
+      height:86px;
+      border-radius:18px 18px 8px 8px;
+      background:linear-gradient(135deg,#5f111c,#1a0708);
+      border:1px solid rgba(244,213,141,.32);
+      box-shadow:0 20px 45px rgba(0,0,0,.55);
+    }
+
+    .train::before{
+      content:"";
+      position:absolute;
+      left:24px;
+      top:22px;
+      right:24px;
+      height:24px;
+      background:
+        repeating-linear-gradient(
+          90deg,
+          rgba(244,213,141,.72) 0 42px,
+          transparent 42px 58px
+        );
+      border-radius:8px;
+      opacity:.75;
+    }
+
+    .train::after{
+      content:"9¾";
+      position:absolute;
+      right:24px;
+      bottom:12px;
+      font-family:'Cinzel',serif;
+      color:var(--gold-soft);
+      font-size:1.6rem;
+    }
+
+    .smoke{
+      position:absolute;
+      width:90px;
+      height:90px;
+      border-radius:50%;
+      background:rgba(255,255,255,.08);
+      filter:blur(2px);
+      animation:smoke 5s ease-in-out infinite;
+    }
+
+    .smoke.s1{left:18%;bottom:190px}
+    .smoke.s2{left:28%;bottom:230px;animation-delay:1.4s}
+    .smoke.s3{left:40%;bottom:205px;animation-delay:2.5s}
+
+    @keyframes smoke{
+      0%,100%{transform:translateY(0) scale(.9);opacity:.08}
+      50%{transform:translateY(-30px) scale(1.15);opacity:.22}
     }
 
     .story-copy{
@@ -521,31 +821,142 @@
     .timeline-detail p{
       color:var(--muted);
     }
-
-    .gallery{
+        .gallery{
       display:grid;
       grid-template-columns:1.25fr .75fr .75fr;
       gap:1rem;
     }
 
-    .gallery img{
-      height:330px;
-      object-fit:cover;
+    .magic-panel{
+      min-height:320px;
       border-radius:28px;
+      border:1px solid var(--line);
       box-shadow:0 22px 55px var(--shadow);
-      filter:saturate(.9) contrast(1.05);
+      background:rgba(255,255,255,.045);
+      position:relative;
+      overflow:hidden;
+      padding:1.5rem;
+      display:flex;
+      align-items:flex-end;
     }
 
-    .gallery img:first-child{
+    .magic-panel.big{
       height:680px;
       grid-row:span 2;
+    }
+
+    .magic-panel h3{
+      font-family:'Cormorant Garamond',serif;
+      color:var(--gold-soft);
+      font-size:2.2rem;
+      position:relative;
+      z-index:3;
+    }
+
+    .magic-panel p{
+      color:var(--muted);
+      position:relative;
+      z-index:3;
+    }
+
+    .panel-castle{
+      background:
+        linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.82)),
+        radial-gradient(circle at 50% 22%,rgba(244,213,141,.35),transparent 18%),
+        linear-gradient(135deg,#27110a,#050202);
+    }
+
+    .panel-castle::before{
+      content:"🏰";
+      position:absolute;
+      font-size:10rem;
+      left:50%;
+      top:35%;
+      transform:translate(-50%,-50%);
+      opacity:.42;
+      filter:drop-shadow(0 0 18px rgba(244,213,141,.22));
+    }
+
+    .panel-potions{
+      background:
+        radial-gradient(circle at 30% 30%,rgba(18,59,43,.5),transparent 25%),
+        radial-gradient(circle at 70% 55%,rgba(95,17,28,.48),transparent 26%),
+        linear-gradient(135deg,#080403,#1a0b07);
+    }
+
+    .panel-potions::before{
+      content:"⚗️";
+      position:absolute;
+      font-size:7rem;
+      right:1.2rem;
+      top:1rem;
+      opacity:.45;
+    }
+
+    .panel-wand{
+      background:
+        radial-gradient(circle at 75% 25%,rgba(244,213,141,.42),transparent 22%),
+        linear-gradient(135deg,#0b0503,#251008);
+    }
+
+    .panel-wand::before{
+      content:"✦";
+      position:absolute;
+      right:2rem;
+      top:1rem;
+      font-size:6rem;
+      color:rgba(244,213,141,.55);
+    }
+
+    .panel-wand::after{
+      content:"";
+      position:absolute;
+      left:2rem;
+      top:3rem;
+      width:220px;
+      height:6px;
+      background:linear-gradient(90deg,#5a3215,#f4d58d);
+      transform:rotate(-28deg);
+      border-radius:999px;
+      box-shadow:0 0 20px rgba(244,213,141,.36);
+    }
+
+    .panel-letter{
+      background:
+        radial-gradient(circle at 50% 28%,rgba(232,212,165,.30),transparent 30%),
+        linear-gradient(135deg,#120905,#030201);
+    }
+
+    .panel-letter::before{
+      content:"✉";
+      position:absolute;
+      right:2rem;
+      top:1rem;
+      font-size:7rem;
+      color:rgba(232,212,165,.42);
+    }
+
+    .panel-butterbeer{
+      background:
+        radial-gradient(circle at 32% 28%,rgba(244,213,141,.38),transparent 22%),
+        linear-gradient(135deg,#301206,#080302);
+    }
+
+    .panel-butterbeer::before{
+      content:"🍺";
+      position:absolute;
+      right:1.5rem;
+      top:1rem;
+      font-size:6rem;
+      opacity:.55;
     }
 
     .rsvp{
       padding:6.5rem 1.2rem;
       background:
         linear-gradient(rgba(5,4,3,.78),rgba(5,4,3,.94)),
-        url('https://images.unsplash.com/photo-1505236858219-8359eb29e329?auto=format&fit=crop&w=1800&q=90') center/cover;
+        radial-gradient(circle at 50% 30%,rgba(201,164,95,.18),transparent 26%),
+        linear-gradient(135deg,#120705,#040201);
     }
 
     .rsvp-form{
@@ -587,7 +998,7 @@
       text-align:center;
       padding:5.8rem 1.2rem;
       background:
-        linear-gradient(135deg,rgba(95,17,28,.16),rgba(201,164,95,.08)),
+        linear-gradient(135deg,rgba(95,17,28,.18),rgba(18,59,43,.16)),
         linear-gradient(180deg,rgba(0,0,0,.86),rgba(0,0,0,.96));
       border-top:1px solid var(--line);
     }
@@ -699,7 +1110,9 @@
         border-radius:18px;
       }
 
-      .brand-home img{width:48px}
+      .brand-home img{
+        width:48px;
+      }
 
       .nav{
         left:90px;
@@ -709,9 +1122,12 @@
         justify-content:flex-start;
       }
 
-      .section{padding:4.6rem 1rem}
+      .section{
+        padding:4.6rem 1rem;
+      }
 
       .grid-3,
+      .grid-4,
       .grid-2,
       .timer,
       .form-grid,
@@ -719,9 +1135,13 @@
         grid-template-columns:1fr;
       }
 
-      .story-photo img{min-height:360px}
+      .story-visual{
+        min-height:360px;
+      }
 
-      .timeline::before{left:0}
+      .timeline::before{
+        left:0;
+      }
 
       .timeline-item{
         grid-template-columns:1fr;
@@ -729,13 +1149,18 @@
         padding-left:1.2rem;
       }
 
-      .timeline-time{text-align:left}
+      .timeline-time{
+        text-align:left;
+      }
 
-      .gallery{grid-template-columns:1fr}
+      .gallery{
+        grid-template-columns:1fr;
+      }
 
-      .gallery img,
-      .gallery img:first-child{
-        height:300px;
+      .magic-panel,
+      .magic-panel.big{
+        min-height:300px;
+        height:auto;
         grid-row:auto;
       }
 
@@ -747,6 +1172,16 @@
       .date-line::before,
       .date-line::after{
         width:34px;
+      }
+
+      .castle{
+        height:210px;
+        opacity:.22;
+      }
+
+      .moon{
+        width:72px;
+        height:72px;
       }
     }
   </style>
@@ -760,14 +1195,15 @@
 
 <nav class="nav">
   <a href="#detalles">Detalles</a>
-  <a href="#historia">Historia</a>
+  <a href="#casas">Casas</a>
+  <a href="#historia">Andén</a>
   <a href="#timeline">Timeline</a>
   <a href="#galeria">Galería</a>
   <a href="#confirmar">RSVP</a>
 </nav>
 
 <a class="floating-whatsapp"
-   href="https://wa.me/5215541946413?text=Hola,%20quiero%20cotizar%20una%20invitación%20de%20cumpleaños%20temática%20Harry%20Potter"
+   href="https://wa.me/5215541946413?text=Hola,%20quiero%20cotizar%20una%20invitación%20de%20cumpleaños%20con%20temática%20mágica"
    target="_blank"
    aria-label="WhatsApp">
   <svg viewBox="0 0 32 32" width="30" height="30" fill="currentColor">
@@ -776,10 +1212,35 @@
 </a>
 
 <div class="magic-bg"></div>
-<div class="parchment-glow"></div>
+<div class="stone-texture"></div>
 <div class="sparkles"></div>
 
+<div class="floating-candles">
+  <div class="candle"></div>
+  <div class="candle"></div>
+  <div class="candle"></div>
+  <div class="candle"></div>
+  <div class="candle"></div>
+</div>
+
+<div class="floating-letters">
+  <div class="letter"></div>
+  <div class="letter"></div>
+  <div class="letter"></div>
+  <div class="letter"></div>
+</div>
+
 <section class="hero">
+  <div class="moon"></div>
+
+  <div class="castle">
+    <div class="tower tower-1"></div>
+    <div class="tower tower-2"></div>
+    <div class="hall"></div>
+    <div class="tower tower-3"></div>
+    <div class="tower tower-4"></div>
+  </div>
+
   <div class="hero-content">
     <div class="kicker">Invitación digital premium</div>
 
@@ -803,11 +1264,11 @@
     </div>
   </div>
 </section>
+
 <section class="section fade">
   <div class="container">
     <div class="intro-card glass">
       <h2>La carta ha llegado</h2>
-
       <p>
         Esta no es una fiesta cualquiera. Es una noche para celebrar como verdaderos magos:
         con estilo, misterio, buena música y una mesa digna del Gran Comedor.
@@ -819,7 +1280,6 @@
 <section class="section fade" id="detalles">
   <div class="container">
     <h2 class="title">Detalles de la celebración</h2>
-
     <p class="subtitle">
       Aquí encontrarás la información principal para llegar a tiempo al castillo.
     </p>
@@ -854,20 +1314,57 @@
   </div>
 </section>
 
+<section class="section fade" id="casas">
+  <div class="container">
+    <h2 class="title">Elige tu casa</h2>
+    <p class="subtitle">
+      Para darle más personalidad a la noche, puedes asistir con detalles del color de tu casa favorita.
+    </p>
+
+    <div class="grid-4">
+      <article class="card glass house-card gryffindor">
+        <span class="icon">🦁</span>
+        <h3>Gryffindor</h3>
+        <p>Vino, rojo profundo y dorado.</p>
+      </article>
+
+      <article class="card glass house-card slytherin">
+        <span class="icon">🐍</span>
+        <h3>Slytherin</h3>
+        <p>Verde oscuro, negro y plata.</p>
+      </article>
+
+      <article class="card glass house-card ravenclaw">
+        <span class="icon">🦅</span>
+        <h3>Ravenclaw</h3>
+        <p>Azul noche, cobre y detalles sobrios.</p>
+      </article>
+
+      <article class="card glass house-card hufflepuff">
+        <span class="icon">🦡</span>
+        <h3>Hufflepuff</h3>
+        <p>Mostaza, negro y acentos cálidos.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
 <section class="section fade" id="historia">
   <div class="container story-layout">
-    <div class="story-photo">
-      <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?auto=format&fit=crop&w=1200&q=90" alt="Celebración mágica">
+    <div class="story-visual">
+      <div class="smoke s1"></div>
+      <div class="smoke s2"></div>
+      <div class="smoke s3"></div>
+      <div class="train"></div>
+      <div class="platform"></div>
     </div>
 
     <div class="story-copy glass">
-      <h3>Una noche fuera del mundo muggle</h3>
-
+      <h3>Salida desde el Andén 9¾</h3>
       <p>
         La celebración estará inspirada en un ambiente mágico, elegante y misterioso:
-        luces cálidas, detalles dorados, copas alzadas y una vibra perfecta para celebrar.
+        luces cálidas, cartas flotantes, velas, detalles dorados y una vibra perfecta para celebrar.
       </p>
-
       <p>
         Ven preparado para brindar, bailar y ser parte de una noche que quedará en la memoria.
       </p>
@@ -883,7 +1380,6 @@
 <section class="section fade">
   <div class="container">
     <h2 class="title">Cuenta regresiva</h2>
-
     <p class="subtitle">
       Cada segundo falta menos para que comience la magia.
     </p>
@@ -900,7 +1396,6 @@
 <section class="section fade" id="timeline">
   <div class="container">
     <h2 class="title">Itinerario</h2>
-
     <p class="subtitle">
       Una guía sencilla de los momentos principales de la noche.
     </p>
@@ -944,17 +1439,45 @@
 <section class="section fade" id="galeria">
   <div class="container">
     <h2 class="title">Galería de inspiración</h2>
-
     <p class="subtitle">
-      Un estilo oscuro, elegante y mágico para una celebración de hombre diferente.
+      Elementos visuales mágicos sin depender de imágenes externas.
     </p>
 
     <div class="gallery">
-      <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?auto=format&fit=crop&w=1200&q=90" alt="Inspiración Harry Potter">
-      <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=1200&auto=format&fit=crop" alt="Fiesta elegante">
-      <img src="https://images.unsplash.com/photo-1505236858219-8359eb29e329?auto=format&fit=crop&w=1200&q=90" alt="Celebración nocturna">
-      <img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?q=80&w=1200&auto=format&fit=crop" alt="Brindis">
-      <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?q=80&w=1200&auto=format&fit=crop" alt="Evento premium">
+      <article class="magic-panel big panel-castle">
+        <div>
+          <h3>Castillo nocturno</h3>
+          <p>Ambiente oscuro, dorado y misterioso.</p>
+        </div>
+      </article>
+
+      <article class="magic-panel panel-potions">
+        <div>
+          <h3>Pociones</h3>
+          <p>Drinks temáticos y brindis.</p>
+        </div>
+      </article>
+
+      <article class="magic-panel panel-wand">
+        <div>
+          <h3>Varitas</h3>
+          <p>Detalles brillantes y mágicos.</p>
+        </div>
+      </article>
+
+      <article class="magic-panel panel-letter">
+        <div>
+          <h3>Cartas</h3>
+          <p>Invitación estilo pergamino.</p>
+        </div>
+      </article>
+
+      <article class="magic-panel panel-butterbeer">
+        <div>
+          <h3>Brindis</h3>
+          <p>Cerveza de mantequilla, whisky o drinks.</p>
+        </div>
+      </article>
     </div>
   </div>
 </section>
@@ -962,7 +1485,6 @@
 <section class="rsvp fade" id="confirmar">
   <div class="container">
     <h2 class="title">Confirma tu asistencia</h2>
-
     <p class="subtitle">
       Confirma tu presencia para reservar tu lugar en esta noche mágica.
     </p>
@@ -1000,7 +1522,7 @@
   </p>
 
   <div class="actions">
-    <a class="btn btn-gold" href="https://wa.me/5215541946413?text=Hola,%20quiero%20cotizar%20una%20invitación%20de%20cumpleaños%20temática%20Harry%20Potter" target="_blank">
+    <a class="btn btn-gold" href="https://wa.me/5215541946413?text=Hola,%20quiero%20cotizar%20una%20invitación%20de%20cumpleaños%20con%20temática%20mágica" target="_blank">
       Cotizar este estilo
     </a>
 

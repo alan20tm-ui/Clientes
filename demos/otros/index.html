@@ -5,17 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Otros Diseños | Invitaciones Digitales</title>
+  <meta name="description" content="Catálogo de invitaciones digitales premium para eventos especiales, infantiles, empresariales y temáticos.">
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="/favicon.png">
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
-
     :root{
-      --bg:#f7f7f5;
+      --bg:#f6f5f2;
       --text:#151515;
-      --muted:#6b6b6b;
-      --line:#e2e2e2;
+      --muted:#6c6c6c;
+      --line:#e4e1dc;
       --card:#ffffff;
+      --soft:#fbfaf7;
+      --black:#111111;
+      --shadow:rgba(0,0,0,.06);
+      --shadow-strong:rgba(0,0,0,.12);
     }
 
     *{
@@ -26,11 +32,15 @@
 
     html{
       scroll-behavior:smooth;
+      overflow-x:hidden;
     }
 
     body{
       font-family:'Inter',sans-serif;
-      background:var(--bg);
+      background:
+        radial-gradient(circle at 12% 18%,rgba(0,0,0,.035),transparent 28%),
+        radial-gradient(circle at 88% 78%,rgba(0,0,0,.04),transparent 32%),
+        linear-gradient(135deg,#f7f7f5,#eeeeea);
       color:var(--text);
       overflow-x:hidden;
     }
@@ -45,33 +55,36 @@
       display:block;
     }
 
+    .noise{
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      z-index:-1;
+      opacity:.055;
+      background-image:url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+    }
+
     .brand-home{
       position:fixed;
       top:18px;
       left:18px;
       z-index:120;
-
       display:flex;
       align-items:center;
       justify-content:center;
-
       width:72px;
       height:72px;
-
-      border-radius:22px;
-
+      border-radius:24px;
       background:rgba(255,255,255,.82);
       border:1px solid rgba(0,0,0,.05);
-
-      backdrop-filter:blur(16px);
-
-      box-shadow:0 14px 34px rgba(0,0,0,.08);
-
+      backdrop-filter:blur(18px);
+      box-shadow:0 14px 34px var(--shadow);
       transition:.3s ease;
     }
 
     .brand-home:hover{
       transform:translateY(-2px) scale(1.04);
+      box-shadow:0 20px 44px rgba(0,0,0,.10);
     }
 
     .brand-home img{
@@ -81,167 +94,227 @@
     }
 
     .hero{
-      min-height:72vh;
-
+      min-height:76vh;
       display:flex;
       align-items:center;
       justify-content:center;
-
       text-align:center;
-
       padding:7rem 1rem 3rem;
+      position:relative;
+    }
+
+    .hero::after{
+      content:"";
+      position:absolute;
+      left:50%;
+      bottom:1.5rem;
+      transform:translateX(-50%);
+      width:min(820px,86vw);
+      height:1px;
+      background:linear-gradient(90deg,transparent,rgba(0,0,0,.10),transparent);
     }
 
     .hero-content{
-      max-width:780px;
+      max-width:820px;
+      animation:fadeUp .9s ease both;
     }
 
     .eyebrow{
       text-transform:uppercase;
       letter-spacing:.42em;
-
       color:var(--muted);
-
-      font-size:.75rem;
-
+      font-size:.74rem;
+      font-weight:700;
       margin-bottom:1rem;
     }
 
     h1{
       font-family:'Playfair Display',serif;
-
-      font-size:clamp(4rem,10vw,7rem);
+      font-size:clamp(4rem,10vw,7.4rem);
       font-weight:500;
-      line-height:.95;
-
+      line-height:.92;
+      letter-spacing:-.04em;
       margin-bottom:1rem;
     }
 
     .hero p{
       color:var(--muted);
-
-      max-width:680px;
+      max-width:700px;
       margin:auto;
-
-      line-height:1.8;
-
-      font-size:1.05rem;
+      line-height:1.85;
+      font-size:1.06rem;
     }
 
     .section{
-      padding:2rem 1rem 5rem;
+      padding:2rem 1rem 5.5rem;
     }
 
     .grid{
-      max-width:1180px;
+      max-width:1200px;
       margin:auto;
-
       display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-
-      gap:1.2rem;
+      grid-template-columns:repeat(auto-fit,minmax(255px,1fr));
+      gap:1.25rem;
     }
 
     .demo-card{
-      background:var(--card);
-
+      position:relative;
+      min-height:365px;
+      background:
+        linear-gradient(180deg,rgba(255,255,255,.96),rgba(255,255,255,.88));
       border:1px solid var(--line);
-
-      border-radius:28px;
-
-      padding:2.4rem 2rem;
-
+      border-radius:34px;
+      padding:2.25rem 2rem;
       text-align:center;
+      transition:.28s ease;
+      box-shadow:0 12px 34px rgba(0,0,0,.04);
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+    }
 
-      transition:.25s ease;
-
-      box-shadow:0 10px 30px rgba(0,0,0,.035);
+    .demo-card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      opacity:0;
+      transition:.28s ease;
+      background:
+        radial-gradient(circle at 50% 0%,rgba(0,0,0,.06),transparent 34%);
+      pointer-events:none;
     }
 
     .demo-card:hover{
-      transform:translateY(-5px);
-
-      box-shadow:0 22px 45px rgba(0,0,0,.07);
+      transform:translateY(-7px);
+      border-color:rgba(0,0,0,.10);
+      box-shadow:0 26px 58px rgba(0,0,0,.08);
     }
 
-    .demo-card span{
-      font-size:2.5rem;
-
-      display:block;
-
-      margin-bottom:1rem;
+    .demo-card:hover::before{
+      opacity:1;
     }
 
-    .demo-card h3{
+    .demo-icon{
+      width:76px;
+      height:76px;
+      display:grid;
+      place-items:center;
+      margin-bottom:1.15rem;
+      border-radius:26px;
+      background:var(--soft);
+      border:1px solid rgba(0,0,0,.045);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.9);
+      font-size:2.45rem;
+      line-height:1;
+    }
+        .demo-card h3{
       font-family:'Playfair Display',serif;
-
-      font-size:1.9rem;
-      font-weight:500;
-
-      margin-bottom:.7rem;
+      font-size:2rem;
+      font-weight:600;
+      line-height:1.05;
+      margin-bottom:.8rem;
+      letter-spacing:-.02em;
     }
 
     .demo-card p{
       color:var(--muted);
-
-      line-height:1.7;
-
-      margin-bottom:1.2rem;
-
-      min-height:56px;
+      line-height:1.72;
+      margin-bottom:1.45rem;
+      min-height:78px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
     }
 
     .btn{
       display:inline-flex;
       align-items:center;
       justify-content:center;
-
-      padding:.9rem 1.35rem;
-
+      padding:.92rem 1.4rem;
       border-radius:999px;
-
-      background:#111;
+      background:var(--black);
       color:#fff;
-
-      font-weight:600;
+      font-weight:700;
       font-size:.9rem;
-
       transition:.25s ease;
+      margin-top:auto;
     }
 
     .btn:hover{
       transform:translateY(-2px);
       background:#000;
+      box-shadow:0 12px 24px rgba(0,0,0,.16);
+    }
+
+    .tag{
+      position:absolute;
+      top:1.15rem;
+      right:1.15rem;
+      padding:.35rem .7rem;
+      border-radius:999px;
+      background:rgba(0,0,0,.045);
+      color:#555;
+      font-size:.68rem;
+      font-weight:800;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+
+    .baby .demo-icon{
+      background:linear-gradient(135deg,#fff7ef,#f3e2d1);
+    }
+
+    .gender .demo-icon{
+      background:linear-gradient(135deg,#ffe2f0,#e3f4ff);
+    }
+
+    .stream .demo-icon{
+      background:linear-gradient(135deg,#1a1a1a,#3a0a0d);
+      color:#fff;
+    }
+
+    .tropical .demo-icon{
+      background:linear-gradient(135deg,#e7fbff,#dcfff2);
+    }
+
+    .vintage .demo-icon{
+      background:linear-gradient(135deg,#fff1d7,#ffe3ef,#ede2ff);
+    }
+
+    .princess .demo-icon{
+      background:linear-gradient(135deg,#fff0f8,#fff1c8);
+    }
+
+    .kids .demo-icon{
+      background:linear-gradient(135deg,#fff5b8,#e9e1ff,#dff7ff);
+    }
+
+    .corporate .demo-icon{
+      background:linear-gradient(135deg,#eef4ff,#f8fafc);
     }
 
     .simple-footer{
       text-align:center;
-
       padding:4rem 1.2rem 3rem;
-
       border-top:1px solid rgba(0,0,0,.06);
-
       background:#fff;
     }
 
     .simple-footer h3{
       font-family:'Playfair Display',serif;
-
       color:#222;
-
       font-size:2.4rem;
       font-weight:600;
-
       margin-bottom:.8rem;
     }
 
     .simple-footer p{
       max-width:720px;
       margin:auto;
-
       color:var(--muted);
       line-height:1.8;
-
       margin-bottom:2rem;
     }
 
@@ -285,20 +358,45 @@
       font-size:.88rem;
     }
 
+    @keyframes fadeUp{
+      from{
+        opacity:0;
+        transform:translateY(26px);
+        filter:blur(5px);
+      }
+
+      to{
+        opacity:1;
+        transform:translateY(0);
+        filter:blur(0);
+      }
+    }
+
     @media(max-width:700px){
 
       .brand-home{
         width:60px;
         height:60px;
-
         top:12px;
         left:12px;
-
         border-radius:18px;
       }
 
       .brand-home img{
         width:46px;
+      }
+
+      .hero{
+        min-height:64vh;
+        padding:6rem 1rem 2rem;
+      }
+
+      .eyebrow{
+        letter-spacing:.22em;
+      }
+
+      .demo-card{
+        min-height:345px;
       }
 
     }
@@ -307,6 +405,8 @@
 </head>
 
 <body>
+
+<div class="noise"></div>
 
 <a href="../../" class="brand-home" aria-label="Volver al inicio">
   <img src="../../TIAMB.png" alt="Te Invito a Mi Boda">
@@ -332,61 +432,69 @@
   </div>
 
 </section>
-
 <section class="section">
 
   <div class="grid">
 
-    <article class="demo-card">
-      <span>🍼</span>
+    <article class="demo-card baby">
+      <div class="tag">Soft</div>
+      <div class="demo-icon">🍼</div>
       <h3>Baby Shower</h3>
       <p>Diseño moderno, suave y elegante para recibir al nuevo bebé.</p>
       <a href="./baby/" class="btn">Ver demo</a>
     </article>
 
-    <article class="demo-card">
-      <span>🎉</span>
+    <article class="demo-card gender">
+      <div class="tag">Reveal</div>
+      <div class="demo-icon">🎉</div>
       <h3>Gender Reveal</h3>
       <p>Una demo divertida en tonos rosa y azul para revelar la gran sorpresa.</p>
       <a href="./gender/" class="btn">Ver demo</a>
     </article>
 
-    <article class="demo-card">
-      <span>🎬</span>
+    <article class="demo-card stream">
+      <div class="tag">Cine</div>
+      <div class="demo-icon">🎬</div>
       <h3>Stream Style</h3>
       <p>Inspiración cinematográfica tipo plataforma de streaming.</p>
       <a href="./netflix/" class="btn">Ver demo</a>
     </article>
 
-    <article class="demo-card">
-      <span>🌴</span>
+    <article class="demo-card tropical">
+      <div class="tag">Fresh</div>
+      <div class="demo-icon">🌴</div>
       <h3>Tropical / Beach</h3>
       <p>Ambiente fresco, playero y relajado para eventos frente al mar.</p>
       <a href="./tropical/" class="btn">Ver demo</a>
     </article>
 
-    <article class="demo-card">
+    <article class="demo-card vintage">
+      <div class="tag">Folk</div>
+      <div class="demo-icon">🌺</div>
       <h3>Vintage</h3>
       <p>Colores cálidos, flores, papel picado y un toque tradicional.</p>
       <a href="./vintage/" class="btn">Ver demo</a>
     </article>
 
-    <article class="demo-card">
-      <span>👑</span>
+    <article class="demo-card princess">
+      <div class="tag">Magic</div>
+      <div class="demo-icon">👑</div>
       <h3>Princesas</h3>
       <p>Diseño de cuento, mágico y delicado para fiestas infantiles.</p>
       <a href="./disney/" class="btn">Ver demo</a>
     </article>
 
-    <article class="demo-card">
-      <span>🐾</span>
+    <article class="demo-card kids">
+      <div class="tag">Kids</div>
+      <div class="demo-icon">🐾</div>
       <h3>Kids Party</h3>
       <p>Inspiración infantil colorida para Bluey, Paw Patrol o Barbie style.</p>
       <a href="./kids/" class="btn">Ver demo</a>
     </article>
 
-    <article class="demo-card">
-      <span>💼</span>
+    <article class="demo-card corporate">
+      <div class="tag">Pro</div>
+      <div class="demo-icon">💼</div>
       <h3>Corporate</h3>
       <p>Invitación profesional para conferencias, lanzamientos o eventos empresariales.</p>
       <a href="./corporate/" class="btn">Ver demo</a>

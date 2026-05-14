@@ -5,64 +5,90 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Bodas de Plata | Invitación Digital Premium</title>
+  <meta name="description" content="Invitación digital premium para Bodas de Plata, aniversario de 25 años, renovación de votos y celebración familiar.">
+
+  <link rel="icon" type="image/png" href="/favicon.png">
 
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root{
       --black:#050505;
+      --black-2:#0b0d10;
       --silver:#cfd3d8;
       --silver-2:#f4f6f8;
       --silver-dark:#8f98a3;
       --text:#f7f7f7;
       --muted:#c7cbd1;
-      --line:rgba(244,246,248,.22);
-      --card:rgba(18,20,24,.84);
-      --shadow:rgba(0,0,0,.55);
+      --line:rgba(244,246,248,.24);
+      --card:rgba(18,20,24,.86);
+      --shadow:rgba(0,0,0,.58);
     }
 
-    *{margin:0;padding:0;box-sizing:border-box;}
-    html{scroll-behavior:smooth;}
+    *{margin:0;padding:0;box-sizing:border-box}
+
+    html{
+      scroll-behavior:smooth;
+      overflow-x:hidden;
+    }
 
     body{
       font-family:'Montserrat',sans-serif;
       background:var(--black);
       color:var(--text);
       overflow-x:hidden;
-      line-height:1.7;
+      line-height:1.75;
     }
 
-    a{color:inherit;text-decoration:none;}
-    img{max-width:100%;display:block;}
+    a{text-decoration:none;color:inherit}
+    img{max-width:100%;display:block}
 
     .luxury-bg{
       position:fixed;
       inset:0;
-      z-index:-3;
+      z-index:-5;
       pointer-events:none;
       background:
-        radial-gradient(circle at 15% 20%, rgba(244,246,248,.16), transparent 28%),
-        radial-gradient(circle at 85% 12%, rgba(207,211,216,.10), transparent 25%),
+        radial-gradient(circle at 15% 20%, rgba(244,246,248,.18), transparent 28%),
+        radial-gradient(circle at 85% 12%, rgba(207,211,216,.12), transparent 25%),
         radial-gradient(circle at 75% 88%, rgba(244,246,248,.12), transparent 32%),
         linear-gradient(135deg,#030303,#0b0d10,#020202);
+    }
+
+    .silver-rays{
+      position:fixed;
+      inset:0;
+      z-index:-4;
+      pointer-events:none;
+      opacity:.18;
+      background:
+        linear-gradient(115deg,transparent 0 34%,rgba(244,246,248,.24) 45%,transparent 58%),
+        linear-gradient(70deg,transparent 0 42%,rgba(207,211,216,.18) 52%,transparent 66%);
+      filter:blur(12px);
+      animation:silverMove 10s ease-in-out infinite alternate;
+    }
+
+    @keyframes silverMove{
+      from{transform:translateX(-20px)}
+      to{transform:translateX(20px)}
     }
 
     .sparkles{
       position:fixed;
       inset:0;
-      z-index:-2;
+      z-index:-3;
       pointer-events:none;
-      opacity:.32;
+      opacity:.34;
       background-image:
         radial-gradient(circle, rgba(244,246,248,.95) 1px, transparent 1.5px),
-        radial-gradient(circle, rgba(207,211,216,.45) 1px, transparent 1.4px);
+        radial-gradient(circle, rgba(207,211,216,.48) 1px, transparent 1.4px);
       background-size:130px 130px,210px 210px;
       animation:floatBg 24s linear infinite;
     }
 
     @keyframes floatBg{
-      from{transform:translateY(0);}
-      to{transform:translateY(-130px);}
+      from{transform:translateY(0)}
+      to{transform:translateY(-130px)}
     }
 
     .brand-home{
@@ -75,8 +101,8 @@
       justify-content:center;
       width:74px;
       height:74px;
-      border-radius:22px;
-      background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.02));
+      border-radius:24px;
+      background:linear-gradient(145deg,rgba(255,255,255,.09),rgba(255,255,255,.025));
       border:1px solid rgba(244,246,248,.18);
       backdrop-filter:blur(18px);
       box-shadow:
@@ -99,11 +125,47 @@
       filter:drop-shadow(0 0 16px rgba(244,246,248,.18));
     }
 
+    .nav{
+      position:fixed;
+      top:18px;
+      left:50%;
+      transform:translateX(-50%);
+      z-index:110;
+      display:flex;
+      gap:.3rem;
+      padding:.42rem;
+      max-width:calc(100vw - 130px);
+      overflow-x:auto;
+      scrollbar-width:none;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(5,5,5,.62);
+      backdrop-filter:blur(18px);
+      box-shadow:0 18px 44px rgba(0,0,0,.35);
+    }
+
+    .nav::-webkit-scrollbar{display:none}
+
+    .nav a{
+      white-space:nowrap;
+      padding:.55rem .82rem;
+      border-radius:999px;
+      font-size:.72rem;
+      font-weight:700;
+      color:var(--muted);
+      transition:.25s ease;
+    }
+
+    .nav a:hover{
+      color:var(--silver-2);
+      background:rgba(244,246,248,.12);
+    }
+
     .floating-whatsapp{
       position:fixed;
       right:18px;
       bottom:18px;
-      z-index:100;
+      z-index:200;
       width:58px;
       height:58px;
       border-radius:50%;
@@ -111,52 +173,96 @@
       place-items:center;
       background:#25D366;
       color:#fff;
-      font-size:1.8rem;
-      box-shadow:0 12px 30px rgba(0,0,0,.45);
+      box-shadow:0 18px 42px rgba(0,0,0,.38);
+      transition:.25s ease;
+    }
+
+    .floating-whatsapp:hover{
+      transform:translateY(-3px) scale(1.04);
     }
 
     .hero{
       min-height:100vh;
       position:relative;
-      display:flex;
-      align-items:center;
-      justify-content:center;
+      display:grid;
+      place-items:center;
       text-align:center;
       padding:7rem 1.2rem 4rem;
       background:
-        linear-gradient(rgba(0,0,0,.50),rgba(0,0,0,.82)),
+        linear-gradient(rgba(0,0,0,.42),rgba(0,0,0,.86)),
         url('https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=1800&auto=format&fit=crop') center/cover;
       overflow:hidden;
+    }
+
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:1rem;
+      border:1px solid rgba(244,246,248,.30);
+      border-radius:38px;
+      pointer-events:none;
+      box-shadow:
+        inset 0 0 80px rgba(244,246,248,.08),
+        inset 0 0 90px rgba(207,211,216,.06);
     }
 
     .hero::after{
       content:"";
       position:absolute;
-      inset:1.2rem;
-      border:1px solid rgba(244,246,248,.28);
-      border-radius:34px;
+      left:0;
+      right:0;
+      bottom:0;
+      height:230px;
+      background:linear-gradient(transparent,var(--black));
       pointer-events:none;
+    }
+
+    .anniversary-mark{
+      position:absolute;
+      right:9%;
+      top:16%;
+      font-family:'Cormorant Garamond',serif;
+      font-size:8rem;
+      opacity:.14;
+      color:var(--silver-2);
+      filter:drop-shadow(0 0 22px rgba(244,246,248,.24));
+      animation:floatMark 6s ease-in-out infinite;
+      pointer-events:none;
+    }
+
+    @keyframes floatMark{
+      0%,100%{transform:translateY(0)}
+      50%{transform:translateY(-16px)}
     }
 
     .hero-content{
       position:relative;
-      z-index:2;
-      max-width:900px;
+      z-index:3;
+      max-width:920px;
       animation:fadeUp 1s ease both;
     }
 
     .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:.5rem 1rem;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.055);
+      backdrop-filter:blur(14px);
       color:var(--silver-2);
-      letter-spacing:.45em;
+      letter-spacing:.26em;
       text-transform:uppercase;
-      font-size:.78rem;
+      font-size:.72rem;
+      font-weight:700;
       margin-bottom:1rem;
     }
 
     .script{
       font-family:'Great Vibes',cursive;
       color:var(--silver-2);
-      font-size:clamp(2.5rem,6vw,4.5rem);
+      font-size:clamp(2.8rem,6vw,4.9rem);
       font-weight:400;
       margin-bottom:.5rem;
       text-shadow:0 0 24px rgba(244,246,248,.28);
@@ -164,32 +270,44 @@
 
     h1{
       font-family:'Cormorant Garamond',serif;
-      font-size:clamp(4.5rem,11vw,8.5rem);
+      font-size:clamp(4.5rem,11vw,8.7rem);
       font-weight:400;
       line-height:.88;
       color:var(--text);
       margin-bottom:1rem;
-      text-shadow:0 18px 50px rgba(0,0,0,.6);
+      text-shadow:0 18px 50px rgba(0,0,0,.65);
     }
 
-    h1 span{color:var(--silver-2);}
+    h1 span{
+      color:var(--silver-2);
+    }
 
     .hero p{
-      max-width:720px;
+      max-width:740px;
       margin:1rem auto 2rem;
       color:#eee;
-      font-size:clamp(1rem,2vw,1.25rem);
+      font-size:clamp(1rem,2vw,1.22rem);
     }
 
     .hero-date{
+      display:inline-flex;
+      align-items:center;
+      gap:1.2rem;
       color:var(--silver-2);
-      letter-spacing:.28em;
+      letter-spacing:.22em;
       text-transform:uppercase;
       margin:2rem 0;
-      font-size:.95rem;
+      font-size:.92rem;
     }
 
-    .hero-actions,
+    .hero-date::before,
+    .hero-date::after{
+      content:"";
+      width:58px;
+      height:1px;
+      background:linear-gradient(90deg,transparent,var(--silver-2),transparent);
+    }
+        .hero-actions,
     .actions{
       display:flex;
       justify-content:center;
@@ -214,7 +332,9 @@
       font-family:'Montserrat',sans-serif;
     }
 
-    .btn:hover{transform:translateY(-3px);}
+    .btn:hover{
+      transform:translateY(-3px);
+    }
 
     .btn-silver{
       background:linear-gradient(135deg,var(--silver-dark),var(--silver-2));
@@ -237,14 +357,21 @@
       border-bottom:1px solid var(--line);
       color:var(--silver-2);
       font-size:.9rem;
+      font-weight:600;
     }
 
-    .section{padding:6rem 1.15rem;}
-    .container{max-width:1160px;margin:auto;}
+    .section{
+      padding:6rem 1.15rem;
+    }
+
+    .container{
+      max-width:1160px;
+      margin:auto;
+    }
 
     .title{
       font-family:'Cormorant Garamond',serif;
-      font-size:clamp(2.8rem,6vw,5rem);
+      font-size:clamp(2.8rem,6vw,5.2rem);
       line-height:1;
       text-align:center;
       color:var(--silver-2);
@@ -255,7 +382,7 @@
     .subtitle{
       text-align:center;
       color:var(--muted);
-      max-width:760px;
+      max-width:780px;
       margin:0 auto 3rem;
       font-size:1.05rem;
     }
@@ -263,24 +390,51 @@
     .glass{
       background:var(--card);
       border:1px solid var(--line);
-      box-shadow:0 20px 60px var(--shadow);
-      backdrop-filter:blur(14px);
-      border-radius:32px;
+      box-shadow:0 24px 66px var(--shadow);
+      backdrop-filter:blur(16px);
+      border-radius:34px;
     }
 
     .welcome-card{
-      max-width:900px;
+      max-width:920px;
       margin:auto;
       padding:3rem 2rem;
       text-align:center;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .welcome-card::before{
+      content:"25";
+      position:absolute;
+      left:1.5rem;
+      top:.6rem;
+      font-family:'Cormorant Garamond',serif;
+      font-size:6rem;
+      line-height:1;
+      color:rgba(244,246,248,.08);
+    }
+
+    .welcome-card::after{
+      content:"✦";
+      position:absolute;
+      right:2rem;
+      bottom:1rem;
+      font-size:4rem;
+      color:rgba(244,246,248,.10);
     }
 
     .welcome-card h2{
       font-family:'Cormorant Garamond',serif;
       color:var(--silver-2);
-      font-size:clamp(2.5rem,5vw,4rem);
+      font-size:clamp(2.5rem,5vw,4.2rem);
       font-weight:400;
+      line-height:1;
       margin-bottom:1rem;
+    }
+
+    .welcome-card p{
+      color:var(--muted);
     }
 
     .event-grid,
@@ -290,11 +444,19 @@
       gap:1.2rem;
     }
 
-    .event-grid{grid-template-columns:repeat(2,1fr);}
+    .event-grid{
+      grid-template-columns:repeat(2,1fr);
+    }
 
     .card{
       padding:2rem;
       text-align:center;
+      transition:.25s ease;
+    }
+
+    .card:hover{
+      transform:translateY(-5px);
+      border-color:rgba(244,246,248,.38);
     }
 
     .card-icon{
@@ -310,11 +472,17 @@
       margin-bottom:.8rem;
     }
 
-    .card p{color:var(--muted);margin-bottom:.8rem;}
-    .card strong{color:#fff;}
+    .card p{
+      color:var(--muted);
+      margin-bottom:.8rem;
+    }
+
+    .card strong{
+      color:#fff;
+    }
 
     .timeline{
-      max-width:760px;
+      max-width:780px;
       margin:auto;
       position:relative;
     }
@@ -326,7 +494,8 @@
       bottom:0;
       left:50%;
       width:1px;
-      background:var(--line);
+      background:linear-gradient(transparent,var(--silver-2),transparent);
+      opacity:.5;
     }
 
     .timeline-item{
@@ -346,9 +515,18 @@
 
     .timeline-detail{
       padding:1.4rem;
-      border-radius:22px;
-      background:rgba(255,255,255,.04);
+      border-radius:24px;
+      background:rgba(255,255,255,.045);
       border:1px solid var(--line);
+      box-shadow:0 14px 36px rgba(0,0,0,.25);
+    }
+
+    .timeline-detail strong{
+      color:var(--silver-2);
+    }
+
+    .timeline-detail p{
+      color:var(--muted);
     }
 
     .dress-code{
@@ -361,14 +539,24 @@
     .dress-item{
       padding:1.4rem;
       border-radius:24px;
-      background:rgba(255,255,255,.04);
+      background:rgba(255,255,255,.045);
       border:1px solid var(--line);
+      box-shadow:0 14px 36px rgba(0,0,0,.22);
     }
 
     .dress-item span{
       font-size:2rem;
       display:block;
       margin-bottom:.5rem;
+    }
+
+    .dress-item strong{
+      color:var(--silver-2);
+    }
+
+    .dress-item p{
+      color:var(--muted);
+      margin-top:.35rem;
     }
 
     .timer{
@@ -379,11 +567,12 @@
     }
 
     .time-box{
-      background:rgba(255,255,255,.04);
+      background:rgba(255,255,255,.045);
       border:1px solid var(--line);
       border-radius:24px;
       padding:1.7rem .8rem;
       text-align:center;
+      box-shadow:0 14px 36px rgba(0,0,0,.22);
     }
 
     .time-box span{
@@ -403,14 +592,14 @@
 
     .rsvp-hero{
       background:
-        linear-gradient(rgba(0,0,0,.72),rgba(0,0,0,.84)),
+        linear-gradient(rgba(0,0,0,.72),rgba(0,0,0,.86)),
         url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=1800&auto=format&fit=crop') center/cover;
       text-align:center;
       padding:7rem 1.2rem;
     }
 
     .rsvp-form{
-      max-width:760px;
+      max-width:780px;
       margin:auto;
       padding:2rem;
     }
@@ -427,7 +616,7 @@
     textarea{
       width:100%;
       border:1px solid var(--line);
-      background:rgba(255,255,255,.05);
+      background:rgba(255,255,255,.055);
       color:#fff;
       border-radius:18px;
       padding:1rem;
@@ -435,8 +624,14 @@
       outline:none;
     }
 
-    option{color:#111;}
-    textarea{min-height:110px;resize:vertical;}
+    option{
+      color:#111;
+    }
+
+    textarea{
+      min-height:110px;
+      resize:vertical;
+    }
 
     .rsvp-note{
       margin-top:1rem;
@@ -445,16 +640,29 @@
       font-size:.9rem;
     }
 
+    .footer-cta{
+      text-align:center;
+      padding:5.8rem 1.2rem;
+      border-top:1px solid rgba(244,246,248,.12);
+      background:
+        linear-gradient(135deg,rgba(244,246,248,.08),rgba(207,211,216,.04)),
+        linear-gradient(180deg,rgba(5,5,5,.96),rgba(0,0,0,.92));
+    }
+
+    .footer-cta h2{
+      font-family:'Cormorant Garamond',serif;
+      color:var(--silver-2);
+      font-size:clamp(3rem,7vw,5.2rem);
+      font-weight:400;
+      line-height:.95;
+      margin-bottom:1rem;
+    }
+
     .simple-footer{
       text-align:center;
       padding:4rem 1.2rem 3rem;
       border-top:1px solid rgba(244,246,248,.12);
-      background:
-        linear-gradient(
-          180deg,
-          rgba(244,246,248,.04),
-          rgba(0,0,0,.88)
-        );
+      background:linear-gradient(180deg,rgba(244,246,248,.04),rgba(0,0,0,.88));
     }
 
     .simple-footer h3{
@@ -473,7 +681,9 @@
       margin-bottom:2rem;
     }
 
-    .footer-contact{margin-bottom:2rem;}
+    .footer-contact{
+      margin-bottom:2rem;
+    }
 
     .footer-contact strong{
       display:block;
@@ -497,7 +707,9 @@
     }
 
     .footer-links a:hover,
-    .footer-legal a:hover{color:var(--silver-2);}
+    .footer-legal a:hover{
+      color:var(--silver-2);
+    }
 
     .footer-bottom{
       margin-top:1rem;
@@ -512,23 +724,39 @@
 
     .fade{
       opacity:0;
-      transform:translateY(25px);
-      transition:.8s ease;
+      transform:translateY(28px);
+      filter:blur(6px);
+      transition:opacity .9s ease, transform .9s ease, filter .9s ease;
     }
 
     .fade.visible{
       opacity:1;
       transform:translateY(0);
+      filter:blur(0);
     }
 
     @keyframes fadeUp{
-      from{opacity:0;transform:translateY(30px);}
-      to{opacity:1;transform:translateY(0);}
+      from{
+        opacity:0;
+        transform:translateY(30px);
+        filter:blur(6px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+        filter:blur(0);
+      }
     }
 
     @media(max-width:900px){
-      .hero::after{inset:.7rem;border-radius:24px;}
-      .section{padding:4.2rem 1rem;}
+      .hero::before{
+        inset:.7rem;
+        border-radius:24px;
+      }
+
+      .section{
+        padding:4.2rem 1rem;
+      }
 
       .event-grid,
       .feature-grid,
@@ -538,7 +766,9 @@
         grid-template-columns:1fr;
       }
 
-      .timeline::before{left:0;}
+      .timeline::before{
+        left:0;
+      }
 
       .timeline-item{
         grid-template-columns:1fr;
@@ -546,9 +776,13 @@
         padding-left:1.2rem;
       }
 
-      .timeline-time{text-align:left;}
+      .timeline-time{
+        text-align:left;
+      }
 
-      .eyebrow{letter-spacing:.24em;}
+      .eyebrow{
+        letter-spacing:.14em;
+      }
 
       .brand-home{
         width:62px;
@@ -558,7 +792,26 @@
         border-radius:18px;
       }
 
-      .brand-home img{width:48px;}
+      .brand-home img{
+        width:48px;
+      }
+
+      .nav{
+        left:90px;
+        right:12px;
+        transform:none;
+        max-width:none;
+        justify-content:flex-start;
+      }
+
+      .anniversary-mark{
+        display:none;
+      }
+
+      .hero-date::before,
+      .hero-date::after{
+        width:34px;
+      }
     }
   </style>
 </head>
@@ -569,18 +822,29 @@
   <img src="/TIAMB.png" alt="Te Invito a Mi Boda">
 </a>
 
+<nav class="nav">
+  <a href="#detalles">Detalles</a>
+  <a href="#itinerario">Itinerario</a>
+  <a href="#dress">Dress Code</a>
+  <a href="#confirmar">RSVP</a>
+</nav>
+
 <div class="luxury-bg"></div>
+<div class="silver-rays"></div>
 <div class="sparkles"></div>
 
 <a
   class="floating-whatsapp"
-  href="https://wa.me/5215541946413?text=Hola,%20quiero%20información%20sobre%20esta%20invitación%20digital"
+  href="https://wa.me/5215541946413?text=Hola,%20quiero%20cotizar%20una%20invitación%20de%20Bodas%20de%20Plata"
   target="_blank"
   aria-label="WhatsApp">
-  ☘
+  <svg viewBox="0 0 32 32" width="30" height="30" fill="currentColor">
+    <path d="M16.03 3C8.85 3 3 8.82 3 15.98c0 2.28.6 4.52 1.74 6.49L3 29l6.7-1.7a13.02 13.02 0 0 0 6.33 1.61C23.18 28.91 29 23.09 29 15.98S23.18 3 16.03 3zm0 23.73c-2 0-3.95-.54-5.66-1.57l-.4-.24-3.98 1.01 1.06-3.86-.26-.42a10.72 10.72 0 0 1-1.63-5.67c0-5.96 4.87-10.81 10.87-10.81 5.98 0 10.84 4.85 10.84 10.81s-4.86 10.75-10.84 10.75zm5.95-8.08c-.32-.16-1.9-.94-2.2-1.05-.3-.11-.52-.16-.74.16-.21.32-.85 1.05-1.04 1.27-.19.21-.38.24-.7.08-.32-.16-1.36-.5-2.59-1.59-.96-.85-1.61-1.9-1.8-2.22-.19-.32-.02-.49.14-.65.15-.15.32-.38.49-.57.16-.19.21-.32.32-.54.11-.21.05-.4-.03-.56-.08-.16-.74-1.78-1.01-2.44-.27-.64-.54-.55-.74-.56h-.63c-.21 0-.56.08-.85.4-.3.32-1.12 1.1-1.12 2.68s1.15 3.1 1.31 3.31c.16.21 2.26 3.45 5.48 4.84.77.33 1.37.53 1.83.68.77.24 1.47.21 2.02.13.62-.09 1.9-.78 2.17-1.53.27-.75.27-1.39.19-1.53-.08-.13-.29-.21-.61-.37z"/>
+  </svg>
 </a>
-
 <section class="hero">
+  <div class="anniversary-mark">25</div>
+
   <div class="hero-content">
     <div class="eyebrow">Celebrando 25 años de amor</div>
 
@@ -627,6 +891,7 @@
 <section class="section fade" id="detalles">
   <div class="container">
     <h2 class="title">Nuestra celebración</h2>
+
     <p class="subtitle">
       Estos son los detalles principales para acompañarnos en esta fecha tan especial.
     </p>
@@ -661,9 +926,10 @@
   </div>
 </section>
 
-<section class="section fade">
+<section class="section fade" id="itinerario">
   <div class="container">
     <h2 class="title">Itinerario</h2>
+
     <p class="subtitle">
       Una noche para recordar, agradecer y celebrar juntos.
     </p>
@@ -672,41 +938,42 @@
       <div class="timeline-item">
         <div class="timeline-time">6:00 PM</div>
         <div class="timeline-detail">
-          <strong>Ceremonia religiosa</strong><br>
-          Renovación de votos y bendición.
+          <strong>Ceremonia religiosa</strong>
+          <p>Renovación de votos y bendición.</p>
         </div>
       </div>
 
       <div class="timeline-item">
         <div class="timeline-time">8:00 PM</div>
         <div class="timeline-detail">
-          <strong>Recepción</strong><br>
-          Bienvenida a invitados.
+          <strong>Recepción</strong>
+          <p>Bienvenida a invitados.</p>
         </div>
       </div>
 
       <div class="timeline-item">
         <div class="timeline-time">9:00 PM</div>
         <div class="timeline-detail">
-          <strong>Cena y brindis</strong><br>
-          Celebración de 25 años juntos.
+          <strong>Cena y brindis</strong>
+          <p>Celebración de 25 años juntos.</p>
         </div>
       </div>
 
       <div class="timeline-item">
         <div class="timeline-time">10:30 PM</div>
         <div class="timeline-detail">
-          <strong>Baile y recuerdos</strong><br>
-          Música, fotos y momentos especiales.
+          <strong>Baile y recuerdos</strong>
+          <p>Música, fotos y momentos especiales.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section fade">
+<section class="section fade" id="dress">
   <div class="container">
     <h2 class="title">Dress code</h2>
+
     <p class="subtitle">
       Para conservar la elegancia de la celebración, sugerimos la siguiente etiqueta.
     </p>
@@ -743,6 +1010,7 @@
   <div class="container">
     <div class="glass card">
       <h2 class="title">Cuenta regresiva</h2>
+
       <p class="subtitle">
         Cada día falta menos para celebrar estos 25 años de amor.
       </p>
@@ -760,6 +1028,7 @@
 <section class="section fade">
   <div class="container">
     <h2 class="title">Detalles especiales</h2>
+
     <p class="subtitle">
       Funciones digitales para que los invitados tengan todo a la mano.
     </p>
@@ -776,7 +1045,9 @@
         <div class="card-icon">🎵</div>
         <h3>Playlist</h3>
         <p>Sugiere una canción para recordar juntos.</p>
-        <a class="btn btn-outline" href="#" target="_blank">Sugerir canción</a>
+        <a class="btn btn-outline" href="https://wa.me/5215541946413?text=Hola,%20quiero%20sugerir%20esta%20canción%20para%20Bodas%20de%20Plata:%20" target="_blank">
+          Sugerir canción
+        </a>
       </article>
 
       <article class="card glass">
@@ -792,6 +1063,7 @@
 <section class="rsvp-hero fade" id="confirmar">
   <div class="container">
     <h2 class="title">Confirma tu asistencia</h2>
+
     <p class="subtitle">
       Tu confirmación nos ayuda a preparar cada detalle de esta celebración.
     </p>
@@ -815,8 +1087,12 @@
 
       <div class="actions">
         <button class="btn btn-silver" type="submit">
-          Enviar confirmación por WhatsApp
+          Enviar confirmación
         </button>
+
+        <a class="btn btn-outline" href="https://wa.me/5215541946413" target="_blank">
+          WhatsApp directo
+        </a>
       </div>
 
       <p class="rsvp-note">
@@ -826,11 +1102,29 @@
   </div>
 </section>
 
+<section class="footer-cta">
+  <h2>Una invitación elegante y memorable</h2>
+
+  <p class="subtitle">
+    Ideal para Bodas de Plata, aniversarios, renovación de votos y celebraciones familiares premium.
+  </p>
+
+  <div class="actions">
+    <a class="btn btn-silver" href="https://wa.me/5215541946413?text=Hola,%20quiero%20cotizar%20una%20invitación%20de%20Bodas%20de%20Plata" target="_blank">
+      Cotizar este estilo
+    </a>
+
+    <a class="btn btn-outline" href="/">
+      Volver al catálogo
+    </a>
+  </div>
+</section>
+
 <footer class="simple-footer">
   <h3>Te Invito a Mi Boda</h3>
 
   <p>
-    Invitaciones digitales premium para bodas y eventos especiales.
+    Invitaciones digitales premium para bodas, aniversarios y eventos especiales.
     Diseños modernos, elegantes y completamente personalizados.
   </p>
 
@@ -859,11 +1153,12 @@
   const whatsappNumber = '5215541946413';
 
   function updateCountdown(){
-    const now = new Date().getTime();
+    const now = Date.now();
     const distance = eventDate - now;
 
     if(distance <= 0){
-      document.querySelector('.timer').innerHTML = '<p>¡Hoy es la celebración!</p>';
+      const timer = document.querySelector('.timer');
+      if(timer) timer.innerHTML = '<p>¡Hoy es la celebración!</p>';
       return;
     }
 
@@ -898,7 +1193,7 @@
     const attendance = document.getElementById('attendance').value;
     const count = document.getElementById('guestCount').value;
     const song = document.getElementById('song').value.trim() || 'Sin sugerencia';
-    const message = document.getElementById('message').value.trim() || 'Sin mensaje';
+    const messageText = document.getElementById('message').value.trim() || 'Sin mensaje';
 
     const text =
       `Hola, confirmo mi asistencia a las Bodas de Plata de Ricardo y Marcela.%0A%0A` +
@@ -906,7 +1201,7 @@
       `Asistencia: ${encodeURIComponent(attendance)}%0A` +
       `Número de personas: ${encodeURIComponent(count)}%0A` +
       `Canción especial: ${encodeURIComponent(song)}%0A` +
-      `Mensaje: ${encodeURIComponent(message)}`;
+      `Mensaje: ${encodeURIComponent(messageText)}`;
 
     window.open(`https://wa.me/${whatsappNumber}?text=${text}`,'_blank');
   });

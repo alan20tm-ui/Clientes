@@ -549,7 +549,40 @@
     ].join('\\n');
   }
 
-  amountLabel.textContent = 'Monto protegido';
+  async function cargarMontoPorCodigo(){
+  if (!orderCode) {
+    amountLabel.textContent = 'Código faltante';
+    setStatus('error', 'La liga no tiene código de orden.');
+    return;
+  }
+
+  try {
+    const response = await fetch(
+      'https://clientes-xi.vercel.app/api/create-payment?orden=' + encodeURIComponent(orderCode)
+    );
+
+    const result = await response.json();
+
+    if (!result.ok) {
+      amountLabel.textContent = 'Código inválido';
+      setStatus('error', result.error || 'Código inválido.');
+      return;
+    }
+
+    amountLabel.textContent = formatCurrency(Number(result.amount));
+
+    const conceptSelect = document.getElementById('concept');
+    conceptSelect.innerHTML = `
+      <option value="${result.concept}" selected>${result.concept}</option>
+    `;
+
+  } catch (error) {
+    amountLabel.textContent = 'Error';
+    setStatus('error', 'No se pudo cargar el monto.');
+  }
+}
+
+cargarMontoPorCodigo();
 
  payButton.addEventListener('click', async () => {
 

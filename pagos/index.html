@@ -559,16 +559,77 @@
 
   amountLabel.textContent = formatCurrency(amountNumber);
 
-  payButton.addEventListener('click', () => {
-    const data = validateForm();
-    if (!data) return;
+ payButton.addEventListener('click', async () => {
 
-    if (!paymentLink) {
-      const msg = buildWhatsAppMessage(data, 'Hola, ya llené mis datos para realizar el pago.');
-      window.open('https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(msg), '_blank');
-      setStatus('ok', 'Datos listos. Se abrirá WhatsApp para confirmar la liga de pago.');
-      return;
+  const data = validateForm();
+
+  if (!data) return;
+
+  try {
+
+    payButton.disabled = true;
+
+    payButton.textContent = 'Generando pago...';
+
+    const response = await fetch(
+      'https://clientes-xi.vercel.app/api/create-payment',
+      {
+        method: 'POST',
+
+        headers: {
+          'Content-Type': 'application/json'
+        },
+
+        body: JSON.stringify({
+          name: data.name,
+          phone: data.phone,
+          concept: data.concept,
+          amount: amountNumber
+        })
+      }
+    );
+
+    const result = await response.json();
+
+    if (!result.init_point) {
+
+      throw new Error(
+        result.error || 'No se pudo generar el pago'
+      );
     }
+
+    const msg = [
+      'Hola, estoy realizando mi pago.',
+      '',
+      'Nombre: ' + data.name,
+      'Celular: ' + data.phone,
+      'Concepto: ' + data.concept,
+      'Monto: ' + formatCurrency(amountNumber)
+    ].join('\n');
+
+    window.open(
+      'https://wa.me/5215541946413?text=' + encodeURIComponent(msg),
+      '_blank'
+    );
+
+    setTimeout(() => {
+      window.location.href = result.init_point;
+    }, 600);
+
+  } catch (error) {
+
+    console.error(error);
+
+    setStatus(
+      'error',
+      error.message || 'No se pudo generar el pago'
+    );
+
+    payButton.disabled = false;
+
+    payButton.textContent = 'Pagar ahora';
+  }
+});
 
     const msg = buildWhatsAppMessage(data, 'Hola, voy a realizar mi pago desde la página privada.');
     window.open('https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(msg), '_blank');

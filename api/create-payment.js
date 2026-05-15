@@ -1,33 +1,46 @@
 module.exports = async function handler(req, res) {
-  if (req.method === 'GET') {
-  try {
-    const orderCode = String(req.query.orden || '').trim().toUpperCase();
+  async function getOrderFromSheet(orderCode) {
+    const code = String(orderCode || '').trim().toUpperCase();
 
-    if (!orderCode) {
-      return res.status(400).json({ ok: false, error: 'Código faltante' });
+    if (!code) {
+      throw new Error('Código faltante');
     }
 
     const sheetUrl =
-      `${process.env.SHEET_API_URL}?token=${process.env.SHEET_API_TOKEN}&code=${orderCode}`;
+      `${process.env.SHEET_API_URL}?token=${encodeURIComponent(process.env.SHEET_API_TOKEN)}&code=${encodeURIComponent(code)}`;
 
     const sheetResponse = await fetch(sheetUrl);
     const sheetData = await sheetResponse.json();
 
     if (!sheetData.ok) {
-      return res.status(400).json({ ok: false, error: 'Código inválido' });
+      throw new Error(sheetData.error || 'Código inválido');
     }
 
-    return res.status(200).json({
-      ok: true,
+    return {
       code: sheetData.code,
       concept: sheetData.concept,
       amount: Number(sheetData.amount)
-    });
-
-  } catch (error) {
-    return res.status(500).json({ ok: false, error: error.message });
+    };
   }
-}
+
+  if (req.method === 'GET') {
+    try {
+      const order = await getOrderFromSheet(req.query.orden);
+
+      return res.status(200).json({
+        ok: true,
+        code: order.code,
+        concept: order.concept,
+        amount: order.amount
+      });
+    } catch (error) {
+      return res.status(400).json({
+        ok: false,
+        error: error.message
+      });
+    }
+  }
+
   if (req.method !== 'POST') {
     return res.status(405).json({
       error: 'Método no permitido'
@@ -35,9 +48,9 @@ module.exports = async function handler(req, res) {
   }
 
   try {
-    const { name, phone, concept, amount } = req.body || {};
+    const { name, phone, orderCode } = req.body || {};
 
-    if (!name || !phone || !concept || !amount) {
+    if (!name || !phone || !orderCode) {
       return res.status(400).json({
         error: 'Faltan datos para generar el pago'
       });
@@ -49,13 +62,15 @@ module.exports = async function handler(req, res) {
       });
     }
 
+    const order = await getOrderFromSheet(orderCode);
+
     const preference = {
       items: [
         {
-          title: concept,
+          title: order.concept,
           quantity: 1,
           currency_id: 'MXN',
-          unit_price: Number(amount)
+          unit_price: order.amount
         }
       ],
       payer: {
@@ -64,10 +79,11 @@ module.exports = async function handler(req, res) {
           number: phone
         }
       },
+      external_reference: order.code,
       back_urls: {
-        success: 'https://clientes-xi.vercel.app/pagos/success.html',
-        failure: 'https://clientes-xi.vercel.app/pagos/error.html',
-        pending: 'https://clientes-xi.vercel.app/pagos/pending.html'
+        success: 'https://pagos.teinvitoamiboda.online/success.html',
+        failure: 'https://pagos.teinvitoamiboda.online/error.html',
+        pending: 'https://pagos.teinvitoamiboda.online/pending.html'
       },
       auto_return: 'approved'
     };

@@ -1,1508 +1,1792 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Cotizador | Te Invito a Mi Boda</title>
+  <title>Te Invito a Mi Boda | Invitaciones Digitales Premium</title>
 
-  <meta name="description" content="Cotizador premium para invitaciones digitales personalizadas. Elige paquete, extras y recibe cotización por WhatsApp.">
+  <meta name="description" content="Invitaciones digitales premium para bodas y eventos especiales. Diseños elegantes, modernos y completamente personalizados.">
+  <meta name="keywords" content="invitaciones digitales, bodas, invitaciones premium, XV años, bautizos, graduaciones, invitaciones elegantes, invitaciones online">
+  <meta name="author" content="TeInvitoAMiBoda.online">
+  <meta name="robots" content="index, follow">
 
-  <link rel="icon" type="image/png" href="/favicon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Te Invito a Mi Boda | Invitaciones Digitales Premium">
+  <meta property="og:description" content="Diseños digitales elegantes y personalizados para bodas y eventos especiales.">
+  <meta property="og:image" content="https://teinvitoamiboda.online/assets/preview-social.jpg">
+  <meta property="og:url" content="https://teinvitoamiboda.online">
+  <meta property="og:site_name" content="TeInvitoAMiBoda.online">
 
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Te Invito a Mi Boda">
+  <meta name="twitter:description" content="Invitaciones digitales premium para bodas y eventos especiales.">
+  <meta name="twitter:image" content="https://teinvitoamiboda.online/assets/preview-social.jpg">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/favicon.png">
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
-
-    :root{
-      --bg:#050505;
-      --gold:#c9a45f;
-      --gold-soft:#f4d58d;
-      --text:#f7f1e8;
-      --muted:#b9b0a3;
-      --line:rgba(244,213,141,.22);
-      --glass:rgba(255,255,255,.045);
-      --glass-strong:rgba(255,255,255,.075);
-      --shadow:rgba(0,0,0,.48);
+    :root {
+      --bg: #050505;
+      --gold: #c9a45f;
+      --gold-soft: #f4d58d;
+      --text: #f7f1e8;
+      --muted: #b9b0a3;
+      --line: rgba(244, 213, 141, .24);
+      --shadow: rgba(0, 0, 0, .55);
     }
 
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    html{
-      scroll-behavior:smooth;
-      overflow-x:hidden;
+    html {
+      scroll-behavior: smooth;
+      overflow-x: hidden;
     }
 
-    body{
-      min-height:100vh;
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      line-height: 1.7;
+    }
 
-      font-family:'Montserrat',sans-serif;
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-      color:var(--text);
+    img {
+      width: 100%;
+      display: block;
+    }
 
+    .ambient {
+      position: fixed;
+      inset: 0;
+      z-index: -3;
+      pointer-events: none;
       background:
-        radial-gradient(circle at 50% 0%, rgba(201,164,95,.18), transparent 28%),
-        radial-gradient(circle at 15% 30%, rgba(244,213,141,.08), transparent 26%),
-        radial-gradient(circle at 85% 80%, rgba(201,164,95,.10), transparent 32%),
-        linear-gradient(135deg,#030303,#0a0907 45%,#020202);
-
-      overflow-x:hidden;
+        radial-gradient(circle at 15% 20%, rgba(201,164,95,.20), transparent 28%),
+        radial-gradient(circle at 85% 10%, rgba(244,213,141,.10), transparent 24%),
+        radial-gradient(circle at 80% 88%, rgba(201,164,95,.14), transparent 35%),
+        radial-gradient(circle at 50% 50%, rgba(255,255,255,.015), transparent 60%),
+        linear-gradient(135deg, #030303 0%, #0a0907 45%, #020202 100%);
     }
 
-    a{
-      text-decoration:none;
-      color:inherit;
+    .silk {
+      position: fixed;
+      right: -14%;
+      bottom: -18%;
+      width: 70vw;
+      height: 80vh;
+      pointer-events: none;
+      z-index: -2;
+      opacity: .45;
+      background:
+        radial-gradient(ellipse at 70% 70%, rgba(201,164,95,.26), transparent 28%),
+        linear-gradient(135deg, transparent 20%, rgba(255,255,255,.03) 48%, rgba(201,164,95,.08) 54%, transparent 68%);
+      filter: blur(1px);
+      transform: rotate(-10deg);
     }
 
-    img{
-      max-width:100%;
-      display:block;
-    }
-
-    .ambient-noise{
-      position:fixed;
-      inset:0;
-      pointer-events:none;
-      z-index:-1;
-
-      opacity:.10;
-
+    .gold-dust {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      opacity: .22;
       background-image:
-        radial-gradient(circle,rgba(244,213,141,.35) 1px,transparent 1.4px),
-        radial-gradient(circle,rgba(255,255,255,.12) 1px,transparent 1.5px);
-
-      background-size:140px 140px,240px 240px;
-
-      animation:noiseMove 28s linear infinite;
+        radial-gradient(circle, rgba(244,213,141,.75) 1px, transparent 1.6px),
+        radial-gradient(circle, rgba(255,255,255,.20) 1px, transparent 1.4px);
+      background-size: 140px 140px, 210px 210px;
+      animation: dust 28s linear infinite;
     }
 
-    @keyframes noiseMove{
-      from{
-        transform:translateY(0);
-      }
-
-      to{
-        transform:translateY(-160px);
-      }
+    @keyframes dust {
+      from { transform: translateY(0); }
+      to { transform: translateY(-140px); }
     }
 
-    .brand-home{
-      position:fixed;
+    .navbar {
+      position: fixed;
+      top: 22px;
+      right: 44px;
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      gap: 1.6rem;
+      max-width: calc(100vw - 40px);
+      padding: .55rem .65rem .55rem 1.35rem;
+      border-radius: 999px;
+      background: rgba(0,0,0,.46);
+      border: 1px solid rgba(244,213,141,.18);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 16px 38px rgba(0,0,0,.34);
+    }
 
-      top:18px;
-      left:18px;
+    .nav-links {
+      display: flex;
+      gap: 1.45rem;
+      align-items: center;
+      white-space: nowrap;
+    }
 
-      width:74px;
-      height:74px;
+    .nav-links a {
+      color: #ded7cd;
+      font-size: .9rem;
+      transition: .2s;
+    }
 
-      z-index:80;
+    .nav-links a:hover {
+      color: var(--gold-soft);
+    }
 
-      display:flex;
-      align-items:center;
-      justify-content:center;
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+      padding: .9rem 1.35rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight: 700;
+      font-size: .9rem;
+      cursor: pointer;
+      transition: .24s ease;
+      white-space: nowrap;
+    }
 
-      border-radius:24px;
+    .btn:hover {
+      transform: translateY(-2px);
+    }
 
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold), var(--gold-soft));
+      color: #111;
+      box-shadow: 0 16px 34px rgba(201,164,95,.18);
+    }
+
+    .btn-outline {
+      background: rgba(255,255,255,.035);
+      border-color: var(--line);
+      color: var(--text);
+    }
+
+    .floating {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: #25D366;
+      color: white;
+      z-index: 60;
+      box-shadow: 0 14px 34px rgba(0,0,0,.38);
+      transition: .25s ease;
+    }
+
+    .floating:hover {
+      transform: translateY(-3px) scale(1.04);
+    }
+
+    .hero {
+      min-height: 100vh;
+      position: relative;
+      padding: 7rem clamp(1.2rem, 4vw, 4.5rem) 5rem;
+      display: grid;
+      grid-template-columns: minmax(300px, 38vw) minmax(0, 1fr);
+      align-items: center;
+      gap: clamp(2rem, 5vw, 5rem);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 1.1rem;
+      border: 1px solid rgba(244,213,141,.12);
+      border-radius: 42px;
+      pointer-events: none;
+    }
+
+    .brand-panel {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 68vh;
+      animation: fadeInLeft 1s ease both;
+    }
+
+    .brand-glow {
+      position: absolute;
+      width: 80%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(244,213,141,.18), rgba(201,164,95,.06) 40%, transparent 70%);
+      filter: blur(24px);
+      opacity: .7;
+    }
+
+    .hero-logo {
+      width: min(35vw, 500px);
+      min-width: 330px;
+      max-width: 520px;
+      position: relative;
+      z-index: 2;
+      object-fit: contain;
+      border-radius: 0;
+      background: transparent;
+      filter:
+        drop-shadow(0 0 18px rgba(244,213,141,.18))
+        drop-shadow(0 28px 70px rgba(0,0,0,.75));
+      animation: floatLogo 9s ease-in-out infinite;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 760px;
+      justify-self: center;
+      animation: fadeUp 1s ease both;
+    }
+
+    .eyebrow {
+      color: var(--gold-soft);
+      letter-spacing: .48em;
+      text-transform: uppercase;
+      font-size: clamp(.65rem, 1.1vw, .78rem);
+      margin-bottom: 1.3rem;
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(4.2rem, 7vw, 7.6rem);
+      line-height: .9;
+      letter-spacing: -.045em;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 18px 45px rgba(0,0,0,.45);
+    }
+
+    .hero h1 span {
+      display: inline-flex;
+      align-items: center;
+      gap: 1.6rem;
+    }
+
+    .hero h1 span::before,
+    .hero h1 span::after {
+      content: "";
+      width: 70px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    .hero p {
+      max-width: 680px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: clamp(1rem, 1.4vw, 1.14rem);
+    }
+
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .catalog-preview {
+      position: relative;
+      z-index: 4;
+      padding: 4.5rem clamp(1.2rem, 4vw, 4.5rem) 4rem;
+    }
+
+    .section-head {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .section-kicker {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      color: var(--gold-soft);
+      letter-spacing: .38em;
+      text-transform: uppercase;
+      font-size: .74rem;
+    }
+
+    .section-kicker::before,
+    .section-kicker::after {
+      content: "";
+      width: 80px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    .subtitle {
+      color: var(--muted);
+      text-align: center;
+      margin: .65rem auto 0;
+      max-width: 700px;
+    }
+
+    .catalog-grid {
+      width: min(1180px, 100%);
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1.8rem;
+    }
+
+    .card {
+      position: relative;
       background:
-        linear-gradient(
-          145deg,
-          rgba(255,255,255,.065),
-          rgba(255,255,255,.025)
-        );
-
-      border:1px solid rgba(244,213,141,.16);
-
-      backdrop-filter:blur(18px);
-
-      box-shadow:
-        0 14px 38px rgba(0,0,0,.42),
-        0 0 28px rgba(244,213,141,.08);
-
-      transition:.3s ease;
-    }
-
-    .brand-home:hover{
-      transform:translateY(-3px) scale(1.04);
-
-      border-color:rgba(244,213,141,.34);
-
-      box-shadow:
-        0 20px 55px rgba(0,0,0,.54),
-        0 0 42px rgba(244,213,141,.16);
-    }
-
-    .brand-home img{
-      width:56px;
-      object-fit:contain;
-      filter:drop-shadow(0 0 16px rgba(244,213,141,.16));
-    }
-
-    .floating{
-      position:fixed;
-
-      right:20px;
-      bottom:20px;
-
-      width:58px;
-      height:58px;
-
-      border-radius:50%;
-
-      display:grid;
-      place-items:center;
-
-      background:#25D366;
-
-      color:#fff;
-
-      z-index:90;
-
-      box-shadow:0 18px 42px rgba(0,0,0,.38);
-
-      transition:.25s ease;
-    }
-
-    .floating:hover{
-      transform:translateY(-3px) scale(1.04);
-    }
-
-    .page{
-      width:min(1320px,100%);
-
-      margin:auto;
-
-      padding:3rem 1.2rem 4rem;
-    }
-
-    .top{
-      display:flex;
-      justify-content:flex-end;
-
-      margin-bottom:2rem;
-    }
-
-    .back{
-      padding:.9rem 1.4rem;
-
-      border-radius:999px;
-
-      border:1px solid var(--line);
-
-      color:var(--muted);
-
-      background:rgba(255,255,255,.035);
-
-      backdrop-filter:blur(12px);
-
-      transition:.25s ease;
-    }
-
-    .back:hover{
-      color:var(--gold-soft);
-      border-color:rgba(244,213,141,.35);
-      transform:translateY(-2px);
-    }
-
-    .hero{
-      text-align:center;
-
-      margin-bottom:3rem;
-
-      padding-top:2rem;
-    }
-
-    .kicker{
-      color:var(--gold-soft);
-
-      letter-spacing:.42em;
-      text-transform:uppercase;
-
-      font-size:.74rem;
-      font-weight:600;
-
-      margin-bottom:1rem;
-    }
-
-    h1{
-      font-family:'Cormorant Garamond',serif;
-
-      font-size:clamp(4rem,8vw,7rem);
-
-      line-height:.9;
-
-      font-weight:400;
-
-      color:var(--gold-soft);
-
-      margin-bottom:1rem;
-
-      text-shadow:0 24px 70px rgba(0,0,0,.55);
-    }
-
-    .hero p{
-      color:var(--muted);
-
-      max-width:760px;
-
-      margin:auto;
-
-      font-size:1.05rem;
-
-      line-height:1.8;
-    }
-
-    .quote-layout{
-      display:grid;
-
-      grid-template-columns:1.2fr .8fr;
-
-      gap:1.2rem;
-
-      align-items:start;
-    }
-
-    .panel{
-      background:
-        linear-gradient(
-          145deg,
-          rgba(255,255,255,.055),
-          rgba(255,255,255,.018)
-        );
-
-      border:1px solid rgba(244,213,141,.16);
-
-      border-radius:30px;
-
-      backdrop-filter:blur(18px);
-
+        linear-gradient(145deg, rgba(255,255,255,.045), rgba(255,255,255,.015));
+      border: 1px solid rgba(244,213,141,.16);
+      border-radius: 26px;
+      overflow: hidden;
+      backdrop-filter: blur(18px);
       box-shadow:
         0 30px 70px rgba(0,0,0,.48),
         inset 0 1px 0 rgba(255,255,255,.04);
-
-      overflow:hidden;
+      transition: .35s ease;
     }
 
-    .panel-inner{
-      padding:1.9rem;
-    }
-
-    .section-title{
-      display:flex;
-      align-items:center;
-      gap:.75rem;
-
-      font-family:'Cormorant Garamond',serif;
-
-      font-size:2.05rem;
-
-      font-weight:500;
-
-      color:#fff;
-
-      margin-bottom:.3rem;
-    }
-
-    .section-title span{
-      color:var(--gold);
-
-      font-size:1.35rem;
-    }
-
-    .section-desc{
-      color:var(--muted);
-
-      margin-bottom:1.4rem;
-
-      font-size:.95rem;
-
-      line-height:1.7;
-    }
-
-    .packages{
-      display:grid;
-
-      grid-template-columns:repeat(4,1fr);
-
-      gap:1rem;
-
-      margin-bottom:2rem;
-    }
-        .package-card{
-      position:relative;
-      cursor:pointer;
-    }
-
-    .package-card input{
-      position:absolute;
-      opacity:0;
-    }
-
-    .package-inner{
-
-      position:relative;
-
-      min-height:235px;
-
-      padding:1.4rem 1rem;
-
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-
-      text-align:center;
-
-      border-radius:22px;
-
-      border:1px solid rgba(255,255,255,.12);
-
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
       background:
-        linear-gradient(
-          145deg,
-          rgba(255,255,255,.05),
-          rgba(255,255,255,.015)
-        );
-
-      transition:.28s ease;
-
-      overflow:hidden;
+        linear-gradient(120deg, transparent 20%, rgba(255,255,255,.06) 48%, transparent 75%);
+      opacity: .6;
+      pointer-events: none;
     }
 
-    .package-inner::before{
-
-      content:"";
-
-      position:absolute;
-
-      inset:0;
-
-      opacity:0;
-
-      transition:.3s ease;
-
-      background:
-        radial-gradient(
-          circle at top,
-          rgba(244,213,141,.18),
-          transparent 48%
-        );
-    }
-
-    .package-card:hover .package-inner{
-      transform:translateY(-4px);
-
-      border-color:rgba(244,213,141,.28);
-    }
-
-    .package-card:hover .package-inner::before{
-      opacity:1;
-    }
-
-    .package-card input:checked + .package-inner{
-
-      border-color:var(--gold);
-
+    .card:hover {
+      transform: translateY(-8px) scale(1.015);
+      border-color: rgba(244,213,141,.45);
       box-shadow:
-        0 0 38px rgba(201,164,95,.18);
+        0 45px 90px rgba(0,0,0,.55),
+        0 0 45px rgba(244,213,141,.10);
+    }
 
+    .card-image {
+      height: 245px;
+      position: relative;
+      overflow: hidden;
+      background: #111;
+    }
+
+    .card-image img {
+      height: 100%;
+      object-fit: cover;
+      transition: .35s ease;
+    }
+
+    .card:hover .card-image img {
+      transform: scale(1.04);
+    }
+
+    .badge {
+      position: absolute;
+      top: 13px;
+      left: 13px;
+      z-index: 2;
+      background: rgba(0,0,0,.72);
+      border: 1px solid rgba(244,213,141,.34);
+      color: var(--gold-soft);
+      font-size: .62rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      padding: .35rem .58rem;
+      border-radius: 8px;
+      backdrop-filter: blur(10px);
+    }
+
+    .card-content {
+      padding: 1.2rem 1.15rem 1.35rem;
+    }
+
+    .card-content h3 {
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--gold-soft);
+      font-weight: 500;
+      font-size: clamp(1.8rem, 2.2vw, 2.1rem);
+      margin-bottom: .2rem;
+    }
+
+    .card-content p {
+      color: var(--muted);
+      font-size: .88rem;
+      margin-bottom: .7rem;
+    }
+
+    .price {
+      color: #fff;
+      font-size: .9rem;
+      margin-bottom: .9rem;
+    }
+
+    .price strong {
+      color: var(--gold-soft);
+      font-size: 1rem;
+    }
+
+    .demo-link {
+      color: var(--gold-soft);
+      font-weight: 700;
+      font-size: .88rem;
+    }
+
+    .section {
+      padding: 7rem 1.2rem;
+    }
+
+    .container {
+      width: min(1180px, 100%);
+      margin: auto;
+    }
+
+    .title {
+      text-align: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 5.6vw, 5rem);
+      color: var(--gold-soft);
+      font-weight: 400;
+      line-height: .95;
+      margin-bottom: 1rem;
+    }
+
+    .event-grid,
+    .why-grid,
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 3rem;
+    }
+
+    .event-card,
+    .info-card {
+      min-width: 0;
+      text-align: center;
+      padding: 2rem 1.3rem;
+      border-radius: 24px;
+      background: rgba(255,255,255,.03);
+      border: 1px solid var(--line);
+      backdrop-filter: blur(10px);
+      transition: .25s ease;
+    }
+
+    .event-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(244,213,141,.45);
+      box-shadow: 0 18px 40px rgba(0,0,0,.35);
+    }
+
+    .event-card span,
+    .info-card span {
+      display: block;
+      font-size: 2rem;
+      margin-bottom: .7rem;
+    }
+
+    .event-card h3,
+    .info-card h4 {
+      color: var(--gold-soft);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.8rem, 2.4vw, 2.1rem);
+      font-weight: 400;
+      margin-bottom: .4rem;
+    }
+
+    .info-card p {
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    .event-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1rem;
+      padding: .7rem 1rem;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-soft));
+      color: #111;
+      font-size: .82rem;
+      font-weight: 700;
+      transition: .25s ease;
+    }
+
+    .event-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(201,164,95,.25);
+    }
+
+    .luxury-section {
+      position: relative;
+      padding: 7rem 1.2rem;
+      overflow: hidden;
+    }
+
+    .luxury-bg {
+      position: absolute;
+      inset: 0;
       background:
-        linear-gradient(
-          145deg,
-          rgba(244,213,141,.08),
-          rgba(255,255,255,.02)
-        );
+        radial-gradient(circle at 20% 20%, rgba(244,213,141,.12), transparent 28%),
+        radial-gradient(circle at 80% 80%, rgba(201,164,95,.10), transparent 32%);
+      pointer-events: none;
     }
 
-    .package-icon{
-
-      font-size:2.4rem;
-
-      color:var(--gold);
-
-      margin-bottom:.8rem;
+    .luxury-container {
+      position: relative;
+      z-index: 2;
+      max-width: 1180px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 4rem;
+      align-items: center;
     }
 
-    .package-inner strong{
-
-      font-family:'Cormorant Garamond',serif;
-
-      font-size:2rem;
-
-      font-weight:500;
-
-      color:#fff;
-
-      margin-bottom:.2rem;
+    .luxury-content h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3.2rem,6vw,5.8rem);
+      line-height: .92;
+      font-weight: 400;
+      color: var(--gold-soft);
+      margin: 1rem 0 1.5rem;
     }
 
-    .old-price{
-
-      text-decoration:line-through;
-
-      color:#8f8578;
-
-      font-size:.92rem;
-
-      margin-bottom:.15rem;
+    .luxury-content p {
+      color: var(--muted);
+      max-width: 620px;
+      font-size: 1.05rem;
     }
 
-    .price{
-
-      color:var(--gold-soft);
-
-      font-weight:700;
-
-      font-size:1.15rem;
-
-      margin-bottom:.8rem;
+    .luxury-features {
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      gap: 1rem;
+      margin-top: 2.5rem;
     }
 
-    .package-inner p{
-      color:#d8d0c6;
-      font-size:.86rem;
-      line-height:1.65;
+    .luxury-item {
+      padding: 1rem 1.1rem;
+      border-radius: 18px;
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(244,213,141,.14);
+      backdrop-filter: blur(10px);
+      color: #f1e9dc;
+      font-size: .92rem;
+      transition: .25s ease;
     }
 
-    .discount-badge{
+    .luxury-item:hover {
+      transform: translateY(-4px);
+      border-color: rgba(244,213,141,.38);
+      box-shadow: 0 18px 40px rgba(0,0,0,.35);
+    }
 
-      position:absolute;
+    .luxury-visual {
+      display: flex;
+      justify-content: center;
+      position: relative;
+    }
 
-      top:12px;
-      right:12px;
-
-      padding:.45rem .7rem;
-
-      border-radius:999px;
-
-      font-size:.68rem;
-
-      font-weight:700;
-
-      letter-spacing:.08em;
-
-      text-transform:uppercase;
-
-      background:
-        linear-gradient(
-          135deg,
-          #f4d58d,
-          #c9a45f
-        );
-
-      color:#111;
-
+    .luxury-visual img {
+      width: 75%;
+      max-width: 420px;
+      border-radius: 28px;
+      border: 1px solid rgba(244,213,141,.14);
       box-shadow:
-        0 12px 28px rgba(201,164,95,.25);
+        0 40px 80px rgba(0,0,0,.45),
+        0 0 60px rgba(244,213,141,.08);
+      transition: .35s ease;
     }
 
-    .discount-badge.luxury{
+    .luxury-visual img:hover {
+      transform: translateY(-6px) scale(1.01);
+    }
+
+    .cta {
+      text-align: center;
+      padding: 6rem 1.2rem;
+      background: linear-gradient(135deg, rgba(201,164,95,.12), rgba(0,0,0,.2));
+      border-top: 1px solid var(--line);
+    }
+
+    .cta h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 6vw, 5rem);
+      color: var(--gold-soft);
+      font-weight: 400;
+      line-height: .95;
+      margin-bottom: 1rem;
+    }
+
+    .simple-footer {
+      text-align: center;
+      padding: 4rem 1.2rem 3rem;
+      border-top: 1px solid rgba(244,213,141,.12);
       background:
-        linear-gradient(
-          135deg,
-          #fff,
-          #f4d58d
-        );
+        linear-gradient(180deg, rgba(201,164,95,.04), rgba(0,0,0,.88));
     }
 
-    .recommended{
-
-      position:absolute;
-
-      left:12px;
-      top:12px;
-
-      padding:.4rem .65rem;
-
-      border-radius:999px;
-
-      background:
-        rgba(255,255,255,.08);
-
-      border:1px solid rgba(255,255,255,.10);
-
-      font-size:.65rem;
-
-      letter-spacing:.08em;
-
-      text-transform:uppercase;
-
-      color:#fff;
+    .simple-footer h3 {
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--gold-soft);
+      font-size: 2.4rem;
+      font-weight: 400;
+      margin-bottom: .8rem;
     }
 
-    .extras{
-
-      display:grid;
-
-      grid-template-columns:repeat(2,1fr);
-
-      gap:.8rem;
+    .simple-footer p {
+      max-width: 720px;
+      margin: auto;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 2rem;
     }
 
-    .extra-item{
-
-      display:flex;
-
-      align-items:center;
-      justify-content:space-between;
-
-      gap:1rem;
-
-      padding:1rem;
-
-      border-radius:16px;
-
-      border:1px solid rgba(255,255,255,.10);
-
-      background:
-        rgba(0,0,0,.16);
-
-      color:#f2e9dd;
-
-      cursor:pointer;
-
-      transition:.25s ease;
+    .footer-contact {
+      margin-bottom: 2rem;
     }
 
-    .extra-item:hover{
-      border-color:rgba(244,213,141,.22);
-      transform:translateY(-2px);
-    }
-
-    .extra-left{
-      display:flex;
-      align-items:center;
-      gap:.7rem;
-    }
-
-    .extra-item input{
-      width:18px;
-      height:18px;
-      accent-color:var(--gold-soft);
-    }
-
-    .extra-price{
-      color:#fff;
-      font-size:.9rem;
-      white-space:nowrap;
-    }
-
-    .summary{
-
-      position:sticky;
-
-      top:1.4rem;
-    }
-
-    .summary-top{
-      padding:1.9rem;
-      border-bottom:1px solid rgba(255,255,255,.08);
-    }
-
-    .summary-row{
-
-      display:flex;
-
-      justify-content:space-between;
-
-      gap:1rem;
-
-      color:#ddd4ca;
-
-      margin:1rem 0;
-    }
-
-    .summary-row strong{
-      color:#fff;
-    }
-
-    .total-line{
-
-      border-top:1px solid rgba(255,255,255,.14);
-
-      padding-top:1.4rem;
-
-      margin-top:1.4rem;
-
-      display:flex;
-
-      align-items:flex-end;
-      justify-content:space-between;
-
-      gap:1rem;
-    }
-
-    .total-line span{
-
-      font-family:'Cormorant Garamond',serif;
-
-      font-size:2.2rem;
-
-      color:#fff;
-    }
-
-    .total{
-
-      font-family:'Cormorant Garamond',serif;
-
-      font-size:3rem;
-
-      color:var(--gold-soft);
-
-      line-height:1;
-
-      white-space:nowrap;
-
-      transition:.3s ease;
-    }
-
-    .selected-list{
-
-      margin-top:1.4rem;
-
-      color:#ded4c8;
-
-      font-size:.9rem;
-    }
-
-    .selected-list div{
-
-      display:flex;
-
-      justify-content:space-between;
-
-      gap:1rem;
-
-      padding:.8rem;
-
-      border:1px solid rgba(255,255,255,.08);
-
-      border-radius:12px;
-
-      margin-bottom:.6rem;
-
-      background:
-        rgba(0,0,0,.16);
-    }
-
-    .data-box{
-      padding:1.9rem;
-    }
-
-    .form-grid{
-      display:grid;
-      gap:.9rem;
-      margin-top:1.3rem;
-    }
-        .field input,
-    .field select{
-      width:100%;
-
-      padding:1rem 1rem;
-
-      border-radius:14px;
-
-      border:1px solid rgba(255,255,255,.12);
-
-      background:rgba(0,0,0,.24);
-
-      color:#fff;
-
-      outline:none;
-
-      font-family:'Montserrat',sans-serif;
-
-      transition:.25s ease;
-    }
-
-    .field input:focus,
-    .field select:focus{
-      border-color:rgba(244,213,141,.38);
-      box-shadow:0 0 0 4px rgba(244,213,141,.08);
-    }
-
-    .field input::placeholder{
-      color:#9b9288;
-    }
-
-    .btn{
-      width:100%;
-
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-
-      gap:.5rem;
-
-      margin-top:1.2rem;
-
-      padding:1rem 1.2rem;
-
-      border-radius:14px;
-
-      border:0;
-
-      font-weight:700;
-
-      cursor:pointer;
-
-      font-family:'Montserrat',sans-serif;
-
-      background:
-        linear-gradient(
-          135deg,
-          var(--gold),
-          var(--gold-soft)
-        );
-
-      color:#111;
-
-      box-shadow:
-        0 16px 34px rgba(201,164,95,.18);
-
-      transition:.25s ease;
-    }
-
-    .btn:hover{
-      transform:translateY(-2px);
-      box-shadow:0 20px 44px rgba(201,164,95,.24);
-    }
-
-    .note{
-      color:#9e9487;
-
-      font-size:.78rem;
-
-      margin-top:1rem;
-
-      text-align:center;
-
-      line-height:1.6;
-    }
-
-    .trust{
-      margin-top:1rem;
-
-      display:grid;
-
-      grid-template-columns:repeat(3,1fr);
-
-      gap:1rem;
-    }
-
-    .trust div{
-      display:flex;
-
-      justify-content:center;
-      align-items:center;
-
-      gap:.65rem;
-
-      padding:1rem;
-
-      border-radius:18px;
-
-      background:rgba(255,255,255,.035);
-
-      border:1px solid rgba(244,213,141,.12);
-
-      color:#efe7dc;
-
-      font-size:.9rem;
-    }
-
-    .footer-cta{
-      text-align:center;
-
-      padding:5.6rem 1.2rem;
-
-      border-top:1px solid rgba(244,213,141,.10);
-
-      background:
-        linear-gradient(
-          135deg,
-          rgba(201,164,95,.08),
-          rgba(255,255,255,.02)
-        );
-    }
-
-    .footer-cta h2{
-      font-family:'Cormorant Garamond',serif;
-
-      color:var(--gold-soft);
-
-      font-size:clamp(3rem,7vw,5.4rem);
-
-      line-height:.9;
-
-      font-weight:400;
-
-      margin-bottom:1rem;
-    }
-
-    .footer-cta p{
-      max-width:760px;
-
-      margin:0 auto 2rem;
-
-      color:var(--muted);
-
-      line-height:1.8;
-    }
-
-    .footer-actions{
-      display:flex;
-      justify-content:center;
-      gap:1rem;
-      flex-wrap:wrap;
-    }
-
-    .footer-actions a{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-
-      padding:1rem 1.4rem;
-
-      border-radius:999px;
-
-      font-weight:700;
-
-      transition:.25s ease;
-    }
-
-    .footer-actions a:hover{
-      transform:translateY(-2px);
-    }
-
-    .footer-actions .primary{
-      background:
-        linear-gradient(
-          135deg,
-          var(--gold),
-          var(--gold-soft)
-        );
-
-      color:#111;
-    }
-
-    .footer-actions .outline{
-      border:1px solid var(--line);
-      color:var(--gold-soft);
-      background:rgba(255,255,255,.035);
-    }
-
-    .simple-footer{
-      text-align:center;
-
-      padding:4rem 1.2rem 3rem;
-
-      border-top:1px solid rgba(244,213,141,.12);
-
-      background:
-        linear-gradient(
-          180deg,
-          rgba(201,164,95,.04),
-          rgba(0,0,0,.88)
-        );
-    }
-
-    .simple-footer h3{
-      font-family:'Cormorant Garamond',serif;
-
-      color:var(--gold-soft);
-
-      font-size:2.4rem;
-
-      font-weight:400;
-
-      margin-bottom:.8rem;
-    }
-
-    .simple-footer p{
-      max-width:720px;
-
-      margin:auto auto 2rem;
-
-      color:var(--muted);
-
-      line-height:1.8;
-    }
-
-    .footer-contact{
-      margin-bottom:2rem;
-    }
-
-    .footer-contact strong{
-      display:block;
-      color:var(--gold-soft);
-      margin-bottom:.8rem;
+    .footer-contact strong {
+      display: block;
+      color: var(--gold-soft);
+      margin-bottom: .8rem;
+      font-size: 1rem;
     }
 
     .footer-links,
-    .footer-legal{
-      display:flex;
-      justify-content:center;
-      gap:1.2rem;
-      flex-wrap:wrap;
+    .footer-legal {
+      display: flex;
+      justify-content: center;
+      gap: 1.2rem;
+      flex-wrap: wrap;
     }
 
     .footer-links a,
-    .footer-legal a{
-      color:#cfc6bb;
-      transition:.25s ease;
+    .footer-legal a {
+      color: #cfc6bb;
+      transition: .25s ease;
     }
 
     .footer-links a:hover,
-    .footer-legal a:hover{
-      color:var(--gold-soft);
+    .footer-legal a:hover {
+      color: var(--gold-soft);
     }
 
-    .footer-bottom{
-      margin-top:1rem;
-      color:#8f8578;
-      font-size:.9rem;
+    .footer-bottom {
+      margin-top: 1rem;
+      color: #8f8578;
+      font-size: .9rem;
     }
 
-    .footer-legal{
-      margin-top:1rem;
-      font-size:.88rem;
+    .footer-legal {
+      margin-top: 1rem;
+      font-size: .88rem;
     }
 
-    @media(max-width:1000px){
-
-      .quote-layout{
-        grid-template-columns:1fr;
-      }
-
-      .summary{
-        position:relative;
-        top:0;
-      }
-
-      .packages{
-        grid-template-columns:repeat(2,1fr);
-      }
-
+    .fade {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: .8s ease;
     }
 
-    @media(max-width:700px){
-
-      .page{
-        padding-top:6rem;
-      }
-
-      .top{
-        justify-content:center;
-      }
-
-      .packages,
-      .extras,
-      .trust{
-        grid-template-columns:1fr;
-      }
-
-      .brand-home{
-        width:60px;
-        height:60px;
-        top:12px;
-        left:12px;
-        border-radius:18px;
-      }
-
-      .brand-home img{
-        width:46px;
-      }
-
-      h1{
-        font-size:4rem;
-      }
-
-      .total-line{
-        align-items:flex-start;
-        flex-direction:column;
-      }
-
-      .total{
-        font-size:2.7rem;
-      }
-
+    .fade.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInLeft {
+      from { opacity: 0; transform: translateX(-35px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes floatLogo {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+
+    .catalog-offer {
+      width: min(1180px, 100%);
+      margin: 0 auto 1.6rem;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(244,213,141,.22);
+      border-radius: 28px;
+      padding: 1.25rem 1.35rem;
+      background:
+        linear-gradient(135deg, rgba(201,164,95,.15), rgba(255,255,255,.025)),
+        rgba(0,0,0,.22);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 24px 58px rgba(0,0,0,.38);
+      text-align: center;
+    }
+
+    .catalog-offer::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(120deg, transparent 18%, rgba(244,213,141,.10), transparent 78%);
+      pointer-events: none;
+    }
+
+    .catalog-offer strong {
+      position: relative;
+      z-index: 2;
+      color: var(--gold-soft);
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      font-size: .78rem;
+    }
+
+    .catalog-offer p {
+      position: relative;
+      z-index: 2;
+      color: var(--muted);
+      margin-top: .35rem;
+      font-size: .92rem;
+    }
+
+    .price-block {
+      margin-bottom: .9rem;
+    }
+
+    .old-price {
+      color: #8f8578;
+      text-decoration: line-through;
+      font-size: .86rem;
+      line-height: 1.2;
+    }
+
+    .promo-price {
+      color: var(--gold-soft);
+      font-weight: 800;
+      font-size: 1.05rem;
+      line-height: 1.3;
+    }
+
+    .saving-note {
+      color: #efe7dc;
+      font-size: .75rem;
+      margin-top: .18rem;
+      opacity: .9;
+    }
+
+    .catalog-trust {
+      width: min(1180px, 100%);
+      margin: 2rem auto 0;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: .9rem;
+    }
+
+    .catalog-trust div {
+      border: 1px solid rgba(244,213,141,.14);
+      border-radius: 20px;
+      background: rgba(255,255,255,.032);
+      backdrop-filter: blur(10px);
+      padding: .95rem 1rem;
+      color: #efe7dc;
+      text-align: center;
+      font-size: .86rem;
+    }
+
+    .catalog-trust strong {
+      color: var(--gold-soft);
+      font-weight: 700;
+    }
+
+    .promo-section {
+      position: relative;
+      z-index: 4;
+      padding: 6.5rem clamp(1.2rem, 4vw, 4.5rem);
+      overflow: hidden;
+    }
+
+    .promo-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(244,213,141,.13), transparent 28%),
+        radial-gradient(circle at 82% 72%, rgba(201,164,95,.10), transparent 34%);
+      opacity: .9;
+    }
+
+    .promo-wrap {
+      position: relative;
+      z-index: 2;
+      width: min(1180px, 100%);
+      margin: auto;
+    }
+
+    .promo-panel {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(244,213,141,.18);
+      border-radius: 34px;
+      background:
+        linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,255,255,.018));
+      backdrop-filter: blur(18px);
+      box-shadow:
+        0 34px 80px rgba(0,0,0,.48),
+        inset 0 1px 0 rgba(255,255,255,.04);
+      padding: clamp(1.6rem, 4vw, 3rem);
+    }
+
+    .promo-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(120deg, transparent 18%, rgba(244,213,141,.08), transparent 74%);
+      pointer-events: none;
+    }
+
+    .promo-header {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .promo-tag {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .55rem;
+      padding: .55rem .9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(244,213,141,.26);
+      background: rgba(0,0,0,.28);
+      color: var(--gold-soft);
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .promo-header h2 {
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--gold-soft);
+      font-weight: 400;
+      font-size: clamp(3rem, 5.6vw, 5.4rem);
+      line-height: .92;
+      margin-bottom: 1rem;
+    }
+
+    .promo-header p {
+      color: var(--muted);
+      max-width: 760px;
+      margin: auto;
+      font-size: 1.02rem;
+    }
+
+    .promo-grid {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .promo-card {
+      position: relative;
+      min-height: 270px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-align: center;
+      padding: 1.45rem 1.1rem;
+      border-radius: 24px;
+      border: 1px solid rgba(255,255,255,.12);
+      background:
+        linear-gradient(145deg, rgba(255,255,255,.05), rgba(255,255,255,.014));
+      overflow: hidden;
+      transition: .3s ease;
+    }
+
+    .promo-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: .3s ease;
+      background:
+        radial-gradient(circle at top, rgba(244,213,141,.18), transparent 50%);
+      pointer-events: none;
+    }
+
+    .promo-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(244,213,141,.36);
+      box-shadow: 0 24px 58px rgba(0,0,0,.38);
+    }
+
+    .promo-card:hover::before {
+      opacity: 1;
+    }
+
+    .promo-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      z-index: 2;
+      padding: .42rem .68rem;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-soft));
+      color: #111;
+      font-size: .64rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      box-shadow: 0 12px 26px rgba(201,164,95,.24);
+    }
+
+    .promo-badge.soft {
+      background: rgba(255,255,255,.08);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,.12);
+      box-shadow: none;
+    }
+
+    .promo-icon {
+      position: relative;
+      z-index: 2;
+      font-size: 2.35rem;
+      color: var(--gold);
+      margin-top: 1rem;
+      margin-bottom: .6rem;
+    }
+
+    .promo-card h3 {
+      position: relative;
+      z-index: 2;
+      font-family: 'Cormorant Garamond', serif;
+      color: #fff;
+      font-size: 2.05rem;
+      font-weight: 500;
+      line-height: 1;
+      margin-bottom: .45rem;
+    }
+
+    .promo-old {
+      position: relative;
+      z-index: 2;
+      color: #8f8578;
+      text-decoration: line-through;
+      font-size: .92rem;
+      margin-bottom: .08rem;
+    }
+
+    .promo-price {
+      position: relative;
+      z-index: 2;
+      color: var(--gold-soft);
+      font-weight: 800;
+      font-size: 1.15rem;
+      margin-bottom: .8rem;
+    }
+
+    .promo-card p {
+      position: relative;
+      z-index: 2;
+      color: #d8d0c6;
+      font-size: .86rem;
+      line-height: 1.65;
+      margin-bottom: 1rem;
+    }
+
+    .promo-actions {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: .8rem;
+      margin-top: 2rem;
+    }
+
+    .promo-note {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: #9e9487;
+      font-size: .84rem;
+      margin-top: 1.4rem;
+    }
+
+    @media (max-width: 1180px) {
+      .catalog-grid,
+      .event-grid,
+      .why-grid,
+      .steps-grid,
+      .promo-grid,
+      .catalog-trust {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .hero h1 {
+        font-size: clamp(3.8rem, 7vw, 6.4rem);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .navbar {
+        top: 12px;
+        left: 12px;
+        right: 12px;
+        width: auto;
+        max-width: none;
+        justify-content: space-between;
+        gap: .7rem;
+        padding: .45rem .5rem;
+        overflow-x: auto;
+        scrollbar-width: none;
+      }
+
+      .navbar::-webkit-scrollbar,
+      .nav-links::-webkit-scrollbar {
+        display: none;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 1rem;
+        overflow-x: auto;
+        scrollbar-width: none;
+      }
+
+      .nav-links a {
+        font-size: .76rem;
+      }
+
+      .navbar .btn {
+        padding: .65rem .9rem;
+        font-size: .76rem;
+        flex: 0 0 auto;
+      }
+
+      .hero {
+        min-height: auto;
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+        padding: 5.8rem 1.1rem 3.5rem;
+        text-align: center;
+      }
+
+      .hero::before {
+        inset: .7rem;
+        border-radius: 30px;
+      }
+
+      .brand-panel {
+        min-height: auto;
+        padding-top: .8rem;
+      }
+
+      .brand-glow {
+        width: 82vw;
+        opacity: .55;
+      }
+
+      .hero-logo {
+        width: min(76vw, 340px);
+        min-width: 0;
+        max-width: 340px;
+      }
+
+      .hero-content {
+        max-width: 100%;
+      }
+
+      .eyebrow {
+        letter-spacing: .28em;
+        font-size: .62rem;
+        margin-bottom: 1rem;
+      }
+
+      .hero h1 {
+        font-size: clamp(3.1rem, 13vw, 4.6rem);
+        line-height: .92;
+        margin-bottom: 1rem;
+      }
+
+      .hero h1 span {
+        display: inline;
+      }
+
+      .hero h1 span::before,
+      .hero h1 span::after {
+        display: none;
+      }
+
+      .hero p {
+        font-size: .95rem;
+        padding: 0 .2rem;
+      }
+
+      .hero-actions {
+        gap: .7rem;
+        margin-top: 1.4rem;
+      }
+
+      .hero-actions .btn {
+        width: 100%;
+        max-width: 290px;
+        padding: .85rem 1rem;
+        font-size: .84rem;
+      }
+
+      .catalog-preview {
+        padding: 3.2rem 1rem 3rem;
+      }
+
+      .section-kicker {
+        letter-spacing: .24em;
+        font-size: .66rem;
+        gap: .6rem;
+      }
+
+      .section-kicker::before,
+      .section-kicker::after {
+        width: 38px;
+      }
+
+      .catalog-grid,
+      .event-grid,
+      .why-grid,
+      .steps-grid,
+      .promo-grid,
+      .catalog-trust {
+        grid-template-columns: 1fr;
+        max-width: 420px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .promo-section {
+        padding: 4.5rem 1rem;
+      }
+
+      .promo-panel {
+        border-radius: 28px;
+      }
+
+      .card-image {
+        height: 310px;
+      }
+
+      .section {
+        padding: 4.5rem 1rem;
+      }
+
+      .info-card {
+        padding: 1.7rem 1.2rem;
+      }
+
+      .cta {
+        padding: 4.8rem 1rem;
+      }
+
+      .floating {
+        width: 54px;
+        height: 54px;
+        right: 16px;
+        bottom: 16px;
+      }
+
+      .luxury-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .luxury-content {
+        text-align: center;
+      }
+
+      .luxury-content p {
+        margin: auto;
+      }
+
+      .luxury-features {
+        grid-template-columns: 1fr;
+      }
+
+      .luxury-visual {
+        max-width: 420px;
+        margin: auto;
+      }
+
+      .footer-legal {
+        flex-direction: column;
+        gap: .7rem;
+      }
+    }
+
+    @media (max-width: 430px) {
+      .nav-links a {
+        font-size: .72rem;
+      }
+
+      .navbar {
+        left: 8px;
+        right: 8px;
+      }
+
+      .navbar .btn {
+        padding: .62rem .78rem;
+        font-size: .72rem;
+      }
+
+      .hero {
+        padding-top: 5.5rem;
+      }
+
+      .hero-logo {
+        width: min(78vw, 300px);
+      }
+
+      .hero h1 {
+        font-size: clamp(2.9rem, 14vw, 4rem);
+      }
+
+      .card-image {
+        height: 280px;
+      }
+
+      .title,
+      .cta h2 {
+        font-size: clamp(2.8rem, 13vw, 3.8rem);
+      }
+    }
   </style>
 </head>
 
 <body>
 
-<div class="ambient-noise"></div>
+  <div class="ambient"></div>
+  <div class="silk"></div>
+  <div class="gold-dust"></div>
 
-<a href="/" class="brand-home">
-  <img src="/TIAMB.png" alt="Te Invito a Mi Boda">
-</a>
+  <a class="floating"
+     href="https://wa.me/5215541946413?text=Hola,%20quiero%20información%20sobre%20una%20invitación%20digital"
+     target="_blank"
+     aria-label="WhatsApp">
+    <svg viewBox="0 0 32 32" width="30" height="30" fill="currentColor">
+      <path d="M16.03 3C8.85 3 3 8.82 3 15.98c0 2.28.6 4.52 1.74 6.49L3 29l6.7-1.7a13.02 13.02 0 0 0 6.33 1.61C23.18 28.91 29 23.09 29 15.98S23.18 3 16.03 3zm0 23.73c-2 0-3.95-.54-5.66-1.57l-.4-.24-3.98 1.01 1.06-3.86-.26-.42a10.72 10.72 0 0 1-1.63-5.67c0-5.96 4.87-10.81 10.87-10.81 5.98 0 10.84 4.85 10.84 10.81s-4.86 10.75-10.84 10.75zm5.95-8.08c-.32-.16-1.9-.94-2.2-1.05-.3-.11-.52-.16-.74.16-.21.32-.85 1.05-1.04 1.27-.19.21-.38.24-.7.08-.32-.16-1.36-.5-2.59-1.59-.96-.85-1.61-1.9-1.8-2.22-.19-.32-.02-.49.14-.65.15-.15.32-.38.49-.57.16-.19.21-.32.32-.54.11-.21.05-.4-.03-.56-.08-.16-.74-1.78-1.01-2.44-.27-.64-.54-.55-.74-.56h-.63c-.21 0-.56.08-.85.4-.3.32-1.12 1.1-1.12 2.68s1.15 3.1 1.31 3.31c.16.21 2.26 3.45 5.48 4.84.77.33 1.37.53 1.83.68.77.24 1.47.21 2.02.13.62-.09 1.9-.78 2.17-1.53.27-.75.27-1.39.19-1.53-.08-.13-.29-.21-.61-.37z"/>
+    </svg>
+  </a>
 
-<a
-  class="floating"
-  href="https://wa.me/5215541946413?text=Hola,%20quiero%20información%20sobre%20una%20invitación%20digital"
-  target="_blank"
-  aria-label="WhatsApp">
+  <nav class="navbar">
+    <div class="nav-links">
+      <a href="#catalogo">Diseños</a>
+      <a href="#porque">¿Por qué nosotros?</a>
+      <a href="#proceso">Proceso</a>
+      <a href="#contacto">Contacto</a>
+    </div>
 
-  <svg viewBox="0 0 32 32" width="30" height="30" fill="currentColor">
-    <path d="M16.03 3C8.85 3 3 8.82 3 15.98c0 2.28.6 4.52 1.74 6.49L3 29l6.7-1.7a13.02 13.02 0 0 0 6.33 1.61C23.18 28.91 29 23.09 29 15.98S23.18 3 16.03 3zm0 23.73c-2 0-3.95-.54-5.66-1.57l-.4-.24-3.98 1.01 1.06-3.86-.26-.42a10.72 10.72 0 0 1-1.63-5.67c0-5.96 4.87-10.81 10.87-10.81 5.98 0 10.84 4.85 10.84 10.81s-4.86 10.75-10.84 10.75zm5.95-8.08c-.32-.16-1.9-.94-2.2-1.05-.3-.11-.52-.16-.74.16-.21.32-.85 1.05-1.04 1.27-.19.21-.38.24-.7.08-.32-.16-1.36-.5-2.59-1.59-.96-.85-1.61-1.9-1.8-2.22-.19-.32-.02-.49.14-.65.15-.15.32-.38.49-.57.16-.19.21-.32.32-.54.11-.21.05-.4-.03-.56-.08-.16-.74-1.78-1.01-2.44-.27-.64-.54-.55-.74-.56h-.63c-.21 0-.56.08-.85.4-.3.32-1.12 1.1-1.12 2.68s1.15 3.1 1.31 3.31c.16.21 2.26 3.45 5.48 4.84.77.33 1.37.53 1.83.68.77.24 1.47.21 2.02.13.62-.09 1.9-.78 2.17-1.53.27-.75.27-1.39.19-1.53-.08-.13-.29-.21-.61-.37z"/>
-  </svg>
-
-</a>
-
-<main class="page">
-
-  <div class="top">
-    <a href="/" class="back">← Volver al inicio</a>
-  </div>
+    <a class="btn btn-gold" href="/cotizador.html">
+      Cotizar
+    </a>
+  </nav>
 
   <section class="hero">
-
-    <div class="kicker">
-      Cotizador personalizado
+    <div class="brand-panel">
+      <div class="brand-glow"></div>
+      <img class="hero-logo" src="TIAMB.png" alt="Te Invito a Mi Boda">
     </div>
 
-    <h1>
-      Elige tu diseño
-    </h1>
+    <div class="hero-content">
+      <div class="eyebrow">Invitaciones digitales premium</div>
 
-    <p>
-      Arma tu invitación digital, agrega las herramientas que necesitas
-      y recibe una cotización estimada al instante.
+      <h1>
+        Diseños elegantes <span>para bodas</span> inolvidables
+      </h1>
+
+      <p>
+        Creamos experiencias digitales modernas, elegantes y personalizadas para parejas que quieren algo más que una invitación tradicional.
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn btn-gold" href="/cotizador.html">
+          Cotizar con promoción
+        </a>
+
+        <a class="btn btn-outline" href="#catalogo">
+          👁 Ver diseños
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="catalog-preview fade" id="catalogo">
+    <div class="section-head">
+      <div class="section-kicker">Catálogo de diseños</div>
+      <p class="subtitle">Elige el estilo que mejor representa tu historia</p>
+    </div>
+
+    <div class="catalog-offer">
+      <strong>Promoción de lanzamiento</strong>
+      <p>Ahorra hasta $1,499 MXN en paquetes seleccionados. Cupos limitados por semana para mantener atención personalizada.</p>
+    </div>
+
+    <div class="catalog-grid">
+
+      <article class="card">
+        <div class="card-image">
+          <span class="badge">Lanzamiento</span>
+          <img src="assets/minimalista-preview.jpeg" alt="Minimalista">
+        </div>
+
+        <div class="card-content">
+          <h3>Minimalista</h3>
+          <p>Menos es más, con estilo.</p>
+          <div class="price-block">
+            <div class="old-price">Antes $699 MXN</div>
+            <div class="promo-price">Promo $500 MXN</div>
+            <div class="saving-note">Ahorra $199 MXN</div>
+          </div>
+          <a class="demo-link" href="/demos/minimalista/">Ver ejemplo →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-image">
+          <span class="badge">Oferta especial</span>
+          <img src="assets/floral-preview.jpeg" alt="Floral">
+        </div>
+
+        <div class="card-content">
+          <h3>Floral</h3>
+          <p>Romántico, natural y delicado.</p>
+          <div class="price-block">
+            <div class="old-price">Antes $1,199 MXN</div>
+            <div class="promo-price">Promo $1,000 MXN</div>
+            <div class="saving-note">Ahorra $199 MXN</div>
+          </div>
+          <a class="demo-link" href="/demos/floral/">Ver ejemplo →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-image">
+          <span class="badge">Recomendado · -20%</span>
+          <img src="assets/elegante-preview.jpeg" alt="Elegante Premium">
+        </div>
+
+        <div class="card-content">
+          <h3>Premium</h3>
+          <p>Moderno, sofisticado y elegante.</p>
+          <div class="price-block">
+            <div class="old-price">Antes $2,499 MXN</div>
+            <div class="promo-price">Promo $2,000 MXN</div>
+            <div class="saving-note">Ahorra $499 MXN</div>
+          </div>
+          <a class="demo-link" href="/demos/elegante/">Ver ejemplo →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-image">
+          <span class="badge">Luxury Deal</span>
+          <img src="assets/luxury-preview.jpeg" alt="Luxury Experience">
+        </div>
+
+        <div class="card-content">
+          <h3>Luxury</h3>
+          <p>Lujo y distinción en cada detalle.</p>
+          <div class="price-block">
+            <div class="old-price">Antes $4,999 MXN</div>
+            <div class="promo-price">Promo $3,500 MXN</div>
+            <div class="saving-note">Ahorra $1,499 MXN</div>
+          </div>
+          <a class="demo-link" href="/demos/luxury-experience/">Ver ejemplo →</a>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="catalog-trust">
+      <div><strong>Entrega rápida</strong><br>Sin perder detalle visual</div>
+      <div><strong>Atención por WhatsApp</strong><br>Acompañamiento directo</div>
+      <div><strong>Diseño personalizado</strong><br>Adaptado a tu evento</div>
+      <div><strong>Pago seguro</strong><br>Proceso claro y confiable</div>
+    </div>
+  </section>
+
+  <section class="section fade" id="otros-eventos">
+    <div class="container">
+
+      <div class="section-head">
+        <div class="section-kicker">Más experiencias</div>
+
+        <h2 class="title" style="margin-top:1rem;">
+          ¿Quieres invitación para otro tipo de evento?
+        </h2>
+
+        <p class="subtitle">
+          También diseñamos invitaciones digitales elegantes y personalizadas
+          para todo tipo de celebraciones especiales.
+        </p>
+      </div>
+
+      <div class="event-grid">
+
+        <div class="event-card">
+          <span>🕊</span>
+          <h3>Bautizos</h3>
+          <a href="/demos/bautizo/" class="event-btn">Ver demo</a>
+        </div>
+
+        <div class="event-card">
+          <span>🎀</span>
+          <h3>Presentaciones</h3>
+          <a href="/demos/infantil-glam/" class="event-btn">Ver demo</a>
+        </div>
+
+        <div class="event-card">
+          <span>🧸</span>
+          <h3>3 años</h3>
+          <a href="/demos/infantil-glam/" class="event-btn">Ver demo</a>
+        </div>
+
+        <div class="event-card">
+          <span>🎉</span>
+          <h3>Cumpleaños Infantiles</h3>
+          <a href="/demos/infantil-glam/" class="event-btn">Ver demo</a>
+        </div>
+
+        <div class="event-card">
+          <span>🥃</span>
+          <h3>Cumpleaños Hombre</h3>
+          <a href="/demos/hombre/" class="event-btn">Ver demo</a>
+        </div>
+
+        <div class="event-card">
+          <span>💄</span>
+          <h3>Cumpleaños Mujer</h3>
+          <a href="/demos/mujer/" class="event-btn">Ver demo</a>
+        </div>
+
+        <div class="event-card">
+          <span>🙏</span>
+          <h3>Primera Comunión</h3>
+          <a href="/demos/sacramentos/" class="event-btn">Ver demo</a>
+        </div>
+
+        <div class="event-card">
+          <span>✨</span>
+          <h3>Confirmaciones</h3>
+          <a href="/demos/sacramentos/" class="event-btn">Ver demo</a>
+        </div>
+
+        <div class="event-card">
+          <span>🎓</span>
+          <h3>Graduaciones</h3>
+          <a href="/demos/graduacion-premium/" class="event-btn">Ver demo</a>
+        </div>
+
+        <div class="event-card">
+          <span>👑</span>
+          <h3>XV años</h3>
+          <a href="/demos/xv-glam/" class="event-btn">Ver demo</a>
+        </div>
+
+        <div class="event-card">
+          <span>🥂</span>
+          <h3>Bodas de Plata</h3>
+          <a href="/demos/plata/" class="event-btn">Ver demo</a>
+        </div>
+
+        <div class="event-card">
+          <span>💛</span>
+          <h3>Bodas de Oro</h3>
+          <a href="/demos/oro/" class="event-btn">Ver demo</a>
+        </div>
+
+        <div class="event-card">
+          <span>🍽</span>
+          <h3>Cenas Especiales</h3>
+          <a href="/demos/graduacion-premium/" class="event-btn">Ver demo</a>
+        </div>
+
+        <div class="event-card">
+          <span>🎊</span>
+          <h3>Eventos Generales</h3>
+          <a href="/demos/graduacion-premium/" class="event-btn">Ver demo</a>
+        </div>
+
+        <div class="event-card">
+          <span>✨</span>
+          <h3>Otros</h3>
+          <a href="/demos/otros/" class="event-btn">Ver catálogo</a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section class="luxury-section fade">
+
+    <div class="luxury-bg"></div>
+
+    <div class="luxury-container">
+
+      <div class="luxury-content">
+
+        <div class="section-kicker">
+          Luxury Experience
+        </div>
+
+        <h2>
+          Mucho más que una invitación digital
+        </h2>
+
+        <p>
+          Creamos experiencias premium diseñadas para impresionar desde el primer momento.
+          Elegancia, exclusividad y tecnología combinadas en una experiencia inolvidable.
+        </p>
+
+        <div class="luxury-features">
+
+          <div class="luxury-item">✨ Intro cinematográfica</div>
+          <div class="luxury-item">🎵 Música personalizada</div>
+          <div class="luxury-item">⏳ Countdown elegante</div>
+          <div class="luxury-item">📍 Google Maps integrado</div>
+          <div class="luxury-item">👗 Dress code animado</div>
+          <div class="luxury-item">💌 RSVP inteligente</div>
+          <div class="luxury-item">🖼 Galería premium</div>
+          <div class="luxury-item">🔒 Acceso privado</div>
+
+        </div>
+
+        <div class="hero-actions">
+
+          <a class="btn btn-gold" href="/demos/luxury-experience/">
+            Ver Luxury Experience
+          </a>
+
+          <a class="btn btn-outline"
+             href="https://wa.me/5215541946413?text=Hola,%20quiero%20información%20sobre%20una%20invitación%20digital"
+             target="_blank">
+            Solicitar información
+          </a>
+
+        </div>
+
+      </div>
+
+      <div class="luxury-visual">
+        <img src="assets/luxury-preview.jpeg" alt="Luxury Experience">
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="section fade" id="porque">
+    <div class="container">
+
+      <h2 class="title">¿Por qué elegirnos?</h2>
+
+      <p class="subtitle">
+        Diseñamos experiencias digitales modernas pensadas para impresionar desde el primer momento.
+      </p>
+
+      <div class="why-grid">
+
+        <div class="info-card">
+          <span>✨</span>
+          <h4>Diseño premium</h4>
+          <p>Experiencias elegantes y modernas para bodas memorables.</p>
+        </div>
+
+        <div class="info-card">
+          <span>📱</span>
+          <h4>Responsive</h4>
+          <p>Perfecto para celular, tablet y computadora.</p>
+        </div>
+
+        <div class="info-card">
+          <span>⚡</span>
+          <h4>Entrega rápida</h4>
+          <p>Recibe tu invitación lista en pocos días.</p>
+        </div>
+
+        <div class="info-card">
+          <span>🎬</span>
+          <h4>Experiencias únicas</h4>
+          <p>Mucho más que una invitación tradicional.</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section fade" id="proceso">
+    <div class="container">
+
+      <h2 class="title">¿Cómo funciona?</h2>
+
+      <p class="subtitle">
+        Un proceso rápido, sencillo y completamente personalizado.
+      </p>
+
+      <div class="steps-grid">
+
+        <div class="info-card">
+          <span>1️⃣</span>
+          <h4>Elige diseño</h4>
+          <p>Selecciona el estilo que más te guste.</p>
+        </div>
+
+        <div class="info-card">
+          <span>2️⃣</span>
+          <h4>Cotiza tu invitación</h4>
+          <p>Elige paquete, extras y tipo de evento en nuestro cotizador.</p>
+        </div>
+
+        <div class="info-card">
+          <span>3️⃣</span>
+          <h4>Personalizamos</h4>
+          <p>Te contactamos para recibir fotos, música y detalles completos.</p>
+        </div>
+
+        <div class="info-card">
+          <span>4️⃣</span>
+          <h4>Comparte tu liga</h4>
+          <p>Envía tu invitación digital a todos tus invitados.</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section class="cta fade" id="contacto">
+
+    <h2>Elige tu diseño</h2>
+
+    <p class="subtitle">
+      Selecciona el estilo ideal para tu evento, personaliza tu invitación y recibe una cotización al instante.
     </p>
 
+    <div class="hero-actions">
+
+      <a class="btn btn-gold" href="/cotizador.html">
+        Cotizador
+      </a>
+
+      <a class="btn btn-outline"
+         href="https://wa.me/5215541946413?text=Hola,%20quiero%20información%20sobre%20una%20invitación%20digital"
+         target="_blank">
+        Solicitar información
+      </a>
+
+      <a class="btn btn-outline" href="#catalogo">
+        Ver diseños
+      </a>
+
+    </div>
+
   </section>
 
-  <section class="quote-layout">
+  <footer class="simple-footer">
 
-    <div class="panel">
+    <h3>Te Invito a Mi Boda</h3>
 
-      <div class="panel-inner">
+    <p>
+      Invitaciones digitales premium para bodas y eventos especiales.
+      Diseños modernos, elegantes y completamente personalizados.
+    </p>
 
-        <h2 class="section-title">
-          <span>◇</span>1. Selecciona tu paquete
-        </h2>
+    <div class="footer-contact">
 
-        <p class="section-desc">
-          Elige el paquete que mejor se adapte a tu evento.
-        </p>
+      <strong>Contacto</strong>
 
-        <div class="packages">
+      <div class="footer-links">
 
-          <label class="package-card">
-            <input type="radio" name="package" value="500" data-name="Minimalista" checked>
+        <a href="https://wa.me/5215541946413?text=Hola,%20quiero%20información%20sobre%20una%20invitación%20digital"
+           target="_blank">
+          WhatsApp
+        </a>
 
-            <div class="package-inner">
-              <div class="discount-badge">Lanzamiento</div>
-              <div class="package-icon">◈</div>
-              <strong>Minimalista</strong>
-              <div class="old-price">$699 MXN</div>
-              <div class="price">$500 MXN</div>
-              <p>Diseño limpio, rápido y elegante.</p>
-            </div>
-          </label>
+        <a href="#">
+          Instagram
+        </a>
 
-          <label class="package-card">
-            <input type="radio" name="package" value="1000" data-name="Floral">
-
-            <div class="package-inner">
-              <div class="discount-badge">Oferta especial</div>
-              <div class="package-icon">✿</div>
-              <strong>Floral</strong>
-              <div class="old-price">$1,199 MXN</div>
-              <div class="price">$1,000 MXN</div>
-              <p>Romántico, delicado y visual.</p>
-            </div>
-          </label>
-
-          <label class="package-card">
-            <input type="radio" name="package" value="2000" data-name="Elegante Premium">
-
-            <div class="package-inner">
-              <div class="recommended">Recomendado</div>
-              <div class="discount-badge">-20%</div>
-              <div class="package-icon">◇</div>
-              <strong>Premium</strong>
-              <div class="old-price">$2,499 MXN</div>
-              <div class="price">$2,000 MXN</div>
-              <p>Experiencia moderna con funciones avanzadas.</p>
-            </div>
-          </label>
-
-          <label class="package-card">
-            <input type="radio" name="package" value="3500" data-name="Luxury Experience">
-
-            <div class="package-inner">
-              <div class="discount-badge luxury">Luxury Deal</div>
-              <div class="package-icon">♕</div>
-              <strong>Luxury</strong>
-              <div class="old-price">$4,999 MXN</div>
-              <div class="price">$3,500 MXN</div>
-              <p>Diseño cinematográfico tipo mini-app premium.</p>
-            </div>
-          </label>
-
-        </div>
-
-        <h2 class="section-title">
-          <span>☆</span>2. Agrega extras
-        </h2>
-
-        <p class="section-desc">
-          Personaliza tu invitación con herramientas especiales.
-        </p>
-
-        <div class="extras">
-
-          <label class="extra-item"><span class="extra-left"><input type="checkbox" class="extra" value="150" data-name="Música personalizada"> Música personalizada</span><span class="extra-price">$150 MXN</span></label>
-
-          <label class="extra-item"><span class="extra-left"><input type="checkbox" class="extra" value="200" data-name="QR personalizado"> QR personalizado</span><span class="extra-price">$200 MXN</span></label>
-
-          <label class="extra-item"><span class="extra-left"><input type="checkbox" class="extra" value="250" data-name="Galería extendida"> Galería extendida</span><span class="extra-price">$250 MXN</span></label>
-
-          <label class="extra-item"><span class="extra-left"><input type="checkbox" class="extra" value="500" data-name="RSVP avanzado"> RSVP avanzado</span><span class="extra-price">$500 MXN</span></label>
-
-          <label class="extra-item"><span class="extra-left"><input type="checkbox" class="extra" value="350" data-name="Playlist colaborativa"> Playlist colaborativa</span><span class="extra-price">$350 MXN</span></label>
-
-          <label class="extra-item"><span class="extra-left"><input type="checkbox" class="extra" value="450" data-name="Álbum compartido"> Álbum compartido</span><span class="extra-price">$450 MXN</span></label>
-
-          <label class="extra-item"><span class="extra-left"><input type="checkbox" class="extra" value="600" data-name="Pase personalizado"> Pase personalizado</span><span class="extra-price">$600 MXN</span></label>
-
-          <label class="extra-item"><span class="extra-left"><input type="checkbox" class="extra" value="800" data-name="Video de portada"> Video de portada</span><span class="extra-price">$800 MXN</span></label>
-
-        </div>
+        <a href="#">
+          TikTok
+        </a>
 
       </div>
 
     </div>
 
-    <aside class="panel summary">
+    <div class="footer-bottom">
+      © 2026 TeInvitoAMiBoda.online — Todos los derechos reservados.
+    </div>
 
-      <div class="summary-top">
+    <div class="footer-legal">
 
-        <h2 class="section-title">
-          <span>☷</span>Tu cotización
-        </h2>
-
-        <div class="summary-row">
-          <span>Paquete seleccionado</span>
-          <strong id="packageName">Minimalista</strong>
-        </div>
-
-        <div class="summary-row">
-          <span>Extras</span>
-          <strong id="extrasCount">0</strong>
-        </div>
-
-        <div class="total-line">
-          <span>Total</span>
-          <div class="total" id="quoteTotal">$500 MXN</div>
-        </div>
-
-        <div class="selected-list" id="selectedList"></div>
-
-      </div>
-
-      <div class="data-box">
-
-        <h2 class="section-title">
-          <span>♙</span>3. Tus datos
-        </h2>
-
-        <p class="section-desc">
-          Completa tus datos para recibir tu cotización.
-        </p>
-
-        <div class="form-grid">
-
-          <div class="field">
-            <input type="text" id="clientName" placeholder="Tu nombre completo">
-          </div>
-
-          <div class="field">
-            <input type="tel" id="clientPhone" placeholder="Tu número de WhatsApp">
-          </div>
-
-          <div class="field">
-            <select id="eventType">
-              <option value="">Tipo de evento</option>
-              <option>Boda</option>
-              <option>XV años</option>
-              <option>Bautizo</option>
-              <option>Graduación</option>
-              <option>Cumpleaños</option>
-              <option>Otro</option>
-            </select>
-          </div>
-
-        </div>
-
-        <button class="btn" id="sendQuote">
-          Enviar cotización y continuar
-        </button>
-
-        <p class="note">
-          Después de enviar tu cotización, te contactaremos para recibir fotos,
-          música y detalles completos del evento.
-        </p>
-
-      </div>
-
-    </aside>
-
-  </section>
-
-  <section class="trust">
-
-    <div>🛡 Pago seguro y protegido</div>
-    <div>✓ Entrega rápida</div>
-    <div>🎧 Soporte personalizado</div>
-
-  </section>
-
-</main>
-
-<section class="footer-cta">
-
-  <h2>
-    Tu invitación empieza aquí
-  </h2>
-
-  <p>
-    Cotiza tu diseño, elige tus extras y recibe atención personalizada
-    para crear una invitación digital elegante, moderna y completamente a tu medida.
-  </p>
-
-  <div class="footer-actions">
-
-    <a
-      class="primary"
-      href="https://wa.me/5215541946413?text=Hola,%20quiero%20cotizar%20mi%20invitación%20digital"
-      target="_blank">
-
-      Hablar por WhatsApp
-
-    </a>
-
-    <a class="outline" href="/">
-      Volver al inicio
-    </a>
-
-  </div>
-
-</section>
-
-<footer class="simple-footer">
-
-  <h3>
-    Te Invito a Mi Boda
-  </h3>
-
-  <p>
-    Invitaciones digitales premium para bodas y eventos especiales.
-    Diseños modernos, elegantes y completamente personalizados.
-  </p>
-
-  <div class="footer-contact">
-
-    <strong>
-      Contacto
-    </strong>
-
-    <div class="footer-links">
-
-      <a href="https://wa.me/5215541946413" target="_blank">
-        WhatsApp
+      <a href="/aviso-de-privacidad.html">
+        Aviso de Privacidad
       </a>
 
-      <a href="#">
-        Instagram
-      </a>
-
-      <a href="#">
-        TikTok
+      <a href="/terminos-y-condiciones.html">
+        Términos y Condiciones
       </a>
 
     </div>
 
-  </div>
+  </footer>
 
-  <div class="footer-bottom">
-    © 2026 TeInvitoAMiBoda.online — Todos los derechos reservados.
-  </div>
-
-  <div class="footer-legal">
-
-    <a href="/aviso-de-privacidad.html">
-      Aviso de Privacidad
-    </a>
-
-    <a href="/terminos-y-condiciones.html">
-      Términos y Condiciones
-    </a>
-
-  </div>
-
-</footer>
-
-<script>
-
-const WHATSAPP_NUMBER = "525541946413";
-const SHEETS_ENDPOINT = "https://script.google.com/macros/s/AKfycbxQgwps_o38S_fobEjIWwufkndRlvf58Bh8P3lG2ihiVnhfq7kQsExsVWVCNhxG-sumOA/exec";
-
-const packageInputs = document.querySelectorAll('input[name="package"]');
-const extras = document.querySelectorAll('.extra');
-
-const quoteTotal = document.getElementById('quoteTotal');
-const packageName = document.getElementById('packageName');
-const extrasCount = document.getElementById('extrasCount');
-const selectedList = document.getElementById('selectedList');
-
-const clientName = document.getElementById('clientName');
-const clientPhone = document.getElementById('clientPhone');
-const eventType = document.getElementById('eventType');
-const sendQuote = document.getElementById('sendQuote');
-
-function money(amount){
-  return amount.toLocaleString('es-MX', {
-    style:'currency',
-    currency:'MXN',
-    maximumFractionDigits:0
-  });
-}
-
-function getQuote(){
-  const selectedPackage = document.querySelector('input[name="package"]:checked');
-
-  const quote = {
-    packageName: selectedPackage.dataset.name,
-    packagePrice: Number(selectedPackage.value),
-    extras: [],
-    total: Number(selectedPackage.value)
-  };
-
-  extras.forEach(extra => {
-    if(extra.checked){
-      quote.extras.push({
-        name: extra.dataset.name,
-        price: Number(extra.value)
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
       });
+    }, { threshold: 0.1 });
 
-      quote.total += Number(extra.value);
-    }
-  });
-
-  return quote;
-}
-
-function updateQuote(){
-  const quote = getQuote();
-
-  packageName.textContent = quote.packageName;
-  extrasCount.textContent = quote.extras.length;
-  quoteTotal.textContent = money(quote.total);
-
-  quoteTotal.style.transform = 'scale(1.04)';
-
-  setTimeout(()=>{
-    quoteTotal.style.transform = 'scale(1)';
-  },160);
-
-  if(quote.extras.length){
-    selectedList.innerHTML = quote.extras.map(extra => `
-      <div>
-        <span>${extra.name}</span>
-        <span>${money(extra.price)}</span>
-      </div>
-    `).join('');
-  }else{
-    selectedList.innerHTML = `
-      <div>
-        <span>Sin extras seleccionados</span>
-        <span>$0 MXN</span>
-      </div>
-    `;
-  }
-}
-
-function openWhatsApp(payload){
-  const message = encodeURIComponent(
-    `Hola, quiero cotizar una invitación digital.\n\n` +
-    `Nombre: ${payload.nombre}\n` +
-    `WhatsApp: ${payload.telefono}\n` +
-    `Evento: ${payload.evento}\n\n` +
-    `Paquete: ${payload.paquete}\n` +
-    `Extras: ${payload.extras}\n\n` +
-    `Total estimado: ${payload.total}`
-  );
-
-  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, "_blank");
-}
-
-async function sendToSheets(payload){
-  const formData = new URLSearchParams();
-
-  Object.keys(payload).forEach(key => {
-    formData.append(key, payload[key]);
-  });
-
-  await fetch(SHEETS_ENDPOINT, {
-    method: "POST",
-    mode: "no-cors",
-    body: formData
-  });
-}
-
-sendQuote.addEventListener('click', async () => {
-  if(!clientName.value.trim()){
-    alert("Escribe tu nombre.");
-    return;
-  }
-
-  if(!clientPhone.value.trim()){
-    alert("Escribe tu WhatsApp.");
-    return;
-  }
-
-  if(!eventType.value){
-    alert("Selecciona el tipo de evento.");
-    return;
-  }
-
-  const quote = getQuote();
-
-  const payload = {
-    nombre: clientName.value.trim(),
-    telefono: clientPhone.value.trim(),
-    evento: eventType.value,
-    paquete: quote.packageName,
-    extras: quote.extras.map(e => e.name).join(", ") || "Sin extras",
-    total: money(quote.total)
-  };
-
-  sendQuote.textContent = "Enviando...";
-
-  try{
-    await sendToSheets(payload);
-  }catch(error){
-    console.error(error);
-  }
-
-  openWhatsApp(payload);
-
-  sendQuote.textContent = "Enviar cotización y continuar";
-});
-
-packageInputs.forEach(input => input.addEventListener('change', updateQuote));
-extras.forEach(extra => extra.addEventListener('change', updateQuote));
-
-updateQuote();
-
-</script>
+    document.querySelectorAll('.fade').forEach(el => observer.observe(el));
+  </script>
 
 </body>
 </html>

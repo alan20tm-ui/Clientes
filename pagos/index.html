@@ -4,17 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <title>Pagos | Te Invito a Mi Boda</title>
+  <title>Pago Seguro | Te Invito a Mi Boda</title>
 
   <meta name="description" content="Página privada de pago para invitaciones digitales premium.">
   <meta name="robots" content="noindex, nofollow">
+  <meta name="googlebot" content="noindex, nofollow">
 
   <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/favicon.png">
 
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
-
     :root{
       --bg:#050505;
       --gold:#c9a45f;
@@ -22,59 +23,46 @@
       --text:#f7f1e8;
       --muted:#b9b0a3;
       --line:rgba(244,213,141,.18);
+      --danger:#d66b6b;
+      --ok:#25D366;
     }
 
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
+    *{margin:0;padding:0;box-sizing:border-box}
+
+    html{
+      scroll-behavior:smooth;
+      overflow-x:hidden;
     }
 
     body{
       min-height:100vh;
-
       font-family:'Montserrat',sans-serif;
-
       color:var(--text);
-
       background:
         radial-gradient(circle at 15% 15%, rgba(201,164,95,.18), transparent 30%),
         radial-gradient(circle at 85% 80%, rgba(244,213,141,.10), transparent 34%),
         linear-gradient(135deg,#030303,#0a0907 50%,#020202);
-
       overflow-x:hidden;
     }
 
-    a{
-      text-decoration:none;
-      color:inherit;
-    }
+    a{text-decoration:none;color:inherit}
 
     .ambient{
       position:fixed;
       inset:0;
       pointer-events:none;
       z-index:-1;
-
       opacity:.12;
-
       background-image:
         radial-gradient(circle,rgba(244,213,141,.45) 1px,transparent 1.6px),
         radial-gradient(circle,rgba(255,255,255,.12) 1px,transparent 1.5px);
-
       background-size:140px 140px,240px 240px;
-
       animation:move 28s linear infinite;
     }
 
     @keyframes move{
-      from{
-        transform:translateY(0);
-      }
-
-      to{
-        transform:translateY(-140px);
-      }
+      from{transform:translateY(0)}
+      to{transform:translateY(-140px)}
     }
 
     .brand-home{
@@ -82,9 +70,7 @@
       top:18px;
       left:18px;
       z-index:90;
-
       width:110px;
-
       transition:.3s ease;
     }
 
@@ -95,40 +81,24 @@
     .brand-home img{
       width:100%;
       display:block;
-
-      filter:
-        drop-shadow(0 14px 32px rgba(0,0,0,.48));
+      filter:drop-shadow(0 14px 32px rgba(0,0,0,.48));
     }
 
     .floating{
       position:fixed;
-
       right:18px;
       bottom:18px;
-
       width:58px;
       height:58px;
-
       border-radius:50%;
-
       display:grid;
       place-items:center;
-
-      background:
-        linear-gradient(
-          135deg,
-          #25D366,
-          #128C7E
-        );
-
+      background:linear-gradient(135deg,#25D366,#128C7E);
       color:#fff;
-
       z-index:90;
-
       box-shadow:
         0 16px 38px rgba(0,0,0,.42),
         0 0 0 7px rgba(37,211,102,.10);
-
       transition:.25s ease;
     }
 
@@ -145,130 +115,91 @@
     .page{
       width:min(980px,100%);
       margin:auto;
-
       padding:7rem 1.2rem 4rem;
     }
 
     .panel{
       position:relative;
-
       overflow:hidden;
-
       border-radius:38px;
-
       border:1px solid rgba(244,213,141,.16);
-
       background:
-        linear-gradient(
-          145deg,
-          rgba(255,255,255,.05),
-          rgba(255,255,255,.015)
-        );
-
+        linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.015));
       backdrop-filter:blur(18px);
-
       box-shadow:
         0 36px 90px rgba(0,0,0,.50),
         inset 0 1px 0 rgba(255,255,255,.04);
-
-      padding:
-        clamp(2rem,5vw,4rem);
+      padding:clamp(2rem,5vw,4rem);
     }
 
     .panel::before{
       content:"";
-
       position:absolute;
       inset:0;
-
       background:
         radial-gradient(circle at 18% 18%, rgba(244,213,141,.12), transparent 28%),
         linear-gradient(120deg, transparent 20%, rgba(244,213,141,.05), transparent 76%);
-
       pointer-events:none;
     }
 
     .content{
       position:relative;
       z-index:2;
-
       text-align:center;
     }
 
     .kicker{
       color:var(--gold-soft);
-
       letter-spacing:.42em;
       text-transform:uppercase;
-
       font-size:.72rem;
       font-weight:700;
-
       margin-bottom:1rem;
     }
 
     h1{
       font-family:'Cormorant Garamond',serif;
-
       font-size:clamp(4rem,8vw,6.8rem);
-
       line-height:.88;
-
       font-weight:400;
-
       color:var(--gold-soft);
-
       margin-bottom:1rem;
-
       text-shadow:0 24px 70px rgba(0,0,0,.55);
     }
 
     .subtitle{
       max-width:620px;
-
-      margin:auto auto 2.4rem;
-
+      margin:auto auto 2.2rem;
       color:var(--muted);
-
       line-height:1.8;
     }
 
     .form-grid{
       display:grid;
       gap:1rem;
-
       max-width:620px;
-
       margin:auto;
     }
 
     .field input,
+    .field select,
     .field textarea{
       width:100%;
-
       padding:1rem 1.1rem;
-
       border-radius:18px;
-
       border:1px solid rgba(255,255,255,.10);
-
       background:rgba(0,0,0,.22);
-
       color:#fff;
-
       outline:none;
-
       font-family:'Montserrat',sans-serif;
-
       transition:.25s ease;
     }
 
     .field input:focus,
+    .field select:focus,
     .field textarea:focus{
       border-color:rgba(244,213,141,.34);
-
-      box-shadow:
-        0 0 0 4px rgba(244,213,141,.08);
+      box-shadow:0 0 0 4px rgba(244,213,141,.08);
     }
 
     .field input::placeholder,
@@ -276,85 +207,63 @@
       color:#968d82;
     }
 
+    .field select option{
+      color:#111;
+    }
+
     textarea{
       resize:none;
-      min-height:120px;
+      min-height:92px;
     }
 
     .pay-box{
-      margin-top:1.2rem;
-
-      padding:1.3rem;
-
+      max-width:620px;
+      margin:1.2rem auto 0;
+      padding:1.25rem;
       border-radius:24px;
-
       border:1px solid rgba(244,213,141,.16);
-
-      background:
-        rgba(255,255,255,.03);
+      background:rgba(255,255,255,.03);
     }
 
     .pay-box small{
       display:block;
-
       color:#9c9286;
-
       text-transform:uppercase;
-
       letter-spacing:.18em;
-
       font-size:.68rem;
-
       margin-bottom:.35rem;
     }
 
     .pay-box strong{
       display:block;
-
       font-family:'Cormorant Garamond',serif;
-
       color:var(--gold-soft);
-
       font-size:3rem;
-
       line-height:1;
+    }
+
+    .actions{
+      max-width:620px;
+      margin:1.2rem auto 0;
+      display:grid;
+      gap:.75rem;
     }
 
     .btn{
       width:100%;
-
       display:inline-flex;
       align-items:center;
       justify-content:center;
-
       gap:.5rem;
-
-      margin-top:1.2rem;
-
       padding:1rem 1.2rem;
-
       border-radius:999px;
-
       border:0;
-
       font-weight:700;
-
       cursor:pointer;
-
       font-family:'Montserrat',sans-serif;
-
-      background:
-        linear-gradient(
-          135deg,
-          var(--gold),
-          var(--gold-soft)
-        );
-
+      background:linear-gradient(135deg,var(--gold),var(--gold-soft));
       color:#111;
-
-      box-shadow:
-        0 16px 34px rgba(201,164,95,.18);
-
+      box-shadow:0 16px 34px rgba(201,164,95,.18);
       transition:.25s ease;
     }
 
@@ -362,57 +271,82 @@
       transform:translateY(-2px);
     }
 
+    .btn-outline{
+      background:rgba(255,255,255,.035);
+      color:var(--text);
+      border:1px solid var(--line);
+      box-shadow:none;
+    }
+
     .note{
-      margin-top:1rem;
-
+      max-width:620px;
+      margin:1rem auto 0;
       color:#968d82;
-
       font-size:.82rem;
-
       line-height:1.7;
+    }
+
+    .status{
+      max-width:620px;
+      margin:1rem auto 0;
+      display:none;
+      padding:.9rem 1rem;
+      border-radius:16px;
+      font-size:.84rem;
+      line-height:1.5;
+    }
+
+    .status.error{
+      display:block;
+      background:rgba(214,107,107,.10);
+      border:1px solid rgba(214,107,107,.28);
+      color:#f0b5b5;
+    }
+
+    .status.ok{
+      display:block;
+      background:rgba(37,211,102,.10);
+      border:1px solid rgba(37,211,102,.24);
+      color:#b9f5d0;
+    }
+
+    .mini-help{
+      max-width:620px;
+      margin:1rem auto 0;
+      color:#7f766d;
+      font-size:.76rem;
+      line-height:1.6;
     }
 
     .footer{
       text-align:center;
-
       padding:4rem 1.2rem 3rem;
     }
 
     .footer h3{
       font-family:'Cormorant Garamond',serif;
-
       color:var(--gold-soft);
-
       font-size:2.2rem;
-
       font-weight:400;
-
       margin-bottom:.7rem;
     }
 
     .footer p{
       max-width:720px;
-
       margin:auto;
-
       color:var(--muted);
-
       line-height:1.8;
     }
 
     .footer-bottom{
       margin-top:1.5rem;
-
       color:#8f8578;
-
       font-size:.88rem;
     }
 
     @media(max-width:780px){
-
       .brand-home{
         width:88px;
-
         top:12px;
         left:12px;
       }
@@ -432,9 +366,7 @@
       .pay-box strong{
         font-size:2.5rem;
       }
-
     }
-
   </style>
 </head>
 
@@ -442,7 +374,7 @@
 
 <div class="ambient"></div>
 
-<a href="/" class="brand-home">
+<a href="/" class="brand-home" aria-label="Volver al inicio">
   <img src="/TIAMB.png" alt="Te Invito a Mi Boda">
 </a>
 
@@ -450,6 +382,7 @@
   class="floating"
   href="https://wa.me/5215541946413?text=Hola,%20tengo%20una%20duda%20sobre%20mi%20pago"
   target="_blank"
+  rel="noopener"
   aria-label="WhatsApp">
 
   <svg viewBox="0 0 32 32">
@@ -473,47 +406,61 @@
       </h1>
 
       <p class="subtitle">
-        Esta página se comparte únicamente después de confirmar los detalles de tu invitación digital.
+        Ingresa tus datos, confirma el concepto acordado y continúa con el pago de tu invitación digital.
       </p>
 
-      <div class="form-grid">
+      <form id="paymentForm" class="form-grid">
 
         <div class="field">
-          <input type="text" placeholder="Nombre completo">
+          <input id="clientName" type="text" placeholder="Nombre completo" autocomplete="name" required>
         </div>
 
         <div class="field">
-          <input type="tel" placeholder="Número de celular">
+          <input id="clientPhone" type="tel" placeholder="Número de celular" autocomplete="tel" required>
         </div>
 
         <div class="field">
-          <input type="text" placeholder="Concepto o tipo de invitación">
+          <select id="concept" required>
+            <option value="">Concepto o tipo de invitación</option>
+            <option value="Invitación digital Minimalista">Invitación digital Minimalista</option>
+            <option value="Invitación digital Floral">Invitación digital Floral</option>
+            <option value="Invitación digital Premium">Invitación digital Premium</option>
+            <option value="Invitación digital Luxury">Invitación digital Luxury</option>
+            <option value="Invitación digital personalizada">Invitación digital personalizada</option>
+            <option value="Extras o ajuste de invitación">Extras o ajuste de invitación</option>
+          </select>
         </div>
 
         <div class="field">
-          <textarea placeholder="Notas adicionales (opcional)"></textarea>
+          <textarea id="notes" placeholder="Notas adicionales (opcional)"></textarea>
         </div>
 
-      </div>
+      </form>
 
       <div class="pay-box">
-
-        <small>
-          Total acordado
-        </small>
-
-        <strong>
-          $0 MXN
-        </strong>
-
+        <small>Total acordado</small>
+        <strong id="amountLabel">$10.00 MXN</strong>
       </div>
 
-      <button class="btn">
-        Pagar ahora
-      </button>
+      <div id="status" class="status"></div>
+
+      <div class="actions">
+        <button class="btn" id="payButton" type="button">
+          Pagar ahora
+        </button>
+
+        <button class="btn btn-outline" id="sendDataButton" type="button">
+          Enviar datos de contacto
+        </button>
+      </div>
 
       <p class="note">
         Después del pago nos pondremos en contacto contigo para continuar tu proyecto.
+      </p>
+
+      <p class="mini-help">
+        Uso interno: puedes cambiar el monto y liga de pago desde la URL usando
+        <strong>?monto=3500&mp=TU_LINK_DE_MERCADO_PAGO</strong>
       </p>
 
     </div>
@@ -537,6 +484,108 @@
   </div>
 
 </footer>
+
+<script>
+  const WHATSAPP_NUMBER = '5215541946413';
+
+  const params = new URLSearchParams(window.location.search);
+
+  const amountParam = params.get('monto') || params.get('total') || '0';
+  const paymentLink = params.get('mp') || params.get('link') || '';
+
+  const amountNumber = Number(String(amountParam).replace(/[^0-9.]/g, '')) || 0;
+
+  const amountLabel = document.getElementById('amountLabel');
+  const statusBox = document.getElementById('status');
+  const payButton = document.getElementById('payButton');
+  const sendDataButton = document.getElementById('sendDataButton');
+
+  function formatCurrency(value){
+    return value.toLocaleString('es-MX', {
+      style: 'currency',
+      currency: 'MXN',
+      maximumFractionDigits: 0
+    });
+  }
+
+  function setStatus(type, message){
+    statusBox.className = 'status ' + type;
+    statusBox.textContent = message;
+  }
+
+  function clearStatus(){
+    statusBox.className = 'status';
+    statusBox.textContent = '';
+  }
+
+  function getFormData(){
+    return {
+      name: document.getElementById('clientName').value.trim(),
+      phone: document.getElementById('clientPhone').value.trim(),
+      concept: document.getElementById('concept').value,
+      notes: document.getElementById('notes').value.trim()
+    };
+  }
+
+  function validateForm(){
+    clearStatus();
+
+    const data = getFormData();
+
+    if (!data.name || !data.phone || !data.concept) {
+      setStatus('error', 'Completa nombre, número de celular y concepto antes de continuar.');
+      return null;
+    }
+
+    if (!amountNumber) {
+      setStatus('error', 'El monto no está configurado. Solicita la liga correcta de pago.');
+      return null;
+    }
+
+    return data;
+  }
+
+  function buildWhatsAppMessage(data, actionText){
+    return [
+      actionText,
+      '',
+      'Nombre: ' + data.name,
+      'Celular: ' + data.phone,
+      'Concepto: ' + data.concept,
+      'Total acordado: ' + formatCurrency(amountNumber),
+      'Notas: ' + (data.notes || 'Sin notas')
+    ].join('\\n');
+  }
+
+  amountLabel.textContent = formatCurrency(amountNumber);
+
+  payButton.addEventListener('click', () => {
+    const data = validateForm();
+    if (!data) return;
+
+    if (!paymentLink) {
+      const msg = buildWhatsAppMessage(data, 'Hola, ya llené mis datos para realizar el pago.');
+      window.open('https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(msg), '_blank');
+      setStatus('ok', 'Datos listos. Se abrirá WhatsApp para confirmar la liga de pago.');
+      return;
+    }
+
+    const msg = buildWhatsAppMessage(data, 'Hola, voy a realizar mi pago desde la página privada.');
+    window.open('https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(msg), '_blank');
+
+    setTimeout(() => {
+      window.location.href = paymentLink;
+    }, 650);
+  });
+
+  sendDataButton.addEventListener('click', () => {
+    const data = validateForm();
+    if (!data) return;
+
+    const msg = buildWhatsAppMessage(data, 'Hola, estos son mis datos de contacto para mi invitación digital.');
+    window.open('https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(msg), '_blank');
+  });
+</script>
 
 </body>
 </html>

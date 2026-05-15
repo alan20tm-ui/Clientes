@@ -1,679 +1,1508 @@
-ChatGPT
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>Cotizador | Te Invito a Mi Boda</title>
 
+  <meta name="description" content="Cotizador premium para invitaciones digitales personalizadas. Elige paquete, extras y recibe cotización por WhatsApp.">
 
+  <link rel="icon" type="image/png" href="/favicon.png">
 
-Pasted text(162).txt
-Documento
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-Pasted text (2)(24).txt
-Documento
-es este, lo que quiero es dejar el mismo diseño super pro... si tienen arreglos hazlos y sorprendeme... debe quedar con el logo de la raiz igual al de otro codigo que te pego, con footers y flotante de whatsapp igual a los otros demos... como el de floral que te pego, pero no le muevas nada más, solo quiero igualar las páginas y que todas se vean iguales, si recuerdas el otro chat, asi lo veniamos haciendo... solo mejoras, no muevas diseño ni todo lo que contiene la invitación de boda...a menos que sea mejora, lo repito,,..
+  <style>
 
-Captura de pantalla 2026-05-15 082718.png
-sigue viendo se esto asi.... ayudate con este para esa parte, pero no le hagas caso al demas codigo
+    :root{
+      --bg:#050505;
+      --gold:#c9a45f;
+      --gold-soft:#f4d58d;
+      --text:#f7f1e8;
+      --muted:#b9b0a3;
+      --line:rgba(244,213,141,.22);
+      --glass:rgba(255,255,255,.045);
+      --glass-strong:rgba(255,255,255,.075);
+      --shadow:rgba(0,0,0,.48);
+    }
 
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
 
-Imagen creada
-•
-Invitación de boda elegante y sofisticada
+    html{
+      scroll-behavior:smooth;
+      overflow-x:hidden;
+    }
 
-Imagen generada: Invitación de boda elegante y sofisticada
+    body{
+      min-height:100vh;
 
+      font-family:'Montserrat',sans-serif;
 
-Editar
+      color:var(--text);
 
-Pensado durante un par de segundos
-Perdón, Alan, entendí mal. No imagen: código.
+      background:
+        radial-gradient(circle at 50% 0%, rgba(201,164,95,.18), transparent 28%),
+        radial-gradient(circle at 15% 30%, rgba(244,213,141,.08), transparent 26%),
+        radial-gradient(circle at 85% 80%, rgba(201,164,95,.10), transparent 32%),
+        linear-gradient(135deg,#030303,#0a0907 45%,#020202);
 
-El problema es que el contenedor blanco está tapando el logo y el logo queda demasiado grande/desalineado. Reemplaza solo el CSS de .brand-home por este:
+      overflow-x:hidden;
+    }
 
-.brand-home{
-  position:fixed;
-  top:18px;
-  left:18px;
-  z-index:120;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  width:74px;
-  height:74px;
-  border-radius:22px;
-  background:rgba(255,255,255,.08);
-  border:1px solid rgba(244,213,141,.16);
-  backdrop-filter:blur(18px);
-  box-shadow:0 14px 40px rgba(0,0,0,.42);
-  overflow:hidden;
-  transition:.35s ease;
-}
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
 
-.brand-home:hover{
-  transform:translateY(-2px) scale(1.04);
-}
+    img{
+      max-width:100%;
+      display:block;
+    }
 
-.brand-home img{
-  width:100%;
-  height:100%;
-  object-fit:contain;
-  padding:8px;
-  filter:drop-shadow(0 0 14px rgba(244,213,141,.18));
-}
+    .ambient-noise{
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      z-index:-1;
 
-@media(max-width:980px){
-  .brand-home{
-    width:62px;
-    height:62px;
-    top:12px;
-    left:12px;
-    border-radius:18px;
-  }
+      opacity:.10;
 
-  .brand-home img{
-    padding:7px;
-  }
-}
-Y asegúrate de que el HTML esté así:
+      background-image:
+        radial-gradient(circle,rgba(244,213,141,.35) 1px,transparent 1.4px),
+        radial-gradient(circle,rgba(255,255,255,.12) 1px,transparent 1.5px);
 
-<a href="/" class="brand-home" aria-label="Te Invito a Mi Boda">
+      background-size:140px 140px,240px 240px;
+
+      animation:noiseMove 28s linear infinite;
+    }
+
+    @keyframes noiseMove{
+      from{
+        transform:translateY(0);
+      }
+
+      to{
+        transform:translateY(-160px);
+      }
+    }
+
+    .brand-home{
+      position:fixed;
+
+      top:18px;
+      left:18px;
+
+      width:74px;
+      height:74px;
+
+      z-index:80;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      border-radius:24px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,.065),
+          rgba(255,255,255,.025)
+        );
+
+      border:1px solid rgba(244,213,141,.16);
+
+      backdrop-filter:blur(18px);
+
+      box-shadow:
+        0 14px 38px rgba(0,0,0,.42),
+        0 0 28px rgba(244,213,141,.08);
+
+      transition:.3s ease;
+    }
+
+    .brand-home:hover{
+      transform:translateY(-3px) scale(1.04);
+
+      border-color:rgba(244,213,141,.34);
+
+      box-shadow:
+        0 20px 55px rgba(0,0,0,.54),
+        0 0 42px rgba(244,213,141,.16);
+    }
+
+    .brand-home img{
+      width:56px;
+      object-fit:contain;
+      filter:drop-shadow(0 0 16px rgba(244,213,141,.16));
+    }
+
+    .floating{
+      position:fixed;
+
+      right:20px;
+      bottom:20px;
+
+      width:58px;
+      height:58px;
+
+      border-radius:50%;
+
+      display:grid;
+      place-items:center;
+
+      background:#25D366;
+
+      color:#fff;
+
+      z-index:90;
+
+      box-shadow:0 18px 42px rgba(0,0,0,.38);
+
+      transition:.25s ease;
+    }
+
+    .floating:hover{
+      transform:translateY(-3px) scale(1.04);
+    }
+
+    .page{
+      width:min(1320px,100%);
+
+      margin:auto;
+
+      padding:3rem 1.2rem 4rem;
+    }
+
+    .top{
+      display:flex;
+      justify-content:flex-end;
+
+      margin-bottom:2rem;
+    }
+
+    .back{
+      padding:.9rem 1.4rem;
+
+      border-radius:999px;
+
+      border:1px solid var(--line);
+
+      color:var(--muted);
+
+      background:rgba(255,255,255,.035);
+
+      backdrop-filter:blur(12px);
+
+      transition:.25s ease;
+    }
+
+    .back:hover{
+      color:var(--gold-soft);
+      border-color:rgba(244,213,141,.35);
+      transform:translateY(-2px);
+    }
+
+    .hero{
+      text-align:center;
+
+      margin-bottom:3rem;
+
+      padding-top:2rem;
+    }
+
+    .kicker{
+      color:var(--gold-soft);
+
+      letter-spacing:.42em;
+      text-transform:uppercase;
+
+      font-size:.74rem;
+      font-weight:600;
+
+      margin-bottom:1rem;
+    }
+
+    h1{
+      font-family:'Cormorant Garamond',serif;
+
+      font-size:clamp(4rem,8vw,7rem);
+
+      line-height:.9;
+
+      font-weight:400;
+
+      color:var(--gold-soft);
+
+      margin-bottom:1rem;
+
+      text-shadow:0 24px 70px rgba(0,0,0,.55);
+    }
+
+    .hero p{
+      color:var(--muted);
+
+      max-width:760px;
+
+      margin:auto;
+
+      font-size:1.05rem;
+
+      line-height:1.8;
+    }
+
+    .quote-layout{
+      display:grid;
+
+      grid-template-columns:1.2fr .8fr;
+
+      gap:1.2rem;
+
+      align-items:start;
+    }
+
+    .panel{
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,.055),
+          rgba(255,255,255,.018)
+        );
+
+      border:1px solid rgba(244,213,141,.16);
+
+      border-radius:30px;
+
+      backdrop-filter:blur(18px);
+
+      box-shadow:
+        0 30px 70px rgba(0,0,0,.48),
+        inset 0 1px 0 rgba(255,255,255,.04);
+
+      overflow:hidden;
+    }
+
+    .panel-inner{
+      padding:1.9rem;
+    }
+
+    .section-title{
+      display:flex;
+      align-items:center;
+      gap:.75rem;
+
+      font-family:'Cormorant Garamond',serif;
+
+      font-size:2.05rem;
+
+      font-weight:500;
+
+      color:#fff;
+
+      margin-bottom:.3rem;
+    }
+
+    .section-title span{
+      color:var(--gold);
+
+      font-size:1.35rem;
+    }
+
+    .section-desc{
+      color:var(--muted);
+
+      margin-bottom:1.4rem;
+
+      font-size:.95rem;
+
+      line-height:1.7;
+    }
+
+    .packages{
+      display:grid;
+
+      grid-template-columns:repeat(4,1fr);
+
+      gap:1rem;
+
+      margin-bottom:2rem;
+    }
+        .package-card{
+      position:relative;
+      cursor:pointer;
+    }
+
+    .package-card input{
+      position:absolute;
+      opacity:0;
+    }
+
+    .package-inner{
+
+      position:relative;
+
+      min-height:235px;
+
+      padding:1.4rem 1rem;
+
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+
+      text-align:center;
+
+      border-radius:22px;
+
+      border:1px solid rgba(255,255,255,.12);
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,.05),
+          rgba(255,255,255,.015)
+        );
+
+      transition:.28s ease;
+
+      overflow:hidden;
+    }
+
+    .package-inner::before{
+
+      content:"";
+
+      position:absolute;
+
+      inset:0;
+
+      opacity:0;
+
+      transition:.3s ease;
+
+      background:
+        radial-gradient(
+          circle at top,
+          rgba(244,213,141,.18),
+          transparent 48%
+        );
+    }
+
+    .package-card:hover .package-inner{
+      transform:translateY(-4px);
+
+      border-color:rgba(244,213,141,.28);
+    }
+
+    .package-card:hover .package-inner::before{
+      opacity:1;
+    }
+
+    .package-card input:checked + .package-inner{
+
+      border-color:var(--gold);
+
+      box-shadow:
+        0 0 38px rgba(201,164,95,.18);
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(244,213,141,.08),
+          rgba(255,255,255,.02)
+        );
+    }
+
+    .package-icon{
+
+      font-size:2.4rem;
+
+      color:var(--gold);
+
+      margin-bottom:.8rem;
+    }
+
+    .package-inner strong{
+
+      font-family:'Cormorant Garamond',serif;
+
+      font-size:2rem;
+
+      font-weight:500;
+
+      color:#fff;
+
+      margin-bottom:.2rem;
+    }
+
+    .old-price{
+
+      text-decoration:line-through;
+
+      color:#8f8578;
+
+      font-size:.92rem;
+
+      margin-bottom:.15rem;
+    }
+
+    .price{
+
+      color:var(--gold-soft);
+
+      font-weight:700;
+
+      font-size:1.15rem;
+
+      margin-bottom:.8rem;
+    }
+
+    .package-inner p{
+      color:#d8d0c6;
+      font-size:.86rem;
+      line-height:1.65;
+    }
+
+    .discount-badge{
+
+      position:absolute;
+
+      top:12px;
+      right:12px;
+
+      padding:.45rem .7rem;
+
+      border-radius:999px;
+
+      font-size:.68rem;
+
+      font-weight:700;
+
+      letter-spacing:.08em;
+
+      text-transform:uppercase;
+
+      background:
+        linear-gradient(
+          135deg,
+          #f4d58d,
+          #c9a45f
+        );
+
+      color:#111;
+
+      box-shadow:
+        0 12px 28px rgba(201,164,95,.25);
+    }
+
+    .discount-badge.luxury{
+      background:
+        linear-gradient(
+          135deg,
+          #fff,
+          #f4d58d
+        );
+    }
+
+    .recommended{
+
+      position:absolute;
+
+      left:12px;
+      top:12px;
+
+      padding:.4rem .65rem;
+
+      border-radius:999px;
+
+      background:
+        rgba(255,255,255,.08);
+
+      border:1px solid rgba(255,255,255,.10);
+
+      font-size:.65rem;
+
+      letter-spacing:.08em;
+
+      text-transform:uppercase;
+
+      color:#fff;
+    }
+
+    .extras{
+
+      display:grid;
+
+      grid-template-columns:repeat(2,1fr);
+
+      gap:.8rem;
+    }
+
+    .extra-item{
+
+      display:flex;
+
+      align-items:center;
+      justify-content:space-between;
+
+      gap:1rem;
+
+      padding:1rem;
+
+      border-radius:16px;
+
+      border:1px solid rgba(255,255,255,.10);
+
+      background:
+        rgba(0,0,0,.16);
+
+      color:#f2e9dd;
+
+      cursor:pointer;
+
+      transition:.25s ease;
+    }
+
+    .extra-item:hover{
+      border-color:rgba(244,213,141,.22);
+      transform:translateY(-2px);
+    }
+
+    .extra-left{
+      display:flex;
+      align-items:center;
+      gap:.7rem;
+    }
+
+    .extra-item input{
+      width:18px;
+      height:18px;
+      accent-color:var(--gold-soft);
+    }
+
+    .extra-price{
+      color:#fff;
+      font-size:.9rem;
+      white-space:nowrap;
+    }
+
+    .summary{
+
+      position:sticky;
+
+      top:1.4rem;
+    }
+
+    .summary-top{
+      padding:1.9rem;
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+
+    .summary-row{
+
+      display:flex;
+
+      justify-content:space-between;
+
+      gap:1rem;
+
+      color:#ddd4ca;
+
+      margin:1rem 0;
+    }
+
+    .summary-row strong{
+      color:#fff;
+    }
+
+    .total-line{
+
+      border-top:1px solid rgba(255,255,255,.14);
+
+      padding-top:1.4rem;
+
+      margin-top:1.4rem;
+
+      display:flex;
+
+      align-items:flex-end;
+      justify-content:space-between;
+
+      gap:1rem;
+    }
+
+    .total-line span{
+
+      font-family:'Cormorant Garamond',serif;
+
+      font-size:2.2rem;
+
+      color:#fff;
+    }
+
+    .total{
+
+      font-family:'Cormorant Garamond',serif;
+
+      font-size:3rem;
+
+      color:var(--gold-soft);
+
+      line-height:1;
+
+      white-space:nowrap;
+
+      transition:.3s ease;
+    }
+
+    .selected-list{
+
+      margin-top:1.4rem;
+
+      color:#ded4c8;
+
+      font-size:.9rem;
+    }
+
+    .selected-list div{
+
+      display:flex;
+
+      justify-content:space-between;
+
+      gap:1rem;
+
+      padding:.8rem;
+
+      border:1px solid rgba(255,255,255,.08);
+
+      border-radius:12px;
+
+      margin-bottom:.6rem;
+
+      background:
+        rgba(0,0,0,.16);
+    }
+
+    .data-box{
+      padding:1.9rem;
+    }
+
+    .form-grid{
+      display:grid;
+      gap:.9rem;
+      margin-top:1.3rem;
+    }
+        .field input,
+    .field select{
+      width:100%;
+
+      padding:1rem 1rem;
+
+      border-radius:14px;
+
+      border:1px solid rgba(255,255,255,.12);
+
+      background:rgba(0,0,0,.24);
+
+      color:#fff;
+
+      outline:none;
+
+      font-family:'Montserrat',sans-serif;
+
+      transition:.25s ease;
+    }
+
+    .field input:focus,
+    .field select:focus{
+      border-color:rgba(244,213,141,.38);
+      box-shadow:0 0 0 4px rgba(244,213,141,.08);
+    }
+
+    .field input::placeholder{
+      color:#9b9288;
+    }
+
+    .btn{
+      width:100%;
+
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+
+      gap:.5rem;
+
+      margin-top:1.2rem;
+
+      padding:1rem 1.2rem;
+
+      border-radius:14px;
+
+      border:0;
+
+      font-weight:700;
+
+      cursor:pointer;
+
+      font-family:'Montserrat',sans-serif;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--gold),
+          var(--gold-soft)
+        );
+
+      color:#111;
+
+      box-shadow:
+        0 16px 34px rgba(201,164,95,.18);
+
+      transition:.25s ease;
+    }
+
+    .btn:hover{
+      transform:translateY(-2px);
+      box-shadow:0 20px 44px rgba(201,164,95,.24);
+    }
+
+    .note{
+      color:#9e9487;
+
+      font-size:.78rem;
+
+      margin-top:1rem;
+
+      text-align:center;
+
+      line-height:1.6;
+    }
+
+    .trust{
+      margin-top:1rem;
+
+      display:grid;
+
+      grid-template-columns:repeat(3,1fr);
+
+      gap:1rem;
+    }
+
+    .trust div{
+      display:flex;
+
+      justify-content:center;
+      align-items:center;
+
+      gap:.65rem;
+
+      padding:1rem;
+
+      border-radius:18px;
+
+      background:rgba(255,255,255,.035);
+
+      border:1px solid rgba(244,213,141,.12);
+
+      color:#efe7dc;
+
+      font-size:.9rem;
+    }
+
+    .footer-cta{
+      text-align:center;
+
+      padding:5.6rem 1.2rem;
+
+      border-top:1px solid rgba(244,213,141,.10);
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(201,164,95,.08),
+          rgba(255,255,255,.02)
+        );
+    }
+
+    .footer-cta h2{
+      font-family:'Cormorant Garamond',serif;
+
+      color:var(--gold-soft);
+
+      font-size:clamp(3rem,7vw,5.4rem);
+
+      line-height:.9;
+
+      font-weight:400;
+
+      margin-bottom:1rem;
+    }
+
+    .footer-cta p{
+      max-width:760px;
+
+      margin:0 auto 2rem;
+
+      color:var(--muted);
+
+      line-height:1.8;
+    }
+
+    .footer-actions{
+      display:flex;
+      justify-content:center;
+      gap:1rem;
+      flex-wrap:wrap;
+    }
+
+    .footer-actions a{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+
+      padding:1rem 1.4rem;
+
+      border-radius:999px;
+
+      font-weight:700;
+
+      transition:.25s ease;
+    }
+
+    .footer-actions a:hover{
+      transform:translateY(-2px);
+    }
+
+    .footer-actions .primary{
+      background:
+        linear-gradient(
+          135deg,
+          var(--gold),
+          var(--gold-soft)
+        );
+
+      color:#111;
+    }
+
+    .footer-actions .outline{
+      border:1px solid var(--line);
+      color:var(--gold-soft);
+      background:rgba(255,255,255,.035);
+    }
+
+    .simple-footer{
+      text-align:center;
+
+      padding:4rem 1.2rem 3rem;
+
+      border-top:1px solid rgba(244,213,141,.12);
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(201,164,95,.04),
+          rgba(0,0,0,.88)
+        );
+    }
+
+    .simple-footer h3{
+      font-family:'Cormorant Garamond',serif;
+
+      color:var(--gold-soft);
+
+      font-size:2.4rem;
+
+      font-weight:400;
+
+      margin-bottom:.8rem;
+    }
+
+    .simple-footer p{
+      max-width:720px;
+
+      margin:auto auto 2rem;
+
+      color:var(--muted);
+
+      line-height:1.8;
+    }
+
+    .footer-contact{
+      margin-bottom:2rem;
+    }
+
+    .footer-contact strong{
+      display:block;
+      color:var(--gold-soft);
+      margin-bottom:.8rem;
+    }
+
+    .footer-links,
+    .footer-legal{
+      display:flex;
+      justify-content:center;
+      gap:1.2rem;
+      flex-wrap:wrap;
+    }
+
+    .footer-links a,
+    .footer-legal a{
+      color:#cfc6bb;
+      transition:.25s ease;
+    }
+
+    .footer-links a:hover,
+    .footer-legal a:hover{
+      color:var(--gold-soft);
+    }
+
+    .footer-bottom{
+      margin-top:1rem;
+      color:#8f8578;
+      font-size:.9rem;
+    }
+
+    .footer-legal{
+      margin-top:1rem;
+      font-size:.88rem;
+    }
+
+    @media(max-width:1000px){
+
+      .quote-layout{
+        grid-template-columns:1fr;
+      }
+
+      .summary{
+        position:relative;
+        top:0;
+      }
+
+      .packages{
+        grid-template-columns:repeat(2,1fr);
+      }
+
+    }
+
+    @media(max-width:700px){
+
+      .page{
+        padding-top:6rem;
+      }
+
+      .top{
+        justify-content:center;
+      }
+
+      .packages,
+      .extras,
+      .trust{
+        grid-template-columns:1fr;
+      }
+
+      .brand-home{
+        width:60px;
+        height:60px;
+        top:12px;
+        left:12px;
+        border-radius:18px;
+      }
+
+      .brand-home img{
+        width:46px;
+      }
+
+      h1{
+        font-size:4rem;
+      }
+
+      .total-line{
+        align-items:flex-start;
+        flex-direction:column;
+      }
+
+      .total{
+        font-size:2.7rem;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+<div class="ambient-noise"></div>
+
+<a href="/" class="brand-home">
   <img src="/TIAMB.png" alt="Te Invito a Mi Boda">
 </a>
-También elimina completo este botón de la palomita:
 
-<a class="float-btn" href="#confirmar" aria-label="Confirmar">✓</a>
+<a
+  class="floating"
+  href="https://wa.me/5215541946413?text=Hola,%20quiero%20información%20sobre%20una%20invitación%20digital"
+  target="_blank"
+  aria-label="WhatsApp">
 
-no reemplazare nada a menos que se el codigo completo, si gustas damelo en 3 partes pero damelo completo
+  <svg viewBox="0 0 32 32" width="30" height="30" fill="currentColor">
+    <path d="M16.03 3C8.85 3 3 8.82 3 15.98c0 2.28.6 4.52 1.74 6.49L3 29l6.7-1.7a13.02 13.02 0 0 0 6.33 1.61C23.18 28.91 29 23.09 29 15.98S23.18 3 16.03 3zm0 23.73c-2 0-3.95-.54-5.66-1.57l-.4-.24-3.98 1.01 1.06-3.86-.26-.42a10.72 10.72 0 0 1-1.63-5.67c0-5.96 4.87-10.81 10.87-10.81 5.98 0 10.84 4.85 10.84 10.81s-4.86 10.75-10.84 10.75zm5.95-8.08c-.32-.16-1.9-.94-2.2-1.05-.3-.11-.52-.16-.74.16-.21.32-.85 1.05-1.04 1.27-.19.21-.38.24-.7.08-.32-.16-1.36-.5-2.59-1.59-.96-.85-1.61-1.9-1.8-2.22-.19-.32-.02-.49.14-.65.15-.15.32-.38.49-.57.16-.19.21-.32.32-.54.11-.21.05-.4-.03-.56-.08-.16-.74-1.78-1.01-2.44-.27-.64-.54-.55-.74-.56h-.63c-.21 0-.56.08-.85.4-.3.32-1.12 1.1-1.12 2.68s1.15 3.1 1.31 3.31c.16.21 2.26 3.45 5.48 4.84.77.33 1.37.53 1.83.68.77.24 1.47.21 2.02.13.62-.09 1.9-.78 2.17-1.53.27-.75.27-1.39.19-1.53-.08-.13-.29-.21-.61-.37z"/>
+  </svg>
 
-Pensado durante un par de segundos
-Tienes razón, Alan. Para no llenarte el chat con un código enorme y evitar cortes raros, te lo dejo completo de inicio a fin en archivo listo para copiar/subir:
+</a>
 
-Descargar código HTML completo corregido
+<main class="page">
 
+  <div class="top">
+    <a href="/" class="back">← Volver al inicio</a>
+  </div>
 
-Captura de pantalla 2026-05-15 083124.png
+  <section class="hero">
 
-Pensado durante 28s
-Tienes razón, Alan. Ahora sí generé el archivo correctamente.
+    <div class="kicker">
+      Cotizador personalizado
+    </div>
 
-Descargar HTML completo corregido 
+    <h1>
+      Elige tu diseño
+    </h1>
 
+    <p>
+      Arma tu invitación digital, agrega las herramientas que necesitas
+      y recibe una cotización estimada al instante.
+    </p>
 
+  </section>
 
+  <section class="quote-layout">
 
+    <div class="panel">
 
-Clientes-main.zip
-Archivo zip
+      <div class="panel-inner">
 
-index.html
-Archivo
+        <h2 class="section-title">
+          <span>◇</span>1. Selecciona tu paquete
+        </h2>
 
-index(1).html
-Archivo
-sigue fallando lo del logo... te dejo mi main y arregla de una vez demos/luxury-experience/boda/index.html  y demos/luxury-experience/xv/index.html bsado en los index solos que te dejo, pero que quede siendo parte de la misma pagina del zip, por asi decirlo, no muevas nada más, solo dame esos html completos y sin fallas, me estas quedando mal.. 
+        <p class="section-desc">
+          Elige el paquete que mejor se adapte a tu evento.
+        </p>
 
-Pensado durante 58s
-Perdón, Alan. Ya quedaron los dos HTML completos y también un ZIP con las rutas exactas para reemplazar directo.
+        <div class="packages">
 
-Boda index.html
+          <label class="package-card">
+            <input type="radio" name="package" value="500" data-name="Minimalista" checked>
 
-XV index.html
+            <div class="package-inner">
+              <div class="discount-badge">Lanzamiento</div>
+              <div class="package-icon">◈</div>
+              <strong>Minimalista</strong>
+              <div class="old-price">$699 MXN</div>
+              <div class="price">$500 MXN</div>
+              <p>Diseño limpio, rápido y elegante.</p>
+            </div>
+          </label>
 
-ZIP con estructura correcta 
+          <label class="package-card">
+            <input type="radio" name="package" value="1000" data-name="Floral">
 
+            <div class="package-inner">
+              <div class="discount-badge">Oferta especial</div>
+              <div class="package-icon">✿</div>
+              <strong>Floral</strong>
+              <div class="old-price">$1,199 MXN</div>
+              <div class="price">$1,000 MXN</div>
+              <p>Romántico, delicado y visual.</p>
+            </div>
+          </label>
 
+          <label class="package-card">
+            <input type="radio" name="package" value="2000" data-name="Elegante Premium">
 
+            <div class="package-inner">
+              <div class="recommended">Recomendado</div>
+              <div class="discount-badge">-20%</div>
+              <div class="package-icon">◇</div>
+              <strong>Premium</strong>
+              <div class="old-price">$2,499 MXN</div>
+              <div class="price">$2,000 MXN</div>
+              <p>Experiencia moderna con funciones avanzadas.</p>
+            </div>
+          </label>
 
+          <label class="package-card">
+            <input type="radio" name="package" value="3500" data-name="Luxury Experience">
 
+            <div class="package-inner">
+              <div class="discount-badge luxury">Luxury Deal</div>
+              <div class="package-icon">♕</div>
+              <strong>Luxury</strong>
+              <div class="old-price">$4,999 MXN</div>
+              <div class="price">$3,500 MXN</div>
+              <p>Diseño cinematográfico tipo mini-app premium.</p>
+            </div>
+          </label>
 
-Pensado durante unos segundos
-Buenísimo, Alan. Era la ruta del audio para esas carpetas internas. Ya quedó corregido.
+        </div>
 
-Boda index con música
+        <h2 class="section-title">
+          <span>☆</span>2. Agrega extras
+        </h2>
 
-XV index con música
+        <p class="section-desc">
+          Personaliza tu invitación con herramientas especiales.
+        </p>
 
-ZIP corregido con música 
+        <div class="extras">
 
+          <label class="extra-item"><span class="extra-left"><input type="checkbox" class="extra" value="150" data-name="Música personalizada"> Música personalizada</span><span class="extra-price">$150 MXN</span></label>
 
+          <label class="extra-item"><span class="extra-left"><input type="checkbox" class="extra" value="200" data-name="QR personalizado"> QR personalizado</span><span class="extra-price">$200 MXN</span></label>
 
+          <label class="extra-item"><span class="extra-left"><input type="checkbox" class="extra" value="250" data-name="Galería extendida"> Galería extendida</span><span class="extra-price">$250 MXN</span></label>
 
+          <label class="extra-item"><span class="extra-left"><input type="checkbox" class="extra" value="500" data-name="RSVP avanzado"> RSVP avanzado</span><span class="extra-price">$500 MXN</span></label>
 
+          <label class="extra-item"><span class="extra-left"><input type="checkbox" class="extra" value="350" data-name="Playlist colaborativa"> Playlist colaborativa</span><span class="extra-price">$350 MXN</span></label>
 
-aqui si dame la parte exacta para reempolazar
+          <label class="extra-item"><span class="extra-left"><input type="checkbox" class="extra" value="450" data-name="Álbum compartido"> Álbum compartido</span><span class="extra-price">$450 MXN</span></label>
 
-REEMPLAZA EXACTAMENTE ESTA PARTE:
+          <label class="extra-item"><span class="extra-left"><input type="checkbox" class="extra" value="600" data-name="Pase personalizado"> Pase personalizado</span><span class="extra-price">$600 MXN</span></label>
 
-<audio id="luxuryMusic" loop>
-  <source src="../../../assets/luxury/music.mp3" type="audio/mpeg">
-</audio>
-POR ESTA:
+          <label class="extra-item"><span class="extra-left"><input type="checkbox" class="extra" value="800" data-name="Video de portada"> Video de portada</span><span class="extra-price">$800 MXN</span></label>
 
-<audio id="luxuryMusic" loop preload="auto">
-  <source src="../assets/luxury/music.mp3" type="audio/mpeg">
-</audio>
-Y DESPUÉS BUSCA ESTA LÍNEA EN EL SCRIPT:
+        </div>
 
-const music = document.getElementById('luxuryMusic');
-Y JUSTO DEBAJO PEGA ESTO:
+      </div>
 
-music.volume = 0.65;
+    </div>
 
-music.addEventListener('error', () => {
-  music.src = '../../../assets/luxury/music.mp3';
-  music.load();
-});
+    <aside class="panel summary">
 
-nop, no jaló
+      <div class="summary-top">
 
-Va, Alan. Déjame revisar la estructura real del ZIP para darte la ruta exacta y no otra suposición.
+        <h2 class="section-title">
+          <span>☷</span>Tu cotización
+        </h2>
 
-Pensado durante 16s
-Tienes razón: la ruta correcta del ZIP es esta:
+        <div class="summary-row">
+          <span>Paquete seleccionado</span>
+          <strong id="packageName">Minimalista</strong>
+        </div>
 
-../../../assets/luxury/music.mp3
-No ../assets.
+        <div class="summary-row">
+          <span>Extras</span>
+          <strong id="extrasCount">0</strong>
+        </div>
 
-Reemplaza el bloque completo del audio por este:
+        <div class="total-line">
+          <span>Total</span>
+          <div class="total" id="quoteTotal">$500 MXN</div>
+        </div>
 
-<audio id="luxuryMusic" loop preload="auto">
-  <source src="../../../assets/luxury/music.mp3" type="audio/mpeg">
-</audio>
-Y reemplaza todo el bloque de música del script, desde:
+        <div class="selected-list" id="selectedList"></div>
 
-const music = document.getElementById('luxuryMusic');
-hasta antes de:
+      </div>
 
-const rsvpForm = document.getElementById('rsvpForm');
-por esto:
+      <div class="data-box">
 
-const music = document.getElementById('luxuryMusic');
-const musicToggle = document.getElementById('musicToggle');
-let isPlaying = false;
+        <h2 class="section-title">
+          <span>♙</span>3. Tus datos
+        </h2>
 
-if (music) {
-  music.volume = 0.65;
-  music.load();
-}
+        <p class="section-desc">
+          Completa tus datos para recibir tu cotización.
+        </p>
 
-if (music && musicToggle) {
-  musicToggle.addEventListener('click', async () => {
-    try {
-      if (!isPlaying) {
-        music.src = '../../../assets/luxury/music.mp3';
-        music.load();
+        <div class="form-grid">
 
-        await music.play();
+          <div class="field">
+            <input type="text" id="clientName" placeholder="Tu nombre completo">
+          </div>
 
-        musicToggle.textContent = '❚❚ Pausar experiencia sonora';
-        isPlaying = true;
-      } else {
-        music.pause();
+          <div class="field">
+            <input type="tel" id="clientPhone" placeholder="Tu número de WhatsApp">
+          </div>
 
-        musicToggle.textContent = '♫ Activar experiencia sonora';
-        isPlaying = false;
-      }
-    } catch (error) {
-      console.error('Error de audio:', error);
-      alert('No se pudo cargar la música. Revisa que exista assets/luxury/music.mp3 en la raíz del proyecto.');
-    }
+          <div class="field">
+            <select id="eventType">
+              <option value="">Tipo de evento</option>
+              <option>Boda</option>
+              <option>XV años</option>
+              <option>Bautizo</option>
+              <option>Graduación</option>
+              <option>Cumpleaños</option>
+              <option>Otro</option>
+            </select>
+          </div>
+
+        </div>
+
+        <button class="btn" id="sendQuote">
+          Enviar cotización y continuar
+        </button>
+
+        <p class="note">
+          Después de enviar tu cotización, te contactaremos para recibir fotos,
+          música y detalles completos del evento.
+        </p>
+
+      </div>
+
+    </aside>
+
+  </section>
+
+  <section class="trust">
+
+    <div>🛡 Pago seguro y protegido</div>
+    <div>✓ Entrega rápida</div>
+    <div>🎧 Soporte personalizado</div>
+
+  </section>
+
+</main>
+
+<section class="footer-cta">
+
+  <h2>
+    Tu invitación empieza aquí
+  </h2>
+
+  <p>
+    Cotiza tu diseño, elige tus extras y recibe atención personalizada
+    para crear una invitación digital elegante, moderna y completamente a tu medida.
+  </p>
+
+  <div class="footer-actions">
+
+    <a
+      class="primary"
+      href="https://wa.me/5215541946413?text=Hola,%20quiero%20cotizar%20mi%20invitación%20digital"
+      target="_blank">
+
+      Hablar por WhatsApp
+
+    </a>
+
+    <a class="outline" href="/">
+      Volver al inicio
+    </a>
+
+  </div>
+
+</section>
+
+<footer class="simple-footer">
+
+  <h3>
+    Te Invito a Mi Boda
+  </h3>
+
+  <p>
+    Invitaciones digitales premium para bodas y eventos especiales.
+    Diseños modernos, elegantes y completamente personalizados.
+  </p>
+
+  <div class="footer-contact">
+
+    <strong>
+      Contacto
+    </strong>
+
+    <div class="footer-links">
+
+      <a href="https://wa.me/5215541946413" target="_blank">
+        WhatsApp
+      </a>
+
+      <a href="#">
+        Instagram
+      </a>
+
+      <a href="#">
+        TikTok
+      </a>
+
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 TeInvitoAMiBoda.online — Todos los derechos reservados.
+  </div>
+
+  <div class="footer-legal">
+
+    <a href="/aviso-de-privacidad.html">
+      Aviso de Privacidad
+    </a>
+
+    <a href="/terminos-y-condiciones.html">
+      Términos y Condiciones
+    </a>
+
+  </div>
+
+</footer>
+
+<script>
+
+const WHATSAPP_NUMBER = "525541946413";
+const SHEETS_ENDPOINT = "https://script.google.com/macros/s/AKfycbxQgwps_o38S_fobEjIWwufkndRlvf58Bh8P3lG2ihiVnhfq7kQsExsVWVCNhxG-sumOA/exec";
+
+const packageInputs = document.querySelectorAll('input[name="package"]');
+const extras = document.querySelectorAll('.extra');
+
+const quoteTotal = document.getElementById('quoteTotal');
+const packageName = document.getElementById('packageName');
+const extrasCount = document.getElementById('extrasCount');
+const selectedList = document.getElementById('selectedList');
+
+const clientName = document.getElementById('clientName');
+const clientPhone = document.getElementById('clientPhone');
+const eventType = document.getElementById('eventType');
+const sendQuote = document.getElementById('sendQuote');
+
+function money(amount){
+  return amount.toLocaleString('es-MX', {
+    style:'currency',
+    currency:'MXN',
+    maximumFractionDigits:0
   });
 }
 
+function getQuote(){
+  const selectedPackage = document.querySelector('input[name="package"]:checked');
+
+  const quote = {
+    packageName: selectedPackage.dataset.name,
+    packagePrice: Number(selectedPackage.value),
+    extras: [],
+    total: Number(selectedPackage.value)
+  };
+
+  extras.forEach(extra => {
+    if(extra.checked){
+      quote.extras.push({
+        name: extra.dataset.name,
+        price: Number(extra.value)
+      });
+
+      quote.total += Number(extra.value);
+    }
+  });
+
+  return quote;
+}
+
+function updateQuote(){
+  const quote = getQuote();
+
+  packageName.textContent = quote.packageName;
+  extrasCount.textContent = quote.extras.length;
+  quoteTotal.textContent = money(quote.total);
+
+  quoteTotal.style.transform = 'scale(1.04)';
+
+  setTimeout(()=>{
+    quoteTotal.style.transform = 'scale(1)';
+  },160);
+
+  if(quote.extras.length){
+    selectedList.innerHTML = quote.extras.map(extra => `
+      <div>
+        <span>${extra.name}</span>
+        <span>${money(extra.price)}</span>
+      </div>
+    `).join('');
+  }else{
+    selectedList.innerHTML = `
+      <div>
+        <span>Sin extras seleccionados</span>
+        <span>$0 MXN</span>
+      </div>
+    `;
+  }
+}
+
+function openWhatsApp(payload){
+  const message = encodeURIComponent(
+    `Hola, quiero cotizar una invitación digital.\n\n` +
+    `Nombre: ${payload.nombre}\n` +
+    `WhatsApp: ${payload.telefono}\n` +
+    `Evento: ${payload.evento}\n\n` +
+    `Paquete: ${payload.paquete}\n` +
+    `Extras: ${payload.extras}\n\n` +
+    `Total estimado: ${payload.total}`
+  );
+
+  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, "_blank");
+}
+
+async function sendToSheets(payload){
+  const formData = new URLSearchParams();
+
+  Object.keys(payload).forEach(key => {
+    formData.append(key, payload[key]);
+  });
+
+  await fetch(SHEETS_ENDPOINT, {
+    method: "POST",
+    mode: "no-cors",
+    body: formData
+  });
+}
+
+sendQuote.addEventListener('click', async () => {
+  if(!clientName.value.trim()){
+    alert("Escribe tu nombre.");
+    return;
+  }
+
+  if(!clientPhone.value.trim()){
+    alert("Escribe tu WhatsApp.");
+    return;
+  }
+
+  if(!eventType.value){
+    alert("Selecciona el tipo de evento.");
+    return;
+  }
+
+  const quote = getQuote();
+
+  const payload = {
+    nombre: clientName.value.trim(),
+    telefono: clientPhone.value.trim(),
+    evento: eventType.value,
+    paquete: quote.packageName,
+    extras: quote.extras.map(e => e.name).join(", ") || "Sin extras",
+    total: money(quote.total)
+  };
 
-Pasted text(163).txt
-Documento
+  sendQuote.textContent = "Enviando...";
 
-Pasted text (2)(25).txt
-Documento
-quiero meter promociones del cotizador en el home... 
+  try{
+    await sendToSheets(payload);
+  }catch(error){
+    console.error(error);
+  }
 
-Va, Alan. Voy a integrar en el home las promociones del cotizador con el mismo estilo premium del sitio, sin romper el diseño actual.
+  openWhatsApp(payload);
 
-Pensado durante 5s
-Listo, Alan. Integré las promociones del cotizador en el home, con sección premium y CTA al cotizador.
+  sendQuote.textContent = "Enviar cotización y continuar";
+});
 
-Descargar home con promociones 
+packageInputs.forEach(input => input.addEventListener('change', updateQuote));
+extras.forEach(extra => extra.addEventListener('change', updateQuote));
 
+updateQuote();
 
+</script>
 
-
-es el código completo?
-
-Sí, Alan. Es el HTML completo del home ya integrado con:
-
-sección de promociones premium,
-
-enlaces al cotizador,
-
-estilos responsive,
-
-mismas animaciones y estética,
-
-sin mover tu estructura original,
-
-manteniendo navbar, catálogo, eventos, footer y WhatsApp. 
-
- 
-
-
-Este es el archivo completo listo para reemplazar tu index.html:
-
-Descargar HTML completo
-
-
-
-
-muy bien, antes de pegarlo y proobar, hay algun otra mejora que me recomiendes, alguna recomendacion pro y bonita que puedas pensar para el home? ya sabes, arreglar y que quede mucho mejor...
-
-Sí, Alan. Yo le metería una franja elegante tipo “promo urgente” arriba del catálogo, algo así:
-
-“Promoción de lanzamiento · Ahorra hasta $1,499 MXN en Luxury Experience”
-
-Y también agregaría debajo de las promos una mini sección de confianza:
-
-Entrega rápida · Atención por WhatsApp · Diseño personalizado · Pago seguro
-
-Eso le da más fuerza comercial sin verse barato. También pondría una nota pequeña de “cupos limitados por semana” para empujar conversión.
-
-Mi recomendación pro: no tocaría el hero, porque ya se ve premium. Mejor reforzaría la conversión entre “Catálogo” y “Promociones”. Ahí es donde el usuario ya está interesado y se le puede empujar al cotizador sin romper elegancia.
-
-
-muy bien, hazlo, solo con un detalle, quiero mis promociones no sean una parte aparte, si no que dentro de los cards de floral, minimalista y eso tambien taches el precio y pongas los precios con descuento, como en el cotizador....y tus ideas tambien
-
-Pensado durante unos segundos
-Listo, Alan. Ahora las promociones van integradas dentro de los cards del catálogo, con precio anterior tachado, precio promo y ahorro. También agregué la franja pro de lanzamiento y confianza debajo del catálogo.
-
-Descargar home final con promos integradas 
-
-
-
-
-
-
-
-
-
-
-<a class="btn btn-gold" href="/cotizador.html">
-  Cotizar
-</a>
-<div class="hero-content">
-  <div class="eyebrow">Invitaciones digitales premium</div>
-
-  <h1>
-    Diseños elegantes <span>para bodas</span> inolvidables
-  </h1>
-
-  <p>
-    Creamos experiencias digitales modernas, elegantes y personalizadas para parejas que quieren algo más que una invitación tradicional.
-  </p>
-
-  <div class="hero-actions">
-    <a class="btn btn-gold" href="/cotizador.html">
-      Cotizar
-    </a>
-
-    <a class="btn btn-outline" href="#catalogo">
-      👁 Ver diseños
-    </a>
-  </div>
-</div>
-<div class="catalog-grid">
-
-  <article class="card">
-    <div class="card-image">
-      <span class="badge">Minimalista</span>
-      <img src="assets/minimalista-preview.jpeg" alt="Minimalista">
-    </div>
-
-    <div class="card-content">
-      <h3>Minimalista</h3>
-      <p>Menos es más, con estilo.</p>
-      <div class="price">Desde <strong>$699 MXN</strong></div>
-      <a class="demo-link" href="/demos/minimalista/">Ver ejemplo →</a>
-    </div>
-  </article>
-
-  <article class="card">
-    <div class="card-image">
-      <span class="badge">Floral</span>
-      <img src="assets/floral-preview.jpeg" alt="Floral">
-    </div>
-
-    <div class="card-content">
-      <h3>Floral</h3>
-      <p>Romántico, natural y delicado.</p>
-      <div class="price">Desde <strong>$1,199 MXN</strong></div>
-      <a class="demo-link" href="/demos/floral/">Ver ejemplo →</a>
-    </div>
-  </article>
-
-  <article class="card">
-    <div class="card-image">
-      <span class="badge">Premium</span>
-      <img src="assets/elegante-preview.jpeg" alt="Elegante Premium">
-    </div>
-
-    <div class="card-content">
-      <h3>Premium</h3>
-      <p>Moderno, sofisticado y elegante.</p>
-      <div class="price">Desde <strong>$2,499 MXN</strong></div>
-      <a class="demo-link" href="/demos/elegante/">Ver ejemplo →</a>
-    </div>
-  </article>
-
-  <article class="card">
-    <div class="card-image">
-      <span class="badge">Luxury</span>
-      <img src="assets/luxury-preview.jpeg" alt="Luxury Experience">
-    </div>
-
-    <div class="card-content">
-      <h3>Luxury</h3>
-      <p>Lujo y distinción en cada detalle.</p>
-      <div class="price">Desde <strong>$4,999 MXN</strong></div>
-      <a class="demo-link" href="/demos/luxury-experience/">Ver ejemplo →</a>
-    </div>
-  </article>
-
-</div>
-  <div class="section-head">
-    <div class="section-kicker">Más experiencias</div>
-
-    <h2 class="title" style="margin-top:1rem;">
-      ¿Quieres invitación para otro tipo de evento?
-    </h2>
-
-    <p class="subtitle">
-      También diseñamos invitaciones digitales elegantes y personalizadas
-      para todo tipo de celebraciones especiales.
-    </p>
-  </div>
-
-  <div class="event-grid">
-
-    <div class="event-card">
-      <span>🕊</span>
-      <h3>Bautizos</h3>
-      <a href="/demos/bautizo/" class="event-btn">Ver demo</a>
-    </div>
-
-    <div class="event-card">
-      <span>🎀</span>
-      <h3>Presentaciones</h3>
-      <a href="/demos/infantil-glam/" class="event-btn">Ver demo</a>
-    </div>
-
-    <div class="event-card">
-      <span>🧸</span>
-      <h3>3 años</h3>
-      <a href="/demos/infantil-glam/" class="event-btn">Ver demo</a>
-    </div>
-
-    <div class="event-card">
-      <span>🎉</span>
-      <h3>Cumpleaños Infantiles</h3>
-      <a href="/demos/infantil-glam/" class="event-btn">Ver demo</a>
-    </div>
-
-    <div class="event-card">
-      <span>🥃</span>
-      <h3>Cumpleaños Hombre</h3>
-      <a href="/demos/hombre/" class="event-btn">Ver demo</a>
-    </div>
-
-    <div class="event-card">
-      <span>💄</span>
-      <h3>Cumpleaños Mujer</h3>
-      <a href="/demos/mujer/" class="event-btn">Ver demo</a>
-    </div>
-
-    <div class="event-card">
-      <span>🙏</span>
-      <h3>Primera Comunión</h3>
-      <a href="/demos/sacramentos/" class="event-btn">Ver demo</a>
-    </div>
-
-    <div class="event-card">
-      <span>✨</span>
-      <h3>Confirmaciones</h3>
-      <a href="/demos/sacramentos/" class="event-btn">Ver demo</a>
-    </div>
-
-    <div class="event-card">
-      <span>🎓</span>
-      <h3>Graduaciones</h3>
-      <a href="/demos/graduacion-premium/" class="event-btn">Ver demo</a>
-    </div>
-
-    <div class="event-card">
-      <span>👑</span>
-      <h3>XV años</h3>
-      <a href="/demos/xv-glam/" class="event-btn">Ver demo</a>
-    </div>
-
-    <div class="event-card">
-      <span>🥂</span>
-      <h3>Bodas de Plata</h3>
-      <a href="/demos/plata/" class="event-btn">Ver demo</a>
-    </div>
-
-    <div class="event-card">
-      <span>💛</span>
-      <h3>Bodas de Oro</h3>
-      <a href="/demos/oro/" class="event-btn">Ver demo</a>
-    </div>
-
-    <div class="event-card">
-      <span>🍽</span>
-      <h3>Cenas Especiales</h3>
-      <a href="/demos/graduacion-premium/" class="event-btn">Ver demo</a>
-    </div>
-
-    <div class="event-card">
-      <span>🎊</span>
-      <h3>Eventos Generales</h3>
-      <a href="/demos/graduacion-premium/" class="event-btn">Ver demo</a>
-    </div>
-
-    <div class="event-card">
-      <span>✨</span>
-      <h3>Otros</h3>
-      <a href="/demos/otros/" class="event-btn">Ver catálogo</a>
-    </div>
-
-  </div>
-
-</div>
-<div class="luxury-bg"></div>
-
-<div class="luxury-container">
-
-  <div class="luxury-content">
-
-    <div class="section-kicker">
-      Luxury Experience
-    </div>
-
-    <h2>
-      Mucho más que una invitación digital
-    </h2>
-
-    <p>
-      Creamos experiencias premium diseñadas para impresionar desde el primer momento.
-      Elegancia, exclusividad y tecnología combinadas en una experiencia inolvidable.
-    </p>
-
-    <div class="luxury-features">
-
-      <div class="luxury-item">✨ Intro cinematográfica</div>
-      <div class="luxury-item">🎵 Música personalizada</div>
-      <div class="luxury-item">⏳ Countdown elegante</div>
-      <div class="luxury-item">📍 Google Maps integrado</div>
-      <div class="luxury-item">👗 Dress code animado</div>
-      <div class="luxury-item">💌 RSVP inteligente</div>
-      <div class="luxury-item">🖼 Galería premium</div>
-      <div class="luxury-item">🔒 Acceso privado</div>
-
-    </div>
-
-    <div class="hero-actions">
-
-      <a class="btn btn-gold" href="/demos/luxury-experience/">
-        Ver Luxury Experience
-      </a>
-
-      <a class="btn btn-outline"
-         href="https://wa.me/5215541946413?text=Hola,%20quiero%20información%20sobre%20una%20invitación%20digital"
-         target="_blank">
-        Solicitar información
-      </a>
-
-    </div>
-
-  </div>
-
-  <div class="luxury-visual">
-    <img src="assets/luxury-preview.jpeg" alt="Luxury Experience">
-  </div>
-
-</div>
-  <h2 class="title">¿Por qué elegirnos?</h2>
-
-  <p class="subtitle">
-    Diseñamos experiencias digitales modernas pensadas para impresionar desde el primer momento.
-  </p>
-
-  <div class="why-grid">
-
-    <div class="info-card">
-      <span>✨</span>
-      <h4>Diseño premium</h4>
-      <p>Experiencias elegantes y modernas para bodas memorables.</p>
-    </div>
-
-    <div class="info-card">
-      <span>📱</span>
-      <h4>Responsive</h4>
-      <p>Perfecto para celular, tablet y computadora.</p>
-    </div>
-
-    <div class="info-card">
-      <span>⚡</span>
-      <h4>Entrega rápida</h4>
-      <p>Recibe tu invitación lista en pocos días.</p>
-    </div>
-
-    <div class="info-card">
-      <span>🎬</span>
-      <h4>Experiencias únicas</h4>
-      <p>Mucho más que una invitación tradicional.</p>
-    </div>
-
-  </div>
-
-</div>
-  <h2 class="title">¿Cómo funciona?</h2>
-
-  <p class="subtitle">
-    Un proceso rápido, sencillo y completamente personalizado.
-  </p>
-
-  <div class="steps-grid">
-
-    <div class="info-card">
-      <span>1️⃣</span>
-      <h4>Elige diseño</h4>
-      <p>Selecciona el estilo que más te guste.</p>
-    </div>
-
-    <div class="info-card">
-      <span>2️⃣</span>
-      <h4>Cotiza tu invitación</h4>
-      <p>Elige paquete, extras y tipo de evento en nuestro cotizador.</p>
-    </div>
-
-    <div class="info-card">
-      <span>3️⃣</span>
-      <h4>Personalizamos</h4>
-      <p>Te contactamos para recibir fotos, música y detalles completos.</p>
-    </div>
-
-    <div class="info-card">
-      <span>4️⃣</span>
-      <h4>Comparte tu liga</h4>
-      <p>Envía tu invitación digital a todos tus invitados.</p>
-    </div>
-
-  </div>
-
-</div>
-<h2>Elige tu diseño</h2>
-
-<p class="subtitle">
-  Selecciona el estilo ideal para tu evento, personaliza tu invitación y recibe una cotización al instante.
-</p>
-
-<div class="hero-actions">
-
-  <a class="btn btn-gold" href="/cotizador.html">
-    Cotizador
-  </a>
-
-  <a class="btn btn-outline"
-     href="https://wa.me/5215541946413?text=Hola,%20quiero%20información%20sobre%20una%20invitación%20digital"
-     target="_blank">
-    Solicitar información
-  </a>
-
-  <a class="btn btn-outline" href="#catalogo">
-    Ver diseños
-  </a>
-
-</div>
-<h3>Te Invito a Mi Boda</h3>
-
-<p>
-  Invitaciones digitales premium para bodas y eventos especiales.
-  Diseños modernos, elegantes y completamente personalizados.
-</p>
-
-<div class="footer-contact">
-
-  <strong>Contacto</strong>
-
-  <div class="footer-links">
-
-    <a href="https://wa.me/5215541946413?text=Hola,%20quiero%20información%20sobre%20una%20invitación%20digital"
-       target="_blank">
-      WhatsApp
-    </a>
-
-    <a href="#">
-      Instagram
-    </a>
-
-    <a href="#">
-      TikTok
-    </a>
-
-  </div>
-
-</div>
-
-<div class="footer-bottom">
-  © 2026 TeInvitoAMiBoda.online — Todos los derechos reservados.
-</div>
-
-<div class="footer-legal">
-
-  <a href="/aviso-de-privacidad.html">
-    Aviso de Privacidad
-  </a>
-
-  <a href="/terminos-y-condiciones.html">
-    Términos y Condiciones
-  </a>
-
-</div>
-
-Cerrar
+</body>
+</html>

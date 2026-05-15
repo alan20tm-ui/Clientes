@@ -600,8 +600,8 @@ cargarMontoPorCodigo();
 
     payButton.textContent = 'Generando pago...';
 
-    const response = await fetch(
-      'https://clientes-xi.vercel.app/api/create-payment',
+   const response = await fetch(
+  '/api/create-payment',
       {
         method: 'POST',
 

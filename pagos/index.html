@@ -631,14 +631,6 @@
   }
 });
 
-    const msg = buildWhatsAppMessage(data, 'Hola, voy a realizar mi pago desde la página privada.');
-    window.open('https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(msg), '_blank');
-
-    setTimeout(() => {
-      window.location.href = paymentLink;
-    }, 650);
-  });
-
   sendDataButton.addEventListener('click', () => {
     const data = validateForm();
     if (!data) return;

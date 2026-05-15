@@ -1,10 +1,10 @@
-import mercadopago from 'mercadopago';
+const mercadopago = require('mercadopago');
 
 mercadopago.configure({
   access_token: process.env.MP_ACCESS_TOKEN
 });
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
 
   if (req.method !== 'POST') {
     return res.status(405).json({
@@ -39,8 +39,8 @@ export default async function handler(req, res) {
       },
 
       back_urls: {
-        success: 'https://teinvitomiboda.online/pagos/success.html',
-        failure: 'https://teinvitomiboda.online/pagos/error.html'
+        success: 'https://clientes-xi.vercel.app/pagos/success.html',
+        failure: 'https://clientes-xi.vercel.app/pagos/error.html'
       },
 
       auto_return: 'approved'
@@ -57,7 +57,7 @@ export default async function handler(req, res) {
     console.error(error);
 
     return res.status(500).json({
-      error: 'Error creando pago'
+      error: error.message
     });
   }
-}
+};

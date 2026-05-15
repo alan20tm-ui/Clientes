@@ -98,10 +98,10 @@ const amount = Number(sheetData.amount);
       },
       external_reference: order.code,
       back_urls: {
-        success: 'https://pagos.teinvitoamiboda.online/success.html',
-        failure: 'https://pagos.teinvitoamiboda.online/error.html',
-        pending: 'https://pagos.teinvitoamiboda.online/pending.html'
-      },
+  success: 'https://pagos.teinvitoamiboda.online/pagos/',
+  failure: 'https://pagos.teinvitoamiboda.online/pagos/',
+  pending: 'https://pagos.teinvitoamiboda.online/pagos/'
+},
       auto_return: 'approved'
     };
 

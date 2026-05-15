@@ -490,10 +490,7 @@
 
   const params = new URLSearchParams(window.location.search);
 
-  const amountParam = params.get('monto') || params.get('total') || '0';
-  
-
-  const amountNumber = Number(String(amountParam).replace(/[^0-9.]/g, '')) || 0;
+ const orderCode = params.get('orden') || '';
 
   const amountLabel = document.getElementById('amountLabel');
   const statusBox = document.getElementById('status');
@@ -537,11 +534,6 @@
       return null;
     }
 
-    if (!amountNumber) {
-      setStatus('error', 'El monto no está configurado. Solicita la liga correcta de pago.');
-      return null;
-    }
-
     return data;
   }
 
@@ -557,7 +549,7 @@
     ].join('\\n');
   }
 
-  amountLabel.textContent = formatCurrency(amountNumber);
+  amountLabel.textContent = 'Monto protegido';
 
  payButton.addEventListener('click', async () => {
 
@@ -584,7 +576,7 @@
           name: data.name,
           phone: data.phone,
           concept: data.concept,
-          amount: amountNumber
+          orderCode: orderCode
         })
       }
     );

@@ -864,7 +864,9 @@
       </svg>
 </a>
 
-<<audio id="luxuryMusic" loop preload="auto"> <source src="../assets/luxury/music.mp3" type="audio/mpeg"> </audio>
+<audio id="luxuryMusic" loop preload="auto">
+  <source src="../../../assets/luxury/music.mp3" type="audio/mpeg">
+</audio>
 
 <div class="music-panel">
   <button id="musicToggle">♫ Activar experiencia sonora</button>
@@ -1311,28 +1313,37 @@
   document.querySelectorAll('.fade').forEach(el=>observer.observe(el));
 
   const music = document.getElementById('luxuryMusic');
-  music.volume = 0.65; music.addEventListener('error', () => { music.src = '../../../assets/luxury/music.mp3'; music.load(); });
-  const musicToggle = document.getElementById('musicToggle');
-  let isPlaying = false;
+const musicToggle = document.getElementById('musicToggle');
+let isPlaying = false;
 
-  if(music && musicToggle){
-    musicToggle.addEventListener('click',async()=>{
-      try{
-        if(!isPlaying){
-          await music.play();
-          musicToggle.textContent = '❚❚ Pausar experiencia sonora';
-          isPlaying = true;
-        }else{
-          music.pause();
-          musicToggle.textContent = '♫ Activar experiencia sonora';
-          isPlaying = false;
-        }
-      }catch(error){
-        alert('Tu navegador bloqueó la reproducción. Intenta tocar el botón nuevamente.');
+if (music) {
+  music.volume = 0.65;
+  music.load();
+}
+
+if (music && musicToggle) {
+  musicToggle.addEventListener('click', async () => {
+    try {
+      if (!isPlaying) {
+        music.src = '../../../assets/luxury/music.mp3';
+        music.load();
+
+        await music.play();
+
+        musicToggle.textContent = '❚❚ Pausar experiencia sonora';
+        isPlaying = true;
+      } else {
+        music.pause();
+
+        musicToggle.textContent = '♫ Activar experiencia sonora';
+        isPlaying = false;
       }
-    });
-  }
-
+    } catch (error) {
+      console.error('Error de audio:', error);
+      alert('No se pudo cargar la música. Revisa que exista assets/luxury/music.mp3 en la raíz del proyecto.');
+    }
+  });
+}
   const rsvpForm = document.getElementById('rsvpForm');
 
   if(rsvpForm){

@@ -864,9 +864,7 @@
       </svg>
 </a>
 
-<audio id="luxuryMusic" loop>
-  <source src="../../../assets/luxury/music.mp3" type="audio/mpeg">
-</audio>
+<<audio id="luxuryMusic" loop preload="auto"> <source src="../assets/luxury/music.mp3" type="audio/mpeg"> </audio>
 
 <div class="music-panel">
   <button id="musicToggle">♫ Activar experiencia sonora</button>
@@ -1313,6 +1311,7 @@
   document.querySelectorAll('.fade').forEach(el=>observer.observe(el));
 
   const music = document.getElementById('luxuryMusic');
+  music.volume = 0.65; music.addEventListener('error', () => { music.src = '../../../assets/luxury/music.mp3'; music.load(); });
   const musicToggle = document.getElementById('musicToggle');
   let isPlaying = false;
 

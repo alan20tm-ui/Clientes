@@ -1,4 +1,33 @@
 module.exports = async function handler(req, res) {
+  if (req.method === 'GET') {
+  try {
+    const orderCode = String(req.query.orden || '').trim().toUpperCase();
+
+    if (!orderCode) {
+      return res.status(400).json({ ok: false, error: 'Código faltante' });
+    }
+
+    const sheetUrl =
+      `${process.env.SHEET_API_URL}?token=${process.env.SHEET_API_TOKEN}&code=${orderCode}`;
+
+    const sheetResponse = await fetch(sheetUrl);
+    const sheetData = await sheetResponse.json();
+
+    if (!sheetData.ok) {
+      return res.status(400).json({ ok: false, error: 'Código inválido' });
+    }
+
+    return res.status(200).json({
+      ok: true,
+      code: sheetData.code,
+      concept: sheetData.concept,
+      amount: Number(sheetData.amount)
+    });
+
+  } catch (error) {
+    return res.status(500).json({ ok: false, error: error.message });
+  }
+}
   if (req.method !== 'POST') {
     return res.status(405).json({
       error: 'Método no permitido'

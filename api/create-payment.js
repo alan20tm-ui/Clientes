@@ -1,11 +1,4 @@
-const mercadopago = require('mercadopago');
-
-mercadopago.configure({
-  access_token: process.env.MP_ACCESS_TOKEN
-});
-
 module.exports = async function handler(req, res) {
-
   if (req.method !== 'POST') {
     return res.status(405).json({
       error: 'Método no permitido'
@@ -13,13 +6,19 @@ module.exports = async function handler(req, res) {
   }
 
   try {
+    const { name, phone, concept, amount } = req.body || {};
 
-    const {
-      name,
-      phone,
-      concept,
-      amount
-    } = req.body;
+    if (!name || !phone || !concept || !amount) {
+      return res.status(400).json({
+        error: 'Faltan datos para generar el pago'
+      });
+    }
+
+    if (!process.env.MP_ACCESS_TOKEN) {
+      return res.status(500).json({
+        error: 'MP_ACCESS_TOKEN no está configurado'
+      });
+    }
 
     const preference = {
       items: [
@@ -30,32 +29,43 @@ module.exports = async function handler(req, res) {
           unit_price: Number(amount)
         }
       ],
-
       payer: {
         name,
         phone: {
           number: phone
         }
       },
-
       back_urls: {
         success: 'https://clientes-xi.vercel.app/pagos/success.html',
-        failure: 'https://clientes-xi.vercel.app/pagos/error.html'
+        failure: 'https://clientes-xi.vercel.app/pagos/error.html',
+        pending: 'https://clientes-xi.vercel.app/pagos/pending.html'
       },
-
       auto_return: 'approved'
     };
 
-    const response = await mercadopago.preferences.create(preference);
+    const mpResponse = await fetch('https://api.mercadopago.com/checkout/preferences', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${process.env.MP_ACCESS_TOKEN}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(preference)
+    });
+
+    const result = await mpResponse.json();
+
+    if (!mpResponse.ok) {
+      return res.status(500).json({
+        error: 'Mercado Pago rechazó la preferencia',
+        detail: result
+      });
+    }
 
     return res.status(200).json({
-      init_point: response.body.init_point
+      init_point: result.init_point
     });
 
   } catch (error) {
-
-    console.error(error);
-
     return res.status(500).json({
       error: error.message
     });

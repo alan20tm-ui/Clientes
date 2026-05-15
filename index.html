@@ -734,11 +734,327 @@
       50% { transform: translateY(-10px); }
     }
 
+
+    .catalog-offer {
+      width: min(1180px, 100%);
+      margin: 0 auto 1.6rem;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(244,213,141,.22);
+      border-radius: 28px;
+      padding: 1.25rem 1.35rem;
+      background:
+        linear-gradient(135deg, rgba(201,164,95,.15), rgba(255,255,255,.025)),
+        rgba(0,0,0,.22);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 24px 58px rgba(0,0,0,.38);
+      text-align: center;
+    }
+
+    .catalog-offer::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(120deg, transparent 18%, rgba(244,213,141,.10), transparent 78%);
+      pointer-events: none;
+    }
+
+    .catalog-offer strong {
+      position: relative;
+      z-index: 2;
+      color: var(--gold-soft);
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      font-size: .78rem;
+    }
+
+    .catalog-offer p {
+      position: relative;
+      z-index: 2;
+      color: var(--muted);
+      margin-top: .35rem;
+      font-size: .92rem;
+    }
+
+    .price-block {
+      margin-bottom: .9rem;
+    }
+
+    .old-price {
+      color: #8f8578;
+      text-decoration: line-through;
+      font-size: .86rem;
+      line-height: 1.2;
+    }
+
+    .promo-price {
+      color: var(--gold-soft);
+      font-weight: 800;
+      font-size: 1.05rem;
+      line-height: 1.3;
+    }
+
+    .saving-note {
+      color: #efe7dc;
+      font-size: .75rem;
+      margin-top: .18rem;
+      opacity: .9;
+    }
+
+    .catalog-trust {
+      width: min(1180px, 100%);
+      margin: 2rem auto 0;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: .9rem;
+    }
+
+    .catalog-trust div {
+      border: 1px solid rgba(244,213,141,.14);
+      border-radius: 20px;
+      background: rgba(255,255,255,.032);
+      backdrop-filter: blur(10px);
+      padding: .95rem 1rem;
+      color: #efe7dc;
+      text-align: center;
+      font-size: .86rem;
+    }
+
+    .catalog-trust strong {
+      color: var(--gold-soft);
+      font-weight: 700;
+    }
+
+    .promo-section {
+      position: relative;
+      z-index: 4;
+      padding: 6.5rem clamp(1.2rem, 4vw, 4.5rem);
+      overflow: hidden;
+    }
+
+    .promo-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(244,213,141,.13), transparent 28%),
+        radial-gradient(circle at 82% 72%, rgba(201,164,95,.10), transparent 34%);
+      opacity: .9;
+    }
+
+    .promo-wrap {
+      position: relative;
+      z-index: 2;
+      width: min(1180px, 100%);
+      margin: auto;
+    }
+
+    .promo-panel {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(244,213,141,.18);
+      border-radius: 34px;
+      background:
+        linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,255,255,.018));
+      backdrop-filter: blur(18px);
+      box-shadow:
+        0 34px 80px rgba(0,0,0,.48),
+        inset 0 1px 0 rgba(255,255,255,.04);
+      padding: clamp(1.6rem, 4vw, 3rem);
+    }
+
+    .promo-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(120deg, transparent 18%, rgba(244,213,141,.08), transparent 74%);
+      pointer-events: none;
+    }
+
+    .promo-header {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .promo-tag {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .55rem;
+      padding: .55rem .9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(244,213,141,.26);
+      background: rgba(0,0,0,.28);
+      color: var(--gold-soft);
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .promo-header h2 {
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--gold-soft);
+      font-weight: 400;
+      font-size: clamp(3rem, 5.6vw, 5.4rem);
+      line-height: .92;
+      margin-bottom: 1rem;
+    }
+
+    .promo-header p {
+      color: var(--muted);
+      max-width: 760px;
+      margin: auto;
+      font-size: 1.02rem;
+    }
+
+    .promo-grid {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .promo-card {
+      position: relative;
+      min-height: 270px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-align: center;
+      padding: 1.45rem 1.1rem;
+      border-radius: 24px;
+      border: 1px solid rgba(255,255,255,.12);
+      background:
+        linear-gradient(145deg, rgba(255,255,255,.05), rgba(255,255,255,.014));
+      overflow: hidden;
+      transition: .3s ease;
+    }
+
+    .promo-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: .3s ease;
+      background:
+        radial-gradient(circle at top, rgba(244,213,141,.18), transparent 50%);
+      pointer-events: none;
+    }
+
+    .promo-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(244,213,141,.36);
+      box-shadow: 0 24px 58px rgba(0,0,0,.38);
+    }
+
+    .promo-card:hover::before {
+      opacity: 1;
+    }
+
+    .promo-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      z-index: 2;
+      padding: .42rem .68rem;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-soft));
+      color: #111;
+      font-size: .64rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      box-shadow: 0 12px 26px rgba(201,164,95,.24);
+    }
+
+    .promo-badge.soft {
+      background: rgba(255,255,255,.08);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,.12);
+      box-shadow: none;
+    }
+
+    .promo-icon {
+      position: relative;
+      z-index: 2;
+      font-size: 2.35rem;
+      color: var(--gold);
+      margin-top: 1rem;
+      margin-bottom: .6rem;
+    }
+
+    .promo-card h3 {
+      position: relative;
+      z-index: 2;
+      font-family: 'Cormorant Garamond', serif;
+      color: #fff;
+      font-size: 2.05rem;
+      font-weight: 500;
+      line-height: 1;
+      margin-bottom: .45rem;
+    }
+
+    .promo-old {
+      position: relative;
+      z-index: 2;
+      color: #8f8578;
+      text-decoration: line-through;
+      font-size: .92rem;
+      margin-bottom: .08rem;
+    }
+
+    .promo-price {
+      position: relative;
+      z-index: 2;
+      color: var(--gold-soft);
+      font-weight: 800;
+      font-size: 1.15rem;
+      margin-bottom: .8rem;
+    }
+
+    .promo-card p {
+      position: relative;
+      z-index: 2;
+      color: #d8d0c6;
+      font-size: .86rem;
+      line-height: 1.65;
+      margin-bottom: 1rem;
+    }
+
+    .promo-actions {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: .8rem;
+      margin-top: 2rem;
+    }
+
+    .promo-note {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: #9e9487;
+      font-size: .84rem;
+      margin-top: 1.4rem;
+    }
+
     @media (max-width: 1180px) {
       .catalog-grid,
       .event-grid,
       .why-grid,
-      .steps-grid {
+      .steps-grid,
+      .promo-grid,
+      .catalog-trust {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
@@ -872,11 +1188,21 @@
       .catalog-grid,
       .event-grid,
       .why-grid,
-      .steps-grid {
+      .steps-grid,
+      .promo-grid,
+      .catalog-trust {
         grid-template-columns: 1fr;
         max-width: 420px;
         margin-left: auto;
         margin-right: auto;
+      }
+
+      .promo-section {
+        padding: 4.5rem 1rem;
+      }
+
+      .promo-panel {
+        border-radius: 28px;
       }
 
       .card-image {
@@ -1016,7 +1342,7 @@
 
       <div class="hero-actions">
         <a class="btn btn-gold" href="/cotizador.html">
-          Cotizar
+          Cotizar con promoción
         </a>
 
         <a class="btn btn-outline" href="#catalogo">
@@ -1032,64 +1358,92 @@
       <p class="subtitle">Elige el estilo que mejor representa tu historia</p>
     </div>
 
+    <div class="catalog-offer">
+      <strong>Promoción de lanzamiento</strong>
+      <p>Ahorra hasta $1,499 MXN en paquetes seleccionados. Cupos limitados por semana para mantener atención personalizada.</p>
+    </div>
+
     <div class="catalog-grid">
 
       <article class="card">
         <div class="card-image">
-          <span class="badge">Minimalista</span>
+          <span class="badge">Lanzamiento</span>
           <img src="assets/minimalista-preview.jpeg" alt="Minimalista">
         </div>
 
         <div class="card-content">
           <h3>Minimalista</h3>
           <p>Menos es más, con estilo.</p>
-          <div class="price">Desde <strong>$699 MXN</strong></div>
+          <div class="price-block">
+            <div class="old-price">Antes $699 MXN</div>
+            <div class="promo-price">Promo $500 MXN</div>
+            <div class="saving-note">Ahorra $199 MXN</div>
+          </div>
           <a class="demo-link" href="/demos/minimalista/">Ver ejemplo →</a>
         </div>
       </article>
 
       <article class="card">
         <div class="card-image">
-          <span class="badge">Floral</span>
+          <span class="badge">Oferta especial</span>
           <img src="assets/floral-preview.jpeg" alt="Floral">
         </div>
 
         <div class="card-content">
           <h3>Floral</h3>
           <p>Romántico, natural y delicado.</p>
-          <div class="price">Desde <strong>$1,199 MXN</strong></div>
+          <div class="price-block">
+            <div class="old-price">Antes $1,199 MXN</div>
+            <div class="promo-price">Promo $1,000 MXN</div>
+            <div class="saving-note">Ahorra $199 MXN</div>
+          </div>
           <a class="demo-link" href="/demos/floral/">Ver ejemplo →</a>
         </div>
       </article>
 
       <article class="card">
         <div class="card-image">
-          <span class="badge">Premium</span>
+          <span class="badge">Recomendado · -20%</span>
           <img src="assets/elegante-preview.jpeg" alt="Elegante Premium">
         </div>
 
         <div class="card-content">
           <h3>Premium</h3>
           <p>Moderno, sofisticado y elegante.</p>
-          <div class="price">Desde <strong>$2,499 MXN</strong></div>
+          <div class="price-block">
+            <div class="old-price">Antes $2,499 MXN</div>
+            <div class="promo-price">Promo $2,000 MXN</div>
+            <div class="saving-note">Ahorra $499 MXN</div>
+          </div>
           <a class="demo-link" href="/demos/elegante/">Ver ejemplo →</a>
         </div>
       </article>
 
       <article class="card">
         <div class="card-image">
-          <span class="badge">Luxury</span>
+          <span class="badge">Luxury Deal</span>
           <img src="assets/luxury-preview.jpeg" alt="Luxury Experience">
         </div>
 
         <div class="card-content">
           <h3>Luxury</h3>
           <p>Lujo y distinción en cada detalle.</p>
-          <div class="price">Desde <strong>$4,999 MXN</strong></div>
+          <div class="price-block">
+            <div class="old-price">Antes $4,999 MXN</div>
+            <div class="promo-price">Promo $3,500 MXN</div>
+            <div class="saving-note">Ahorra $1,499 MXN</div>
+          </div>
           <a class="demo-link" href="/demos/luxury-experience/">Ver ejemplo →</a>
         </div>
       </article>
 
+    </div>
+
+    <div class="catalog-trust">
+      <div><strong>Entrega rápida</strong><br>Sin perder detalle visual</div>
+      <div><strong>Atención por WhatsApp</strong><br>Acompañamiento directo</div>
+      <div><strong>Diseño personalizado</strong><br>Adaptado a tu evento</div>
+      <div><strong>Pago seguro</strong><br>Proceso claro y confiable</div>
     </div>
   </section>
 

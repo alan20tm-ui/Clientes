@@ -491,6 +491,8 @@
   const params = new URLSearchParams(window.location.search);
 
  const orderCode = params.get('orden') || '';
+  
+  let amountNumber = 0;
 
   const amountLabel = document.getElementById('amountLabel');
   const statusBox = document.getElementById('status');
@@ -569,7 +571,9 @@
       return;
     }
 
-    amountLabel.textContent = formatCurrency(Number(result.amount));
+    amountNumber = Number(result.amount);
+
+amountLabel.textContent = formatCurrency(amountNumber);
 
     const conceptSelect = document.getElementById('concept');
     conceptSelect.innerHTML = `
@@ -606,11 +610,11 @@ cargarMontoPorCodigo();
         },
 
         body: JSON.stringify({
-          name: data.name,
-          phone: data.phone,
-          concept: data.concept,
-          orderCode: orderCode
-        })
+  name: data.name,
+  phone: data.phone,
+  concept: data.concept,
+  amount: amountNumber
+})
       }
     );
 

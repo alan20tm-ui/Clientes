@@ -459,9 +459,9 @@
       </p>
 
       <p class="mini-help">
-        Uso interno: puedes cambiar el monto y liga de pago desde la URL usando
-        <strong>?monto=3500&mp=TU_LINK_DE_MERCADO_PAGO</strong>
-      </p>
+         Uso interno: puedes cambiar el monto desde la URL usando
+  <strong>?monto=3500</strong>
+</p>
 
     </div>
 
@@ -491,7 +491,7 @@
   const params = new URLSearchParams(window.location.search);
 
   const amountParam = params.get('monto') || params.get('total') || '0';
-  const paymentLink = params.get('mp') || params.get('link') || '';
+  
 
   const amountNumber = Number(String(amountParam).replace(/[^0-9.]/g, '')) || 0;
 

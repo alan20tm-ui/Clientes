@@ -596,25 +596,9 @@
       throw new Error(
         result.error || 'No se pudo generar el pago'
       );
-    }
-
-    const msg = [
-      'Hola, estoy realizando mi pago.',
-      '',
-      'Nombre: ' + data.name,
-      'Celular: ' + data.phone,
-      'Concepto: ' + data.concept,
-      'Monto: ' + formatCurrency(amountNumber)
-    ].join('\n');
-
-    window.open(
-      'https://wa.me/5215541946413?text=' + encodeURIComponent(msg),
-      '_blank'
-    );
-
-    setTimeout(() => {
-      window.location.href = result.init_point;
-    }, 600);
+    }    
+    
+    window.location.href = result.init_point;
 
   } catch (error) {
 

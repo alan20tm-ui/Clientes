@@ -50,11 +50,28 @@ module.exports = async function handler(req, res) {
   try {
     const { name, phone, orderCode } = req.body || {};
 
-    if (!name || !phone || !orderCode) {
-      return res.status(400).json({
-        error: 'Faltan datos para generar el pago'
-      });
-    }
+if (!name || !phone || !orderCode) {
+  return res.status(400).json({
+    error: 'Faltan datos para generar el pago'
+  });
+}
+
+const sheetUrl =
+  `${process.env.SHEET_API_URL}?token=${process.env.SHEET_API_TOKEN}&code=${orderCode}`;
+
+const sheetResponse = await fetch(sheetUrl);
+
+const sheetData = await sheetResponse.json();
+
+if (!sheetData.ok) {
+  return res.status(400).json({
+    error: 'Código inválido'
+  });
+}
+
+const concept = sheetData.concept;
+
+const amount = Number(sheetData.amount);
 
     if (!process.env.MP_ACCESS_TOKEN) {
       return res.status(500).json({

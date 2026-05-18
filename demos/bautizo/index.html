@@ -2,579 +2,1137 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Diseño Floral | Invitación Digital</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Parisienne&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  <title>Graduación Premium | Invitación Digital</title>
+
+  <meta name="description" content="Invitación digital premium para graduaciones, cenas de gala y eventos académicos especiales.">
+
+  <link rel="icon" type="image/png" href="/favicon.png">
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
-    :root {
-      --bg: #f7f0ea;
-      --card: rgba(255,255,255,.78);
-      --primary: #b98f78;
-      --primary-soft: #d8b8a4;
-      --text: #4a3d36;
-      --muted: #7c6d64;
-      --line: rgba(185,143,120,.22);
-      --shadow: rgba(70, 40, 25, .14);
+
+    :root{
+      --bg:#07090f;
+      --bg2:#101522;
+      --navy:#111a2e;
+      --gold:#d8b36a;
+      --goldSoft:#f2dfb1;
+      --blue:#5c7cff;
+      --text:#f7f4ee;
+      --muted:#aeb3c2;
+      --line:rgba(216,179,106,.22);
+      --glass:rgba(255,255,255,.055);
+      --shadow:rgba(0,0,0,.46);
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
-      font-family: 'Montserrat', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      overflow-x: hidden;
-      line-height: 1.7;
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
     }
 
-    a { text-decoration: none; color: inherit; }
-    img { display: block; max-width: 100%; }
+    html{
+      scroll-behavior:smooth;
+      overflow-x:hidden;
+    }
 
-    .flowers {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      opacity: .18;
+    body{
+      font-family:'Inter',sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      overflow-x:hidden;
+      line-height:1.7;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    img{
+      width:100%;
+      display:block;
+    }
+
+    .ambient{
+      position:fixed;
+      inset:0;
+      z-index:-6;
+      pointer-events:none;
       background:
-        radial-gradient(circle at 15% 20%, #d8b8a4 0, transparent 20%),
-        radial-gradient(circle at 85% 15%, #d8b8a4 0, transparent 18%),
-        radial-gradient(circle at 80% 85%, #d8b8a4 0, transparent 20%);
-      z-index: -1;
+        radial-gradient(circle at 10% 10%,rgba(92,124,255,.18),transparent 30%),
+        radial-gradient(circle at 88% 8%,rgba(216,179,106,.15),transparent 32%),
+        radial-gradient(circle at 72% 88%,rgba(216,179,106,.08),transparent 34%),
+        linear-gradient(135deg,#05060a,#101522 45%,#05060a);
     }
 
-    .hero {
-      min-height: 100vh;
+    .academic-grid{
+      position:fixed;
+      inset:0;
+      z-index:-5;
+      pointer-events:none;
+      opacity:.12;
+      background-image:
+        linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px),
+        linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px);
+      background-size:90px 90px;
+      mask-image:linear-gradient(to bottom,transparent,#000 12%,#000 90%,transparent);
+    }
+
+    .gold-dust{
+      position:fixed;
+      inset:0;
+      z-index:-4;
+      pointer-events:none;
+      opacity:.32;
+      background-image:
+        radial-gradient(circle,rgba(242,223,177,.85) 1px,transparent 1.5px),
+        radial-gradient(circle,rgba(255,255,255,.35) 1px,transparent 1.3px);
+      background-size:130px 130px,220px 220px;
+      animation:floatDust 26s linear infinite;
+    }
+
+    @keyframes floatDust{
+      from{transform:translateY(0)}
+      to{transform:translateY(-130px)}
+    }
+
+    .brand-home{
+      position:fixed;
+      top:18px;
+      left:18px;
+      z-index:120;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      width:74px;
+      height:74px;
+      border-radius:24px;
+      background:linear-gradient(145deg,rgba(255,255,255,.09),rgba(255,255,255,.025));
+      border:1px solid rgba(216,179,106,.18);
+      backdrop-filter:blur(18px);
+      box-shadow:
+        0 18px 42px rgba(0,0,0,.46),
+        0 0 28px rgba(216,179,106,.10);
+      transition:.3s ease;
+    }
+
+    .brand-home:hover{
+      transform:translateY(-2px) scale(1.04);
+      border-color:rgba(216,179,106,.38);
+    }
+
+    .brand-home img{
+      width:58px;
+      object-fit:contain;
+      filter:drop-shadow(0 0 14px rgba(216,179,106,.16));
+    }
+
+    .nav{
+      position:fixed;
+      top:18px;
+      left:50%;
+      transform:translateX(-50%);
+      z-index:110;
+      display:flex;
+      gap:.3rem;
+      padding:.42rem;
+      max-width:calc(100vw - 130px);
+      overflow-x:auto;
+      scrollbar-width:none;
+      border-radius:999px;
+      background:rgba(10,12,18,.72);
+      border:1px solid var(--line);
+      backdrop-filter:blur(18px);
+      box-shadow:0 14px 36px rgba(0,0,0,.32);
+    }
+
+    .nav::-webkit-scrollbar{
+      display:none;
+    }
+
+    .nav a{
+      white-space:nowrap;
+      padding:.58rem .9rem;
+      border-radius:999px;
+      font-size:.76rem;
+      font-weight:700;
+      color:var(--muted);
+      transition:.25s ease;
+    }
+
+    .nav a:hover{
+      background:rgba(216,179,106,.12);
+      color:var(--goldSoft);
+    }
+
+    .floating-whatsapp{
+      position:fixed;
+      right:18px;
+      bottom:18px;
+      z-index:200;
+      width:58px;
+      height:58px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      background:#25D366;
+      color:#fff;
+      box-shadow:0 18px 42px rgba(0,0,0,.38);
+      transition:.25s ease;
+    }
+
+    .floating-whatsapp:hover{
+      transform:translateY(-3px) scale(1.04);
+    }
+
+    .hero{
+      min-height:100vh;
+      display:grid;
+      place-items:center;
+      text-align:center;
+      padding:7rem 1.2rem 4rem;
+      position:relative;
+      overflow:hidden;
       background:
-        linear-gradient(rgba(40,25,20,.25), rgba(40,25,20,.42)),
-        url('https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=1600&q=85') center/cover;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 2rem;
-      color: white;
+        linear-gradient(rgba(6,7,10,.46),rgba(6,7,10,.88)),
+        url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1800&q=90') center/cover;
     }
 
-    .hero-content {
-      max-width: 850px;
-      animation: fadeUp 1s ease both;
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:1rem;
+      border-radius:40px;
+      border:1px solid rgba(216,179,106,.23);
+      box-shadow:
+        inset 0 0 70px rgba(216,179,106,.08),
+        inset 0 0 90px rgba(92,124,255,.07);
+      pointer-events:none;
     }
 
-    .hero small {
-      letter-spacing: 6px;
-      text-transform: uppercase;
-      font-size: .8rem;
+    .cap-mark{
+      position:absolute;
+      right:9%;
+      top:18%;
+      font-size:9rem;
+      opacity:.14;
+      filter:drop-shadow(0 0 20px rgba(216,179,106,.28));
+      pointer-events:none;
+      animation:floatCap 6s ease-in-out infinite;
     }
 
-    .hero h1 {
-      font-family: 'Parisienne', cursive;
-      font-size: clamp(4rem, 12vw, 8rem);
-      font-weight: 400;
-      margin: 1rem 0;
+    @keyframes floatCap{
+      0%,100%{transform:translateY(0) rotate(-8deg)}
+      50%{transform:translateY(-18px) rotate(-4deg)}
     }
 
-    .hero p {
-      max-width: 650px;
-      margin: auto;
-      font-size: 1.15rem;
+    .hero-content{
+      max-width:1000px;
+      position:relative;
+      z-index:2;
+      animation:fadeUp 1s ease both;
     }
 
-    .hero-date {
-      margin-top: 2rem;
-      letter-spacing: 3px;
-      font-size: 1rem;
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:.5rem 1rem;
+      border-radius:999px;
+      color:var(--goldSoft);
+      text-transform:uppercase;
+      letter-spacing:.22em;
+      font-size:.72rem;
+      font-weight:800;
+      margin-bottom:1.2rem;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.055);
+      backdrop-filter:blur(14px);
     }
 
-    .section {
-      padding: 5rem 1.2rem;
+    .hero h1{
+      font-family:'Cormorant Garamond',serif;
+      font-size:clamp(4.8rem,12vw,10rem);
+      line-height:.86;
+      font-weight:300;
+      margin-bottom:1rem;
+      text-shadow:0 20px 60px rgba(0,0,0,.62);
     }
 
-    .container {
-      max-width: 1120px;
-      margin: auto;
+    .hero h1 span{
+      display:block;
+      color:var(--gold);
     }
 
-    .title {
-      text-align: center;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2.6rem, 5vw, 4.5rem);
-      color: var(--primary);
-      font-weight: 500;
-      margin-bottom: 1rem;
+    .hero p{
+      max-width:780px;
+      margin:auto;
+      color:rgba(245,243,238,.88);
+      font-size:clamp(1rem,2vw,1.12rem);
     }
 
-    .subtitle {
-      text-align: center;
-      color: var(--muted);
-      max-width: 720px;
-      margin: 0 auto 3rem;
+    .hero-date{
+      display:inline-flex;
+      align-items:center;
+      gap:1.2rem;
+      margin:2rem 0 1.6rem;
+      color:var(--goldSoft);
+      font-size:.95rem;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      font-weight:700;
     }
 
-    .glass {
-      background: var(--card);
-      backdrop-filter: blur(12px);
-      border: 1px solid var(--line);
-      box-shadow: 0 20px 45px var(--shadow);
-      border-radius: 34px;
+    .hero-date::before,
+    .hero-date::after{
+      content:"";
+      width:58px;
+      height:1px;
+      background:linear-gradient(90deg,transparent,var(--goldSoft),transparent);
     }
 
-    .welcome {
-      padding: 3rem 2rem;
-      text-align: center;
-      max-width: 860px;
-      margin: auto;
+    .hero-actions,
+    .actions{
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:.9rem;
+      margin-top:1.2rem;
     }
 
-    .welcome h2 {
-      font-family: 'Parisienne', cursive;
-      color: var(--primary);
-      font-size: clamp(3rem, 6vw, 5rem);
-      margin-bottom: 1rem;
-      font-weight: 400;
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:.5rem;
+      padding:1rem 1.35rem;
+      border-radius:999px;
+      font-size:.88rem;
+      font-weight:800;
+      transition:.25s ease;
+      border:1px solid transparent;
+      cursor:pointer;
+      font-family:'Inter',sans-serif;
     }
 
-    .event-grid,
-    .gift-grid,
-    .gallery {
-      display: grid;
-      gap: 1.2rem;
+    .btn:hover{
+      transform:translateY(-2px);
     }
 
-    .event-grid {
-      grid-template-columns: repeat(2, 1fr);
+    .btn-primary{
+      background:linear-gradient(135deg,var(--gold),var(--goldSoft));
+      color:#111318;
+      box-shadow:0 14px 34px rgba(216,179,106,.20);
     }
 
-    .gift-grid {
-      grid-template-columns: repeat(2, 1fr);
+    .btn-outline{
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.045);
+      color:var(--text);
+      backdrop-filter:blur(12px);
+    }
+        .section{
+      padding:6rem 1.2rem;
     }
 
-    .gallery {
-      grid-template-columns: repeat(3, 1fr);
+    .container{
+      max-width:1180px;
+      margin:auto;
     }
 
-    .card {
-      padding: 2rem;
-      text-align: center;
+    .title{
+      text-align:center;
+      font-family:'Cormorant Garamond',serif;
+      font-size:clamp(3rem,7vw,5.8rem);
+      font-weight:300;
+      color:var(--gold);
+      line-height:.92;
+      margin-bottom:1rem;
     }
 
-    .card h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2.2rem;
-      color: var(--primary);
-      margin-bottom: .7rem;
-      font-weight: 500;
+    .subtitle{
+      max-width:780px;
+      margin:0 auto 3rem;
+      text-align:center;
+      color:var(--muted);
     }
 
-    .card p {
-      color: var(--muted);
-      margin-bottom: .9rem;
+    .glass{
+      background:rgba(255,255,255,.045);
+      border:1px solid var(--line);
+      border-radius:34px;
+      backdrop-filter:blur(18px);
+      box-shadow:0 24px 70px rgba(0,0,0,.32);
     }
 
-    .btn {
-      display: inline-block;
-      padding: .95rem 1.4rem;
-      border-radius: 999px;
-      background: linear-gradient(135deg, var(--primary), var(--primary-soft));
-      color: white;
-      transition: .2s ease;
-      font-size: .92rem;
+    .grid-3{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:1rem;
     }
 
-    .btn:hover {
-      transform: translateY(-2px);
+    .grid-2{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:1rem;
     }
 
-    .gallery img {
-      width: 100%;
-      height: 340px;
-      object-fit: cover;
-      border-radius: 26px;
-      box-shadow: 0 18px 40px var(--shadow);
+    .card{
+      padding:1.8rem;
+      text-align:center;
+      transition:.3s ease;
+      position:relative;
+      overflow:hidden;
     }
 
-    .countdown {
-      padding: 3rem 2rem;
-      text-align: center;
+    .card:hover{
+      transform:translateY(-5px);
+      border-color:rgba(216,179,106,.38);
     }
 
-    .timer {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1rem;
-      margin-top: 2rem;
+    .card .icon{
+      font-size:2.25rem;
+      display:block;
+      margin-bottom:.8rem;
     }
 
-    .time-box {
-      background: rgba(255,255,255,.5);
-      border-radius: 22px;
-      padding: 1.5rem 1rem;
+    .card h3{
+      font-family:'Cormorant Garamond',serif;
+      color:var(--gold);
+      font-size:2.25rem;
+      font-weight:400;
+      margin-bottom:.5rem;
     }
 
-    .time-box span {
-      display: block;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2.5rem, 6vw, 4rem);
-      color: var(--primary);
-      line-height: 1;
+    .card p{
+      color:var(--muted);
+      font-size:.95rem;
     }
 
-    .time-box small {
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-size: .75rem;
-      color: var(--muted);
+    .timer{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:1rem;
+      margin-top:2rem;
     }
 
-    .dress {
-      text-align: center;
-      padding: 2rem;
+    .time-box{
+      padding:1.7rem 1rem;
+      border-radius:28px;
+      background:rgba(255,255,255,.045);
+      border:1px solid var(--line);
+      text-align:center;
+      box-shadow:0 18px 45px rgba(0,0,0,.24);
     }
 
-    .dress span {
-      display: block;
-      font-size: 3rem;
-      margin-bottom: .8rem;
+    .time-box span{
+      display:block;
+      font-family:'Cormorant Garamond',serif;
+      font-size:clamp(2.8rem,6vw,4.5rem);
+      color:var(--gold);
+      line-height:.9;
     }
 
-    .rsvp {
+    .time-box small{
+      color:var(--muted);
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      font-size:.72rem;
+    }
+
+    .achievement-strip{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:1rem;
+    }
+
+    .achievement{
+      padding:1.45rem;
+      border-radius:26px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.04);
+      text-align:center;
+      box-shadow:0 18px 45px rgba(0,0,0,.22);
+    }
+
+    .achievement span{
+      display:block;
+      font-size:2rem;
+      margin-bottom:.5rem;
+    }
+
+    .achievement strong{
+      color:var(--goldSoft);
+    }
+
+    .achievement p{
+      color:var(--muted);
+      font-size:.9rem;
+      margin-top:.35rem;
+    }
+
+    .gallery{
+      display:grid;
+      grid-template-columns:1.2fr .8fr .8fr;
+      gap:1rem;
+    }
+
+    .gallery img{
+      height:330px;
+      object-fit:cover;
+      border-radius:30px;
+      box-shadow:0 24px 70px rgba(0,0,0,.32);
+      filter:saturate(.92) contrast(1.04);
+    }
+
+    .gallery img:first-child{
+      height:680px;
+      grid-row:span 2;
+    }
+
+    .timeline{
+      max-width:900px;
+      margin:auto;
+      position:relative;
+    }
+
+    .timeline::before{
+      content:"";
+      position:absolute;
+      top:0;
+      bottom:0;
+      left:50%;
+      width:1px;
+      background:linear-gradient(transparent,var(--gold),transparent);
+      opacity:.7;
+    }
+
+    .timeline-item{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:2rem;
+      align-items:center;
+      margin:2rem 0;
+    }
+
+    .timeline-time{
+      text-align:right;
+      color:var(--gold);
+      font-size:1.4rem;
+      font-weight:700;
+    }
+
+    .timeline-card{
+      padding:1.3rem;
+      border-radius:24px;
+      background:rgba(255,255,255,.045);
+      border:1px solid var(--line);
+    }
+
+    .timeline-card strong{
+      color:var(--goldSoft);
+    }
+
+    .timeline-card p{
+      color:var(--muted);
+    }
+
+    .rsvp{
+      padding:6rem 1.2rem;
       background:
-        linear-gradient(rgba(40,25,20,.28), rgba(40,25,20,.45)),
-        url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1600&q=85') center/cover;
-      text-align: center;
-      color: white;
-      padding: 6rem 1rem;
+        linear-gradient(rgba(6,7,10,.82),rgba(6,7,10,.92)),
+        url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1800&q=90') center/cover;
     }
 
-    .rsvp h2 {
-      font-family: 'Parisienne', cursive;
-      font-size: clamp(3rem, 8vw, 5rem);
-      font-weight: 400;
-      margin-bottom: 1rem;
+    .rsvp-form{
+      max-width:860px;
+      margin:auto;
+      padding:2rem;
     }
 
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      color: var(--muted);
+    .form-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:1rem;
+      margin-bottom:1rem;
     }
 
-    .fade {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: .8s ease;
+    input,
+    select,
+    textarea{
+      width:100%;
+      padding:1rem;
+      border-radius:18px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.06);
+      color:var(--text);
+      font-family:'Inter',sans-serif;
+      outline:none;
     }
 
-    .fade.visible {
-      opacity: 1;
-      transform: translateY(0);
+    textarea{
+      min-height:120px;
+      resize:vertical;
     }
 
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(25px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    option{
+      color:#111;
     }
-.brand-home{
-  position:fixed;
-  top:18px;
-  left:18px;
 
-  z-index:120;
+    .footer-cta{
+      text-align:center;
+      padding:6rem 1.2rem;
+      background:
+        linear-gradient(135deg,rgba(216,179,106,.08),rgba(92,124,255,.08)),
+        linear-gradient(180deg,rgba(7,9,15,.98),rgba(0,0,0,.95));
+      border-top:1px solid rgba(216,179,106,.12);
+    }
 
-  display:flex;
-  align-items:center;
-  justify-content:center;
+    .footer-cta h2{
+      font-family:'Cormorant Garamond',serif;
+      font-size:clamp(3rem,7vw,5rem);
+      color:var(--gold);
+      font-weight:300;
+      line-height:.95;
+      margin-bottom:1rem;
+    }
 
-  width:74px;
-  height:74px;
-
-  border-radius:22px;
-
-  background:
-    linear-gradient(
-      145deg,
-      rgba(255,255,255,.16),
-      rgba(255,255,255,.06)
-    );
-
-  border:1px solid rgba(255,255,255,.24);
-
-  backdrop-filter:blur(18px);
-
-  box-shadow:
-    0 14px 40px rgba(0,0,0,.16);
-
-  transition:.35s ease;
-}
-
-.brand-home:hover{
-  transform:
-    translateY(-2px)
-    scale(1.04);
-}
-
-.brand-home img{
-  width:58px;
-  height:auto;
-  object-fit:contain;
-}
     .simple-footer{
-  text-align:center;
-  padding:4rem 1.2rem 3rem;
+      text-align:center;
+      padding:4rem 1.2rem 3rem;
+      border-top:1px solid rgba(216,179,106,.12);
+      background:linear-gradient(180deg,rgba(216,179,106,.04),rgba(0,0,0,.85));
+    }
 
-  border-top:1px solid rgba(185,143,120,.18);
+    .simple-footer h3{
+      font-family:'Cormorant Garamond',serif;
+      color:var(--gold);
+      font-size:2.4rem;
+      font-weight:400;
+      margin-bottom:.8rem;
+    }
 
-  background:
-    linear-gradient(
-      180deg,
-      rgba(255,255,255,.35),
-      rgba(255,255,255,.6)
-    );
-}
+    .simple-footer p{
+      max-width:720px;
+      margin:auto;
+      color:var(--muted);
+      line-height:1.8;
+      margin-bottom:2rem;
+    }
 
-.simple-footer h3{
-  font-family:'Cormorant Garamond',serif;
-  color:var(--primary);
-  font-size:2.4rem;
-  font-weight:500;
-  margin-bottom:.8rem;
-}
+    .footer-contact{
+      margin-bottom:2rem;
+    }
 
-.simple-footer p{
-  max-width:720px;
-  margin:auto;
-  color:var(--muted);
-  line-height:1.8;
-  margin-bottom:2rem;
-}
+    .footer-contact strong{
+      display:block;
+      color:var(--gold);
+      margin-bottom:.8rem;
+    }
 
-.footer-contact{
-  margin-bottom:2rem;
-}
+    .footer-links,
+    .footer-legal{
+      display:flex;
+      justify-content:center;
+      gap:1rem;
+      flex-wrap:wrap;
+    }
 
-.footer-contact strong{
-  display:block;
-  color:var(--primary);
-  margin-bottom:.8rem;
-}
+    .footer-links a,
+    .footer-legal a{
+      color:var(--muted);
+      transition:.25s ease;
+    }
 
-.footer-links{
-  display:flex;
-  justify-content:center;
-  gap:1.2rem;
-  flex-wrap:wrap;
-}
+    .footer-links a:hover,
+    .footer-legal a:hover{
+      color:var(--goldSoft);
+    }
 
-.footer-links a,
-.footer-legal a{
-  color:var(--muted);
-  transition:.25s ease;
-}
+    .footer-bottom{
+      margin-top:1rem;
+      color:#8d909b;
+      font-size:.9rem;
+    }
 
-.footer-links a:hover,
-.footer-legal a:hover{
-  color:var(--primary);
-}
+    .fade{
+      opacity:0;
+      transform:translateY(40px);
+      filter:blur(6px);
+      transition:opacity 1s ease, transform 1s ease, filter 1s ease;
+    }
 
-.footer-bottom{
-  margin-top:1rem;
-  color:var(--muted);
-  font-size:.9rem;
-}
+    .fade.visible{
+      opacity:1;
+      transform:translateY(0);
+      filter:blur(0);
+    }
 
-.footer-legal{
-  margin-top:1rem;
-  display:flex;
-  justify-content:center;
-  gap:1rem;
-  flex-wrap:wrap;
-  font-size:.88rem;
-}
-    @media(max-width: 850px) {
-      .event-grid,
-      .gift-grid,
-      .gallery,
-      .timer {
-        grid-template-columns: 1fr;
+    @keyframes fadeUp{
+      from{
+        opacity:0;
+        transform:translateY(30px);
+        filter:blur(6px);
       }
-      .brand-home{
-  width:62px;
-  height:62px;
-
-  top:12px;
-  left:12px;
-
-  border-radius:18px;
-}
-
-.brand-home img{
-  width:48px;
-}
-
-      .gallery img {
-        height: 280px;
-      }
-
-      .section {
-        padding: 4rem 1rem;
+      to{
+        opacity:1;
+        transform:translateY(0);
+        filter:blur(0);
       }
     }
+
+    @media(max-width:980px){
+      .brand-home{
+        width:62px;
+        height:62px;
+        top:12px;
+        left:12px;
+      }
+
+      .brand-home img{
+        width:48px;
+      }
+
+      .nav{
+        left:90px;
+        right:12px;
+        transform:none;
+        overflow-x:auto;
+        justify-content:flex-start;
+        scrollbar-width:none;
+      }
+
+      .nav::-webkit-scrollbar{
+        display:none;
+      }
+
+      .grid-3,
+      .grid-2,
+      .timer,
+      .form-grid,
+      .achievement-strip{
+        grid-template-columns:1fr;
+      }
+
+      .gallery{
+        grid-template-columns:1fr;
+      }
+
+      .gallery img,
+      .gallery img:first-child{
+        height:320px;
+        grid-row:auto;
+      }
+
+      .timeline::before{
+        left:0;
+      }
+
+      .timeline-item{
+        grid-template-columns:1fr;
+        gap:.7rem;
+        padding-left:1.2rem;
+      }
+
+      .timeline-time{
+        text-align:left;
+      }
+
+      .hero::before{
+        inset:.7rem;
+        border-radius:26px;
+      }
+
+      .section{
+        padding:4.5rem 1rem;
+      }
+
+      .hero-date::before,
+      .hero-date::after{
+        width:34px;
+      }
+
+      .cap-mark{
+        display:none;
+      }
+    }
+
   </style>
 </head>
+
 <body>
-  <a href="/" class="brand-home">
+
+<a href="/" class="brand-home">
   <img src="/TIAMB.png" alt="Te Invito a Mi Boda">
 </a>
 
-<div class="flowers"></div>
+<nav class="nav">
+  <a href="#detalles">Detalles</a>
+  <a href="#logros">Logros</a>
+  <a href="#timeline">Timeline</a>
+  <a href="#galeria">Galería</a>
+  <a href="#rsvp">RSVP</a>
+</nav>
 
-  <section class="hero">
-    <div class="hero-content">
-      <small>Invitación floral</small>
-      <h1>Emily & Sebastián</h1>
-      <p>
-        Con mucha alegría queremos compartir contigo este momento tan especial y celebrar juntos el comienzo de nuestra nueva historia.
-      </p>
-      <div class="hero-date">14 · Febrero · 2027</div>
+<div class="ambient"></div>
+<div class="academic-grid"></div>
+<div class="gold-dust"></div>
+
+<a
+  class="floating-whatsapp"
+  href="https://wa.me/5215541946413?text=Hola,%20quiero%20cotizar%20una%20invitación%20de%20graduación"
+  target="_blank"
+  aria-label="WhatsApp">
+  <svg viewBox="0 0 32 32" width="30" height="30" fill="currentColor">
+    <path d="M16.03 3C8.85 3 3 8.82 3 15.98c0 2.28.6 4.52 1.74 6.49L3 29l6.7-1.7a13.02 13.02 0 0 0 6.33 1.61C23.18 28.91 29 23.09 29 15.98S23.18 3 16.03 3zm0 23.73c-2 0-3.95-.54-5.66-1.57l-.4-.24-3.98 1.01 1.06-3.86-.26-.42a10.72 10.72 0 0 1-1.63-5.67c0-5.96 4.87-10.81 10.87-10.81 5.98 0 10.84 4.85 10.84 10.81s-4.86 10.75-10.84 10.75zm5.95-8.08c-.32-.16-1.9-.94-2.2-1.05-.3-.11-.52-.16-.74.16-.21.32-.85 1.05-1.04 1.27-.19.21-.38.24-.7.08-.32-.16-1.36-.5-2.59-1.59-.96-.85-1.61-1.9-1.8-2.22-.19-.32-.02-.49.14-.65.15-.15.32-.38.49-.57.16-.19.21-.32.32-.54.11-.21.05-.4-.03-.56-.08-.16-.74-1.78-1.01-2.44-.27-.64-.54-.55-.74-.56h-.63c-.21 0-.56.08-.85.4-.3.32-1.12 1.1-1.12 2.68s1.15 3.1 1.31 3.31c.16.21 2.26 3.45 5.48 4.84.77.33 1.37.53 1.83.68.77.24 1.47.21 2.02.13.62-.09 1.9-.78 2.17-1.53.27-.75.27-1.39.19-1.53-.08-.13-.29-.21-.61-.37z"/>
+  </svg>
+</a>
+<section class="hero">
+  <div class="cap-mark">🎓</div>
+
+  <div class="hero-content">
+    <div class="eyebrow">
+      Gala de Graduación
     </div>
-  </section>
 
-  <section class="section fade">
-    <div class="container">
-      <div class="welcome glass">
-        <h2>Nos casamos</h2>
+    <h1>
+      Generación
+      <span>2027</span>
+    </h1>
+
+    <p>
+      Una noche para celebrar el esfuerzo, los sueños cumplidos
+      y el inicio de una nueva etapa llena de oportunidades.
+    </p>
+
+    <div class="hero-date">
+      24 · Julio · 2027
+    </div>
+
+    <div class="hero-actions">
+      <a href="#rsvp" class="btn btn-primary">
+        Confirmar asistencia
+      </a>
+
+      <a href="#detalles" class="btn btn-outline">
+        Ver detalles
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section fade" id="detalles">
+  <div class="container">
+    <h2 class="title">
+      Detalles del evento
+    </h2>
+
+    <p class="subtitle">
+      Una experiencia elegante diseñada para celebrar este gran logro.
+    </p>
+
+    <div class="grid-3">
+      <article class="card glass">
+        <span class="icon">🎓</span>
+
+        <h3>Ceremonia</h3>
+
         <p>
-          Tu presencia hará de este día un recuerdo aún más inolvidable.
+          Auditorio Central<br>
+          Ciudad de México
         </p>
+
+        <br>
+
+        <a href="https://maps.google.com" target="_blank" class="btn btn-primary">
+          Ver ubicación
+        </a>
+      </article>
+
+      <article class="card glass">
+        <span class="icon">🥂</span>
+
+        <h3>Recepción</h3>
+
+        <p>
+          Hotel Grand Palace<br>
+          Salón Imperial
+        </p>
+
+        <br>
+
+        <a href="https://maps.google.com" target="_blank" class="btn btn-primary">
+          Ver ubicación
+        </a>
+      </article>
+
+      <article class="card glass">
+        <span class="icon">🖤</span>
+
+        <h3>Dress Code</h3>
+
+        <p>
+          Formal elegante en tonos oscuros o neutros.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section fade" id="logros">
+  <div class="container">
+    <h2 class="title">
+      Una generación inolvidable
+    </h2>
+
+    <p class="subtitle">
+      Porque cada logro merece ser celebrado con orgullo, elegancia y emoción.
+    </p>
+
+    <div class="achievement-strip">
+      <div class="achievement">
+        <span>📚</span>
+        <strong>Esfuerzo</strong>
+        <p>Años de dedicación y aprendizaje.</p>
+      </div>
+
+      <div class="achievement">
+        <span>🏆</span>
+        <strong>Logro</strong>
+        <p>Un momento para reconocer el camino recorrido.</p>
+      </div>
+
+      <div class="achievement">
+        <span>🥂</span>
+        <strong>Celebración</strong>
+        <p>Una noche para brindar por el futuro.</p>
+      </div>
+
+      <div class="achievement">
+        <span>✨</span>
+        <strong>Nueva etapa</strong>
+        <p>El inicio de nuevas oportunidades.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="section fade">
-    <div class="container">
-      <h2 class="title">Ceremonia & Recepción</h2>
-      <p class="subtitle">Aquí encontrarás todos los detalles de nuestra celebración.</p>
+<section class="section fade">
+  <div class="container">
+    <h2 class="title">
+      Cuenta regresiva
+    </h2>
 
-      <div class="event-grid">
-        <article class="card glass">
-          <h3>Ceremonia</h3>
-          <p>
-            Parroquia San José<br>
-            Ciudad de México
-          </p>
-          <strong>5:00 PM</strong>
-          <br><br>
-          <a class="btn" href="https://maps.google.com" target="_blank">Ver ubicación</a>
-        </article>
+    <p class="subtitle">
+      Cada día falta menos para celebrar este gran logro.
+    </p>
 
-        <article class="card glass">
-          <h3>Recepción</h3>
-          <p>
-            Jardín Las Flores<br>
-            Ciudad de México
-          </p>
-          <strong>7:00 PM</strong>
-          <br><br>
-          <a class="btn" href="https://maps.google.com" target="_blank">Ver ubicación</a>
-        </article>
+    <div class="timer">
+      <div class="time-box">
+        <span id="days">00</span>
+        <small>Días</small>
+      </div>
+
+      <div class="time-box">
+        <span id="hours">00</span>
+        <small>Horas</small>
+      </div>
+
+      <div class="time-box">
+        <span id="minutes">00</span>
+        <small>Minutos</small>
+      </div>
+
+      <div class="time-box">
+        <span id="seconds">00</span>
+        <small>Segundos</small>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="section fade">
-    <div class="container">
-      <h2 class="title">Mesa de regalos</h2>
-      <p class="subtitle">El mejor regalo será compartir este día contigo.</p>
+<section class="section fade" id="timeline">
+  <div class="container">
+    <h2 class="title">
+      Timeline del evento
+    </h2>
 
-      <div class="gift-grid">
-        <article class="card glass">
-          <h3>Liverpool</h3>
-          <p>Número de evento: 12345678</p>
-          <a class="btn" href="#" target="_blank">Ver mesa</a>
-        </article>
+    <p class="subtitle">
+      Los momentos más importantes de la noche.
+    </p>
 
-        <article class="card glass">
-          <h3>Amazon</h3>
-          <p>Lista de regalos personalizada</p>
-          <a class="btn" href="#" target="_blank">Ver lista</a>
-        </article>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-time">
+          6:00 PM
+        </div>
+
+        <div class="timeline-card">
+          <strong>Recepción de invitados</strong>
+          <p>Bienvenida y acceso al recinto principal.</p>
+        </div>
       </div>
-    </div>
-  </section>
 
-  <section class="section fade">
-    <div class="container">
-      <h2 class="title">Galería</h2>
-      <p class="subtitle">Algunos momentos de nuestra historia.</p>
+      <div class="timeline-item">
+        <div class="timeline-time">
+          7:00 PM
+        </div>
 
-      <div class="gallery">
-        <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1200&q=85">
-        <img src="https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=1200&q=85">
-        <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=85">
+        <div class="timeline-card">
+          <strong>Ceremonia oficial</strong>
+          <p>Entrega de reconocimientos y discursos.</p>
+        </div>
       </div>
-    </div>
-  </section>
 
-  <section class="section fade">
-    <div class="container">
-      <div class="countdown glass">
-        <h2 class="title">Cuenta regresiva</h2>
+      <div class="timeline-item">
+        <div class="timeline-time">
+          9:00 PM
+        </div>
 
-        <div class="timer">
-          <div class="time-box">
-            <span id="days">00</span>
-            <small>Días</small>
-          </div>
+        <div class="timeline-card">
+          <strong>Cena de gala</strong>
+          <p>Cena premium y brindis especial.</p>
+        </div>
+      </div>
 
-          <div class="time-box">
-            <span id="hours">00</span>
-            <small>Horas</small>
-          </div>
+      <div class="timeline-item">
+        <div class="timeline-time">
+          10:30 PM
+        </div>
 
-          <div class="time-box">
-            <span id="minutes">00</span>
-            <small>Minutos</small>
-          </div>
-
-          <div class="time-box">
-            <span id="seconds">00</span>
-            <small>Segundos</small>
-          </div>
+        <div class="timeline-card">
+          <strong>After party</strong>
+          <p>Música, celebración y fotografías.</p>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="section fade">
-    <div class="container">
-      <div class="dress glass">
-        <span>🌸</span>
-        <h2 class="title">Código de vestimenta</h2>
-        <p class="subtitle">Formal elegante</p>
-      </div>
-    </div>
-  </section>
+<section class="section fade" id="galeria">
+  <div class="container">
+    <h2 class="title">
+      Galería Premium
+    </h2>
 
-  <section class="rsvp fade">
-    <h2>Confirma tu asistencia</h2>
-
-    <p style="max-width:650px;margin:auto auto 2rem;">
-      Esperamos contar contigo para celebrar este día tan especial.
+    <p class="subtitle">
+      Un estilo moderno y elegante para graduaciones inolvidables.
     </p>
 
-    <a class="btn" href="https://wa.me/5215541946413?text=Hola,%20confirmo%20mi%20asistencia%20a%20la%20boda" target="_blank">
-      Confirmar por WhatsApp
-    </a>
-  </section>
+    <div class="gallery">
+      <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1200&q=90" alt="Graduación premium">
 
-  <footer class="simple-footer">
+      <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=90" alt="Evento de graduación">
+
+      <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=90" alt="Celebración académica">
+
+      <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=90" alt="Estudiantes">
+
+      <img src="https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&w=1200&q=90" alt="Graduados">
+    </div>
+  </div>
+</section>
+
+<section class="rsvp fade" id="rsvp">
+  <div class="container">
+    <h2 class="title">
+      Confirma tu asistencia
+    </h2>
+
+    <p class="subtitle">
+      Queremos compartir esta noche contigo.
+    </p>
+
+    <form class="rsvp-form glass" id="rsvpForm">
+      <div class="form-grid">
+        <input
+          type="text"
+          id="guestName"
+          placeholder="Nombre completo"
+          required
+        >
+
+        <select id="attendance" required>
+          <option value="">
+            ¿Asistirás?
+          </option>
+
+          <option value="Sí asistiré">
+            Sí asistiré
+          </option>
+
+          <option value="No podré asistir">
+            No podré asistir
+          </option>
+        </select>
+
+        <input
+          type="number"
+          id="guestCount"
+          placeholder="Número de personas"
+          min="1"
+          max="10"
+          required
+        >
+
+        <input
+          type="tel"
+          id="phone"
+          placeholder="Teléfono"
+        >
+      </div>
+
+      <textarea
+        id="message"
+        placeholder="Mensaje especial"
+      ></textarea>
+
+      <div class="hero-actions">
+        <button type="submit" class="btn btn-primary">
+          Enviar confirmación
+        </button>
+
+        <a
+          href="https://wa.me/5215541946413"
+          target="_blank"
+          class="btn btn-outline"
+        >
+          WhatsApp directo
+        </a>
+      </div>
+    </form>
+  </div>
+</section>
+
+<section class="footer-cta">
+  <h2>
+    Celebra cada logro con estilo
+  </h2>
+
+  <p class="subtitle">
+    Ideal para graduaciones, cenas especiales, entregas de reconocimientos y eventos premium.
+  </p>
+
+  <div class="hero-actions">
+    <a
+      href="https://wa.me/5215541946413?text=Hola,%20quiero%20cotizar%20una%20invitación%20de%20graduación"
+      target="_blank"
+      class="btn btn-primary"
+    >
+      Cotizar este estilo
+    </a>
+
+    <a href="/" class="btn btn-outline">
+      Volver al catálogo
+    </a>
+  </div>
+</section>
+
+<footer class="simple-footer">
 
   <h3>Te Invito a Mi Boda</h3>
 
@@ -617,37 +1175,69 @@
 
 </footer>
 
-  <script>
-    const weddingDate = new Date('2027-02-14T17:00:00').getTime();
+<script>
+  const eventDate = new Date('2027-07-24T18:00:00').getTime();
+  const whatsappNumber = '5215541946413';
 
-    function updateCountdown() {
-      const now = new Date().getTime();
-      const distance = weddingDate - now;
+  function updateCountdown(){
+    const now = Date.now();
+    const distance = eventDate - now;
 
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-      document.getElementById('days').textContent = String(days).padStart(2, '0');
-      document.getElementById('hours').textContent = String(hours).padStart(2, '0');
-      document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
-      document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+    if(distance <= 0){
+      const timer = document.querySelector('.timer');
+      if(timer) timer.innerHTML = '<p>¡Hoy es la graduación!</p>';
+      return;
     }
 
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if(entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.1 });
+    document.getElementById('days').textContent = String(days).padStart(2,'0');
+    document.getElementById('hours').textContent = String(hours).padStart(2,'0');
+    document.getElementById('minutes').textContent = String(minutes).padStart(2,'0');
+    document.getElementById('seconds').textContent = String(seconds).padStart(2,'0');
+  }
 
-    document.querySelectorAll('.fade').forEach(el => observer.observe(el));
-  </script>
+  updateCountdown();
+  setInterval(updateCountdown,1000);
+
+  const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+      }
+    });
+  },{threshold:.12});
+
+  document.querySelectorAll('.fade').forEach(el=>observer.observe(el));
+
+  const rsvpForm = document.getElementById('rsvpForm');
+
+  rsvpForm.addEventListener('submit', function(e){
+    e.preventDefault();
+
+    const name = document.getElementById('guestName').value.trim();
+    const attendance = document.getElementById('attendance').value;
+    const count = document.getElementById('guestCount').value;
+    const phone = document.getElementById('phone').value.trim() || 'No indicado';
+    const messageText = document.getElementById('message').value.trim() || 'Sin mensaje';
+
+    const message =
+      `Hola, confirmo mi asistencia a la graduación.%0A%0A` +
+      `Nombre: ${encodeURIComponent(name)}%0A` +
+      `Asistencia: ${encodeURIComponent(attendance)}%0A` +
+      `Número de personas: ${encodeURIComponent(count)}%0A` +
+      `Teléfono: ${encodeURIComponent(phone)}%0A` +
+      `Mensaje: ${encodeURIComponent(messageText)}`;
+
+    window.open(
+      `https://wa.me/${whatsappNumber}?text=${message}`,
+      '_blank'
+    );
+  });
+</script>
 
 </body>
-</
+</html>
